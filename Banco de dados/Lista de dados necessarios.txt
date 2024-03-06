@@ -1,0 +1,12 @@
+Lista de dados necessarios
+
+- Nome usuario
+- Email usuario
+- Senha usuario
+- Porcentagem CPU
+- Velocidade CPU
+- Porcetagem Memoria
+- Cache Memoria
+- Porcentagem Disco
+- Velocidade leitura Disco
+- Velocidade ecrita Disco
