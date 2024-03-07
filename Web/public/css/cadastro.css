@@ -1,0 +1,85 @@
+* {
+    font-family: "Roboto";
+    color: #979797;
+}
+
+body {
+    background-image: url("../assets/backgroundCADASTRO.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container_cadastro {
+    background-color: rgba(0, 0, 0, 0.122);
+    backdrop-filter: blur(2px);
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+    margin: 200px 200px 20px 200px;
+    padding: 20px 0 20px 0;
+    position: relative;
+    border: 1px solid white;
+    border-top: none;
+
+
+}
+
+.cadastro_logocubo {
+    width: 150px;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.container_inputs {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.inputs_cadastro {
+    height: 52px;
+    width: 320px;
+}
+
+.container_coluna_esquerda_cadastro {
+    margin-right: 100px;
+    text-align: start;
+}
+
+.container_coluna_direita_cadastro {
+    text-align: start;
+}
+
+.conteiner_termos_servico {
+    display: flex;
+    flex: row;
+    margin: auto;
+}
+
+.botao_cadastro {
+    width: 320px;
+    height: 52px;
+    color: white;
+    background-color: #979797;
+    border: none;
+    text-decoration: bold;
+
+}
+
+h1 {
+    font-family: "Chakra Petch";
+    color: #D7F9FF;
+}
+
+h2 {
+    font-family: "Chakra Petch";
+}
+
+.texto_termos {
+    text-decoration: none;
+    color: #98D4DE;
+}
