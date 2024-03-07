@@ -5,6 +5,7 @@
 .cabecalho {
     width: 100%;
     background-color: #000000;
+    
 }
 .container_cabecalho {
     width: 80%;
@@ -23,7 +24,7 @@
 .container_nav ul li a {
     padding: 10px 20px;
     font-family: "Chakra Petch";
-    color: #ffff;
+    color: #fff;
     position: relative;
     font-size: 18px;
     text-decoration: none;
