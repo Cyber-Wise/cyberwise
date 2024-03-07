@@ -1,0 +1,85 @@
+body {
+    background-image: url(../assets/backgroundCADASTRO.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.centralizarBox {
+    margin-top:5%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.box_login {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.122);
+    backdrop-filter: blur(2px);
+    width: 300px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 50px 100px;
+}
+.login_cuboLogo {
+    width: 150px;
+    position: absolute; /* posicionamento absoluto */
+    top: -40px; /* alinhamento no topo */
+    left: 50%; /* centralização horizontal */
+    transform: translateX(-50%); /* ajuste para centralizar horizontalmente */
+}
+.titulo {
+    margin-top: 40px;
+    color: #D7F9FF;
+    font-size: 20px;
+    font-family: "Chakra Petch";
+    text-align: center;
+}
+.box_login .subtitulo {
+    text-align: center;
+    color: #979797;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: "Roboto";
+}
+.labels_inputs {
+    margin-bottom: 10px;
+}
+.labels_inputs p {
+    color: #979797;
+    font-size: 18px;
+    font-family: "Roboto";
+}
+.labels_inputs input {
+    width: 100%;
+    height: 40px;
+    border: none;
+}
+.btn_continue {
+    margin-top: 20px;
+    width: 100%;
+    font-family: "Roboto";
+    font-weight: bold;
+    border: none;
+    background-color: #979797;
+    color: #fff;
+    height: 40px;
+}
+.btn_naoTemConta {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.btn_naoTemConta p {
+    color: #979797;
+    font-size: 14px;
+    font-family: "Roboto";
+}
+.btn_naoTemConta a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    font-family: "Roboto";
+}
