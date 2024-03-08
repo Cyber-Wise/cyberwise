@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberWise | Login</title>
+  <link rel="icon" href="./assets/logoCWpreta.png" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/politicasEtermos.css">
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="./css/header_footer.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="container_cabecalho">
+            <div class="container_logo">
+                <img src="./assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
+            </div>
+            <nav class="container_nav">
+                <ul>
+                    <li><a href="./index.html" id="letraPreta">Home</a></li>
+                    <li><a href="./login.html" id="letraPreta4">Login</a></li>
+                    <li><a href="./cadastro.html" id="letraPreta5">Cadastro</a></li>
+                </ul>
+            </nav>
+            <button id="btnMenu">
+                <i class='bx bx-menu'></i>
+            </button>
+            <nav class="container_nav-mob" id="navBarMobile">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./login.html">Login</a></li>
+                    <li><a href="./cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Política de Privacidade</h1>
+        <p>A CyberWise está comprometida em proteger a privacidade dos nossos clientes e usuários. Esta Política de Privacidade descreve como coletamos, usamos e protegemos as informações pessoais que você nos fornece ao utilizar nossos serviços de monitoramento de catracas. Por favor, leia atentamente esta política antes de utilizar nossos serviços. Ao utilizar nossos serviços, você concorda com a coleta e uso de suas informações pessoais de acordo com esta Política de Privacidade.</p>
+        <ol>
+            <li class="olTitulo">Informações coletadas</li>
+            <p>Podemos coletar as seguintes informações pessoais quando você utiliza nossos serviços:</p>
+            <ul>
+                <li>Informações de contato, como nome, endereço de e-mail e número de telefone.</li>
+                <li>Informações de pagamento, quando aplicável.</li>
+                <li>Informações técnicas, como endereço IP, tipo de navegador, sistema operacional e informações de hardware.</li>
+                <li>Outras informações relevantes para a prestação de nossos serviços.</li>
+            </ul>
+            <li class="olTitulo">Uso das informações</li>
+            <p>As informações profissionais coletadas são utilizadas para os seguintes propósitos:</p>
+            <ul>
+                <li>Prestação de serviços de monitoramento de catracas.</li>
+                <li>Processamento de pagamentos, quando aplicável.</li>
+                <li>Melhoria e personalização dos nossos serviços.</li>
+                <li>Comunicação com você sobre seus pedidos e serviços.</li>
+            </ul>
+            <li class="olTitulo">Compartilhamento de informações</li>
+            <p>Não compartilhamos suas informações pessoais com terceiros, exceto quando necessário para a prestação de nossos serviços ou quando exigido por lei.</p>
+            <li class="olTitulo">Cookies e tecnologias semelhantes</li>
+            <p>Podemos utilizar cookies e outras tecnologias semelhantes para facilitar o uso de nossos serviços, analisar tendências, administrar o site e coletar informações sobre o comportamento do usuário.</p>
+            <li class="olTitulo">Acesso e atualização de informações</li>
+            <p>Você tem o direito de acessar e corrigir suas informações a qualquer momento. Se desejar exercer esse direito, entre em contato conosco através dos canais fornecidos no final desta política.</p>
+            <li class="olTitulo">Contato</li>
+            <p>Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade, entre em contato conosco através dos seguintes meios:</p>
+            <p>cyberwise@co.tech<br>
+                Rua Haddock Lobo, 595<br>
+                Data de Efeito: 07/03/2024.</p>
+            
+        </ol>
+       
+    </main>
+</body>
+<script src="./js/header.js"></script>
+</html>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
