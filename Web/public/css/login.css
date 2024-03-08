@@ -1,5 +1,5 @@
 body {
-    background-image: url(../assets/backgroundCADASTRO.png);
+    background-image: url(../assets/loginCadastroFundo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -7,15 +7,16 @@ body {
 
 .centralizarBox {
     margin: auto;
-    margin-top:5%;
+    margin-top: 5%;
     width: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
 .box_login {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.122);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
@@ -24,14 +25,19 @@ body {
     height: 500px;
     border: 1px solid white;
     border-top: none;
-    
+
 }
+
 .login_cuboLogo {
     width: 150px;
-    position: absolute; /* posicionamento absoluto */
-    top: -40px; /* alinhamento no topo */
-    left: 50%; /* centralização horizontal */
-    transform: translateX(-50%); /* ajuste para centralizar horizontalmente */
+    position: absolute;
+    /* posicionamento absoluto */
+    top: -40px;
+    /* alinhamento no topo */
+    left: 50%;
+    /* centralização horizontal */
+    transform: translateX(-50%);
+    /* ajuste para centralizar horizontalmente */
 }
 
 
@@ -42,22 +48,25 @@ body {
     width: 320px;
     margin-top: 40px;
 }
+
 .box_login .subtitulo {
     text-align: center;
     color: #979797;
     margin-bottom: 20px;
     font-family: "Roboto";
 }
+
 .labels_inputs {
     margin: 20px 0;
 }
+
 .labels_inputs p {
     color: #979797;
     font-size: 18px;
     font-family: "Roboto";
 }
 
-.inputs_login{
+.inputs_login {
     height: 52px;
     width: 320px;
 }
@@ -72,16 +81,19 @@ body {
     background-color: #979797;
     color: #fff;
 }
+
 .btn_naoTemConta {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
+
 .btn_naoTemConta p {
     color: #979797;
     font-size: 14px;
     font-family: "Roboto";
 }
+
 .btn_naoTemConta a {
     text-decoration: none;
     font-weight: bold;
@@ -89,17 +101,18 @@ body {
     font-size: 14px;
     font-family: "Roboto";
 }
+
 @media screen and (max-width: 600px) {
 
-.centralizarBox {
-    margin-top: 20%;
-}
+    .centralizarBox {
+        margin-top: 20%;
+    }
 
-.box_login {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.122);
-    backdrop-filter: blur(2px);
-    width:auto;
-    border: none;
-}
+    .box_login {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.122);
+        backdrop-filter: blur(2px);
+        width: auto;
+        border: none;
+    }
 }

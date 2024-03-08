@@ -4,13 +4,13 @@
 }
 
 body {
-    background-image: url("../assets/backgroundCADASTRO.png");
+    background-image: url(../assets/loginCadastroFundo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .container_cadastro {
-    background-color: rgba(0, 0, 0, 0.122);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     display: flex;
     width: 800px;
@@ -44,7 +44,7 @@ body {
     width: 320px;
 }
 
-.container_inputEtexto{
+.container_inputEtexto {
     margin-top: 20px;
 }
 
@@ -109,14 +109,16 @@ h2 {
         flex-direction: column;
         margin: auto;
     }
+
     .container_coluna_esquerda_cadastro {
         margin-right: 0px;
     }
+
     .conteiner_termos_servico {
-    display: flex;
-    max-width: 600px;
-    flex-direction: row;
-    margin: 20px 10px;
-    align-items: start;
-}
+        display: flex;
+        max-width: 600px;
+        flex-direction: row;
+        margin: 20px 10px;
+        align-items: start;
+    }
 }
