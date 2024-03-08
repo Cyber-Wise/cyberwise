@@ -2,6 +2,7 @@ body {
     background-image: url(../assets/backgroundCADASTRO.png);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
 }
 
 .centralizarBox {
@@ -11,6 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-bottom: 40px;
 }
 .box_login {
     position: relative;
@@ -82,4 +84,21 @@ body {
     color: #fff;
     font-size: 14px;
     font-family: "Roboto";
+}
+@media screen and (max-width: 600px) {
+    body {
+        height: 100vh;
+    }
+   .box_login {
+    padding: 20px;
+   }
+   .labels_inputs input {
+    height: 28px;
+}
+.login_cuboLogo {
+    top: -20px; 
+}
+.centralizarBox {
+    margin-top: 20%;
+}
 }
