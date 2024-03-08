@@ -6,8 +6,6 @@ body {
 }
 
 .centralizarBox {
-    margin: auto;
-    margin-top: 5%;
     width: auto;
     display: flex;
     align-items: center;
@@ -19,6 +17,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     display: flex;
+    margin: 100px auto auto 300px;
     align-items: center;
     flex-direction: column;
     width: 500px;
@@ -112,6 +111,7 @@ body {
         position: relative;
         background-color: rgba(0, 0, 0, 0.122);
         backdrop-filter: blur(2px);
+        margin: auto;
         width: auto;
         border: none;
     }
