@@ -126,39 +126,43 @@
 }
 .empresa .cubo {
     width: 400px;
+    height: 385px;
 }
 .empresa {
     display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
 }
 .empresa .cardsEmpresa {
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: center;
     gap: 50px;
 }
 .cardsEmpresa .card {
-    width: 200px;
+    width: 230px;
 }
 .cardsEmpresa .card .titulo {
-    font-family: "Roboto";
+    font-family: "Oswald", sans-serif;
     font-size: 22px;
     text-align: center;
     color: #fff;
 }
 .cardsEmpresa .card .empresaSubtitulo {
     color: #98D4DE;
+    font-family: "Oswald", sans-serif;
     text-align: center;
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 0;
 }
 .cardsEmpresa .descricao {
-    padding: 15px;
+    padding: 20px;
     color: #D7F9FF;
-    font-family: "Roboto";
-    background-color: #031423;
-    border-bottom-right-radius: 30%;
+    font-family: "Oswald", sans-serif;
+    background-color: #021017;
+    border-bottom-right-radius: 20%;
 }
 .top {
     margin-top: 80px;
@@ -166,8 +170,6 @@
 .sobreEmpresa .titulo {
     text-align: center;
     font-size: 40px;
-    margin-top: 90px;
-    margin-bottom: 20px;
     color: #fff;
     font-family: "Chakra Petch";
 
