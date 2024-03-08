@@ -99,7 +99,7 @@ h2 {
         margin: auto;
         margin-top: 100px;
         position: relative;
-
+        border: none;
     }
 
     .container_inputs {

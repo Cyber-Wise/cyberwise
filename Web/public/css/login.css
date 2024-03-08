@@ -6,23 +6,25 @@ body {
 }
 
 .centralizarBox {
+    margin: auto;
     margin-top:5%;
     width: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    padding-bottom: 40px;
 }
 .box_login {
     position: relative;
     background-color: rgba(0, 0, 0, 0.122);
     backdrop-filter: blur(2px);
-    width: 300px;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    padding: 50px 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    border: 1px solid white;
+    border-top: none;
+    
 }
 .login_cuboLogo {
     width: 150px;
@@ -31,42 +33,44 @@ body {
     left: 50%; /* centralização horizontal */
     transform: translateX(-50%); /* ajuste para centralizar horizontalmente */
 }
+
+
 .titulo {
-    margin-top: 40px;
     color: #D7F9FF;
-    font-size: 20px;
     font-family: "Chakra Petch";
     text-align: center;
+    width: 320px;
+    margin-top: 40px;
 }
 .box_login .subtitulo {
     text-align: center;
     color: #979797;
-    font-size: 14px;
     margin-bottom: 20px;
     font-family: "Roboto";
 }
 .labels_inputs {
-    margin-bottom: 10px;
+    margin: 20px 0;
 }
 .labels_inputs p {
     color: #979797;
     font-size: 18px;
     font-family: "Roboto";
 }
-.labels_inputs input {
-    width: 100%;
-    height: 40px;
-    border: none;
+
+.inputs_login{
+    height: 52px;
+    width: 320px;
 }
+
 .btn_continue {
     margin-top: 20px;
-    width: 100%;
+    width: 320px;
+    height: 52px;
     font-family: "Roboto";
     font-weight: bold;
     border: none;
     background-color: #979797;
     color: #fff;
-    height: 40px;
 }
 .btn_naoTemConta {
     margin-top: 20px;
@@ -86,19 +90,16 @@ body {
     font-family: "Roboto";
 }
 @media screen and (max-width: 600px) {
-    body {
-        height: 100vh;
-    }
-   .box_login {
-    padding: 20px;
-   }
-   .labels_inputs input {
-    height: 28px;
-}
-.login_cuboLogo {
-    top: -20px; 
-}
+
 .centralizarBox {
     margin-top: 20%;
+}
+
+.box_login {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.122);
+    backdrop-filter: blur(2px);
+    width:auto;
+    border: none;
 }
 }
