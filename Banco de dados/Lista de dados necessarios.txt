@@ -1,8 +1,20 @@
 Lista de dados necessarios
 
+Usuario
 - Nome usuario
 - Email usuario
 - Senha usuario
+
+Empresa
+-Nome
+-Cnpj
+-Quantidade de maquinas
+
+
+
+Maquina
+- Hostname
+- IP
 - Porcentagem CPU
 - Velocidade CPU
 - Porcetagem Memoria

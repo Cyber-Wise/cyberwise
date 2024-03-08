@@ -24,7 +24,7 @@ public class Main {
             System.out.println("Insira a Senha:");
             senha = input.next();
 
-            if (util.validarLogin(email, senha)){
+            if (util.read(email, senha)){
                 System.out.println("Login realizado com sucesso");
             }else System.out.println("Email ou Senha invalidos");
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class UtilitariaCrud {
 
-    Boolean validarLogin(String email, String senha){
+    Boolean read(String email, String senha){
         List<String> emailValido = new ArrayList<String>();
         emailValido.add("davi@mendonca.com");
         emailValido.add("pablo@santos.com");
@@ -23,8 +23,20 @@ public class UtilitariaCrud {
                 return true;
             }
         }
-
         return false;
     };
 
+    List<String> listaEmails(String email){
+        List<String> emailValido = new ArrayList<String>();
+        emailValido.add("davi@mendonca.com");
+        emailValido.add("pablo@santos.com");
+        emailValido.add("ana@catarina.com");
+        emailValido.add("robson@rioki.com");
+        if (email != null) emailValido.add(email);
+
+        return emailValido;
+    }
+
+    void create(String email, String senha){
+    }
 }
