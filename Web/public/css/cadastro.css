@@ -13,17 +13,16 @@ body {
     background-color: rgba(0, 0, 0, 0.122);
     backdrop-filter: blur(2px);
     display: flex;
-    width: auto;
-    height: auto;
+    width: 800px;
+    height: 500px;
     flex-direction: column;
     text-align: center;
-    margin: 200px 200px 20px 200px;
+    margin: auto;
+    margin-top: 100px;
     padding: 20px 0 20px 0;
     position: relative;
     border: 1px solid white;
     border-top: none;
-
-
 }
 
 .cadastro_logocubo {
@@ -45,6 +44,10 @@ body {
     width: 320px;
 }
 
+.container_inputEtexto{
+    margin-top: 20px;
+}
+
 .container_coluna_esquerda_cadastro {
     margin-right: 100px;
     text-align: start;
@@ -56,7 +59,7 @@ body {
 
 .conteiner_termos_servico {
     display: flex;
-    flex: row;
+    flex-direction: row;
     margin: auto;
 }
 
@@ -82,4 +85,38 @@ h2 {
 .texto_termos {
     text-decoration: none;
     color: #98D4DE;
+}
+
+@media screen and (max-width: 600px) {
+    .container_cadastro {
+        background-color: rgba(0, 0, 0, 0.122);
+        backdrop-filter: blur(2px);
+        display: flex;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+        margin-top: 100px;
+        position: relative;
+
+    }
+
+    .container_inputs {
+        display: flex;
+        width: auto;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+    }
+    .container_coluna_esquerda_cadastro {
+        margin-right: 0px;
+    }
+    .conteiner_termos_servico {
+    display: flex;
+    max-width: 600px;
+    flex-direction: row;
+    margin: 20px 10px;
+    align-items: start;
+}
 }
