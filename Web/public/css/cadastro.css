@@ -13,16 +13,20 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     display: flex;
-    width: 800px;
-    height: 500px;
+    width: 500px;
+    height: 700px;
     flex-direction: column;
     text-align: center;
-    margin: 100px auto auto 100px;
+    margin: 100px auto auto 200px;
     margin-top: 100px;
     padding: 20px 0 20px 0;
     position: relative;
     border: 1px solid white;
     border-top: none;
+}
+
+.container_titulo_cadastro {
+    margin-top: 40px;
 }
 
 .cadastro_logocubo {
@@ -37,19 +41,16 @@ body {
     display: flex;
     flex-direction: row;
     margin: auto;
+    margin-bottom: 0px;
 }
 
 .inputs_cadastro {
-    height: 52px;
+    height: 35px;
     width: 320px;
 }
 
 .container_inputEtexto {
     margin-top: 20px;
-}
-
-.container_coluna_esquerda_cadastro {
-    margin-right: 100px;
     text-align: start;
 }
 
@@ -61,6 +62,8 @@ body {
     display: flex;
     flex-direction: row;
     margin: auto;
+    max-width: 320px;
+    text-align: start;
 }
 
 .botao_cadastro {
@@ -85,6 +88,10 @@ h2 {
 .texto_termos {
     text-decoration: none;
     color: #98D4DE;
+}
+
+.checkbox {
+    margin: 0 10px 20px 0;
 }
 
 @media screen and (max-width: 600px) {
