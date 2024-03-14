@@ -296,3 +296,21 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
+
+.botao_fechar_faq {
+    background-color: #01080E;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: auto;
+    border: none;
+    width: 25px;
+    height: 25px;
+    background-image: url("../assets/VECTORsetaFechar.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.divs_faq {
+    margin-bottom: 20px;
+}
