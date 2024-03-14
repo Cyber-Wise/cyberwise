@@ -1,7 +1,8 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
+
 .cabecalho {
     position: fixed;
     top: 0;
@@ -9,9 +10,11 @@
 }
 
 .white-bg {
-    
-    background-color: white; /* Adicionamos uma nova classe para alterar a cor do cabeçalho */
+
+    background-color: white;
+    /* Adicionamos uma nova classe para alterar a cor do cabeçalho */
 }
+
 .hidden {
     top: -300px;
     transition: top 0.3s;
@@ -26,62 +29,76 @@
     background-attachment: fixed;
     padding: 100px 100px;
 }
+
 .col-1_banner {
     display: flex;
     align-items: center;
 }
+
 .col-1_banner img {
     width: 70px;
 }
+
 .col-1_banner .titulo {
     color: #fff;
     font-family: "Chakra Petch";
 
 }
+
 .divisor {
     margin-right: 20px;
     width: 2px;
     height: 50px;
     background-color: #fff;
 }
-.inicioBanner .titulo-1, .inicioBanner .titulo-2 {
+
+.inicioBanner .titulo-1,
+.inicioBanner .titulo-2 {
     font-family: "Chakra Petch";
     font-size: 50px;
 }
+
 .inicioBanner .titulo-1 {
     margin-top: 30px;
     color: #D7F9FF;
 }
+
 .inicioBanner .titulo-2 {
     color: #47658C;
-    
+
 }
+
 .inicioBanner p {
     margin-top: 30px;
     color: #fff;
     font-family: "Roboto";
 }
+
 .containerPrincipal {
     padding: 20px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .containerPrincipal .titulo-1 {
     font-family: "Roboto";
     font-size: 30px;
     color: #000;
 }
+
 .containerPrincipal .titulo-2 {
     font-family: "Roboto";
     font-size: 30px;
     color: #00A2FF;
 }
+
 .containerPrincipal .descricao {
     margin-top: 30px;
     font-family: "Roboto";
     width: 600px;
 }
+
 .cards {
     margin-top: 50px;
     display: flex;
@@ -89,19 +106,26 @@
     gap: 80px;
     margin-bottom: 40px;
 }
+
 .cards .card {
     width: 162px;
     text-align: center;
 }
+
 .card h3 {
     font-family: "Chakra Petch";
     margin: 15px 0;
     font-size: 20px;
-    background-image: linear-gradient(to right, #0099ff, #000009); /* Define o gradiente linear */
-    -webkit-background-clip: text; /* Define a área de clipping como texto para navegadores Webkit (Safari/Chrome) */
-    background-clip: text; /* Define a área de clipping como texto */
-    color: transparent; /* Torna o texto transparente */
+    background-image: linear-gradient(to right, #0099ff, #000009);
+    /* Define o gradiente linear */
+    -webkit-background-clip: text;
+    /* Define a área de clipping como texto para navegadores Webkit (Safari/Chrome) */
+    background-clip: text;
+    /* Define a área de clipping como texto */
+    color: transparent;
+    /* Torna o texto transparente */
 }
+
 .cards .card .descricaoCard {
     margin: 0 auto;
     font-family: "Roboto";
@@ -110,6 +134,7 @@
     font-size: 14px;
     font-weight: 200;
 }
+
 .bannerMeio {
     background-color: #000;
     background-image: url("../assets/Group\ 534.png");
@@ -120,35 +145,42 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
 .sobreEmpresa {
     background-color: #01080E;
     padding: 30px;
 }
+
 .empresa .cubo {
     width: 400px;
     height: 385px;
 }
+
 .empresa {
     display: flex;
     gap: 100px;
     align-items: center;
     justify-content: center;
 }
+
 .empresa .cardsEmpresa {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
 }
+
 .cardsEmpresa .card {
     width: 230px;
 }
+
 .cardsEmpresa .card .titulo {
     font-family: "Oswald", sans-serif;
     font-size: 22px;
     text-align: center;
     color: #fff;
 }
+
 .cardsEmpresa .card .empresaSubtitulo {
     color: #98D4DE;
     font-family: "Oswald", sans-serif;
@@ -157,6 +189,7 @@
     margin-top: 10px;
     margin-bottom: 0;
 }
+
 .cardsEmpresa .descricao {
     padding: 20px;
     color: #D7F9FF;
@@ -164,9 +197,11 @@
     background-color: #021017;
     border-bottom-right-radius: 20%;
 }
+
 .top {
     margin-top: 80px;
 }
+
 .sobreEmpresa .titulo {
     text-align: center;
     font-size: 40px;
@@ -174,9 +209,86 @@
     font-family: "Chakra Petch";
 
 }
+
 .linhaDaEmpresa {
-   text-align: center;
+    text-align: center;
 }
+
 .container_nav-mob {
     top: 60%;
+}
+
+.divisao {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+}
+
+.faq_imagem_texto {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Chakra Petch";
+    color: #051933;
+    font-size: 60px;
+    text-shadow: -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+}
+
+.missoes {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.faq_perguntas {
+    font-family: "Chakra Petch";
+    font-size: 20px;
+    color: white;
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: auto;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.lacuna_perguntas {
+    border-top: 1px solid #2B2B2B;
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.numero_faq {
+    color: #6D6E6F;
+}
+
+.botao_faq {
+    background-color: #01080E;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: auto;
+    border: none;
+    width: 50px;
+    height: 50px;
+    background-image: url("../assets/VECTORseta.png");
+    background-repeat: no-repeat;
 }
