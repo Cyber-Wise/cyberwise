@@ -1,0 +1,185 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    display: flex;
+    background-color: #25294A;
+}
+.user {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+header {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header a {
+    text-decoration: none;
+}
+header .bxs-home  {
+    color: #fff;
+    font-size: 27px;
+}
+.userNome {
+    font-size: 16px;
+    font-family: "Chakra Petch";
+
+    color: #fff;
+}
+.menuLateral {
+    padding: 20px;
+    background-color: #202442;
+    width: 20%;
+    height: 95vh;
+    scrollbar-color: #1c1f36 #2D325A;
+    
+    overflow: auto;
+}
+
+
+.menuLateral img {
+    width: 80px;
+}
+.caixaInformacoesComputador {
+    width: (100% - 20px);
+    margin: 10% auto 10px;
+    background-color: #2D325A;
+    border-radius: 20px;
+    height: 200px;
+    padding: 10px;
+}
+.caixaRolagem {
+    width: (100% - 20px);
+    margin: 10px auto;
+    background-color: #2D325A;
+    border-radius: 20px;
+    height: 200px;
+    padding: 10px;
+}
+.caixaAnalytics {
+    width: (100% - 20px);
+    margin: 10px auto;
+    background-color: #2D325A;
+    border-radius: 20px;
+    height: 70px;
+    padding: 10px;
+}
+.caixaDisco {
+    width: (100% - 20px);
+    margin: 10px auto;
+    background-color: #2D325A;
+    border-radius: 20px;
+    height: 200px;
+    padding: 10px;
+}
+.titulosCaixas, .tituloNormal {
+    font-size: 18px;
+    color: #fff;
+    font-family: "Chakra Petch";
+}
+.conteudo {
+    width: calc(80% - 10px);
+    padding: 10px;
+}
+.listaEgraficos {
+    display: flex;
+    gap: 10px;
+}
+.graficos {
+    width: 75%;
+    margin-top: 30px;
+}
+.listaDeComputadores {
+    background-color: #2D325A;
+    width: 25%;
+    padding: 10px;
+    height: 85vh;
+    border-radius: 15px;
+}
+.ram, .cpu {
+    background-color: #2D325A;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.ram{
+    margin-top: 10px;
+}
+.listaDeComputadores input {
+    border: none;
+    background-color: #202442;
+    border-radius: 15px;
+    color: #fff;
+    padding: 8px 10px;
+    width: calc(100% - 20px);
+}
+.listaDeComputadores input::placeholder {
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.tituloLista {
+    font-size: 18px;
+    font-family: "Chakra Petch";
+    text-align: center;
+    padding: 10px 0;
+    color: #ACADAE;
+}
+.computador {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.computador .tituloComputadores {
+    font-size: 18px;
+    color: #fff;
+    font-family: "Chakra Petch";
+}
+.status p {
+    font-size: 16px;
+    color: #fff;
+    font-family: "Chakra Petch";
+}
+.status {
+    width: 50%;
+    justify-content: right;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+.statusVerde, .statusVermelho, .statusAmarelo {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+.statusAmarelo {
+    background-color: yellow;
+}
+.statusVerde {
+    background-color: green;
+}
+.statusVermelho {
+    background-color: red;
+}
+.computador button {
+    width: 50%;
+    border: none;
+    font-family: "Chakra Petch";
+    font-weight: bold;
+    background-color: #202442;
+    border-radius: 100px;
+    font-size: 17px;
+    height: 30px;
+    color: #fff;
+}
