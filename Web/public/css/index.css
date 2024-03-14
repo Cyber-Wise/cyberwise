@@ -319,3 +319,52 @@
 .divs_faq {
     margin-bottom: 20px;
 }
+@media screen and (max-width: 1400px) {
+    .empresa {
+        flex-wrap: wrap;
+    }
+        .cardsEmpresa {
+            flex-wrap: wrap;
+        }
+    .top {
+        margin-top: 0;
+    }
+    .containerPrincipal {
+        flex-wrap: wrap;
+    }
+    .cards {
+        flex-wrap: wrap;
+    }
+    .principal_textos {
+        margin: auto;
+    }
+    .divisao {
+        width: 100%;
+    }
+    .some {
+        display: none;
+    }
+    .missoes img {
+        width: 100%;
+    }
+    .containerPrincipal {
+        padding: 20px 20px;
+    }
+    .containerPrincipal .descricao {
+        width: 100%;
+    }
+    .mobileEcomputador {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .empresa .cubo {
+        width: 300px;
+        height: 285px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .mobileEcomputador {
+        width: 300px;
+    }
+}
