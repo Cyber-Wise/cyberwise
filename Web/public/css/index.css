@@ -288,6 +288,7 @@
     display: flex;
     text-align: center;
     align-items: center;
+    margin-top: 20px;
     padding: auto;
     border: none;
     width: 25px;
@@ -309,6 +310,10 @@
     background-image: url("../assets/VECTORsetaFechar.png");
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+.titulo_fac {
+    margin-top: 20px;
 }
 
 .divs_faq {
