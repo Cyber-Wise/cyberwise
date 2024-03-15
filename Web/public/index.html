@@ -148,22 +148,18 @@
               <p class="titulo_fac"><span class="numero_faq">01.</span> O que é a CyberWise</p> <button class="botao_faq" id="botao_faq1" onclick="abrirBotao1()"></button>
             </div>
             <div class="divs_faq" id="div_faq1" style="display: none;">A CyberWise é a solução definitiva em monitoramento de hardware. Com nossa tecnologia avançada, oferecemos uma visão detalhada e em tempo real do estado dos componentes vitais para seu negócio. Detectamos problemas antes que aconteçam, garantindo a segurança e eficiência da sua infraestrutura. Conte conosco para proteger seus investimentos e manter sua operação sempre em funcionamento.</div>
-            <button onclick="fecharBotao1 ()" id="botao_faq1_fechar" class="botao_fechar_faq" style="display: none;"></button>
             <div class="lacuna_perguntas">
               <p class="titulo_fac"><span class="numero_faq">02.</span> Como funciona o monitoramento da nossa empresa?</p> <button class="botao_faq" id="botao_faq2" onclick="abrirBotao2()"></button>
             </div>
             <div class="divs_faq" id="div_faq2" style="display: none;">Na CyberWise, utilizamos uma abordagem abrangente e eficaz para o monitoramento dos componentes de hardware. Através de nossa plataforma avançada, fornecemos uma dashboard intuitiva com gráficos detalhados de uso do disco, RAM e CPU. Esses gráficos oferecem uma visualização clara e em tempo real do desempenho de cada componente, permitindo uma identificação rápida de possíveis gargalos ou problemas de performance. Além disso, nossa tecnologia de monitoramento inclui o envio de alertas instantâneos em caso de irregularidades, garantindo que você seja informado imediatamente sobre qualquer questão que exija sua atenção. Com a CyberWise, você pode ter certeza de que seus componentes de hardware estão sendo monitorados de forma eficiente e confiável, garantindo a segurança e estabilidade da sua infraestrutura.</div>
-            <button onclick="fecharBotao2 ()" id="botao_faq2_fechar" class="botao_fechar_faq" style="display: none;"></button>
             <div class="lacuna_perguntas">
               <p class="titulo_fac"><span class="numero_faq">03.</span> Como são tratados os alertas e incidentes detectados durante o monitoramento?</p> <button class="botao_faq" id="botao_faq3" onclick="abrirBotao3()"></button>
             </div>
             <div class="divs_faq" id="div_faq3" style="display: none;">Na CyberWise, levamos a segurança e estabilidade dos seus sistemas muito a sério. Quando alertas e incidentes são detectados durante nosso monitoramento, agimos com agilidade e precisão. Nossa plataforma está integrada com o Slack, permitindo o envio automático de alertas para sua equipe. Isso garante que você seja notificado instantaneamente sobre qualquer problema, permitindo uma resposta rápida e eficaz. Além disso, nossa equipe especializada está sempre pronta para intervir, investigar e resolver quaisquer questões que possam surgir. Com a CyberWise, você pode confiar que seus sistemas estão protegidos e que qualquer incidente será tratado com a máxima atenção e eficiência.</div>
-            <button onclick="fecharBotao3 ()" id="botao_faq3_fechar" class="botao_fechar_faq" style="display: none;"></button>
             <div class="lacuna_perguntas">
               <p class="titulo_fac"><span class="numero_faq">04.</span> Quais são os benefícios do monitoramento de componentes de hardware para os sistemas das empresas?</p> <button class="botao_faq" id="botao_faq4" onclick="abrirBotao4()"></button>
             </div>
             <div class="divs_faq" id="div_faq4" style="display: none;">O monitoramento de componentes de hardware oferecido pela CyberWise é uma ferramenta fundamental para empresas que buscam segurança e eficiência em suas operações. Com nossa plataforma avançada, proporcionamos uma visão completa do desempenho de cada componente, permitindo uma identificação rápida de possíveis problemas e gargalos. Isso significa menos tempo de inatividade e maior produtividade para sua empresa. Além disso, nossa tecnologia de monitoramento proativo garante que você esteja sempre um passo à frente, evitando problemas antes que aconteçam. Com a CyberWise, você pode ter certeza de que seus sistemas estão protegidos, otimizados e prontos para enfrentar os desafios do mundo digital.</div>
-            <button onclick="fecharBotao4 ()" id="botao_faq4_fechar" class="botao_fechar_faq" style="display: none;"></button>
           </div>
       </section>
 
@@ -191,45 +187,47 @@
 <script>
 
 function abrirBotao1 (){
-  document.getElementById("botao_faq1_fechar").style.display = "flex";
-  div_faq1.style.display = "flex";
+  var botaofaq1 = document.getElementById("botao_faq1")
+  if (div_faq1.style.display === "none") {
+            div_faq1.style.display = "flex";
+            botaofaq1.style.backgroundImage = "url('./assets/VECTORsetaFechar.png')";
+        } else {
+            div_faq1.style.display = "none";
+            botaofaq1.style.backgroundImage = "url('./assets/VECTORseta.png')"; 
+        }
 }
+
 function abrirBotao2 (){
-  document.getElementById("botao_faq2_fechar").style.display = "flex";
-  div_faq2.style.display = "flex";
+  var botaofaq2 = document.getElementById("botao_faq2")
+  if (div_faq2.style.display === "none") {
+            div_faq2.style.display = "flex";
+            botaofaq2.style.backgroundImage = "url('./assets/VECTORsetaFechar.png')";
+        } else {
+            div_faq2.style.display = "none";
+            botaofaq2.style.backgroundImage = "url('./assets/VECTORseta.png')"; 
+        }
 }
 function abrirBotao3 (){
-  document.getElementById("botao_faq3_fechar").style.display = "flex";
-  div_faq3.style.display = "flex";
+  var botaofaq3 = document.getElementById("botao_faq3")
+  if (div_faq3.style.display === "none") {
+            div_faq3.style.display = "flex";
+            botaofaq3.style.backgroundImage = "url('./assets/VECTORsetaFechar.png')";
+        } else {
+            div_faq3.style.display = "none";
+            botaofaq3.style.backgroundImage = "url('./assets/VECTORseta.png')"; 
+        }
 }
 
 function abrirBotao4 (){
-  document.getElementById("botao_faq4_fechar").style.display = "flex";
-  div_faq4.style.display = "flex";
+  var botaofaq4 = document.getElementById("botao_faq4")
+  if (div_faq4.style.display === "none") {
+            div_faq4.style.display = "flex";
+            botaofaq4.style.backgroundImage = "url('./assets/VECTORsetaFechar.png')";
+        } else {
+            div_faq4.style.display = "none";
+            botaofaq4.style.backgroundImage = "url('./assets/VECTORseta.png')"; 
+        }
 }
-
-function fecharBotao1 (){
-  document.getElementById("botao_faq1_fechar").style.display = "none";
-  div_faq1.style.display = "none";
-}
-function fecharBotao2 (){
-  document.getElementById("botao_faq2_fechar").style.display = "none";
-  div_faq2.style.display = "none";
-}
-function fecharBotao3 (){
-  document.getElementById("botao_faq3_fechar").style.display = "none";
-  div_faq3.style.display = "none";
-}
-
-function fecharBotao4 (){
-  document.getElementById("botao_faq4_fechar").style.display = "none";
-  div_faq4.style.display = "none";
-}
-
-
-
-
-
 
 
 let lastScrollTop = 0;
