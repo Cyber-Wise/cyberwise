@@ -4,43 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UtilitariaCrud {
-    List<String> listaEmail(){
-        List<String> listaEmail = new ArrayList<String>();
-        listaEmail.add("davi@mendonca.com");
-        listaEmail.add("pablo@santos.com");
-        listaEmail.add("ana@catarina.com");
-        listaEmail.add("robson@rioki.com");
 
-        return listaEmail;
-    }
-    List<String> listaSenha(){
-        List<String> listaSenha = new ArrayList<String>();
-        listaSenha.add("mendoncadavi");
-        listaSenha.add("santospablo");
-        listaSenha.add("catarinaana");
-        listaSenha.add("riokirobson");
-
-        return listaSenha;
-
-    }
-
-    Boolean validar(String email, String senha) {
-        for (int i = 0; i < listaEmail().size(); i++) {
-            if (email.equals(listaEmail().get(i)) && senha.equals(listaSenha().get(i))) {
+    Boolean validar(List<String> listaUsuario, List<String> listaSenha, String usuario, String senha) {
+        for (int i = 0; i < listaUsuario.size(); i++) {
+            if (usuario.equals(listaUsuario.get(i)) && senha.equals(listaSenha.get(i))) {
                 return true;
             }
         }
         return false;
     }
 
-    Boolean cadastrar(String email, String senha){
+    Boolean cadastrar(String usuario, String senha){
 
-        if (validar(senha, email) ==  false){
-            listaEmail().add(email);
-            listaSenha().add(senha);
+       // if (validar(senha, usuario) == false){
+   //         listaUsuario.add(usuario);
+     //       listaSenha().add(senha);
             return true;
-        }
-        return false;
+        //}
+        //return false;
     }
 
 
