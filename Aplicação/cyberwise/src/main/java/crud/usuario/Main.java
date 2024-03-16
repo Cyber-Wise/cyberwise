@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         UtilitariaCrud util = new UtilitariaCrud();
         Scanner input = new Scanner(System.in);
         String email;
         String senha;
+        String comfirmar;
         Integer opcao;
 
         System.out.println("""
@@ -24,18 +26,24 @@ public class Main {
             System.out.println("Insira a Senha:");
             senha = input.next();
 
-            if (util.read(email, senha)){
+            if (util.validar(email, senha)){
                 System.out.println("Login realizado com sucesso");
-            }else System.out.println("Email ou Senha invalidos");
+            }else{
+                System.out.println("Email ou Senha invalidos");
+                //main();
+            }
 
 
         } else if (opcao == 2) {
             System.out.println("Insira um Email:");
-            email = input.nextLine();
+            email = input.next();
             System.out.println("Insira uma Senha:");
-            senha = input.nextLine();
+            senha = input.next();
             System.out.println("Confirmar a Senha:");
-            senha = input.nextLine();
+            comfirmar = input.next();
+            if (senha.equals(comfirmar)){
+
+            }
 
         }else{
             System.out.println("Opção invalida");

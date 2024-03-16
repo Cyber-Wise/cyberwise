@@ -4,39 +4,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UtilitariaCrud {
+    List<String> listaEmail(){
+        List<String> listaEmail = new ArrayList<String>();
+        listaEmail.add("davi@mendonca.com");
+        listaEmail.add("pablo@santos.com");
+        listaEmail.add("ana@catarina.com");
+        listaEmail.add("robson@rioki.com");
 
-    Boolean read(String email, String senha){
-        List<String> emailValido = new ArrayList<String>();
-        emailValido.add("davi@mendonca.com");
-        emailValido.add("pablo@santos.com");
-        emailValido.add("ana@catarina.com");
-        emailValido.add("robson@rioki.com");
+        return listaEmail;
+    }
+    List<String> listaSenha(){
+        List<String> listaSenha = new ArrayList<String>();
+        listaSenha.add("mendoncadavi");
+        listaSenha.add("santospablo");
+        listaSenha.add("catarinaana");
+        listaSenha.add("riokirobson");
 
-        List<String> senhaValida = new ArrayList<String>();
-        senhaValida.add("mendoncadavi");
-        senhaValida.add("santospablo");
-        senhaValida.add("catarinaana");
-        senhaValida.add("riokirobson");
+        return listaSenha;
 
-        for (int i = 0; i < emailValido.size(); i++) {
-            if (email.equals(emailValido.get(i)) && senha.equals(senhaValida.get(i))){
+    }
+
+    Boolean validar(String email, String senha) {
+        for (int i = 0; i < listaEmail().size(); i++) {
+            if (email.equals(listaEmail().get(i)) && senha.equals(listaSenha().get(i))) {
                 return true;
             }
         }
         return false;
-    };
-
-    List<String> listaEmails(String email){
-        List<String> emailValido = new ArrayList<String>();
-        emailValido.add("davi@mendonca.com");
-        emailValido.add("pablo@santos.com");
-        emailValido.add("ana@catarina.com");
-        emailValido.add("robson@rioki.com");
-        if (email != null) emailValido.add(email);
-
-        return emailValido;
     }
 
-    void create(String email, String senha){
+    Boolean cadastrar(String email, String senha){
+
+        if (validar(senha, email) ==  false){
+            listaEmail().add(email);
+            listaSenha().add(senha);
+            return true;
+        }
+        return false;
     }
+
+
 }
+
+
+
+
