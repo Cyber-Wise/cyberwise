@@ -56,10 +56,13 @@ public class Main {
             System.out.println("Confirmar a Senha:");
             comfirmar = input.next();
             if (senha.equals(comfirmar)){
-                listaUsuario.add(usuario);
-                listaSenha.add(senha);
-                System.out.println("Cadastro realizado com sucesso.");
-                System.out.println(listaUsuario);
+                if (util.validar(listaUsuario, listaSenha, usuario, senha)){
+                    System.out.println("Usuario cadastrado.");
+                }else {
+                    listaUsuario.add(usuario);
+                    listaSenha.add(senha);
+                    System.out.println("Cadastro realizado com sucesso.");
+                }
             }else System.out.println("Senhas diferentes.");
 
         }else{
