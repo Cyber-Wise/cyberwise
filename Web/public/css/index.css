@@ -343,15 +343,23 @@
     margin-bottom: 20px;
     color: #D7F9FF;
 }
-
 @media screen and (max-width: 1400px) {
+    .mobileEcomputador {
+        width: 400px;
+    }
+    .cardsEmpresa {
+        flex-wrap: wrap;
+    }
+    .some {
+        display: none;
+    }
+}
+@media screen and (max-width: 1000px) {
     .empresa {
         flex-wrap: wrap;
     }
 
-    .cardsEmpresa {
-        flex-wrap: wrap;
-    }
+   
 
     .top {
         margin-top: 0;
