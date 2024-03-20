@@ -3,6 +3,10 @@
     color: #979797;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-image: url(../assets/loginCadastroFundo.jpg);
     background-repeat: no-repeat;

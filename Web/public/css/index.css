@@ -5,19 +5,19 @@
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    /* border-radius: 10px; */
     background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 0px;
     background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    /* border-radius: 10px; */
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    background-color: #555;
+    background-color: black;
 }
 
 
@@ -52,6 +52,7 @@
 .col-1_banner {
     display: flex;
     align-items: center;
+    margin-top: 100px;
 }
 
 .col-1_banner img {
@@ -343,23 +344,27 @@
     margin-bottom: 20px;
     color: #D7F9FF;
 }
+
 @media screen and (max-width: 1400px) {
     .mobileEcomputador {
         width: 400px;
     }
+
     .cardsEmpresa {
         flex-wrap: wrap;
     }
+
     .some {
         display: none;
     }
 }
+
 @media screen and (max-width: 1000px) {
     .empresa {
         flex-wrap: wrap;
     }
 
-   
+
 
     .top {
         margin-top: 0;
