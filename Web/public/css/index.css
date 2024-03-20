@@ -291,6 +291,20 @@
     flex-direction: column;
 }
 
+.div_botaoscroll {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    position: absolute;
+    top: 350px;
+    right: 10px;
+}
+
+.botaoscroll {
+    display: flex;
+    width: 50px;
+}
+
 .lacuna_perguntas {
     border-top: 1px solid #2B2B2B;
     display: flex;
@@ -365,6 +379,9 @@
     }
 
 
+    .div_botaoscroll {
+        display: none;
+    }
 
     .top {
         margin-top: 0;
