@@ -364,6 +364,15 @@
         width: 400px;
     }
 
+    .divisao {
+        display: flex;
+        width: 75%;
+        height: auto;
+        margin: auto;
+        align-items: center;
+        flex-direction: column;
+    }
+
     .cardsEmpresa {
         flex-wrap: wrap;
     }
