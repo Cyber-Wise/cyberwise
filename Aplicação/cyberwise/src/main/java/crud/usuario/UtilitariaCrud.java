@@ -59,6 +59,7 @@ public class UtilitariaCrud {
             return true;
         }else{
             System.out.println("Usuario ou Senha invalidos.\n");
+            util.menu(listaUsuario,listaSenha);
             return false;
         }
 
@@ -92,6 +93,7 @@ public class UtilitariaCrud {
             }
         }else {
             System.out.println("As senhas estão diferentes.\n");
+            util.menu(listaUsuario, listaSenha);
             return null;
         }return null;
     }
