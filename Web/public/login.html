@@ -57,13 +57,13 @@
             <div class="container_login">
                 <div class="labels_inputs">
                     <p>E-mail:</p>
-                    <input type="email" class="inputs_login">
+                    <input type="email" class="inputs_login" id="email_input">
                 </div>
                 <div class="labels_inputs">
                     <p>Senha:</p>
-                    <input type="password" class="inputs_login">
+                    <input type="password" class="inputs_login" id="senha_input">
                 </div>
-                <button href="" class="btn_continue">Continue</button>
+                <button href="" class="btn_continue" onclick="entrar()">Continue</button>
                 <div class="btn_naoTemConta">
                     <p>Não tem conta?</p>
                     <a href="cadastro.html">Cadastre-se</a>
@@ -79,19 +79,19 @@
 
 
     function entrar() {
-        aguardar();
+        // aguardar();
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            // cardErro.style.display = "block"
+            alert("Mensagem de erro para todos os campos em branco");
+            // finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -118,10 +118,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./usuario/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -132,7 +132,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    // finalizarAguardar(texto);
                 });
             }
 
@@ -143,8 +143,8 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 
 </script>

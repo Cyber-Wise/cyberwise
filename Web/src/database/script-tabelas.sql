@@ -6,6 +6,33 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
+
+-- banco cyberwise
+
+CREATE DATABASE cyberwise;
+
+USE cyberwise;
+
+CREATE TABLE empresa (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50),
+	email VARCHAR(50),
+    cnpj INT,
+	senha VARCHAR(50),
+    funcionarios INT 
+	);
+    
+    select * from empresa;
+    
+    -- drop database cyberwise;
+
+
+
+
+
+
+
+-- banco aquatech
 CREATE DATABASE aquatech;
 
 USE aquatech;

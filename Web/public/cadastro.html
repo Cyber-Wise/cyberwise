@@ -61,22 +61,22 @@
   <div class="container_coluna_esquerda_cadastro">
     <div class="container_inputEtexto">
     <p>Nome</p>
-    <input type="text" class="inputs_cadastro">
+    <input type="text" class="inputs_cadastro" id="nome_input">
   </div>
   <div class="container_inputEtexto">
     <p>Email</p>
-    <input type="text" class="inputs_cadastro">
+    <input type="text" class="inputs_cadastro" id="email_input">
   </div>
   <div class="container_inputEtexto">
     <p>CNPJ</p>
-    <input type="text" class="inputs_cadastro">
+    <input type="text" class="inputs_cadastro" id="cnpj_input">
         <div class="container_inputEtexto">
       <p>Senha</p>
-      <input type="password" class="inputs_cadastro">
+      <input type="password" class="inputs_cadastro" id="senha_input">
     </div>
     <div class="container_inputEtexto">
       <p>Confirmar senha</p>
-      <input type="password" class="inputs_cadastro">
+      <input type="password" class="inputs_cadastro" id="confirmacao_senha_input">
   </div>
   </div>
 
@@ -88,7 +88,7 @@
     <input type="checkbox" class="checkbox"><p>Concordo com os <a href="termos.html" class="texto_termos">termos de serviço</a> e a <a href="politicas.html" class="texto_termos">política de privacidade</a>.</p>
   </div>
   <div class="container_botao_cadastrar">
-    <button class="botao_cadastro">Cadastrar</button>
+    <button class="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
   </div>
 </div>
 </body>
@@ -97,30 +97,35 @@
 
 <script>
   function cadastrar() {
-    aguardar();
+    //aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
+    var cnpjVar = cnpj_input.value
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var empresaVar = listaEmpresas.value
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      empresaVar == ""
+      cnpjVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      // cardErro.style.display = "block";
+      
+       alert("Mensagem de erro para todos os campos em branco");
 
-      finalizarAguardar();
+      // finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
+    } 
+    if(senhaVar != confirmacaoSenhaVar){
+      alert("Senhas diferentes");
+
+      // finalizarAguardar();
+      return false;
+    }
+    else {
+      setInterval(5000);
     }
 
     // Enviando o valor da nova input
@@ -135,53 +140,52 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        empresaServer: empresaVar
+        cnpjServer: cnpjVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          // cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+           alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
           setTimeout(() => {
             window.location = "login.html";
           }, "2000");
 
           limparFormulario();
-          finalizarAguardar();
+          // finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
       });
 
     return false;
   }
 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
+  // function listar() {
+  //   fetch("/empresas/listar", {
+  //     method: "GET",
+  //   })
+  //     .then(function (resposta) {
+  //       resposta.json().then((empresas) => {
+  //         empresas.forEach((empresa) => {
+  //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+  //         });
+  //       });
+  //     })
+  //     .catch(function (resposta) {
+  //       console.log(`#ERRO: ${resposta}`);
+  //     });
+  // }
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+  // function sumirMensagem() {
+  //   cardErro.style.display = "none";
+  // }
 </script>
