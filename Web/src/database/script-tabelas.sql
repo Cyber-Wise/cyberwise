@@ -1,11 +1,3 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
-
 
 -- banco cyberwise
 
@@ -16,74 +8,65 @@ USE cyberwise;
 CREATE TABLE empresa (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
-	email VARCHAR(50),
     cnpj INT,
-	senha VARCHAR(50),
-    funcionarios INT 
+    funcionarios INT
 	);
+insert into empresa values
+(null, 'CyberWise', 1234567, 5);
     
-    select * from empresa;
-    
-    -- drop database cyberwise;
-
-
-
-
-
-
-
--- banco aquatech
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
-
-CREATE TABLE usuario (
+CREATE TABLE funcionario(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    fk_empresa INT,
+    cargo VARCHAR(50),
+    FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
+insert into funcionario values
+(null, 'davi', 'davi@cyberwise', 'senha123', 1, 'gestor'),
+(null, 'joao', 'joao@cyberwise', 'senha12', 1, 'analista');
 
-CREATE TABLE aviso (
+CREATE TABLE maquina(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+	modelo VARCHAR(20),
+	numSerie int,
+  --  minCPU float,
+   -- minDISCO float,
+  --  minRAM float,
+    maxCPU float,
+    maxDISCO float,
+    maxRAM float,
+    fk_empresa INT,
+    FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+insert into maquina values
+(null, 'dell', 1212, 90.0, 80.0, 95.0, 1),
+(null, 'dell', 1513, 94.0, 87.0, 90.0, 1),
+(null, 'acer', 1010, 89.0, 84.5, 92.4, 1);
+    
+CREATE TABLE monitoramento(
+	dadosCPU FLOAT,
+	dadosRAM FLOAT,
+	dadosDISCO FLOAT,
+    dadosREDE FLOAT,
+    fk_maquina INT,
+	data_hora datetime,
+    FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+insert into monitoramento values
+(56.0, 70.0, 67.0, 54, 1, CURRENT_TIMESTAMP);
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+    select * from empresa;
+    select * from funcionario;
+    select * from maquina;
+    select * from monitoramento;
+    -- drop database cyberwise;
+
+
 
 /*
 comando para sql server - banco remoto - ambiente de produção
