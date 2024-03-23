@@ -128,7 +128,7 @@
 }
 
 .cards .card {
-    width: 162px;
+    width: 220px;
     text-align: center;
 }
 
@@ -149,7 +149,7 @@
 .cards .card .descricaoCard {
     margin: 0 auto;
     font-family: "Roboto";
-    width: 100px;
+    width: 130px;
     word-wrap: break-word;
     font-size: 14px;
     font-weight: 200;
