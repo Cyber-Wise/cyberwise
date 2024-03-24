@@ -44,14 +44,14 @@ header .bxs-home  {
 
 
 .menuLateral img {
-    width: 80px;
+    width: 70px;
 }
 .caixaInformacoesComputador {
     width: (100% - 20px);
-    margin: 10% auto 10px;
+    margin: 6% auto 10px;
     background-color: #2D325A;
     border-radius: 20px;
-    height: 200px;
+    height: 120px;
     padding: 10px;
 }
 .caixaRolagem {
@@ -75,9 +75,15 @@ header .bxs-home  {
     margin: 10px auto;
     background-color: #2D325A;
     border-radius: 20px;
-    height: 200px;
+    height: 280px;
     padding: 10px;
 }
+
+/* aqui! */
+.caixaDisco h2{
+text-align: center;
+}
+
 .titulosCaixas, .tituloNormal {
     font-size: 18px;
     color: #fff;
@@ -99,13 +105,19 @@ header .bxs-home  {
     background-color: #2D325A;
     width: 25%;
     padding: 10px;
-    height: 85vh;
+    /* height: 85vh; */
     border-radius: 15px;
 }
+#listaComputadores{
+    list-style: none;
+}
+
 .ram, .cpu {
     background-color: #2D325A;
     height: 300px;
     border-radius: 15px;
+    /* aqui! */
+    width: 610px;
 }
 
 .ram{

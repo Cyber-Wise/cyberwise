@@ -8,22 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dash.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
     <title>CyberWise | Dashboard</title>
 </head>
-<body>
+<body onload="dashboardInfo()">
     <div class="menuLateral">
         <img src="../assets/logoCWbranca.png" alt="">
         <div class="caixaInformacoesComputador">
-            <h2 class="titulosCaixas">informações do computador escolhido</h2>
+            <h2 class="titulosCaixas">informações do computador</h2> <br>
+            <h2 class="titulosCaixas">Modelo: <span id="modeloPc"> default</span></h2>
+            <h2 class="titulosCaixas">Numero de serie: <span id="numeroSerie"> default</span></h2>
         </div>
         <div class="caixaDisco">
-            <h2 class="titulosCaixas">
-                Disco
-            </h2>
+            <h2 class="titulosCaixas"> DISCO</h2>
+                <canvas id="myChart3"></canvas>
+            
         </div>
         <h2 class="tituloNormal">capturas de dados de rede</h2>
         <div class="caixaRolagem">
-            <h2 class="titulosCaixas">rolagem</h2>
+            <h2 class="titulosCaixas"> </h2>
         </div>
         <div class="caixaAnalytics">
             <h2 class="titulosCaixas">Analytics</h2>
@@ -35,53 +38,106 @@
             <a href="../index.html"><i class='bx bxs-home'></i></a>
             <div class="user">
                 <img src="../assets/Group 537.png" style="border-radius: 100%;" alt="" height="50px" width="50px">
-                <h1 class="userNome">Nome do usuário</h1>
+                <h1 class="userNome"><span id="nomeUsuario"> Nome do usuário</span></h1>
             </div>
         </header>
         <div class="listaEgraficos">
             <div class="graficos">
                 <div class="cpu">
-
+                    
+                        <canvas id="myChart"></canvas>
+                      
                 </div>
                 <div class="ram">
-
+                    <canvas id="myChart2"></canvas>
                 </div>
             </div>
             <div class="listaDeComputadores">
-                <input type="text" placeholder="Pesquisar">
+                <input onkeyup="filtrar()" type="text" placeholder="Pesquisar" id="inputBusca">
                 <h2 class="tituloLista">lista de computadores</h2>
-                <div class="computador">
-                    <div class="descricao">
-                    <h2 class="tituloComputadores">computador 1</h2>
-                    <div class="status">
+               <ul id="listaComputadores">
+                <li>
+                <!-- <div class="computador">
+                    <div class="descricao"> -->
+                    <!-- <h2 class="tituloComputadores">computador 1</h2> -->
+                    <span class="tituloComputadores"></span>
+                    <!-- <div class="status">
                         <p>status</p>
                         <div class="statusVerde"></div>
                     </div>
                     </div>
                     <button>verificar</button>
-                </div>
-                <div class="computador">
-                    <div class="descricao">
-                    <h2 class="tituloComputadores">computador 3</h2>
-                    <div class="status">
-                        <p>status</p>
-                        <div class="statusAmarelo"></div>
-                    </div>
-                    </div>
-                    <button>verificar</button>
-                </div>
-                <div class="computador">
-                    <div class="descricao">
-                    <h2 class="tituloComputadores">computador 3</h2>
-                    <div class="status">
-                        <p>status</p>
-                        <div class="statusVermelho"></div>
-                    </div>
-                    </div>
-                    <button>verificar</button>
-                </div>
+                </div> -->
+            </li>
+            </ul>
+            
             </div>
         </div>
     </div>
 </body>
 </html>
+
+<script src="../JsDashboard/dash.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var empresa = sessionStorage.empresa;
+
+    // const ctx = document.getElementById('myChart');
+    const ctx =  document.getElementById('myChart');
+
+    new Chart(ctx,{
+        type: 'line',
+        data: {
+            labels: ['Horario', 'Horario', 'Horario', 'Horario', 'Horario', 'Horario'],
+            datasets: [{
+                label: 'CPU',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+            }
+           }
+        );
+
+        const ctx2 =  document.getElementById('myChart2');
+
+new Chart(ctx2,{
+    type: 'line',
+    data: {
+        labels: ['Horario', 'Horario', 'Horario', 'Horario', 'Horario', 'Horario'],
+        datasets: [{
+            label: 'MEMÓRIA RAM',
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: 'red',
+            backgroundColor: 'red',
+            tension: 0.1,
+            
+        }]
+        }
+       }
+    );
+
+    const ctx3 =  document.getElementById('myChart3');
+    new Chart(ctx3,{
+    type: 'pie',
+    data: {
+        labels: ['usado', 'Livre'],
+        datasets: [{
+            label:  ['Disco'],
+            data: [40, 60],
+            fill: false,
+            // backgroundColor: ['red', 'blue'],
+            borderColor: ['red', 'blue'],
+            tension: 0.1,
+            
+        }]
+        }
+       }
+    );
+</script>
