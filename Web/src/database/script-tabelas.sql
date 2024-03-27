@@ -8,11 +8,13 @@ USE cyberwise;
 CREATE TABLE empresa (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
+    email VARCHAR(50),
+	senha VARCHAR(50),
     cnpj INT,
     funcionarios INT
 	);
 insert into empresa values
-(null, 'CyberWise', 1234567, 5);
+(null, 'CyberWise', 'cyberwise.com', 'senha', 1234567, 2);
     
 CREATE TABLE funcionario(
 	id INT PRIMARY KEY AUTO_INCREMENT,

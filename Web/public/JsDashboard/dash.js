@@ -1,25 +1,38 @@
     
     function dashboardInfo() {
+        const computadores = [{
+             modelo: "Dell",
+            numSerie: "1212"},{
+            modelo: "Dell",
+            numSerie: "1414"},{
+            modelo: "Dell",
+            numSerie: "1545"},{
+            modelo: "Acer",
+            numSerie: "3434"},{
+            modelo: "Positivo",
+            numSerie: "2232"},{
+            modelo: "Lg",
+            numSerie: "3232"}];
        
-        fetch("/dashboard/dadosDashboard", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                empresaServer: empresa,
-                // senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DA DASH!")
+        // fetch("/dashboard/dadosDashboard", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         empresaServer: empresa,
+        //         // senhaServer: senhaVar
+        //     })
+        // }).then(function (resposta) {
+        //     console.log("ESTOU NO THEN DA DASH!")
 
-            if (resposta.ok) {
-                console.log(resposta);
+        //     if (resposta.ok) {
+        //         console.log(resposta);
 
-                resposta.json().then(json => {
+        //         resposta.json().then(json => {
                     const ul = document.getElementById('listaComputadores');
 
-                    json.forEach((computador) => {
+                    computadores.forEach((computador) => {
                     const li = document.createElement('li');
                     li.innerHTML = `
                     <div class="computador">
@@ -42,23 +55,23 @@
 
                     ul.appendChild(li);
                 });
-                    console.log(json);
-                    // console.log(JSON.stringify(json));
-                    // console.log(json)
-                    console.log(json[0].modelo)
-                    var modelo = json[0].modelo;
-                    var numSerie = json[0].numSerie;
-                    // var  = json.id;
+                    // console.log(json);
+                   
+                    // console.log(json[0].modelo)
+                    // var modelo = json[0].modelo;
+                    // var numSerie = json[0].numSerie;
+                    
 
-                    modeloPc.innerHTML = modelo;
-                    numeroSerie.innerHTML = numSerie;
+                    // modeloPc.innerHTML = modelo;
+                    // numeroSerie.innerHTML = numSerie;
 
-                });
+                }
+                // );
 
-            } 
+    //         } 
     
-        })
-    }
+    //     })
+    // }
 
     
     function filtrar(){
@@ -91,13 +104,13 @@
 
         count++;
 
-        span = li[i].querySelector("tituloComputadores");
-        if(span){
-            span.innerHTML = txtvalue.replace(new RegExp(filter, "gi"), (match)=>{
-                return "<strong>" + match + "</strong>"
-            })
-        }
-       }else{
+        // span = li[i].querySelector("tituloComputadores");
+        // if(span){
+        //     span.innerHTML = txtvalue.replace(new RegExp(filter, "gi"), (match)=>{
+        //         return "<strong>" + match + "</strong>"
+        //     })
+        // }
+    //    }else{
             li[i].style.display = "none";
         }
         
