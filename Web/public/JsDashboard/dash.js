@@ -110,7 +110,7 @@
         //         return "<strong>" + match + "</strong>"
         //     })
         // }
-    //    }else{
+       }else{
             li[i].style.display = "none";
         }
         

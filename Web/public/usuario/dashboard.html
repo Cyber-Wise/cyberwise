@@ -19,15 +19,9 @@
             <h2 class="titulosCaixas">Modelo: <span id="modeloPc"> default</span></h2>
             <h2 class="titulosCaixas">Numero de serie: <span id="numeroSerie"> default</span></h2>
         </div>
-        <div class="caixaDisco">
-            <h2 class="titulosCaixas"> DISCO</h2>
-                <canvas id="myChart3"></canvas>
-            
-        </div>
-        <h2 class="tituloNormal">capturas de dados de rede</h2>
-        <div class="caixaRolagem">
-            <h2 class="titulosCaixas"> </h2>
-        </div>
+        
+        
+        
         <div class="caixaAnalytics">
             <h2 class="titulosCaixas">Analytics</h2>
         </div>
@@ -43,13 +37,25 @@
         </header>
         <div class="listaEgraficos">
             <div class="graficos">
-                <div class="cpu">
+                <div class="graficosEsquerda">
+                    <div class="caixaDisco">
+                        <h2 class="titulosCaixas"> DISCO</h2>
+                            <canvas id="myChart3" style="width: 100px; height: 100px;"></canvas>
+                        
+                    </div>
+                    <div class="caixaRolagem">
+                        <h2 class="tituloNormal">capturas de dados de rede</h2>
+                    </div>
+                </div>
+                <div class="graficosEsquerda">
+                    <div class="cpu">
                     
                         <canvas id="myChart"></canvas>
                       
                 </div>
                 <div class="ram">
                     <canvas id="myChart2"></canvas>
+                </div>
                 </div>
             </div>
             <div class="listaDeComputadores">
@@ -138,7 +144,8 @@ new Chart(ctx2,{
             tension: 0.1,
             
         }]
-        }
+        },
+        
        }
     );
 </script>
