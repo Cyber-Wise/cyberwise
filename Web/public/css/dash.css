@@ -55,11 +55,11 @@ header .bxs-home  {
     padding: 10px;
 }
 .caixaRolagem {
-    width: (100% - 20px);
-    margin: 10px auto;
+    width: calc(100% - 20px);
+    margin: 10px auto 0;
     background-color: #2D325A;
     border-radius: 20px;
-    height: 200px;
+    height: 280px;
     padding: 10px;
 }
 .caixaAnalytics {
@@ -121,7 +121,9 @@ text-align: center;
     width: 540px;
 }
 .caixaDisco #myChart3 {
-    height: 50px;
+    height: 230px !important;
+    width: 230px !important;
+    margin: 0 auto;
 }
 
 .ram{
