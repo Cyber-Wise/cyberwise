@@ -1,71 +1,92 @@
     
-    function dashboardInfo() {
-        const computadores = [{
-             modelo: "Dell",
-            numSerie: "1212"},{
-            modelo: "Dell",
-            numSerie: "1414"},{
-            modelo: "Dell",
-            numSerie: "1545"},{
-            modelo: "Acer",
-            numSerie: "3434"},{
-            modelo: "Positivo",
-            numSerie: "2232"},{
-            modelo: "Lg",
-            numSerie: "3232"}];
-       
-        // fetch("/dashboard/dadosDashboard", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         empresaServer: empresa,
-        //         // senhaServer: senhaVar
-        //     })
-        // }).then(function (resposta) {
-        //     console.log("ESTOU NO THEN DA DASH!")
-
-        //     if (resposta.ok) {
-        //         console.log(resposta);
-
-        //         resposta.json().then(json => {
-                    const ul = document.getElementById('listaComputadores');
-
-                    computadores.forEach((computador) => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                    <div class="computador">
-                    <div class="descricao">
-                    <h2 class="tituloComputadores">${computador.modelo} : ${computador.numSerie}</h2>
-                    <div class="status">
-                        <p>status</p>
-                        <div class="statusVerde"></div>
+        function acharId(id, modelo, numSerie){
+            
+            console.log(id)
+            console.log(modelo)
+            console.log(numSerie)
+            // modeloPc.innerHTML = ""
+    } 
+        function dashboardInfo() {
+  
+            const computadores = [{
+                    id: 1,
+                modelo: "Dell",
+                numSerie: "1212"},{
+                    id: 2,
+                modelo: "Dell",
+                numSerie: "1414"},{
+                    id: 3,
+                modelo: "Dell",
+                numSerie: "1545"},{
+                    id: 4,
+                modelo: "Acer",
+                numSerie: "3434"},{
+                    id: 5,
+                modelo: "Positivo",
+                numSerie: "2232"},{
+                    id: 6,
+                modelo: "Lg",
+                numSerie: "3232"}];
+           
+            // fetch("/dashboard/dadosDashboard", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify({
+            //         empresaServer: empresa,
+            //         // senhaServer: senhaVar
+            //     })
+            // }).then(function (resposta) {
+            //     console.log("ESTOU NO THEN DA DASH!")
+          
+            //     if (resposta.ok) {
+            //         console.log(resposta);
+          
+            //         resposta.json().then(json => {
+                        const ul = document.getElementById('listaComputadores');
+           ;
+                        computadores.forEach((computador, pcId) => {
+                            var modelo = computador.modelo;
+                            var numSerie = computador.numSerie;
+                          //var pcId = 0;
+                          pcId++;
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                        <div class="computador">
+                        <div class="descricao">
+                        <h2 class="tituloComputadores">${computador.modelo} : ${computador.numSerie}</h2>
+                        <div class="status">
+                            <p>status</p>
+                            <div class="statusVerde"></div>
+                        </div>
+                        </div>
+                        <button class="pointer" id="${pcId}" onclick="acharId(${pcId})">verificar</button>
                     </div>
-                    </div>
-                    <button>verificar</button>
-                </div>
-                    `;
-                    // <div class="status">
-                    //     <p>status</p>
-                    //     <div class="statusVerde"></div>
-                    // </div>
-                   
-                    // <button>verificar</button>
-
-                    ul.appendChild(li);
-                });
-                    // console.log(json);
-                   
-                    // console.log(json[0].modelo)
-                    // var modelo = json[0].modelo;
-                    // var numSerie = json[0].numSerie;
+                        `;
+                       
+                        // <div class="status">
+                        //     <p>status</p>
+                        //     <div class="statusVerde"></div>
+                        // </div>
+                       
+                        // <button>verificar</button>
+          
+                        ul.appendChild(li);
+                    });
                     
-
-                    // modeloPc.innerHTML = modelo;
-                    // numeroSerie.innerHTML = numSerie;
-
-                }
+                        // console.log(json);
+                       
+                        // console.log(json[0].modelo)
+                        // var modelo = json[0].modelo;
+                        // var numSerie = json[0].numSerie;
+                        
+          
+                        // modeloPc.innerHTML = modelo;
+                        // numeroSerie.innerHTML = numSerie;
+          
+                    }
+          
                 // );
 
     //         } 
