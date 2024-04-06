@@ -203,3 +203,7 @@ text-align: center;
     height: 30px;
     color: #fff;
 }
+.pointer {
+    cursor: pointer;
+
+}

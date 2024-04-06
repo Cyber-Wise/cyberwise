@@ -4,17 +4,20 @@ Usuario
 - Nome usuario
 - Email usuario
 - Senha usuario
+- cargo
 
-Empresa
+Empresa ok 
 -Nome
 -Cnpj
--Quantidade de maquinas
-
-
+-Telefone
+-Endereço
 
 Maquina
 - Hostname
 - IP
+- parametros ideais(MDC)
+
+monitoramento
 - Porcentagem CPU
 - Velocidade CPU
 - Porcetagem Memoria
