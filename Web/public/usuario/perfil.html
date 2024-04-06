@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberWise | Perfil</title>
+  <link rel="icon" href="../assets/logoCWpreta.png" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="../css/header_footer.css">
+</head>
+
+<body>
+    <header class="cabecalho" style="background-color: #141728;">
+        <div class="container_cabecalho">
+            <div class="container_logo">
+                <img src="../assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
+            </div>
+            <nav class="container_nav">
+                <ul>
+                    <li><a href="./index.html" id="letraPreta">Home</a></li>
+                    <li><a href="./login.html" id="letraPreta4">Login</a></li>
+                    <li><a href="./cadastro.html" id="letraPreta5">Cadastro</a></li>
+                </ul>
+            </nav>
+            <button id="btnMenu">
+                <i class='bx bx-menu'></i>
+            </button>
+            <nav class="container_nav-mob" id="navBarMobile" style="background-color: #171A31;">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./login.html">Login</a></li>
+                    <li><a href="./cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="headerInformacoes">
+                <img src="../assets/Group 537.png" class="imgPerfil">
+            <h2 class="nomeUser">Claudio Frizarini</h2>
+            <h3 class="tipoDeConta">Empresa</h3>
+            <button onclick="abrir()" class="btnCadastrarFuncionario">Cadastrar Funcionario</button>
+        </div>
+        <div id="divFuncionario" class="cadastroDeFuncionario">
+            <button onclick="fechar()" class="fechar">X</button>
+            <h1>Cadastrar Funcionario</h1>
+            <div class="funcLabel">
+                <p>E-mail:</p>
+                <input type="email">
+            </div>
+            <div class="funcLabel">
+                <p>Senha:</p>
+                <input type="password">
+            </div>
+            <div class="funcLabel">
+                <p>Confirmar senha:</p>
+                <input type="password">
+            </div>
+            <button class="btnCadastrar">Cadastrar</button>
+        </div>
+    </main>
+</body>
+<script src="../js/header.js"></script>
+</html>
+<script>
+    function abrir(){
+        divFuncionario.style.display = 'block'
+    }
+    function fechar(){
+        divFuncionario.style.display = 'none'
+    }
+</script>
