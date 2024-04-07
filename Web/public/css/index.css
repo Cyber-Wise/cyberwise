@@ -383,6 +383,9 @@
 }
 
 @media screen and (max-width: 1000px) {
+    .inicioBanner p {
+        display: none;
+    }
     .empresa {
         flex-wrap: wrap;
     }
@@ -434,6 +437,10 @@
 }
 
 @media screen and (max-width: 700px) {
+    .col-1_banner {
+    
+        margin-top: 0;
+    }
     .empresa .cubo {
         width: 300px;
         height: 285px;
@@ -441,6 +448,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    .inicioBanner .titulo-2 {
+        color: #f3f3f3;
+    }
     .mobileEcomputador {
         width: 300px;
     }

@@ -30,18 +30,16 @@
             <nav class="container_nav">
                 <ul>
                     <li><a href="./index.html" id="letraPreta">Home</a></li>
-                    <li><a href="./login.html" id="letraPreta4">Login</a></li>
-                    <li><a href="./cadastro.html" id="letraPreta5">Cadastro</a></li>
+                    <li><a href="./login.html">Dashboard</a></li>
                 </ul>
             </nav>
             <button id="btnMenu">
                 <i class='bx bx-menu'></i>
             </button>
-            <nav class="container_nav-mob" id="navBarMobile" style="background-color: #171A31;">
+            <nav class="container_nav-mob" id="navBarMobile" style="background-color: #141728;">
                 <ul>
                     <li><a href="./index.html">Home</a></li>
-                    <li><a href="./login.html">Login</a></li>
-                    <li><a href="./cadastro.html">Cadastro</a></li>
+                    <li><a href="./login.html">Dashboard</a></li>
                 </ul>
             </nav>
         </div>
@@ -51,11 +49,13 @@
                 <img src="../assets/Group 537.png" class="imgPerfil">
             <h2 class="nomeUser">Claudio Frizarini</h2>
             <h3 class="tipoDeConta">Empresa</h3>
-            <button onclick="abrir()" class="btnCadastrarFuncionario">Cadastrar Funcionario</button>
+            <div class="buttons">
+                <button onclick="abrir()" class="btnFuncionario">Cadastrar Funcionario<i class='bx bx-add-to-queue'></i></button>
+                <button class="btnFuncionario">Gerenciar Funcionario<i class='bx bx-cog'></i></button>
+            </div>
         </div>
         <div id="divFuncionario" class="cadastroDeFuncionario">
             <button onclick="fechar()" class="fechar">X</button>
-            <h1>Cadastrar Funcionario</h1>
             <div class="funcLabel">
                 <p>E-mail:</p>
                 <input type="email">
