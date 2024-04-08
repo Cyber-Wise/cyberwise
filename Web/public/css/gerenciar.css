@@ -1,0 +1,112 @@
+body {
+    box-sizing: border-box;
+}
+main {
+    background-color: #25294A;
+    height: 100%;
+    padding: 10px 40px;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.pesquisaDiv {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.headerGerenciar {
+
+    padding: 20px 20px;
+    background-color: #1b1e3b;
+}
+.search input {
+    background-color: transparent;
+    
+    width: 300px;
+    border: 3px solid #353c72;
+    color: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    outline: none;
+    padding: 10px 10px;
+}
+.bx-search-alt {
+    background-color: #353c72;
+    padding: 10.5px;
+}
+.search {
+    display: flex;
+    align-items: center;
+}
+.headerGerenciar p {
+    font-size: 20px;
+    color: #d7d5d5;
+    font-family: "Chakra Petch";
+
+}
+.corpoGerenciar {
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: #2a2f5c;
+    height: 500px;
+}
+.corpoGerenciar h2 {
+    color: #c2c0c0;
+    font-family: "Chakra Petch";
+    text-align: center;
+    padding: 10px;
+}
+.btnFuncionario {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    color: #d3d3d3;
+    font-weight: bold;
+}
+.bx-add-to-queue {
+    margin-left: 10px;
+}
+.cadastroDeFuncionario {
+    padding: 20px 30px;
+    width: 300px;
+    position: absolute;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    top: 26%;
+    display: none;
+    right: 15%;
+    background-color: #1b1e3b;
+}
+.fechar {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+.btnCadastrar {
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 40px;
+    font-size: 18px;
+    background-color: #1e2445;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+.funcLabel input {
+    width: calc(100% - 24px);
+    padding: 10px;
+}
