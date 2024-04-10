@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/menu_lateral.css">
     <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="../css/header_footer.css">
 </head>
@@ -50,15 +51,35 @@
         </div>
     </header>
     <main>
-        <div class="headerInformacoes">
-                <img src="../assets/Group 537.png" class="imgPerfil">
-            <h2 class="nomeUser">Claudio Frizarini</h2>
-            <h3 class="tipoDeConta">Empresa</h3>
-            <div class="buttons">
-                <a href="./gerenciarFuncionario.html" class="btnFuncionario">Gerenciar Funcionário<i class='bx bx-cog'></i></a>
+        <div class="divMenuLateral">
+            <div class="divFotoBotoes">
+                <figure>
+                    <img src="../assets/Group 534.png" alt="" class="fotoPerfil">
+                </figure>
+                <div class="TextosEmpresa-Localização">
+                    <h1>Empresa</h1>
+                    <h2>Localização</h2>
+                </div>
+                <a href="perfil.html" class="divBotaoPainel">
+                    <figure>
+                        <img src="../assets/Popup (1).png" alt="">
+                    </figure>
+                    <h2>Painel</h2>
+                </a>
+                <a href="gerenciarFuncionario.html" class="divBotaoAjustes">
+                    <figure>
+                        <img src="../assets/Control Panel.png" alt="">
+                    </figure>
+                    <h2>Ajustes</h2>
+                </a>
+            </div>
+            <div class="divBotaoSair">
+                <a href="../index.html" class="botaoSair">SAIR</a>
             </div>
         </div>
-        
+        <div class="divPerfil">
+            <h2>Gerente</h2>
+        </div>
     </main>
 </body>
 <script src="../js/header.js"></script>
