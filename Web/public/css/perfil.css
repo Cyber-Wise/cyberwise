@@ -5,7 +5,44 @@
 }
 
 .divPerfil{
-    max-width: 100%;
-    max-height: 100%;
+    width: 100vh;
+    height: 100vh;
     font-family: "Chakra Petch";
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divInformacoesGerente{
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.divInformacoes{
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #B3B8DF80;
+    margin: 20px 0;
+    color: black;
+}
+
+.divInformacao{
+    margin: 25px 0;
+}
+
+hr{
+    border: 1px solid #979797;
+}
+
+.divEditar{
+    width: 170px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #6D6E6F;
+    cursor: pointer;
 }
