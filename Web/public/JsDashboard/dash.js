@@ -1,11 +1,18 @@
     
-        function acharId(id, modelo, numSerie){
-            
-            console.log(id)
-            console.log(modelo)
-            console.log(numSerie)
-            // modeloPc.innerHTML = ""
+        function acharId(idComputador, modelo, numSerie){
+            // var model = modelo;
+            // var serie = numSerie;
+           console.log(idComputador)
+           console.log(modelo)
+        //    console.log(serie)
+           console.log(numSerie)
+           numeroSerie.innerHTML = numSerie;
+           modeloPc.innerHTML = modelo;
+
+           
     } 
+   
+ 
         function dashboardInfo() {
   
             const computadores = [{
@@ -27,6 +34,9 @@
                     id: 6,
                 modelo: "Lg",
                 numSerie: "3232"}];
+
+                
+                // console.log(computadores[0].id)
            
             // fetch("/dashboard/dadosDashboard", {
             //     method: "POST",
@@ -45,12 +55,28 @@
           
             //         resposta.json().then(json => {
                         const ul = document.getElementById('listaComputadores');
-           ;
-                        computadores.forEach((computador, pcId) => {
+                            var listaId = [];
+                            var listaNum = [];
+                            var listaModelo = [];
+                       
+           
+                        computadores.forEach((computador) => {
+                            listaId.push(computador.id);
+                            listaNum.push(computador.numSerie);
+                            listaModelo.push(computador.modelo);
+
+                            numeroSerie.innerHTML = listaNum[0];
+                            modeloPc.innerHTML = listaModelo[0];
+                            
+                            console.log(listaId, "lista de id")
                             var modelo = computador.modelo;
                             var numSerie = computador.numSerie;
-                          //var pcId = 0;
-                          pcId++;
+                            var idComputador = computador.id;
+                           // console.log(modelo)
+                           // console.log(numSerie)
+                           // console.log(idComputador)
+                            
+
                         const li = document.createElement('li');
                         li.innerHTML = `
                         <div class="computador">
@@ -61,16 +87,10 @@
                             <div class="statusVerde"></div>
                         </div>
                         </div>
-                        <button class="pointer" id="${pcId}" onclick="acharId(${pcId})">verificar</button>
+                        <button class="pointer" id="${idComputador}" onclick="acharId(${idComputador},'${modelo}', ${numSerie})">verificar</button>
                     </div>
                         `;
-                       
-                        // <div class="status">
-                        //     <p>status</p>
-                        //     <div class="statusVerde"></div>
-                        // </div>
-                       
-                        // <button>verificar</button>
+                     
           
                         ul.appendChild(li);
                     });
@@ -82,8 +102,8 @@
                         // var numSerie = json[0].numSerie;
                         
           
-                        // modeloPc.innerHTML = modelo;
-                        // numeroSerie.innerHTML = numSerie;
+                        // modeloPc.innerHTML = "modelo";
+                       
           
                     }
           
