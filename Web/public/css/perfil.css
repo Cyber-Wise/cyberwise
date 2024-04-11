@@ -1,68 +1,48 @@
 * {
     padding: 0;
     margin: 0;
+    color: White;
 }
-main {
-    background-color: #25294A;
+
+.divPerfil{
+    width: 100vh;
     height: 100vh;
+    font-family: "Chakra Petch";
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.headerInformacoes {
+
+.divInformacoesGerente{
+    width: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to bottom, #141728 30%, transparent 30%);
-    gap: 20px;
-    align-items: center ;
-    width: 70%;
-    margin: 0 auto;
 }
-.imgPerfil {
-    width: 185px;
-    height: 185px;
-    border-radius: 100px;
-}
-.nomeUser {
-    font-family: "Chakra Petch";
 
-    color: #C8C8C8;
-    font-size: 35px;
-}
-.tipoDeConta {
-    font-family: "Chakra Petch";
-
-    color: #C8C8C8;
-    font-size: 25px;
-}
-.btnFuncionario {
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    background-color: rgb(28, 33, 58);
+.divInformacoes{
+    padding: 5px;
     border: none;
-    color: #fff;
-    font-weight: bold;
-    transition: 0.5s;
-}
-.bx {
-    margin-left: 10px;
-}
-.funcLabel {
-    margin-top: 20px;
-}
-.funcLabel p {
-    color: #C8C8C8;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-}
-.funcLabel input {
-    width: calc(100% - 24px);
-    padding: 10px;
+    border-radius: 10px;
+    background-color: #B3B8DF80;
+    margin: 20px 0;
+    color: black;
 }
 
-.buttons {
-  
+.divInformacao{
+    margin: 25px 0;
+}
+
+hr{
+    border: 1px solid #979797;
+}
+
+.divEditar{
+    width: 170px;
+    height: 35px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #6D6E6F;
+    cursor: pointer;
 }
