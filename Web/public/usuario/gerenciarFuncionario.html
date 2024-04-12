@@ -30,8 +30,8 @@
             <nav class="container_nav">
             
             <ul>
-                    <li><a href="./index.html" id="letraPreta">Home</a></li>
-                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="../index.html" id="letraPreta">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
                     <li><a href="./perfil.html">Perfil</a></li>
                 </ul>
             </nav>
@@ -96,109 +96,16 @@
                               <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
                               <div class="botaosGerenciar">
                                   <button><i class='bx bx-trash-alt'></i></button>
-                                  <button><i class='bx bxs-edit-alt'></i></button>
-                              </div>
-                          </li>
-                          <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
-
-                        <li>
-                              <p class="funcionarioNome">Claudio Frizza</p>
-                              <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                              <div class="botaosGerenciar">
-                                  <button><i class='bx bx-trash-alt'></i></button>
-                                  <button><i class='bx bxs-edit-alt'></i></button>
+                                  <button onclick="abrirEditar()"><i class='bx bxs-edit-alt'></i></button>
                               </div>
                           </li>
                           
-                          <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li><li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li><li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li><li>
-                            <p class="funcionarioNome">Claudio Frizza</p>
-                            <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
-                            <div class="botaosGerenciar">
-                                <button><i class='bx bx-trash-alt'></i></button>
-                                <button><i class='bx bxs-edit-alt'></i></button>
-                            </div>
-                        </li>
                       </ul>
                     </div> 
             </div>
             <div id="divFuncionario" class="cadastroDeFuncionario">
                 <button onclick="fechar()" class="fechar">X</button>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar de Funcionários</h2>
                 <div class="funcLabel">
                     <p>Nome:</p>
                     <input type="text">
@@ -217,6 +124,27 @@
                 </div>
                 <button class="btnCadastrar">Cadastrar</button>
             </div>
+            <div id="editarFuncionario" class="cadastroDeFuncionario">
+                <button onclick="fecharEditar()" class="fechar">X</button>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionários</h2>
+                <div class="funcLabel">
+                    <p>Nome:</p>
+                    <input type="text">
+                </div>
+                <div class="funcLabel">
+                    <p>E-mail:</p>
+                    <input type="email">
+                </div>
+                <div class="funcLabel">
+                    <p>Senha:</p>
+                    <input type="password">
+                </div>
+                <div class="funcLabel">
+                    <p>Confirmar senha:</p>
+                    <input type="password">
+                </div>
+                <button class="btnCadastrar">Atualizar Funcionário</button>
+            </div>
         </div>
     </main>
 </body>
@@ -230,5 +158,13 @@
     function fechar(){
         sumiuPesquisa.style.display = 'block'
         divFuncionario.style.display = 'none'
+    }
+    function abrirEditar(){
+        sumiuPesquisa.style.display = 'none'
+        editarFuncionario.style.display = 'block'
+    }
+    function fecharEditar(){
+        sumiuPesquisa.style.display = 'block'
+        editarFuncionario.style.display = 'none'
     }
 </script>

@@ -95,12 +95,12 @@ main {
     text-align: center;
     padding: 10px;
     width: 100%;
-    border: 1px solid #6D6E6F;
+    border: 1px solid #c7c7c7;
     cursor: pointer;
     border-radius: 40px;
     font-size: 18px;
     background-color: transparent;
-    color: #fff;
+    color: #c7c7c7;
 }
 .funcLabel {
     margin-top: 20px;
