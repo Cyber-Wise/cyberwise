@@ -3,6 +3,16 @@
     margin: 0;
     color: White;
 }
+body {
+    height: 100%;
+}
+main {
+    font-family: "Chakra Petch";
+    background-color: #25294A;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+}
 
 .divPerfil{
     width: 100vh;

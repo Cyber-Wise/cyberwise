@@ -1,18 +1,13 @@
-
 main {
     font-family: "Chakra Petch";
-    background-color: #25294A;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
 }
 
 .divMenuLateral{
     width: 220px;
-    height: 100%;
     border-right: 1px solid #4A4A4A;
     color: white;
     /* background-color: red; */
+    height: 86vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,9 +25,10 @@ main {
     padding-bottom: 15px;
     width: 100%;
     margin-top: 50px;
+    font-size: 12px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     border-top: 1px solid #4A4A4A;
     cursor: pointer;
@@ -44,10 +40,11 @@ main {
     padding-top: 10px;
     padding-bottom: 15px;
     width: 100%;
+    font-size: 12px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     border-top: 1px solid #4A4A4A;
     cursor: pointer;
     text-decoration: none;
@@ -64,7 +61,12 @@ main {
     align-items: center;
     justify-content: center;
 }
-
+.TextosEmpresa-Localização h1 {
+    font-size: 25px;
+}
+.TextosEmpresa-Localização h2 {
+    font-size: 20px;
+}
 .fotoPerfil{
     max-width: 100%;
     height: 200px;
