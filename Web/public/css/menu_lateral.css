@@ -6,6 +6,7 @@ main {
     width: 220px;
     border-right: 1px solid #4A4A4A;
     color: white;
+    position: fixed;
     /* background-color: red; */
     height: 100vh;
     display: flex;
@@ -35,10 +36,25 @@ main {
     text-decoration: none;
     color: white;
 }
-
+.bx-calendar-edit {
+    font-size: 35px;
+    padding-right: 3px;
+}
+.divBotaoDash {
+   padding-top:15px;
+   padding-bottom:15px;
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    border-top: 1px solid #4A4A4A;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
 .divBotaoAjustes{
-    padding-top: 10px;
-    padding-bottom: 15px;
     width: 100%;
     font-size: 12px;
     display: flex;

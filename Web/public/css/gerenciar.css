@@ -7,6 +7,9 @@ main {
     background-color: #25294A;
     height: 100vh;
 }
+.divMenuLateral{
+    position: sticky;
+}
 .container {
     width: 80%;
     margin: 0 auto;

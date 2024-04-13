@@ -15,7 +15,9 @@ main {
     background-color: #25294A;
     /* overflow: auto; */
     display: flex;
-    height: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
     flex-direction: row;
 }
 

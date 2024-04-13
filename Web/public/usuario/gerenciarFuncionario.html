@@ -22,33 +22,7 @@
 </head>
 
 <body>
-    <header class="cabecalho" style="background-color: #141728;">
-        <div class="container_cabecalho">
-            <div class="container_logo">
-                <img src="../assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
-            </div>
-            <nav class="container_nav">
-            
-            <ul>
-                    <li><a href="../index.html" id="letraPreta">Home</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="./perfil.html">Perfil</a></li>
-                </ul>
-            </nav>
-            
-            <button id="btnMenu">
-                <i class='bx bx-menu'></i>
-            </button>
-            <nav class="container_nav-mob" id="navBarMobile" style="background-color: #141728;">
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./dashboard.html">Dashboard</a></li>
-                    <li><a href="./perfil.html">Perfil</a></li>
-                    
-                </ul>
-            </nav>
-        </div>
-    </header>
+    
     <main>
         <div class="divMenuLateral">
             <div class="divFotoBotoes">
@@ -65,11 +39,18 @@
                     </figure>
                     <h2>Painel</h2>
                 </a>
+                
                 <a href="gerenciarFuncionario.html" class="divBotaoAjustes">
                     <figure>
                         <img src="../assets/Control Panel.png" alt="">
                     </figure>
                     <h2>Funcionários</h2>
+                </a>
+                <a href="dashboard.html" class="divBotaoDash">
+                    <figure>
+                        <i class='bx bx-calendar-edit'></i>
+                    </figure>
+                    <h2>Dashboard</h2>
                 </a>
             </div>
             <div class="divBotaoSair">
@@ -105,7 +86,7 @@
             </div>
             <div id="divFuncionario" class="cadastroDeFuncionario">
                 <button onclick="fechar()" class="fechar">X</button>
-                <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar de Funcionários</h2>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar de Funcionário</h2>
                 <div class="funcLabel">
                     <p>Nome:</p>
                     <input type="text">
@@ -126,7 +107,7 @@
             </div>
             <div id="editarFuncionario" class="cadastroDeFuncionario">
                 <button onclick="fecharEditar()" class="fechar">X</button>
-                <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionários</h2>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
                 <div class="funcLabel">
                     <p>Nome:</p>
                     <input type="text">
