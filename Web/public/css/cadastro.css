@@ -18,11 +18,11 @@ body {
     backdrop-filter: blur(2px);
     display: flex;
     width: 500px;
-    height: 700px;
+    height: 500px;
     flex-direction: column;
     text-align: center;
     margin: 100px auto auto 200px;
-    margin-top: 100px;
+    margin-top: 60px;
     padding: 20px 0 20px 0;
     position: relative;
     border: 1px solid white;
@@ -76,6 +76,7 @@ body {
     color: white;
     background-color: #979797;
     border: none;
+    cursor: pointer;
     text-decoration: bold;
 
 }
