@@ -3,20 +3,29 @@
     margin: 0;
     color: White;
 }
+html{
+    background-color: #25294A;
+}
 body {
     height: 100%;
+    background-color: #25294A;
 }
 main {
     font-family: "Chakra Petch";
     background-color: #25294A;
-    overflow: auto;
+    /* overflow: auto; */
     display: flex;
+    height: 100%;
     flex-direction: row;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .divPerfil{
     width: 100vh;
-    height: 100vh;
+    height: 100%;
     font-family: "Chakra Petch";
     display: flex;
     align-items: center;
@@ -55,4 +64,16 @@ hr{
     border-radius: 10px;
     border: 1px solid #6D6E6F;
     cursor: pointer;
+}
+
+.infoEmpresa{
+    margin-top: 50px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vh;
+    height: 125px;
+    background-color: #323868;
 }
