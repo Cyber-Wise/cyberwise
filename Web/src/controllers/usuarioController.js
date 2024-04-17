@@ -54,24 +54,33 @@ function autenticar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
+    var nomeEmpresa = req.body.nomeEmpresaServer;
+    var nomeAdm = req.body.nomeAdmServer;
+    var cnpj = req.body.cnpjServer;
+    var telefone = req.body.telefoneServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var cnpj = req.body.cnpjServer;
 
+    console.log('Nome adm usuario controler fora do if ===>', nomeAdm);
     // Faça as validações dos valores
-    if (nome == undefined) {
+    if (nomeEmpresa == undefined) {
         res.status(400).send("Seu nome está undefined!");
+    } else if (nomeAdm == undefined) {
+        res.status(400).send("Nome da conta está undefined!");
+    } else if (telefone == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    }  
+    else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else if (cnpj == undefined) {
-        res.status(400).send("Sua empresa está undefined!");
+        res.status(400).send("Seu cnpj está undefined!");
     } else {
+        console.log('Nome adm usuario controler dentro do if ===>', nomeAdm);
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, cnpj)
+        usuarioModel.cadastrarEmpresa(nomeEmpresa, telefone, cnpj),
+        usuarioModel.cadastrarFuncionario(nomeAdm, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);

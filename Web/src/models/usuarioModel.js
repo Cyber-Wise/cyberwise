@@ -1,7 +1,6 @@
 var database = require("../database/config")
 
 function autenticar(email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
         SELECT id, nome, email, fk_empresa FROM funcionario WHERE email = '${email}' AND senha = '${senha}';
     `;
@@ -9,20 +8,31 @@ function autenticar(email, senha) {
     return database.executar(instrucao);
 }
 
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, email, senha, cnpj) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
+
+function cadastrarEmpresa(nomeEmpresa, telefone, cnpj) {
+
     var instrucao = `
-        INSERT INTO empresa (nome, email, senha, cnpj) VALUES ('${nome}', '${email}', '${senha}', '${cnpj}');
+        INSERT INTO empresa (nome, telefone, cnpj) VALUES ('${nomeEmpresa}', '${telefone}', '${cnpj}');
+
     `;
+    
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+    
 }
+
+function cadastrarFuncionario(nomeAdm, email, senha){
+    console.log('Nome adm usuario model ===>', nomeAdm);
+        var instrucao = `
+            INSERT INTO funcionario (nome, email, senha, fk_cargo) VALUES ('${nomeAdm}', '${email}', '${senha}', 1);
+        `;
+        
+        console.log("Executando a instrução SQL: \n" + instrucao);
+        return database.executar(instrucao);
+    }
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrarEmpresa,
+    cadastrarFuncionario
 };

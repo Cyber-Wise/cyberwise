@@ -77,7 +77,7 @@
     <input type="checkbox" class="checkbox"><p>Concordo com os <a href="termos.html" class="texto_termos">termos de serviço</a> e a <a href="politicas.html" class="texto_termos">política de privacidade</a>.</p>
   </div>
   <div class="container_botao_cadastrar">
-    <button class="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
+    <button class="botao_cadastro" onclick="gerarConta()">Cadastrar</button>
   </div>
 </div>
 </body>
@@ -85,58 +85,57 @@
 </html>
 
 <script>
-  function cadastrar() {
-    //aguardar();
 
+    function gerarSenha(nomeEmpresa) {
+    var numeros = `${nomeEmpresa}`;
+    for (var i = 0; i < 6; i++) {
+      numeros += Math.floor(Math.random() * 10); // Intervalo de 0 a 9
+    }
+    return numeros;
+  }
+
+  function gerarConta(){
     var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var cnpjVar = cnpj_input.value
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var cnpjVar = cnpj_input.value;
+    var telefoneVar = telefone_input.value;
+
     if (
       nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
+      telefoneVar == "" ||
       cnpjVar == ""
     ) {
-      // cardErro.style.display = "block";
-      
-       alert("Mensagem de erro para todos os campos em branco");
-
-      // finalizarAguardar();
-      return false;
+      alert("Preencha todos os campos.");
     } 
-    if(senhaVar != confirmacaoSenhaVar){
-      alert("Senhas diferentes");
+    else{
+      var emailAdm = `${nomeVar}@cyberwise42.com`;
+      var nomeAdm = `${nomeVar} administrador`
+      var senhaVar  = gerarSenha(nomeVar);
+      
+      alert(emailAdm, senhaVar);
+      
+      console.log('Email gerado ===>',emailAdm);
+      console.log('Senha gerada ===>', senhaVar);
+      console.log('Nome Adm ===>', nomeAdm);
 
-      // finalizarAguardar();
-      return false;
-    }
-    else {
-      setInterval(5000);
-    }
-
-    // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
+        nomeEmpresaServer: nomeVar,
+        nomeAdmServer : nomeAdm,
+        cnpjServer: cnpjVar,
+        telefoneServer : telefoneVar,
+        emailServer : emailAdm,
         senhaServer: senhaVar,
-        cnpjServer: cnpjVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          // cardErro.style.display = "block";
+          
 
            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
@@ -145,36 +144,19 @@
           }, "2000");
 
           limparFormulario();
-          // finalizarAguardar();
+         
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
       });
 
     return false;
+    }
+
   }
 
-  // function listar() {
-  //   fetch("/empresas/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resposta) {
-  //       resposta.json().then((empresas) => {
-  //         empresas.forEach((empresa) => {
-  //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
 
-  // function sumirMensagem() {
-  //   cardErro.style.display = "none";
-  // }
 </script>
