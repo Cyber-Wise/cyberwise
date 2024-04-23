@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="icon" href="../assets/logoCWpreta.png" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashGeral.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
+    <title>CyberWise | Dashboard</title>
+</head>
+<body>
+    <div class="menuLateral">
+        <header>
+            <img src="../assets/logoCWbranca.png" alt="">
+            <a href="./perfil.html"><i class='bx bxs-user'></i></a>
+        </header>
+        <div class="notification">
+            <i class='bx bxs-bell-ring' ></i>
+            <ul>
+                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
+                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
+                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
+                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
+                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
+            </ul>
+        </div>
+        <div id="informationBox" class="boxInformationAlerts">
+            <div class="information"><i class='bx bx-laptop emergencia'></i><p class="nomeInfo">Emergência</p></div>
+            <div class="information"><i class='bx bx-laptop alerta'></i><p class="nomeInfo">Alerta</p></div>
+            <div class="information"><i class='bx bx-laptop normal'></i><p class="nomeInfo">Normal</p></div>
+        </div>
+        <div class="listaDeComputadores">
+            <div class="boxFiltro">
+                
+            </div>
+            
+            <header>
+                <button class="filtro">filtrar<i class='bx bxs-right-arrow'></i></button>
+                <button onclick="infoFiltro()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
+            </header>
+            
+            <ul>
+                <li>
+                    <i class='bx bx-laptop emergencia'></i>
+                    <div class="descricaoPc">
+                        <p class="nomePc">nome pc 1</p>
+                        <p class="componentePc">CPU modelo</p>
+                    </div>
+                    <button class="btnVerificar">Verificar</button>
+                </li>
+                <li>
+                    <i class='bx bx-laptop alerta'></i>
+                    <div class="descricaoPc">
+                        <p class="nomePc">nome pc 1</p>
+                        <p class="componentePc">CPU modelo</p>
+                    </div>
+                    <button class="btnVerificar">Verificar</button>
+                </li>
+                <li>
+                    <i class='bx bx-laptop alerta'></i>
+                    <div class="descricaoPc">
+                        <p class="nomePc">nome pc 1</p>
+                        <p class="componentePc">CPU modelo</p>
+                    </div>
+                    <button class="btnVerificar">Verificar</button>
+                </li>
+                <li>
+                    <i class='bx bx-laptop emergencia'></i>
+                    <div class="descricaoPc">
+                        <p class="nomePc">nome pc 1</p>
+                        <p class="componentePc">CPU modelo</p>
+                    </div>
+                    <button class="btnVerificar">Verificar</button>
+                </li>
+                <li>
+                    <i class='bx bx-laptop normal'></i>
+                    <div class="descricaoPc">
+                        <p class="nomePc">nome pc 1</p>
+                        <p class="componentePc">CPU modelo</p>
+                    </div>
+                    <button class="btnVerificar">Verificar</button>
+                </li>
+
+                <li>
+                    <i class='bx bx-laptop normal'></i>
+                    <div class="descricaoPc">
+                        <p class="nomePc">nome pc 1</p>
+                        <p class="componentePc">CPU modelo</p>
+                    </div>
+                    <button class="btnVerificar">Verificar</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="dashboard">
+        <h2 class="titulo">DASHBOARD GERAL</h2>
+        <div class="container">
+            <div class="item1">
+                <h3 class="tituloCards">20</h3>
+                <p class="descricaoCards">Máquinas</p>
+            </div>
+            <div class="item2">
+                <h3 class="tituloCards">80%</h3>
+                <p class="descricaoCards">Máquinas com pouco espaço</p>
+            </div>
+            <div class="item3">
+                <h3 class="tituloCards">5%</h3>
+                <p class="descricaoCards">Máquinas com pouco memória RAM</p>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="item4">
+                <h3 class="tituloCards">80%</h3>
+                <p class="descricaoCards">Máquinas com pouco espaço</p>
+                <button class="btnVerMais">Ver mais</button>
+            </div>
+            <div class="item5">
+                <h3 class="tituloCards">5%</h3>
+                <p class="descricaoCards">Máquinas com pouco memória RAM</p>
+                <button class="btnVerMais">Ver mais</button>
+            </div>
+        </div>
+        <div class="container3">
+            <div class="item6">
+                <table>
+                    <thead>
+                      <tr>
+                        <th>modelo</th>
+                        <th>qtd alertas cpu</th>
+                        <th>memoria</th>
+                        <th>disco</th>
+                      </tr>
+                    </thead>
+                    
+                  </table>
+            </div>
+            <div class="subContainer">
+                <div class="item7">
+
+                </div>
+                <div class="item8">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function infoFiltro() {
+    
+        // Supondo que "informationBox" seja o ID do elemento que você deseja exibir/ocultar
+        var informationBox = document.getElementById("informationBox");
+    
+        if (informationBox.style.display === "none" || informationBox.style.display === "") {
+            informationBox.style.display = 'block';
+        } else {
+            informationBox.style.display = 'none';
+        }
+    }
+</script>
