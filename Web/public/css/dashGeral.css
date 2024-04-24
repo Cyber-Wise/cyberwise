@@ -33,9 +33,6 @@ body {
     width: 90%;
     margin: 0 auto;
     overflow-y: scroll;
-    scrollbar-width: thin; /* thin, auto, etc. */
-    scrollbar-color: #1c1f36 #2d325a00;
-  /* thumb cor, track cor */
     overflow-x: hidden;
     border-radius: 20px;
     height: 216px;
@@ -66,8 +63,8 @@ body {
     width: 90%;
     margin: 0 auto;
     overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: #1c1f36 #2d325a00;
+    /* scrollbar-width: thin; */
+    /* scrollbar-color: #1c1f36 #2d325a00; */
     /* thumb cor, track cor */
     overflow-x: hidden;
     border-radius: 20px;
@@ -179,7 +176,7 @@ body {
     margin-bottom: 10px;
     display: grid;
     gap: 10px;
-    grid-template-rows: 190px; /* Duas linhas de altura 100px e 200px */
+    grid-template-rows: 210px; /* Duas linhas de altura 100px e 200px */
     grid-template-columns: 1fr 1fr;     
 }
 .dashboard .container3 {
@@ -199,7 +196,6 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    gap: 10px;
     font-family: "Chakra Petch";
     color: #fff;
     justify-content: center;
@@ -264,3 +260,15 @@ body {
 .item6 th {
     font-size: 20px;
 }
+::-webkit-scrollbar {
+    width: 10px; /* largura da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f100; /* cor de fundo da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #c9c9c9; /* cor da barra de rolagem */
+  }
