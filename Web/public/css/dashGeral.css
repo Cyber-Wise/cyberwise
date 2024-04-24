@@ -79,10 +79,11 @@ body {
     border: none;
     cursor: pointer;
 }
-.bxs-right-arrow {
+.bxs-right-arrow, .bxs-down-arrow {
     margin-left: 10px;
     font-size: 15px;
 }
+
 .bx-info-circle {
     color: #5347ff;
     font-size: 20px;
@@ -271,4 +272,20 @@ body {
   ::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background: #c9c9c9; /* cor da barra de rolagem */
+  }
+ .filtro {
+    gap: 10px;
+    align-items: center;
+    display: flex;
+ }
+  .boxFiltros select {
+    border: none;
+    background-color: #262b4d;
+    color: #fff;
+    outline: none;
+    padding: 5px 20px;
+  }
+  .boxFiltros option {
+    padding: 20px;
+
   }

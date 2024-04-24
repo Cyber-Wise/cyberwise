@@ -82,7 +82,9 @@
     margin-top: 30px;
     color: #D7F9FF;
 }
-
+.mobileTxt {
+    display: none;
+}
 .inicioBanner .titulo-2 {
     color: #47658C;
 
@@ -102,13 +104,13 @@
 }
 
 .containerPrincipal .titulo-1 {
-    font-family: "Roboto";
+    font-family: "Chakra Petch";
     font-size: 30px;
     color: #000;
 }
 
 .containerPrincipal .titulo-2 {
-    font-family: "Roboto";
+    font-family: "Chakra Petch";
     font-size: 30px;
     color: #00A2FF;
 }
@@ -400,6 +402,7 @@
     }
 
     .containerPrincipal {
+        justify-content: center;
         flex-wrap: wrap;
     }
 
@@ -453,6 +456,19 @@
     }
     .mobileEcomputador {
         width: 300px;
+    }
+    .mobile {
+        display: none;
+    }
+    
+    /* .mobileTxt {
+        display: block;
+        margin-top: 20px;
+        font-family: "Chakra Petch";
+        font-size: 20px;
+    } */
+    .cards {
+        gap: 20px;
     }
 }
 

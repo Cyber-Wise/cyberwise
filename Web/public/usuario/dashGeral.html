@@ -33,13 +33,17 @@
             <div class="information"><i class='bx bx-laptop alerta'></i><p class="nomeInfo">Alerta</p></div>
             <div class="information"><i class='bx bx-laptop normal'></i><p class="nomeInfo">Normal</p></div>
         </div>
+        
         <div class="listaDeComputadores">
-            <div class="boxFiltro">
-                
-            </div>
-            
+         
             <header>
-                <button class="filtro">filtrar<i class='bx bxs-right-arrow'></i></button>
+                <button onclick="abrirFiltros()" class="filtro">filtrar<div id="boxFiltros" class="boxFiltros">
+                    <select name="" id="">
+                        <option class="btnOption"  value="">Emergência</option>
+                        <option class="btnOption" value="">Alerta</option>
+                        <option class="btnOption" value="">Normal</option>
+                    </select>
+                </div></button>
                 <button onclick="infoFiltro()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
             </header>
             
@@ -153,7 +157,7 @@
 <script src="../JsDashboard/dashGeral.js"></script>
 <script>
     function infoFiltro() {
-    
+        boxFiltros
         // Supondo que "informationBox" seja o ID do elemento que você deseja exibir/ocultar
         var informationBox = document.getElementById("informationBox");
     
@@ -162,5 +166,7 @@
         } else {
             informationBox.style.display = 'none';
         }
+
     }
+    
 </script>
