@@ -14,7 +14,10 @@
 </head>
 <body onload="dashboardInfo()">
     <div class="menuLateral">
+      <header>
         <img src="../assets/logoCWbranca.png" alt="">
+        <a href="./perfil.html"><i class='bx bxs-user'></i></a>
+    </header>
         <div class="caixaInformacoesComputador">
             <h2 class="titulosCaixas">informações do computador</h2> <br>
             <h2 class="titulosCaixas">Modelo: <span id="modeloPc"> default</span></h2>
@@ -27,13 +30,6 @@
         
     </div>
     <div class="conteudo">
-        <header>
-            <a href="perfil.html"><i class='bx bxs-home'></i></a>
-            <div class="user">
-                <img src="../assets/Group 537.png" style="border-radius: 100%;" alt="" height="50px" width="50px">
-                <h1 class="userNome"><span id="nomeUsuario"> Nome do usuário</span></h1>
-            </div>
-        </header>
         <div class="listaEgraficos">
             <div class="graficos">
                 <div class="graficosEsquerda">
@@ -79,7 +75,6 @@
 <script>
 
 
-    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
     var empresa = sessionStorage.empresa;
 
     // const ctx = document.getElementById('myChart');

@@ -11,20 +11,20 @@ body {
     gap: 20px;
     align-items: center;
 }
-header {
-    width: 90%;
-    padding: 10px;
-    margin: 0 auto;
+.menuLateral header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
-header a {
+.menuLateral header img {
+    width: 50px;
+}
+.menuLateral header a {
+    font-size: 20px;
+    color: white;
     text-decoration: none;
-}
-header .bxs-home  {
-    color: #fff;
-    font-size: 27px;
 }
 .userNome {
     font-size: 16px;
@@ -36,7 +36,7 @@ header .bxs-home  {
     padding: 20px;
     background-color: #202442;
     width: 20%;
-    height: 95vh;
+    height: calc(100vh - 40px);
     scrollbar-color: #1c1f36 #2D325A;
     
     overflow: auto;
@@ -89,6 +89,7 @@ text-align: center;
     font-family: "Chakra Petch";
 }
 .conteudo {
+    margin-top: 40px;
     width: calc(80% - 10px);
     padding: 10px;
 }

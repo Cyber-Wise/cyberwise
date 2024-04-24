@@ -8,9 +8,9 @@ body {
 }
 .menuLateral {
     padding: 20px;
-    width: 22%;
+    width: 26%;
     height: calc(100vh - 40px);
-    background-color: #141728;
+    background-color: #202442;
 }
 .menuLateral header {
     display: flex;
@@ -34,7 +34,8 @@ body {
     margin: 0 auto;
     overflow-y: scroll;
     scrollbar-width: thin; /* thin, auto, etc. */
-  scrollbar-color: darkgrey rgba(211, 211, 211, 0); /* thumb cor, track cor */
+    scrollbar-color: #1c1f36 #2d325a00;
+  /* thumb cor, track cor */
     overflow-x: hidden;
     border-radius: 20px;
     height: 216px;
@@ -66,7 +67,8 @@ body {
     margin: 0 auto;
     overflow-y: scroll;
     scrollbar-width: thin;
-    scrollbar-color: darkgrey rgba(211, 211, 211, 0); /* thumb cor, track cor */
+    scrollbar-color: #1c1f36 #2d325a00;
+    /* thumb cor, track cor */
     overflow-x: hidden;
     border-radius: 20px;
     height: 300px;
@@ -136,8 +138,9 @@ body {
     display: none;
 }
 .boxInformationAlerts {
+    border-right: 1px solid white;
     position: absolute;
-    left: 21.5%;
+    left: 19%;
     padding: 20px;
     background-color: #2D325A;
     border-top-right-radius: 20px;
@@ -155,6 +158,7 @@ body {
     padding: 0 30px;
 }
 .titulo {
+    margin-top: 10px;
     font-size: 30px;
     color: #fff;
     font-family: "Chakra Petch";
