@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="../css/dashGeral.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
-    <title>CyberWise | Dashboard</title>
+    <title>CyberWise | Dashboard Geral</title>
 </head>
-<body>
+<body onload="dashboardInfo()">
     <div class="menuLateral">
         <header>
             <img src="../assets/logoCWbranca.png" alt="">
@@ -43,8 +43,8 @@
                 <button onclick="infoFiltro()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
             </header>
             
-            <ul>
-                <li>
+            <ul id="listaFiltroPc">
+                <!-- <li>
                     <i class='bx bx-laptop emergencia'></i>
                     <div class="descricaoPc">
                         <p class="nomePc">nome pc 1</p>
@@ -92,7 +92,7 @@
                         <p class="componentePc">CPU modelo</p>
                     </div>
                     <button class="btnVerificar">Verificar</button>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -150,6 +150,7 @@
     </div>
 </body>
 </html>
+<script src="../JsDashboard/dashGeral.js"></script>
 <script>
     function infoFiltro() {
     

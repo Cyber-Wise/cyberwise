@@ -36,7 +36,6 @@
                 numSerie: "3232"}];
 
                 
-                // console.log(computadores[0].id)
            
             // fetch("/dashboard/dadosDashboard", {
             //     method: "POST",
@@ -106,7 +105,9 @@
                        
           
                     }
-          
+      
+                    
+
                 // );
 
     //         } 
