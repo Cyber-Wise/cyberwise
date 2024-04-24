@@ -23,9 +23,30 @@
             <h2 class="titulosCaixas">Modelo: <span id="modeloPc"> default</span></h2>
             <h2 class="titulosCaixas">Numero de serie: <span id="numeroSerie"> default</span></h2>
         </div>
-    
+        <div id="informationBox" class="boxInformationAlerts">
+          <div class="information"><span style="border-radius: 100%;" class="emergencia"></span><p class="nomeInfo">Emergência</p></div>
+          <div class="information"><span class="alerta"></span><p class="nomeInfo">Alerta</p></div>
+          <div class="information"><span class="normal"></span><p class="nomeInfo">Normal</p></div>
+      </div>
         <div class="caixaAnalytics">
-            <h2 class="titulosCaixas">Analytics</h2>
+          
+            <header>
+              <h2 class="titulosCaixas">Analytics</h2>
+              <button onclick="abrirFiltro()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
+            </header>
+            <div class="informacoes">
+              <span class="emergencia"></span><p class="infoTitulo">50%</p><p>de uso da memoria RAM</p>
+            </div>
+            <div class="informacoes">
+              <span class="alerta"></span><p class="infoTitulo">20%</p><p>de uso da CPU</p>
+            </div>
+            <div class="informacoes">
+              <span class="normal"></span><p class="infoTitulo">50%</p><p>de uso do DISCO</p>
+            </div>
+            <div class="informacoes">
+              <span class="emergencia"></span><p class="infoTitulo">50</p><p>mbs enviados</p>
+            </div>
+            <p class="analyticsDescricao">Dados coletados no <span>14/02/2025</span> as <span>14:15</span></p>
         </div>
         
     </div>
@@ -73,6 +94,15 @@
 <!-- <script src="../../node_modules/chart.js/auto"></script> -->
 
 <script>
+ function abrirFiltro(){
+  var informationBox = document.getElementById("informationBox");
+  
+  if (informationBox.style.display === "none" || informationBox.style.display === "") {
+      informationBox.style.display = 'block';
+  } else {
+      informationBox.style.display = 'none';
+  }
+ }
 
 
     var empresa = sessionStorage.empresa;
@@ -161,4 +191,6 @@ new Chart(ctx2,{
         },
        }
     );
+    
+  
 </script>

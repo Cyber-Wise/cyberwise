@@ -67,7 +67,7 @@ body {
     margin: 10px auto;
     background-color: #2D325A;
     border-radius: 20px;
-    height: 70px;
+    
     padding: 10px;
 }
 .caixaDisco {
@@ -207,4 +207,73 @@ text-align: center;
 .pointer {
     cursor: pointer;
 
+}
+.caixaAnalytics .informacoes {
+    margin-top: 20px;
+    font-family: "Chakra Petch";
+    font-weight: bold;
+    gap: 4px;
+    color: #fff;
+    
+    display: flex;
+    align-items: center;
+} 
+.infoTitulo {
+    width: 70px;
+    font-size: 30px;
+}
+
+.emergencia {
+    padding: 10px;
+    background-color: rgb(255, 0, 0);
+}
+.normal {
+    padding: 10px;
+
+    background-color: rgb(0, 255, 0);
+}
+.alerta {
+    padding: 10px;
+
+    background-color: yellow;
+}
+.informacoes .emergencia, .normal, .alerta {
+    border-radius: 100%;
+    margin-right: 10px;
+    /* padding: 10px; */
+    /* background-color: aqua; */
+}
+.analyticsDescricao {
+    margin-top: 20px;
+    font-family: "Chakra Petch";
+    color: #c9c9c9;
+}
+.infoFiltro {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.bx-info-circle {
+    color: #5347ff;
+    font-size: 20px;
+}
+
+
+.boxInformationAlerts {
+    display: none;
+    border-right: 1px solid white;
+    position: absolute;
+    left: 19.9%;
+    padding: 20px;
+    background-color: #2D325A;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.boxInformationAlerts .information {
+    margin-top: 10px;
+    display: flex;
+    color: #fff;
+    font-family: "Chakra Petch";
+    
+    gap: 20px;
 }
