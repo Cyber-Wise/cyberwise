@@ -1,0 +1,65 @@
+.cabecalho {
+    width: 100%;
+    background-color: #000000;
+    
+}
+.container_cabecalho {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo_img {
+    width: 100px;
+}
+
+.container_nav ul li {
+    
+    display: inline-block;
+}
+.container_nav ul li a, .container_nav-mob ul li a {
+    padding: 10px 20px;
+    font-family: "Chakra Petch";
+    color: #fff;
+    position: relative;
+    font-size: 18px;
+    text-decoration: none;
+}
+.container_nav ul li a::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: #488cd3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+    width: 0;
+}
+.container_nav ul li a:hover::after {
+    width: 100%;
+
+}
+#btnMenu {
+    display: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #fff;
+    font-size: 40px;
+}
+
+.container_nav-mob {
+    display: none;
+    z-index: 100;
+    background-color: #000000;
+    padding: 10px;
+    position: absolute;
+    right: 7%;
+    top: 10%;
+}
+.container_nav-mob ul li {
+    margin-bottom: 20px;
+    list-style: none;
+}

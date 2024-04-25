@@ -19,82 +19,109 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/menu_lateral.css">
     <script src="./js/sessao.js"></script>
-    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/headerPerfil.css">
 </head>
 
 <body>
-   
+    <header class="cabecalho" style="background-color: #141728;">
+        <div class="container_cabecalho">
+            <div class="container_logo">
+                <img src="../assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
+            </div>
+            <nav class="container_nav">
+                <ul>
+                  <li><a href="../index.html" id="letraPreta">Home</a></li>
+                  <li><a href="./dashGeral.html" id="letraPreta4">Dashboard</a></li>
+                  <li><a href="./perfil.html" id="letraPreta5">Conta</a></li>
+                </ul>
+            </nav>
+            <button id="btnMenu">
+                <i class='bx bx-menu'></i>
+            </button>
+            <nav class="container_nav-mob" id="navBarMobile">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./login.html">Login</a></li>
+                    <li><a href="./cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <main>
-        <div class="divMenuLateral">
-            <div class="divFotoBotoes">
-                <figure>
-                    <img src="../assets/Group 534.png" alt="" class="fotoPerfil">
-                </figure>
-                <div class="TextosEmpresa-Localização">
-                    <h1>Empresa</h1>
-                    <h2>Localização</h2>
-                </div>
-                
-                <a href="perfil.html" class="divBotaoPainel">
-                    <figure>
-                        <img src="../assets/Popup (1).png" alt="">
-                    </figure>
-                    <h2>Painel</h2>
-                </a>
-                
-                <a href="gerenciarFuncionario.html" class="divBotaoAjustes">
-                    <figure>
-                        <img src="../assets/Control Panel.png" alt="">
-                    </figure>
-                    <h2>Funcionários</h2>
-                </a>
-                <a href="dashboard.html" class="divBotaoDash">
-                    <figure>
-                        <i class='bx bx-calendar-edit'></i>
-                    </figure>
-                    <h2>Dashboard</h2>
-                </a>
-            </div>
-            <div class="divBotaoSair">
-                <a href="../index.html" class="botaoSair">SAIR</a>
-            </div>
+        <div class="divFoto">
+            <img src="../assets/Group 534.png" alt="">
+        </div>
+        <div class="divNomeEempresa">
+            <h4>adm papai fala</h4>
+            <h3>EMPRESA</h3>
         </div>
         <div class="divPerfil">
             <div class="divInformacoesGerente">
+                <button class="botaoEditar" onclick="editar()">Editar <img src="../assets/iconeEditar.png" alt=""></button>
                 <div class="divInformacao">
-                    <h2>Gerente</h2>
+                    <h2>Nome</h2>
                     <div class="divInformacoes">
                         Marcio da Costa Silva
                     </div>
+                    <input type="text" class="inputInformacoes">
                 </div>
                 <hr>
                 <div class="divInformacao">
-                    <h2>CNPJ</h2>
+                    <h2>Email</h2>
                     <div class="divInformacoes">
-                        *********-13.
+                        email@email.com
                     </div>
+                    <input type="text" class="inputInformacoes">
                 </div>
                 <hr>
                 <div class="divInformacao">
-                    <h2>Telefone</h2>
+                    <h2>Senha</h2>
                     <div class="divInformacoes">
-                        11986090189
+                        ***********
                     </div>
+                    <input type="text" class="inputInformacoes">
                 </div>
-            </div>
-            <div class="divEditar">
-                <p>Editar</p>
-            </div>
-            <div class="infoEmpresa">
-                <h1>Informações Empresa</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto blanditiis ipsum reiciendis, tenetur non sed reprehenderit, quos ut quia et dignissimos voluptas, vero animi explicabo consectetur ex aliquam laudantium quam!</p>
-            </div>
-            <div class="infoEmpresa">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, eligendi at atque architecto similique aspernatur laborum, laboriosam, tenetur ipsa incidunt quia eum facilis beatae autem. Labore distinctio saepe necessitatibus reiciendis!</p>
+            </div><div class="infoEmpresaEBotoes">
+                
+                <div class="infoEmpresa">
+                    <h1>Informações Empresa</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto blanditiis ipsum reiciendis, tenetur non sed reprehenderit, quos ut quia et dignissimos voluptas, vero animi explicabo consectetur ex aliquam laudantium quam!</p>
+                </div>
+                <textarea name="" cols="30" rows="10" class="textareahh">
+                </textarea>
+
+                <button class="botoesGerenciar">
+                    Gerenciar Funcionários
+                </button>
+                <button class="botoesGerenciar">
+                    Gerenciar Máquinas
+                </button>
             </div>
         </div>
 
     </main>
 </body>
 <script src="../js/header.js"></script>
+<script>
+    function editar(){
+        console.log('oi')
+        var div = document.querySelectorAll(".divInformacoes");
+        var input = document.querySelectorAll(".inputInformacoes");
+        var info = document.querySelector(".infoEmpresa");
+        var textareaaa = document.querySelectorAll(".textareahh");
+
+
+        info.style.display = "none";
+        textareaaa.style.display = "flex";
+
+        // console.log(input);
+        for (let i = 0; i < div.length ; i++) {
+            const element = div[i];
+            const element2 = input[i];
+            element.style.display = "none";
+            element2.style.display = "flex";
+
+        }
+    }
+</script>
 </html>

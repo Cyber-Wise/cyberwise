@@ -5,10 +5,13 @@
 }
 html{
     background-color: #25294A;
+    
 }
 body {
     height: 100%;
     background-color: #25294A;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 main {
     font-family: "Chakra Petch";
@@ -17,8 +20,8 @@ main {
     display: flex;
     height: 100vh;
     overflow-x: hidden;
-    overflow-y: scroll;
-    flex-direction: row;
+    overflow-y: hidden;
+    flex-direction: column;
 }
 
 ::-webkit-scrollbar {
@@ -26,18 +29,23 @@ main {
 }
 
 .divPerfil{
-    width: 100vh;
-    height: 100%;
+    width: 100%;
+    /* height: 100%; */
     font-family: "Chakra Petch";
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    /* align-items: center; */
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .divInformacoesGerente{
-    width: 100vh;
+    width: 630px;
     display: flex;
     flex-direction: column;
+    background-color: #2D325A;
+    border-radius: 20px;
+    padding: 15px;
+    height: 450px;
 }
 
 .divInformacoes{
@@ -49,8 +57,27 @@ main {
     color: black;
 }
 
+.inputInformacoes{
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #B3B8DF80;
+    margin: 20px 0;
+    width: 100%;
+    color: black;
+    display: none;
+}
+
 .divInformacao{
     margin: 25px 0;
+    width: 100%;
+}
+
+textarea{
+    background-color: #2D325A;
+    border: none;
+    border-radius: 20px;
+    display: none;
 }
 
 hr{
@@ -69,13 +96,80 @@ hr{
 }
 
 .infoEmpresa{
-    margin-top: 50px;
-    padding: 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100vh;
-    height: 125px;
-    background-color: #323868;
+    width: 600px;
+    height: 280px;
+    background-color: #2D325A;
+    border-radius: 20px;
+}
+
+.infoEmpresaEBotoes{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.botoesGerenciar{
+    margin-top: 20px;
+    height: 80px;
+    background-color: #2D325A;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.botaoEditar{
+    background-color: #14172800;
+    border: none;
+    border-radius: 6px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    /* justify-content: center; */
+    align-items: center;
+    cursor: pointer;
+}
+.botaoEditar img{
+margin-left: 10px;
+}
+
+.divFoto{
+    width: 1000px;
+    height: 100px;
+    border-radius: 0 0 20px 20px;
+    background-color: #141728;
+    display: flex;
+    margin: auto;
+}
+
+.divNomeEempresa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 120px auto 0 auto;
+}
+
+.divNomeEempresa h4{
+    font-size: 35px;
+    color: #C8C8C8;
+}
+
+.divNomeEempresa h3{
+    font-size: 25px;
+    color: #ACADAE;
+}
+
+.divFoto img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    top: 20px;
+    left: 400px;
 }
