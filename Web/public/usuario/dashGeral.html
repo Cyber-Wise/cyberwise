@@ -37,66 +37,18 @@
         <div class="listaDeComputadores">
          
             <header>
-                <button onclick="abrirFiltros()" class="filtro">filtrar<div id="boxFiltros" class="boxFiltros">
-                    <select name="" id="">
-                        <option class="btnOption"  value="">Emergência</option>
-                        <option class="btnOption" value="">Alerta</option>
-                        <option class="btnOption" value="">Normal</option>
+                <button  class="filtro">filtrar<div id="boxFiltros" class="boxFiltros">
+                    <select name="" id="selectFiltro" onclick="abrirFiltros()">
+                        <option class="btnOption"  value="emergencia">Emergência</option>
+                        <option class="btnOption" value="alerta">Alerta</option>
+                        <option class="btnOption" value="normal">Normal</option>
                     </select>
                 </div></button>
                 <button onclick="infoFiltro()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
             </header>
             
             <ul id="listaFiltroPc">
-                <!-- <li>
-                    <i class='bx bx-laptop emergencia'></i>
-                    <div class="descricaoPc">
-                        <p class="nomePc">nome pc 1</p>
-                        <p class="componentePc">CPU modelo</p>
-                    </div>
-                    <button class="btnVerificar">Verificar</button>
-                </li>
-                <li>
-                    <i class='bx bx-laptop alerta'></i>
-                    <div class="descricaoPc">
-                        <p class="nomePc">nome pc 1</p>
-                        <p class="componentePc">CPU modelo</p>
-                    </div>
-                    <button class="btnVerificar">Verificar</button>
-                </li>
-                <li>
-                    <i class='bx bx-laptop alerta'></i>
-                    <div class="descricaoPc">
-                        <p class="nomePc">nome pc 1</p>
-                        <p class="componentePc">CPU modelo</p>
-                    </div>
-                    <button class="btnVerificar">Verificar</button>
-                </li>
-                <li>
-                    <i class='bx bx-laptop emergencia'></i>
-                    <div class="descricaoPc">
-                        <p class="nomePc">nome pc 1</p>
-                        <p class="componentePc">CPU modelo</p>
-                    </div>
-                    <button class="btnVerificar">Verificar</button>
-                </li>
-                <li>
-                    <i class='bx bx-laptop normal'></i>
-                    <div class="descricaoPc">
-                        <p class="nomePc">nome pc 1</p>
-                        <p class="componentePc">CPU modelo</p>
-                    </div>
-                    <button class="btnVerificar">Verificar</button>
-                </li>
-
-                <li>
-                    <i class='bx bx-laptop normal'></i>
-                    <div class="descricaoPc">
-                        <p class="nomePc">nome pc 1</p>
-                        <p class="componentePc">CPU modelo</p>
-                    </div>
-                    <button class="btnVerificar">Verificar</button>
-                </li> -->
+                <!-- lista de computadores -->
             </ul>
         </div>
     </div>
@@ -167,6 +119,13 @@
             informationBox.style.display = 'none';
         }
 
+       
+
+    }
+
+    function abrirFiltros(){
+        var filtro = selectFiltro.value;
+        console.log(filtro)
     }
     
 </script>

@@ -77,31 +77,60 @@
                             var listaNum = [];
                             var listaModelo = [];
                        
-           
-                        computadores.forEach((computador) => {
+                            var ParametroRamAlerta = 60;
+                            var ParametroDiscoAlerta = 70;
+                            var ParametroCpuAlerta = 60;
+
+                            var ParametroRamCritico = 80;
+                            var ParametroDiscoCritico = 90;
+                            var ParametroCpuCritico = 70;
+
+                            var ParametroRamOk = 40;
+                            var ParametroDiscoOk = 30;
+                            var ParametroCpuOk = 30;
+
+                        computadores.forEach((computador, i) => {
                             listaId.push(computador.id);
                             listaNum.push(computador.numSerie);
                             listaModelo.push(computador.modelo);
 
-                            // numeroSerie.innerHTML = listaNum[0];
-                            // modeloPc.innerHTML = listaModelo[0];
-                            
-                            console.log(listaId, "lista de id")
                             var modelo = computador.modelo;
                             var numSerie = computador.numSerie;
-                            var idComputador = computador.id;
-                      
-                        //    if()
+                            var idComputador = computador.id;                      
+                            
                             var estadoRam = computador.medidaRam;
                             var estadoDisco = computador.medidaDisco;
                             var estadoCpu = computador.medidaCpu;
+                            
+                            var estado = "";
+                            var qnt;
 
+                            // ermergencia, alerta.
+                            if(
+                                (estadoRam >= ParametroRamOk && estadoRam < ParametroRamAlerta) ||
+                                (estadoDisco >= ParametroDiscoOk && estadoDisco < ParametroDiscoAlerta) ||
+                                (estadoCpu >= ParametroCpuOk && estadoCpu < ParametroCpuAlerta)
+                            ){
+                                estado = "normal";
+                            }else if(
+                                (estadoRam >= ParametroRamAlerta && estadoRam < ParametroRamCritico) ||
+                                (estadoDisco >= ParametroDiscoOk && estadoDisco < ParametroDiscoAlerta) ||
+                                (estadoCpu >= ParametroCpuOk && estadoCpu < ParametroCpuAlerta)
+                            ){
+                                estado = "alerta";
+                            }else if(
+                                (estadoRam > ParametroRamCritico) ||
+                                (estadoDisco > ParametroDiscoAlerta) ||
+                                (estadoCpu > ParametroCpuAlerta) 
+                            ){
+                                estado = "emergencia";
+                            }
 
                             
-
+                            console.log(estado, i)
                         const li = document.createElement('li');
                         li.innerHTML = 
-                        `<i class='bx bx-laptop emergencia'></i>
+                        `<i class='bx bx-laptop ${estado}'></i>
                                 <div class="descricaoPc">
                                     <p class="nomePc">${modelo}</p>
                                         <p class="componentePc">CPU ${numSerie}</p>
