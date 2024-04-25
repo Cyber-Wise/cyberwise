@@ -73,9 +73,6 @@
           
             //         resposta.json().then(json => {
                         const ul = document.getElementById('listaFiltroPc');
-                            var listaId = [];
-                            var listaNum = [];
-                            var listaModelo = [];
                        
                             var ParametroRamAlerta = 60;
                             var ParametroDiscoAlerta = 70;
@@ -90,9 +87,6 @@
                             var ParametroCpuOk = 30;
 
                         computadores.forEach((computador, i) => {
-                            listaId.push(computador.id);
-                            listaNum.push(computador.numSerie);
-                            listaModelo.push(computador.modelo);
 
                             var modelo = computador.modelo;
                             var numSerie = computador.numSerie;
@@ -105,23 +99,23 @@
                             var estado = "";
                             var qnt;
 
-                            // ermergencia, alerta.
+                            // emergencia, alerta.
                             if(
-                                (estadoRam >= ParametroRamOk && estadoRam < ParametroRamAlerta) ||
-                                (estadoDisco >= ParametroDiscoOk && estadoDisco < ParametroDiscoAlerta) ||
-                                (estadoCpu >= ParametroCpuOk && estadoCpu < ParametroCpuAlerta)
+                                ( estadoRam < ParametroRamAlerta) ||
+                                ( estadoDisco < ParametroDiscoAlerta) ||
+                                ( estadoCpu < ParametroCpuAlerta)
                             ){
                                 estado = "normal";
-                            }else if(
+                            } if(
                                 (estadoRam >= ParametroRamAlerta && estadoRam < ParametroRamCritico) ||
-                                (estadoDisco >= ParametroDiscoOk && estadoDisco < ParametroDiscoAlerta) ||
-                                (estadoCpu >= ParametroCpuOk && estadoCpu < ParametroCpuAlerta)
+                                (estadoDisco >= ParametroDiscoAlerta && estadoDisco < ParametroDiscoCritico) ||
+                                (estadoCpu >= ParametroCpuAlerta && estadoCpu < ParametroCpuCritico)
                             ){
                                 estado = "alerta";
-                            }else if(
-                                (estadoRam > ParametroRamCritico) ||
-                                (estadoDisco > ParametroDiscoAlerta) ||
-                                (estadoCpu > ParametroCpuAlerta) 
+                            } if(
+                                (estadoRam >= ParametroRamCritico) ||
+                                (estadoDisco >= ParametroDiscoCritico) ||
+                                (estadoCpu >= ParametroCpuCritico) 
                             ){
                                 estado = "emergencia";
                             }
@@ -130,28 +124,22 @@
                             console.log(estado, i)
                         const li = document.createElement('li');
                         li.innerHTML = 
-                        `<i class='bx bx-laptop ${estado}'></i>
+                        `<span class="${estado}">
+                        <i class='bx bx-laptop ${estado}'></i>
                                 <div class="descricaoPc">
                                     <p class="nomePc">${modelo}</p>
                                         <p class="componentePc">CPU ${numSerie}</p>
                                 </div>
-                           <button class="btnVerificar">Verificar</button>`;
+                           <button class="btnVerificar">Verificar</button>
+                           </span>`;
 
                         ul.appendChild(li);
                     });
-                    
-                        // console.log(json);
-                       
-                        // console.log(json[0].modelo)
-                        // var modelo = json[0].modelo;
-                        // var numSerie = json[0].numSerie;
-                        
-          
-                        // modeloPc.innerHTML = "modelo";
                        
           
                     }
 
+              
 
 
 

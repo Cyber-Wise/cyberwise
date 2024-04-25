@@ -39,12 +39,13 @@
             <header>
                 <button  class="filtro">filtrar<div id="boxFiltros" class="boxFiltros">
                     <select name="" id="selectFiltro" onclick="abrirFiltros()">
+                        <option class="btnOption"  value="todos">Todos</option>
                         <option class="btnOption"  value="emergencia">Emergência</option>
                         <option class="btnOption" value="alerta">Alerta</option>
                         <option class="btnOption" value="normal">Normal</option>
                     </select>
                 </div></button>
-                <button onclick="infoFiltro()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
+                <button onclick="infoFiltro(), pegarData()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
             </header>
             
             <ul id="listaFiltroPc">
@@ -72,7 +73,7 @@
             <div class="item4">
                 <h3 class="tituloCards">16</h3>
                 <p class="descricaoCards">Máquinas com componentes em estado crítico</p>
-                <button class="btnVerMais">Ver mais</button>
+                <button class="btnVerMais" >Ver mais</button>
             </div>
             <div class="item5">
                 <h3 class="tituloCards">5%</h3>
@@ -125,7 +126,83 @@
 
     function abrirFiltros(){
         var filtro = selectFiltro.value;
-        console.log(filtro)
+       // console.log(filtro);
+
+        let alerta = document.querySelectorAll('.alerta');
+        let normal = document.querySelectorAll('.normal');
+        let emergencia = document.querySelectorAll('.emergencia');
+        let todos = document.querySelectorAll('.todos');
+
+        switch(filtro){
+            case "emergencia": 
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+            case "alerta": 
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+            case "normal":
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+            case "todos":
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+
+            
+           
+
+        }
+
+        
     }
-    
+
+    function pegarData(){
+        var dataAtual = new Date();
+
+        
+        var dia = dataAtual.getDate(); 
+        var mes = dataAtual.getMonth() + 1; 
+        var ano = dataAtual.getFullYear(); 
+
+        
+        var hora = dataAtual.getHours(); 
+        var minutos = dataAtual.getMinutes(); 
+        var segundos = dataAtual.getSeconds(); 
+
+        
+        var dataHoraFormatada = dia + '/' + mes + '/' + ano + ' ' + hora + ':' + minutos + ':' + segundos;
+
+        console.log(dataHoraFormatada); 
+    }
 </script>
