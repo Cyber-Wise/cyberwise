@@ -97,7 +97,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .listaDeComputadores ul li .bx {
     font-size: 50px;
@@ -288,4 +288,13 @@ body {
   .boxFiltros option {
     padding: 20px;
 
+  }
+
+  .Parametroalerta,.Parametronormal,.Parametroemergencia{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    /* gap: 10px; */
+    margin-bottom: 10px;
   }

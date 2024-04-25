@@ -1,3 +1,4 @@
+// const e = require("cors");
 
  
         function dashboardInfo() {
@@ -97,6 +98,7 @@
                             var estadoCpu = computador.medidaCpu;
                             
                             var estado = "";
+                            var Parametro = "Parametro";
                             var qnt;
 
                             // emergencia, alerta.
@@ -120,11 +122,12 @@
                                 estado = "emergencia";
                             }
 
-                            
+                            Parametro += estado;
+                            console.log('parametro ===>',Parametro);
                             console.log(estado, i)
                         const li = document.createElement('li');
                         li.innerHTML = 
-                        `<span class="${estado}">
+                        `<span class="${Parametro}">
                         <i class='bx bx-laptop ${estado}'></i>
                                 <div class="descricaoPc">
                                     <p class="nomePc">${modelo}</p>
