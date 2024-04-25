@@ -7,6 +7,7 @@ body {
     background-color:#25294A;
 }
 .menuLateral {
+
     padding: 20px;
     width: 26%;
     height: calc(100vh - 40px);
@@ -297,4 +298,78 @@ body {
     align-items: center;
     /* gap: 10px; */
     margin-bottom: 10px;
+  }
+  .sobrepor {
+    display: flex;
+    /* background-color: #000; */
+  }
+  .boxVerMais {
+  z-index: 1000;
+    left: 35%;
+    display: none;
+    top: 20%;
+    position: absolute;
+    padding: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color:#3d447b;
+    width: 400px;
+   height: 400px;
+   overflow-x: hidden;
+   overflow-y: scroll;
+  }
+  .boxVerMais header {
+    display: flex;
+    align-items: top;
+    position: fixed;
+    justify-content: space-between;
+    top:20%;
+    background-color: #3d447b;
+    width: 400px;
+
+  }
+  .boxVerMais .bx-laptop {
+    font-size: 30px;
+  }
+  .boxVerMais .btnFecha {
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #fff;
+    height: 10px;
+  }
+  .boxVerMais h2 {
+    color: #fff;
+    font-size: 30px;
+    font-family: "Chakra Petch";
+
+  }
+  .boxVerMais ul {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .boxVerMais ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .boxVerMais ul li p {
+    font-family: "Chakra Petch";
+
+    color: #fff;
+    font-size: 20px;
+  }
+  .btnVer {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Chakra Petch";
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 5px 20px;
+    background-color: #141728;
   }

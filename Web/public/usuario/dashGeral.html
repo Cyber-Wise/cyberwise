@@ -13,6 +13,17 @@
     <title>CyberWise | Dashboard Geral</title>
 </head>
 <body onload="dashboardInfo()">
+    <div id="boxVerAbrir" class="boxVerMais">
+        <header>
+            <h2>Lista de computadores</h2>
+            <button onclick="fecharVerMais()" class="btnFecha">X</button>
+        </header>
+        <ul>
+            <li><i class='bx bx-laptop emergencia'></i><p class="nomeComputador">Dell: 2323312</p><p class="componenteEstado">CPU</p><a href="" class="btnVer">Verificar</a></li>
+            
+        </ul>
+    </div>
+   <div class="sobrepor">
     <div class="menuLateral">
         <header>
             <img src="../assets/logoCWbranca.png" alt="">
@@ -62,7 +73,7 @@
             </div>
             <div class="item2">
                 <h3 class="tituloCards">80%</h3>
-                <p class="descricaoCards">Máquinas com pouco espaço</p>
+                <p class="descricaoCards">Máquinas com pouca espaço</p>
             </div>
             <div class="item3">
                 <h3 class="tituloCards">5%</h3>
@@ -73,12 +84,12 @@
             <div class="item4">
                 <h3 class="tituloCards">16</h3>
                 <p class="descricaoCards">Máquinas com componentes em estado crítico</p>
-                <button class="btnVerMais" >Ver mais</button>
+                <button onclick="abrirListaPc()" class="btnVerMais" >Ver mais</button>
             </div>
             <div class="item5">
                 <h3 class="tituloCards">5%</h3>
                 <p class="descricaoCards">Máquinas com pouco memória RAM</p>
-                <button class="btnVerMais">Ver mais</button>
+                <button onclick="abrirListaPc()" class="btnVerMais">Ver mais</button>
             </div>
         </div>
         <div class="container3">
@@ -105,10 +116,22 @@
             </div>
         </div>
     </div>
+   </div>
 </body>
 </html>
 <script src="../JsDashboard/dashGeral.js"></script>
 <script>
+    var sobrepor = document.querySelector(".sobrepor")
+    function abrirListaPc(){
+        boxVerAbrir.style.display = "block"
+
+        sobrepor.style.opacity = 0.2
+    }
+    function fecharVerMais(){
+        boxVerAbrir.style.display = "none"
+        sobrepor.style.opacity = 1
+
+    }
     function infoFiltro() {
         boxFiltros
         // Supondo que "informationBox" seja o ID do elemento que você deseja exibir/ocultar
