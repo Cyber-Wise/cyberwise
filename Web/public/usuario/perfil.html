@@ -57,29 +57,34 @@
         </div>
         <div class="divPerfil">
             <div class="divInformacoesGerente">
-                <button class="botaoEditar" onclick="editar()">Editar <img src="../assets/iconeEditar.png" alt=""></button>
+
+                <button class="botaoEditar" id="botaoEditar" onclick="editar()"> Editar <img src="../assets/iconeEditar.png" alt=""></button>
+                <button class="botaoEditar" id="botaoSalvar" onclick="salvar()" style="display: none;"> Salvar </button>
                 <div class="divInformacao">
                     <h2>Nome</h2>
-                    <div class="divInformacoes">
-                        Marcio da Costa Silva
+
+                    <div class="divInformacoes" id="infoPerfil">
+                      <span id="nome">Marcio da Costa Silva </span>
                     </div>
-                    <input type="text" class="inputInformacoes">
+                    <input type="text" class="inputInformacoes" id="inputNome" style="display: none;" value="Davi Mendonça :/">
                 </div>
                 <hr>
                 <div class="divInformacao">
                     <h2>Email</h2>
-                    <div class="divInformacoes">
-                        email@email.com
+
+                    <div class="divInformacoes" id="infoPerfil1">
+                       <span id="email"> email@email.com</span>
                     </div>
-                    <input type="text" class="inputInformacoes">
+                    <input type="text" class="inputInformacoes" id="inputEmail" style="display: none;" value="davi.cyberwise@gmail.com">
                 </div>
                 <hr>
                 <div class="divInformacao">
                     <h2>Senha</h2>
-                    <div class="divInformacoes">
+
+                    <div class="divInformacoes" id="infoPerfil2">
                         ***********
                     </div>
-                    <input type="text" class="inputInformacoes">
+                    <input type="text" class="inputInformacoes" id="inputSenha" style="display: none;" value="davi_D_da_zl">
                 </div>
             </div><div class="infoEmpresaEBotoes">
                 
@@ -104,24 +109,57 @@
 <script src="../js/header.js"></script>
 <script>
     function editar(){
-        console.log('oi')
-        var div = document.querySelectorAll(".divInformacoes");
-        var input = document.querySelectorAll(".inputInformacoes");
-        var info = document.querySelector(".infoEmpresa");
-        var textareaaa = document.querySelectorAll(".textareahh");
+
+        //console.log('oi')
+        //var div = document.querySelectorAll(".divInformacoes");
+        //var input = document.querySelectorAll(".inputInformacoes");
+        //var info = document.querySelector(".infoEmpresa");
+        //var textareaaa = document.querySelectorAll(".textareahh");
 
 
-        info.style.display = "none";
-        textareaaa.style.display = "flex";
+        //info.style.display = "none";
+        //textareaaa.style.display = "flex";
 
         // console.log(input);
-        for (let i = 0; i < div.length ; i++) {
-            const element = div[i];
-            const element2 = input[i];
-            element.style.display = "none";
-            element2.style.display = "flex";
+        //for (let i = 0; i < div.length ; i++) {
+         //   const element = div[i];
+          //  const element2 = input[i];
+           // element.style.display = "none";
+            //element2.style.display = "flex";
 
-        }
+        //}
+
+        infoPerfil.style.display = "none";
+        infoPerfil1.style.display = "none";
+        infoPerfil2.style.display = "none";
+        
+        botaoEditar.style.display = "none";
+        botaoSalvar.style.display = "flex";
+
+        inputNome.style.display = "flex";
+        inputEmail.style.display = "flex";
+        inputSenha.style.display = "flex";
+
+    }
+
+    function salvar(){
+        infoPerfil.style.display = "flex";
+        infoPerfil1.style.display = "flex";
+        infoPerfil2.style.display = "flex";
+        
+        botaoEditar.style.display = "flex";
+        botaoSalvar.style.display = "none";
+
+        inputNome.style.display = "none";
+        inputEmail.style.display = "none";
+        inputSenha.style.display = "none";
+        
+        var inputNome1 = inputNome.value;
+        var inputEmail1 = inputEmail.value;
+
+        inputNome.value = inputNome1;
+        inputEmail.value = inputEmail1;
+
     }
 </script>
 </html>
