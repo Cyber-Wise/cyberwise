@@ -45,7 +45,7 @@ main {
     background-color: #2D325A;
     border-radius: 20px;
     padding: 15px;
-    height: 370px;
+    height: 330px;
 }
 
 .divInformacoes{
@@ -68,7 +68,7 @@ main {
 }
 
 .divInformacao{
-    margin: 25px 0;
+    margin: 10px 0;
     width: 100%;
 }
 
@@ -90,7 +90,7 @@ hr{
 
 .divEditar{
     width: 170px;
-    height: 35px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,7 +106,7 @@ hr{
     align-items: center;
     flex-direction: column;
     width: 600px;
-    height: 200px;
+    height: 150px;
     background-color: #2D325A;
     border-radius: 20px;
 }
@@ -156,16 +156,16 @@ margin-left: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 120px auto 0 auto;
+    margin: 100px auto 0 auto;
 }
 
 .divNomeEempresa h4{
-    font-size: 35px;
+    font-size: 30px;
     color: #C8C8C8;
 }
 
 .divNomeEempresa h3{
-    font-size: 25px;
+    font-size: 20px;
     color: #ACADAE;
 }
 
@@ -174,6 +174,6 @@ margin-left: 10px;
     height: 200px;
     border-radius: 50%;
     position: relative;
-    top: 20px;
+    top: 5px;
     left: 400px;
 }
