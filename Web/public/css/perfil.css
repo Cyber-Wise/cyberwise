@@ -54,7 +54,7 @@ main {
     border-radius: 10px;
     background-color: #B3B8DF80;
     margin: 20px 0;
-    color: black;
+    color: white;
 }
 
 .inputInformacoes{
@@ -73,11 +73,16 @@ main {
     width: 100%;
 }
 
-textarea{
+.inputdescricao{
     background-color: #2D325A;
+    width: 600px;
+    height: 250px;
     border: none;
     border-radius: 20px;
     display: none;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 hr{

@@ -88,12 +88,12 @@
                 </div>
             </div><div class="infoEmpresaEBotoes">
                 
-                <div class="infoEmpresa">
+                <div class="infoEmpresa" id="infoPerfil3">
                     <h1>Informações Empresa</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto blanditiis ipsum reiciendis, tenetur non sed reprehenderit, quos ut quia et dignissimos voluptas, vero animi explicabo consectetur ex aliquam laudantium quam!</p>
                 </div>
-                <textarea name="" cols="30" rows="10" class="textareahh">
-                </textarea>
+                <textarea name="" id="inputdesc" cols="30" rows="10" class="inputdescricao" ></textarea>
+              
 
                 <button class="botoesGerenciar">
                     Gerenciar Funcionários
@@ -132,6 +132,7 @@
         infoPerfil.style.display = "none";
         infoPerfil1.style.display = "none";
         infoPerfil2.style.display = "none";
+        infoPerfil3.style.display = "none";
         
         botaoEditar.style.display = "none";
         botaoSalvar.style.display = "flex";
@@ -139,6 +140,7 @@
         inputNome.style.display = "flex";
         inputEmail.style.display = "flex";
         inputSenha.style.display = "flex";
+        inputdesc.style.display = "flex";
 
     }
 
@@ -146,6 +148,7 @@
         infoPerfil.style.display = "flex";
         infoPerfil1.style.display = "flex";
         infoPerfil2.style.display = "flex";
+        infoPerfil3.style.display = "flex";
         
         botaoEditar.style.display = "flex";
         botaoSalvar.style.display = "none";
@@ -153,6 +156,8 @@
         inputNome.style.display = "none";
         inputEmail.style.display = "none";
         inputSenha.style.display = "none";
+        inputdesc.style.display = "none";
+
         <!--  -->
         var inputNome1 = inputNome.value;
         var inputEmail1 = inputEmail.value;
