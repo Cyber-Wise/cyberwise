@@ -84,12 +84,12 @@
             <div class="item4">
                 <h3 class="tituloCards">16</h3>
                 <p class="descricaoCards">Máquinas com componentes em estado crítico</p>
-                <button onclick="abrirListaPc(), aparecerComponente()" class="btnVerMais" >Ver mais</button>
+                <button onclick="abrirListaPc(), mudarCorPcEmergencia()" class="btnVerMais" >Ver mais</button>
             </div>
             <div class="item5">
-                <h3 class="tituloCards">5%</h3>
-                <p class="descricaoCards">Máquinas com pouco memória RAM</p>
-                <button onclick="abrirListaPc(), sumirComponente()" class="btnVerMais">Ver mais</button>
+                <h3 class="tituloCards">1</h3>
+                <p class="descricaoCards">Máquinas com componentes em estado de alerta</p>
+                <button onclick="abrirListaPc(), mudarCorPcAlerta()" class="btnVerMais">Ver mais</button>
             </div>
         </div>
         <div class="container3">
@@ -133,16 +133,16 @@
         sobrepor.style.filter = "blur(0px)"
 
     }
-    function sumirComponente(){
-        var componenteSumir = document.querySelectorAll(".componenteEstado")
-        componenteSumir.forEach(elemento => {
-            elemento.style.display = "none"
+    function mudarCorPcAlerta(){
+        var iconPc = document.querySelectorAll(".bx-laptop")
+        iconPc.forEach(elemento =>{
+            elemento.className = 'bx bx-laptop alerta'
         })
     }
-    function aparecerComponente(){
-        var componenteSumir = document.querySelectorAll(".componenteEstado")
-        componenteSumir.forEach(elemento => {
-            elemento.style.display = "block"
+    function mudarCorPcEmergencia(){
+        var iconPc = document.querySelectorAll(".bx-laptop")
+        iconPc.forEach(elemento =>{
+            elemento.className = 'bx bx-laptop emergencia'
         })
     }
     function infoFiltro() {
