@@ -84,12 +84,12 @@
             <div class="item4">
                 <h3 class="tituloCards">16</h3>
                 <p class="descricaoCards">Máquinas com componentes em estado crítico</p>
-                <button onclick="abrirListaPc()" class="btnVerMais" >Ver mais</button>
+                <button onclick="abrirListaPc(), aparecerComponente()" class="btnVerMais" >Ver mais</button>
             </div>
             <div class="item5">
                 <h3 class="tituloCards">5%</h3>
                 <p class="descricaoCards">Máquinas com pouco memória RAM</p>
-                <button onclick="abrirListaPc()" class="btnVerMais">Ver mais</button>
+                <button onclick="abrirListaPc(), sumirComponente()" class="btnVerMais">Ver mais</button>
             </div>
         </div>
         <div class="container3">
@@ -124,13 +124,26 @@
     var sobrepor = document.querySelector(".sobrepor")
     function abrirListaPc(){
         boxVerAbrir.style.display = "block"
-
+        sobrepor.style.filter = "blur(2px)"
         sobrepor.style.opacity = 0.2
     }
     function fecharVerMais(){
         boxVerAbrir.style.display = "none"
         sobrepor.style.opacity = 1
+        sobrepor.style.filter = "blur(0px)"
 
+    }
+    function sumirComponente(){
+        var componenteSumir = document.querySelectorAll(".componenteEstado")
+        componenteSumir.forEach(elemento => {
+            elemento.style.display = "none"
+        })
+    }
+    function aparecerComponente(){
+        var componenteSumir = document.querySelectorAll(".componenteEstado")
+        componenteSumir.forEach(elemento => {
+            elemento.style.display = "block"
+        })
     }
     function infoFiltro() {
         boxFiltros

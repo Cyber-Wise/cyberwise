@@ -203,6 +203,9 @@ body {
     justify-content: center;
     background-color: #2D325A;
 }
+.item5, .item6 {
+    justify-content: space-between;
+}
 .item6 {
     color: #fff;
     font-family: "Chakra Petch";
@@ -342,12 +345,13 @@ body {
   }
   .boxVerMais h2 {
     color: #fff;
+    padding-top: 10px;
     font-size: 30px;
     font-family: "Chakra Petch";
 
   }
   .boxVerMais ul {
-    margin-top: 100px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     gap: 20px;
