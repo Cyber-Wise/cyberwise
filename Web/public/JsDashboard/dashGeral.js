@@ -1,7 +1,12 @@
-// const e = require("cors");
+// document.write('<script src="../JsDashboard/dash.js"></script>');
+// script.js
+// Incluindo o arquivo com a função
+
+
+// // Espera o documento ser carregado
 
  
-        function dashboardInfo() {
+        function dashboardInfo1() {
   
             const computadores = [{
                     // tres criticos
@@ -53,9 +58,6 @@
                 medidaCpu : 60
                 }];
 
-                // critico
-                //  >= 70
-                // console.log(computadores[0].id)
            
             // fetch("/dashboard/dadosDashboard", {
             //     method: "POST",
@@ -83,9 +85,9 @@
                             var ParametroDiscoCritico = 90;
                             var ParametroCpuCritico = 70;
 
-                            var ParametroRamOk = 40;
-                            var ParametroDiscoOk = 30;
-                            var ParametroCpuOk = 30;
+                            // var ParametroRamOk = 40;
+                            // var ParametroDiscoOk = 30;
+                            // var ParametroCpuOk = 30;
 
                         computadores.forEach((computador, i) => {
 
@@ -97,43 +99,59 @@
                             var estadoDisco = computador.medidaDisco;
                             var estadoCpu = computador.medidaCpu;
                             
-                            var estado = "";
+                            var estado = "normal";
                             var Parametro = "Parametro";
-                            var qnt;
+                            var descricao = "normal";
+                            var qntAlerta = 0;
+                            var qntCritico = 0;
 
-                            // emergencia, alerta.
-                            if(
-                                ( estadoRam < ParametroRamAlerta) ||
-                                ( estadoDisco < ParametroDiscoAlerta) ||
-                                ( estadoCpu < ParametroCpuAlerta)
-                            ){
-                                estado = "normal";
-                            } if(
-                                (estadoRam >= ParametroRamAlerta && estadoRam < ParametroRamCritico) ||
-                                (estadoDisco >= ParametroDiscoAlerta && estadoDisco < ParametroDiscoCritico) ||
-                                (estadoCpu >= ParametroCpuAlerta && estadoCpu < ParametroCpuCritico)
-                            ){
-                                estado = "alerta";
-                            } if(
-                                (estadoRam >= ParametroRamCritico) ||
-                                (estadoDisco >= ParametroDiscoCritico) ||
-                                (estadoCpu >= ParametroCpuCritico) 
-                            ){
+                            if (estadoRam >= ParametroRamCritico) {
                                 estado = "emergencia";
+                                qntCritico++;
+                            }else if(estadoRam >= ParametroRamAlerta){
+                                estado = "alerta";
+                                qntAlerta++;
+                            }
+
+                            if (estadoDisco >= ParametroDiscoCritico) {
+                                estado = "emergencia";
+                                qntCritico++;
+                            }else if(estadoDisco >= ParametroDiscoAlerta){
+                                estado = "alerta";
+                                qntAlerta++;
+                            }
+
+                            if (estadoCpu >= ParametroCpuCritico) {
+                                estado = "emergencia";
+                                qntCritico++;
+                            }else if(estadoCpu >= ParametroCpuAlerta){
+                                estado = "alerta";
+                                qntAlerta++;
+                            }
+
+    
+                            if(qntCritico >= 1){
+                                estado = 'emergencia';
+                                descricao = `${qntCritico} Crítico, ${qntAlerta} Alerta`
+                            }else if(qntAlerta >= 1){
+                                descricao = `${qntAlerta} Alerta`
                             }
 
                             Parametro += estado;
-                            console.log('parametro ===>',Parametro);
-                            console.log(estado, i)
+                            // console.log('quantidade Normal ===>', computador.modelo, qntNormal);
+                            console.log('quantidade alerta ===>', i, computador.modelo, qntAlerta , estado);
+                            console.log('quantidade Critico ===>', i, computador.modelo, qntCritico, estado);
+                            
+
                         const li = document.createElement('li');
                         li.innerHTML = 
                         `<span class="${Parametro}">
                         <i class='bx bx-laptop ${estado}'></i>
                                 <div class="descricaoPc">
-                                    <p class="nomePc">${modelo}</p>
-                                        <p class="componentePc">CPU ${numSerie}</p>
+                                    <p class="nomePc">${modelo} : ${numSerie}</p>
+                                        <p class="componentePc">${descricao}</p>
                                 </div>
-                           <button class="btnVerificar">Verificar</button>
+                           <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', ${numSerie})">Verificar</button>
                            </span>`;
 
                         ul.appendChild(li);
@@ -142,6 +160,24 @@
           
                     }
 
+                    document.write('<script src="../JsDashboard/PlotarGraficos.js"></script>');
+
+        function acharPc(idComputador, modelo, numSerie){
+        //     console.log('Dash geral ===> ', idComputador, modelo, numSerie);
+
+        sessionStorage.idComputador = idComputador;
+        sessionStorage.numeroSerie = numSerie;
+        sessionStorage.modelopc = modelo;
+            // document.addEventListener("DOMContentLoaded", function() {
+    
+                // acharId(idComputador, modelo, numSerie);
+            // });
+            
+            
+            window.location = '../usuario/dashboard.html';
+        }
+
+        
               
 
 

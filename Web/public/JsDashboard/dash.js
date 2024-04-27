@@ -1,39 +1,59 @@
     
-        function acharId(idComputador, modelo, numSerie){
-            // var model = modelo;
-            // var serie = numSerie;
-           console.log(idComputador)
-           console.log(modelo)
-        //    console.log(serie)
-           console.log(numSerie)
-           numeroSerie.innerHTML = numSerie;
-           modeloPc.innerHTML = modelo;
-
-           
-    } 
+ 
    
  
         function dashboardInfo() {
   
             const computadores = [{
-                    id: 1,
-                modelo: "Dell",
-                numSerie: "1212"},{
-                    id: 2,
-                modelo: "Dell",
-                numSerie: "1414"},{
-                    id: 3,
-                modelo: "Dell",
-                numSerie: "1545"},{
-                    id: 4,
-                modelo: "Acer",
-                numSerie: "3434"},{
-                    id: 5,
-                modelo: "Positivo",
-                numSerie: "2232"},{
-                    id: 6,
-                modelo: "Lg",
-                numSerie: "3232"}];
+                // tres criticos
+                id: 1,
+            modelo: "Dell",
+            numSerie: "1212",
+            medidaRam : 80,
+            medidaDisco : 90,
+            medidaCpu : 70
+            },{
+                // tres alertas
+                id: 2,
+            modelo: "Dell",
+            numSerie: "1414",
+            medidaRam : 60,
+            medidaDisco : 70,
+            medidaCpu : 60
+            },{
+                //tres ok
+                id: 3,
+            modelo: "Dell",
+            numSerie: "1545",
+            medidaRam : 40,
+            medidaDisco : 30,
+            medidaCpu : 30
+            },{
+                // um critico, dois ok
+                id: 4,
+            modelo: "Acer",
+            numSerie: "3434",
+            medidaRam : 90,
+            medidaDisco : 30,
+            medidaCpu : 40
+            },{
+                // dois critico, um ok
+                id: 5,
+            modelo: "Positivo",
+            numSerie: "2232",
+            medidaRam : 90,
+            medidaDisco : 80,
+            medidaCpu : 40
+            },{
+                // 3 alertas
+                id: 6,
+            modelo: "Lg",
+            numSerie: "3232",
+            medidaRam : 50,
+            medidaDisco : 60,
+            medidaCpu : 60
+            }];
+
 
                 
            
@@ -64,17 +84,10 @@
                             listaNum.push(computador.numSerie);
                             listaModelo.push(computador.modelo);
 
-                            numeroSerie.innerHTML = listaNum[0];
-                            modeloPc.innerHTML = listaModelo[0];
-                            
-                            console.log(listaId, "lista de id")
                             var modelo = computador.modelo;
                             var numSerie = computador.numSerie;
                             var idComputador = computador.id;
-                           // console.log(modelo)
-                           // console.log(numSerie)
-                           // console.log(idComputador)
-                            
+                           
 
                         const li = document.createElement('li');
                         li.innerHTML = `

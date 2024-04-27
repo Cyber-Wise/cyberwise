@@ -12,7 +12,7 @@
     <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
     <title>CyberWise | Dashboard</title>
 </head>
-<body onload="dashboardInfo()">
+<body>
     <div class="menuLateral">
       <header>
         <img src="../assets/logoCWbranca.png" alt="">
@@ -89,11 +89,36 @@
 </body>
 </html>
 
+<script src="../JsDashboard/PlotarGraficos.js"></script>
 <script src="../JsDashboard/dash.js"></script>
+<script src="../JsDashboard/dashGeral.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- <script src="../../node_modules/chart.js/auto"></script> -->
 
 <script>
+
+  numeroSerie.innerHTML = sessionStorage.numeroSerie;
+  modeloPc.innerHTML = sessionStorage.modelopc;
+  
+  function acharId(idComputador, modelo, numSerie){
+    // var model = modelo;
+    // var serie = numSerie;
+   console.log(idComputador)
+   console.log(modelo)
+
+   console.log(numSerie)
+   numeroSerie.innerHTML = numSerie;
+   modeloPc.innerHTML = modelo;
+
+   
+} 
+  window.onload = graficos();
+  window.onload = dashboardInfo();
+
+  //window.onload = acharId();
+   
+  //    modeloPc.innerHTML = modelo;
+
  function abrirFiltro(){
   var informationBox = document.getElementById("informationBox");
   
@@ -105,92 +130,5 @@
  }
 
 
-    var empresa = sessionStorage.empresa;
-
-    // const ctx = document.getElementById('myChart');
-    const ctx =  document.getElementById('myChart');
-
-    new Chart(ctx,{
-        type: 'line',
-        data: {
-            labels: ['Horario', 'Horario', 'Horario', 'Horario', 'Horario', 'Horario'],
-            datasets: [{
-                label: 'CPU',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                backgroundColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-            },
-            options: {
-        scales: {
-          y: {
-            ticks: {
-              color: 'white' // Define a cor do texto para azul
-            }
-          },
-          x: {
-            ticks: {
-              color: 'white' // Define a cor do texto para azul
-            }
-          }
-        }
-      }
-           }
-        );
-
-        const ctx2 =  document.getElementById('myChart2');
-
-new Chart(ctx2,{
-    type: 'line',
-    data: {
-        labels: ['Horario', 'Horario', 'Horario', 'Horario', 'Horario', 'Horario'],
-        datasets: [{
-            label: 'MEMÓRIA RAM',
-            data: [65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            borderColor: 'red',
-            backgroundColor: 'red',
-            tension: 0.1,
-            
-        }]
-        },
-        options: {
-        scales: {
-          y: {
-            ticks: {
-              color: 'white' // Define a cor do texto para azul
-            }
-          },
-          x: {
-            ticks: {
-              color: 'white' // Define a cor do texto para azul
-            }
-          }
-        }
-      }
-       }
-    );
-
-    const ctx3 =  document.getElementById('myChart3');
-    new Chart(ctx3,{
-    type: 'pie',
-    data: {
-        labels: ['usado', 'Livre'],
-        datasets: [{
-            label:  ['Disco'],
-            data: [40, 60],
-            fill: false,
-            
-            // backgroundColor: ['red', 'blue'],
-            borderColor: ['red', 'blue'],
-            tension: 0.1,
-            
-        },]
-        },
-       }
-    );
-    
   
 </script>
