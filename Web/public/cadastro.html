@@ -74,7 +74,7 @@
   </div>
 </div>
   <div class="conteiner_termos_servico">
-    <input type="checkbox" class="checkbox"><p>Concordo com os <a href="termos.html" class="texto_termos">termos de serviço</a> e a <a href="politicas.html" class="texto_termos">política de privacidade</a>.</p>
+    <input type="checkbox" class="checkbox" id="checkboxid" onclick="teste()"><p>Concordo com os <a href="termos.html" class="texto_termos">termos de serviço</a> e a <a href="politicas.html" class="texto_termos">política de privacidade</a>.</p>
   </div>
   <div class="container_botao_cadastrar">
     <button class="botao_cadastro" onclick="gerarConta()">Cadastrar</button>
@@ -85,6 +85,11 @@
 </html>
 
 <script>
+  var t = 1;
+  function teste(){
+    console.log(checkboxid.value);
+      t++;
+  }
 
     function gerarSenha(nomeEmpresa) {
     var numeros = `${nomeEmpresa}`;
@@ -95,6 +100,9 @@
   }
 
   function gerarConta(){
+    var politica = t % 2 == 0 ? true : false;
+    console.log("politica ===> ",politica)
+    console.log(t)
     var nomeVar = nome_input.value;
     var cnpjVar = cnpj_input.value;
     var telefoneVar = telefone_input.value;
@@ -106,7 +114,7 @@
     ) {
       alert("Preencha todos os campos.");
     } 
-    else{
+    else{ 
       var emailAdm = `${nomeVar}@cyberwise42.com`;
       var nomeAdm = `${nomeVar} administrador`
       var senhaVar  = gerarSenha(nomeVar);
