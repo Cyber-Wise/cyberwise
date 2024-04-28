@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../css/menu_lateral.css">
     <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="../css/headerPerfil.css">
+    <link rel="stylesheet" href="../css/gerenciar.css">
 </head>
 
 <body>
@@ -96,17 +97,253 @@
                 <textarea name="" id="inputdesc" cols="30" rows="10" class="inputdescricao" ></textarea> -->
               
 
-                <button class="botoesGerenciar">
+                <button class="botoesGerenciar" onclick="abrirFuncionarios()">
                     Gerenciar Funcionários
                 </button>
-                <button class="botoesGerenciar">
+                <button class="botoesGerenciar" onclick="abrirMaquinas()">
                     Gerenciar Máquinas
                 </button>
-                <button class="botoesGerenciar">
+                <button class="botoesGerenciar" onclick="abrirParametros()">
                     Gerenciar Parâmetros
                 </button>
             </div>
+
+            <div class="globalFuncionario" id="globalFuncionario">
+                <button onclick="abrir()" class="btnFuncionario">Adicionar Funcionário<i class='bx bx-add-to-queue'></i></button>
+                <div id="sumiuPesquisa">
+                    <div class="headerGerenciar">
+                        <div class="container">
+                            <div class="pesquisaDiv"><p>Pesquisar funcionário:</p>
+                                <div class="search">
+                                    <input type="search">
+                                    <p><i class='bx bx-search-alt'></i></p>
+                                </div></div>
+                                <button onclick="fecharFuncionarios()" class="btnFecha">X</button>
+
+                        </div>
+                         
+                        </div>
+                        <div class="corpoGerenciar">
+                          <ul class="listaDeFuncionarios">
+                              <li>
+                                  <p class="funcionarioNome">Claudio Frizza</p>
+                                  <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
+                                  <div class="botaosGerenciar">
+                                      <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
+                                      <button onclick="abrirEditar()"><i class='bx bxs-edit-alt'></i></button>
+                                  </div>
+                              </li>
+                              
+                          </ul>
+                        </div> 
+                </div>
+                <div id="divFuncionario" class="cadastroDeFuncionario">
+                    <button onclick="fechar()" class="fechar">X</button>
+                    <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar de Funcionário</h2>
+                    <div class="funcLabel">
+                        <p>Nome:</p>
+                        <input type="text">
+                    </div>
+                    <div class="funcLabel">
+                        <p>E-mail:</p>
+                        <input type="email">
+                    </div>
+                    <div class="funcLabel">
+                        <p>Senha:</p>
+                        <input type="password">
+                    </div>
+                    <div class="funcLabel">
+                        <p>Confirmar senha:</p>
+                        <input type="password">
+                    </div>
+                    <button class="btnCadastrar">Cadastrar</button>
+                </div>
+                <div id="editarFuncionario" class="cadastroDeFuncionario">
+                    <button onclick="fecharEditar()" class="fechar">X</button>
+                    <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
+                    <div class="funcLabel">
+                        <p>Nome:</p>
+                        <input type="text">
+                    </div>
+                    <div class="funcLabel">
+                        <p>E-mail:</p>
+                        <input type="email">
+                    </div>
+                    <div class="funcLabel">
+                        <p>Senha:</p>
+                        <input type="password">
+                    </div>
+                    <div class="funcLabel">
+                        <p>Confirmar senha:</p>
+                        <input type="password">
+                    </div>
+                    <button class="btnCadastrar">Atualizar Funcionário</button>
+                </div>
+            </div>
+
+<!-- 222222222222222222222222222222222222222222222222 -->
+
+<div class="globalFuncionario" id="globalMaquinas">
+    <button onclick="abrir2()" class="btnFuncionario">Adicionar máquinas<i class='bx bx-add-to-queue'></i></button>
+    <div id="sumiuPesquisa2">
+        <div class="headerGerenciar">
+            <div class="container">
+                <div class="pesquisaDiv"><p>Pesquisar máquina:</p>
+                    <div class="search">
+                        <input type="search">
+                        <p><i class='bx bx-search-alt'></i></p>
+                    </div></div>
+                    <button onclick="fecharMaquinas()" class="btnFecha">X</button>
+
+            </div>
+             
+            </div>
+            <div class="corpoGerenciar">
+              <ul class="listaDeFuncionarios">
+                  <li>
+                      <p class="funcionarioNome">Claudio Frizza</p>
+                      <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
+                      <div class="botaosGerenciar">
+                          <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
+                          <button onclick="abrirEditar2()"><i class='bx bxs-edit-alt'></i></button>
+                      </div>
+                  </li>
+                  
+              </ul>
+            </div> 
+    </div>
+    <div id="divMaquina" class="cadastroDeFuncionario">
+        <button onclick="fechar2()" class="fechar">X</button>
+        <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar máquinas</h2>
+        <div class="funcLabel">
+            <p>Modelo:</p>
+            <input type="text">
         </div>
+        <div class="funcLabel">
+            <p>Numero de série:</p>
+            <input type="email">
+        </div>
+        <button class="btnCadastrar">Cadastrar</button>
+    </div>
+    <div id="editarMaquina" class="cadastroDeFuncionario">
+        <button onclick="fecharEditar2()" class="fechar">X</button>
+        <h2 class="tituloFuncionarios" style="color: #fff;">Editar máquina</h2>
+        <div class="funcLabel">
+            <p>Modelo:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>Número de série:</p>
+            <input type="email">
+        </div>
+        <button class="btnCadastrar">Atualizar máquina</button>
+    </div>
+</div>
+
+<!-- 33333333333333333333333333333 -->
+
+<div class="globalFuncionario" id="globalParametros">
+    <button onclick="abrir3()" class="btnFuncionario">Adicionar Parâmetros<i class='bx bx-add-to-queue'></i></button>
+    <div id="sumiuPesquisa3">
+        <div class="headerGerenciar">
+            <div class="container">
+                <div class="pesquisaDiv"><p>Pesquisar parâmetros:</p>
+                    <div class="search">
+                        <input type="search">
+                        <p><i class='bx bx-search-alt'></i></p>
+                    </div></div>
+                    <button onclick="fecharParametros()" class="btnFecha">X</button>
+
+            </div>
+             
+            </div>
+            <div class="corpoGerenciar">
+              <ul class="listaDeFuncionarios">
+                  <li>
+                      <p class="funcionarioNome">Claudio Frizza</p>
+                      <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
+                      <div class="botaosGerenciar">
+                          <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
+                          <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
+                      </div>
+                  </li>
+                  
+              </ul>
+            </div> 
+    </div>
+    <div id="divParametro" class="cadastroDeFuncionario">
+        <button onclick="fechar3()" class="fechar">X</button>
+        <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar parâmetros</h2>
+        <div class="funcLabel">
+            <p>CPU crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>CPU alerta: </p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>RAM crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>RAM alerta:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>Disco crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>Disco alerta:</p>
+            <input type="text">
+        </div>
+        <button class="btnCadastrar">Cadastrar</button>
+    </div>
+    <div id="editarParametro" class="cadastroDeFuncionario">
+        <button onclick="fecharEditar3()" class="fechar">X</button>
+        <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
+        <div class="funcLabel">
+            <p>CPU crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>CPU alerta: </p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>RAM crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>RAM alerta:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>Disco crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>Disco alerta:</p>
+            <input type="text">
+        </div>
+        <button class="btnCadastrar">Atualizar parâmetros</button>
+    </div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+        </div>
+
+        
 
     </main>
 </body>
@@ -169,6 +406,86 @@
         inputNome.value = inputNome1;
         inputEmail.value = inputEmail1;
 
+    }
+
+    function abrir(){
+        sumiuPesquisa.style.display = 'none'
+        divFuncionario.style.display = 'block'
+    }
+    function fechar(){
+        sumiuPesquisa.style.display = 'block'
+        divFuncionario.style.display = 'none'
+    }
+    function abrirEditar(){
+        sumiuPesquisa.style.display = 'none'
+        editarFuncionario.style.display = 'block'
+    }
+    function fecharEditar(){
+        sumiuPesquisa.style.display = 'block'
+        editarFuncionario.style.display = 'none'
+    }
+
+    function abrirFuncionarios(){
+        globalFuncionario.style.display = "block";
+    }
+
+    function fecharFuncionarios(){
+        globalFuncionario.style.display = "none";
+    }
+
+
+
+// 222222222222222222222222
+
+    function abrirMaquinas(){
+        globalMaquinas.style.display = "block";
+    }
+
+    function fecharMaquinas(){
+        globalMaquinas.style.display = "none";
+    }
+
+    function abrir2(){
+        sumiuPesquisa2.style.display = 'none'
+        divMaquina.style.display = 'block'
+    }
+    function fechar2(){
+        sumiuPesquisa2.style.display = 'block'
+        divMaquina.style.display = 'none'
+    }
+    function abrirEditar2(){
+        sumiuPesquisa2.style.display = 'none'
+        editarMaquina.style.display = 'block'
+    }
+    function fecharEditar2(){
+        sumiuPesquisa2.style.display = 'block'
+        editarMaquina.style.display = 'none'
+    }
+
+
+// 33333333333333333333333333333
+    function abrirParametros(){
+        globalParametros.style.display = "block";
+    }
+
+    function fecharParametros(){
+        globalParametros.style.display = "none";
+    }
+    function abrir3(){
+        sumiuPesquisa3.style.display = 'none'
+        divParametro.style.display = 'block'
+    }
+    function fechar3(){
+        sumiuPesquisa3.style.display = 'block'
+        divParametro.style.display = 'none'
+    }
+    function abrirEditar3(){
+        sumiuPesquisa3.style.display = 'none'
+        editarParametro.style.display = 'block'
+    }
+    function fecharEditar3(){
+        sumiuPesquisa3.style.display = 'block'
+        editarParametro.style.display = 'none'
     }
 </script>
 </html>

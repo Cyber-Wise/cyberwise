@@ -190,3 +190,14 @@ margin-left: 10px;
     top: 5px;
     left: 430px;
 }
+
+.btnFecha{
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #fff;
+    height: 10px;
+    margin-left: 180px;
+}

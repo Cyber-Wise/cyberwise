@@ -1,4 +1,4 @@
-body {
+/* body {
     box-sizing: border-box;
 }
 main {
@@ -6,10 +6,10 @@ main {
     display: flex;
     background-color: #25294A;
     height: 100vh;
-}
-.divMenuLateral{
+} */
+/* .divMenuLateral{
     position: sticky;
-}
+} */
 .container {
     width: 80%;
     margin: 0 auto;
@@ -37,6 +37,14 @@ main {
     outline: none;
     padding: 10px 10px;
 }
+
+.globalFuncionario {
+    width: 70%;
+    display: none;
+    position: absolute;
+    top: 0;
+}
+
 .bx-search-alt {
     background-color: #353c72;
     padding: 10.5px;
