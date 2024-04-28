@@ -74,6 +74,14 @@
           
             //         resposta.json().then(json => {
                         const ul = document.getElementById('listaComputadores');
+
+                        var ParametroRamAlerta = 60;
+                        var ParametroDiscoAlerta = 70;
+                        var ParametroCpuAlerta = 50;
+
+                        var ParametroRamCritico = 80;
+                        var ParametroDiscoCritico = 90;
+                        var ParametroCpuCritico = 70;
           
                         computadores.forEach((computador) => {
           
@@ -81,40 +89,42 @@
                             var numSerie = computador.numSerie;
                             var idComputador = computador.id;
 
-                            // var estado = "normal";
+                            var estadoRam = computador.medidaRam;
+                            var estadoDisco = computador.medidaDisco;
+                            var estadoCpu = computador.medidaCpu;
+
+                            var status = "statusVerde";
                             // var Parametro = "Parametro";
                             
                             // var descricao = "Normal";
-                            var qntAlerta = 0;
-                            var qntCritico = 0;
+                            // var qntAlerta = 0;
+                            // var qntCritico = 0;
 
-                            if (estadoRam >= ParametroRamCritico) {
-                                estado = "emergencia";
-                                qntCritico++;
-                                ramAlerta++;
-                            }else if(estadoRam >= ParametroRamAlerta){
-                                estado = "alerta";
-                                qntAlerta++;
-                                ramAlerta++;
+                            if(estadoRam >= ParametroRamAlerta){
+                                status = "statusAmarelo";
+                               
                             }
+                            if(estadoDisco >= ParametroDiscoAlerta){
+                                status = "statusAmarelo";
+                                
+                            }
+                            if(estadoCpu >= ParametroCpuAlerta){
+                                status = "statusAmarelo";
+                                
+                            }
+                            
+                            if (estadoRam >= ParametroRamCritico) {
+                                status = "statusVermelho";
+                               
+                            } 
 
                             if (estadoDisco >= ParametroDiscoCritico) {
-                                estado = "emergencia";
-                                qntCritico++;
-                                espacoAlerta++;
-                            }else if(estadoDisco >= ParametroDiscoAlerta){
-                                estado = "alerta";
-                                qntAlerta++;
-                                espacoAlerta++;
-                            }
-
+                                status = "statusVermelho";
+                               
+                            } 
                             if (estadoCpu >= ParametroCpuCritico) {
-                                estado = "emergencia";
-                                qntCritico++;
-                            }else if(estadoCpu >= ParametroCpuAlerta){
-                                estado = "alerta";
-                                qntAlerta++;
-                            }
+                                status = "statusVermelho";
+                            } 
                            
 
                         const li = document.createElement('li');
@@ -124,7 +134,7 @@
                         <h2 class="tituloComputadores">${computador.modelo} : ${computador.numSerie}</h2>
                         <div class="status">
                             <p>status</p>
-                            <div class="statusVerde"></div>
+                            <div class="${status}"></div>
                         </div>
                         </div>
                         <button class="pointer" id="${idComputador}" onclick="acharId(${idComputador},'${modelo}', ${numSerie})">verificar</button>

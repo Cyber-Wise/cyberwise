@@ -124,19 +124,22 @@
       cnpjVar == ""
     ) {
       alert("Preencha todos os campos.");
-    } 
+    }
+   //  else if (
+    //  nomeVar == "" ||
+    //  telefoneVar == "" ||
+    //  cnpjVar == ""
+   // ) {
+   //   alert("Preencha todos os campos.");
+   // } 
     else{ 
-      boxCredencial.style.display = 'block'
-      setTimeout(function() {
-        boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
-      }, 10);
-      containerCadastro.style.display = 'none'
+   
+
       var emailAdm = `${nomeVar}@cyberwise42.com`;
       var nomeAdm = `${nomeVar} administrador`
       var senhaVar  = gerarSenha(nomeVar);
       
-      emailGerado.innerHTML = emailAdm
-      senhaGerado.innerHTML = senhaVar
+      
       //alert(emailAdm, senhaVar);
       
       console.log('Email gerado ===>',emailAdm);
@@ -161,6 +164,15 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
+          boxCredencial.style.display = 'block'
+          setTimeout(function() {
+            boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
+          }, 10);
+    
+          containerCadastro.style.display = 'none';
+          
+          emailGerado.innerHTML = emailAdm
+          senhaGerado.innerHTML = senhaVar
           
 
            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
