@@ -80,6 +80,41 @@
                             var modelo = computador.modelo;
                             var numSerie = computador.numSerie;
                             var idComputador = computador.id;
+
+                            // var estado = "normal";
+                            // var Parametro = "Parametro";
+                            
+                            // var descricao = "Normal";
+                            var qntAlerta = 0;
+                            var qntCritico = 0;
+
+                            if (estadoRam >= ParametroRamCritico) {
+                                estado = "emergencia";
+                                qntCritico++;
+                                ramAlerta++;
+                            }else if(estadoRam >= ParametroRamAlerta){
+                                estado = "alerta";
+                                qntAlerta++;
+                                ramAlerta++;
+                            }
+
+                            if (estadoDisco >= ParametroDiscoCritico) {
+                                estado = "emergencia";
+                                qntCritico++;
+                                espacoAlerta++;
+                            }else if(estadoDisco >= ParametroDiscoAlerta){
+                                estado = "alerta";
+                                qntAlerta++;
+                                espacoAlerta++;
+                            }
+
+                            if (estadoCpu >= ParametroCpuCritico) {
+                                estado = "emergencia";
+                                qntCritico++;
+                            }else if(estadoCpu >= ParametroCpuAlerta){
+                                estado = "alerta";
+                                qntAlerta++;
+                            }
                            
 
                         const li = document.createElement('li');

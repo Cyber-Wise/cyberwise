@@ -14,7 +14,8 @@ insert into empresa values
 
 CREATE TABLE cargos(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    cargo varchar(50));
+    cargo varchar(50)
+    );
     
     insert into cargos (cargo) values
     ('Administrador'),
@@ -36,26 +37,33 @@ insert into funcionario values
 (null, 'davi', 'davi@cyberwise', 'senha123', 1, 1),
 (null, 'joao', 'joao@cyberwise', 'senha12', 1, 2);
 
+CREATE TABLE parametros(
+id INT PRIMARY KEY AUTO_INCREMENT,
+alertaCPU VARCHAR(20),
+criticoCPU VARCHAR(20),
+alertaDISCO VARCHAR(20),
+criticoDISCO VARCHAR(20),
+alertaRAM VARCHAR(20),
+criticoRAM VARCHAR(20)
+);
+
+insert into parametros values
+(null, 50, 70, 60, 80, 60, 80);
+
 CREATE TABLE maquina(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	modelo VARCHAR(20),
 	numSerie int,
-	minCPU float,
-    minDISCO float,
-    minRAM float,
-    
-    maxCPU float,
-    maxDISCO float,
-    maxRAM float,
-    
+	fk_parametros INT,
     fk_empresa INT,
-    FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    FOREIGN KEY (fk_empresa) REFERENCES empresa(id),
+    FOREIGN KEY (fk_parametros) REFERENCES parametros(id)
 );
 
 insert into maquina values
-(null, 'dell', 1212, 90.0, 80.0, 95.0, 20.0, 30.0, 40.0, 1),
-(null, 'dell', 1513, 94.0, 87.0, 90.0, 20.0, 30.0, 40.0, 1),
-(null, 'acer', 1010, 89.0, 84.5, 92.4, 20.0, 30.0, 40.0, 1);
+(null, 'dell', 1212, 1, 1),
+(null, 'dell', 1513, 1, 1),
+(null, 'acer', 1010, 1, 1);
     
 CREATE TABLE monitoramento(
 	dadosCPU FLOAT,
@@ -69,6 +77,17 @@ CREATE TABLE monitoramento(
 
 insert into monitoramento values
 (56.0, 70.0, 67.0, 54, 1, CURRENT_TIMESTAMP);
+
+CREATE TABLE alertas(
+id INT PRIMARY KEY AUTO_INCREMENT,
+tipo VARCHAR(20),
+data_hora datetime,
+componente VARCHAR(30),
+fk_maquina INT,
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
+);
+
+
 
     select * from empresa;
     select * from funcionario;

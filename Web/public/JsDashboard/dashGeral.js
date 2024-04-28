@@ -77,7 +77,7 @@
                        
                             var ParametroRamAlerta = 60;
                             var ParametroDiscoAlerta = 70;
-                            var ParametroCpuAlerta = 60;
+                            var ParametroCpuAlerta = 50;
 
                             var ParametroRamCritico = 80;
                             var ParametroDiscoCritico = 90;
