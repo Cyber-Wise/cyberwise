@@ -50,8 +50,19 @@
         </nav>
     </div>
 </header>
+<div class="credenciasisGeradas" id="boxCredencial">
+  <div class="imgCenter" style="text-align: center;"><img width="50px" src="./assets/logoCUBOCYBER - Copia.png" alt=""></div>
+  <h2 class="tituloCredencial">Salve as suas credenciais</h2>
+  <h3  class="labelsCredencial">E-mail:</h3>
+  <div id="emailGerado" class="espacoParaCredencial"></div>
+  <h3 class="labelsCredencial">Senha:</h3>
+  <div id="senhaGerado" class="espacoParaCredencial"></div>
+  <div class="divBtn">
+  <a href="./login.html" class="btnConfirmar">Confirmar</a>
 
-<div class="container_cadastro">
+  </div>
+</div>
+<div id="containerCadastro" class="container_cadastro">
   <img src="assets/logoCUBOCYBER.png" alt="logoCUBOCYBER" class="cadastro_logocubo">
   <div class="container_titulo_cadastro">
     <h1>CYBERWISE account</h1>
@@ -115,11 +126,18 @@
       alert("Preencha todos os campos.");
     } 
     else{ 
+      boxCredencial.style.display = 'block'
+      setTimeout(function() {
+        boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
+      }, 10);
+      containerCadastro.style.display = 'none'
       var emailAdm = `${nomeVar}@cyberwise42.com`;
       var nomeAdm = `${nomeVar} administrador`
       var senhaVar  = gerarSenha(nomeVar);
       
-      alert(emailAdm, senhaVar);
+      emailGerado.innerHTML = emailAdm
+      senhaGerado.innerHTML = senhaVar
+      //alert(emailAdm, senhaVar);
       
       console.log('Email gerado ===>',emailAdm);
       console.log('Senha gerada ===>', senhaVar);
