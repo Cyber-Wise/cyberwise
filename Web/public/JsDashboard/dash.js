@@ -74,16 +74,9 @@
           
             //         resposta.json().then(json => {
                         const ul = document.getElementById('listaComputadores');
-                            var listaId = [];
-                            var listaNum = [];
-                            var listaModelo = [];
-                       
-           
+          
                         computadores.forEach((computador) => {
-                            listaId.push(computador.id);
-                            listaNum.push(computador.numSerie);
-                            listaModelo.push(computador.modelo);
-
+          
                             var modelo = computador.modelo;
                             var numSerie = computador.numSerie;
                             var idComputador = computador.id;

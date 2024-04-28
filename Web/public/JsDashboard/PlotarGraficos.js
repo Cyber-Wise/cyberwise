@@ -88,6 +88,22 @@ new Chart(ctx2,{
     );
 }
 
+    // document.write('<script src="../JsDashboard/dashGeral.js"></script>');
+
+    //  document.addEventListener("DOMContentLoaded", function() {
+    
+    //             acharId(idComputador, modelo, numSerie);
+    //         });
+
+    function qnt(qntM, poucoEsp, poucaRa, criticos, alertas){
+          qntMaquinas.innerHTML = qntM;
+          PoucoEspaco.innerHTML = poucoEsp;
+          poucaRam.innerHTML = poucaRa;
+          componentesCriticos.innerHTML = criticos;
+          componentesAlerta.innerHTML = alertas;
+    }
+  
+
     // function acharId(idComputador, modelo, numSerie){
     //     // window.location = '../usuario/dashboard.html';
     //     console.log("entrou na função")

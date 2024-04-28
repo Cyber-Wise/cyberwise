@@ -16,10 +16,20 @@
     <div id="boxVerAbrir" class="boxVerMais">
         <header>
             <h2>Lista de computadores</h2>
-            <button onclick="fecharVerMais()" class="btnFecha">X</button>
+            <button onclick="fecharVerMaisCritico()" class="btnFecha">X</button>
         </header>
-        <ul>
-            <li><i class='bx bx-laptop emergencia'></i><p class="nomeComputador">Dell: 2323312</p><p class="componenteEstado">CPU</p><a href="" class="btnVer">Verificar</a></li>
+        <ul id="listaPcCritico">
+            <!-- <li><i class='bx bx-laptop emergencia'></i><p class="nomeComputador">Dell: 2323312</p><p class="componenteEstado">CPU</p><a href="" class="btnVer">Verificar</a></li> -->
+            
+        </ul>
+    </div>
+    <div id="boxVerAbrirAlerta" class="boxVerMais">
+        <header>
+            <h2>Lista de computadores</h2>
+            <button onclick="fecharVerMaisAlerta()" class="btnFecha">X</button>
+        </header>
+        <ul id="listaPcAlerta">
+            <!-- <li><i class='bx bx-laptop emergencia'></i><p class="nomeComputador">Dell: 2323312</p><p class="componenteEstado">CPU</p><a href="" class="btnVer">Verificar</a></li> -->
             
         </ul>
     </div>
@@ -68,28 +78,28 @@
         <h2 class="titulo">DASHBOARD GERAL</h2>
         <div class="container">
             <div class="item1">
-                <h3 class="tituloCards">20</h3>
+                <h3 class="tituloCards"><span id="qntMaquinas"></span></h3>
                 <p class="descricaoCards">Máquinas</p>
             </div>
             <div class="item2">
-                <h3 class="tituloCards">80%</h3>
+                <h3 class="tituloCards"><span id="PoucoEspaco"></span></h3>
                 <p class="descricaoCards">Máquinas com pouca espaço</p>
             </div>
             <div class="item3">
-                <h3 class="tituloCards">5%</h3>
+                <h3 class="tituloCards"><span id="poucaRam"></span></h3>
                 <p class="descricaoCards">Máquinas com pouco memória RAM</p>
             </div>
         </div>
         <div class="container2">
             <div class="item4">
-                <h3 class="tituloCards">16</h3>
+                <h3 class="tituloCards"><span id="componentesCriticos"></span></h3>
                 <p class="descricaoCards">Máquinas com componentes em estado crítico</p>
-                <button onclick="abrirListaPc(), mudarCorPcEmergencia()" class="btnVerMais" >Ver mais</button>
+                <button onclick="abrirListaPcCritico()" class="btnVerMais" >Ver mais</button>
             </div>
             <div class="item5">
-                <h3 class="tituloCards">1</h3>
+                <h3 class="tituloCards"><span id="componentesAlerta"></span></h3>
                 <p class="descricaoCards">Máquinas com componentes em estado de alerta</p>
-                <button onclick="abrirListaPc(), mudarCorPcAlerta()" class="btnVerMais">Ver mais</button>
+                <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
             </div>
         </div>
         <div class="container3">
@@ -123,29 +133,35 @@
 <!-- <script src="../JsDashboard/dash.js"></script> -->
 <script>
     var sobrepor = document.querySelector(".sobrepor")
-    function abrirListaPc(){
+
+    function abrirListaPcCritico(){
         boxVerAbrir.style.display = "block"
         sobrepor.style.filter = "blur(2px)"
-        sobrepor.style.opacity = 0.2
+        sobrepor.style.opacity = 0.2;
     }
-    function fecharVerMais(){
+
+    function abrirListaPcAlerta(){
+        boxVerAbrirAlerta.style.display = "block"
+        sobrepor.style.filter = "blur(2px)"
+        sobrepor.style.opacity = 0.2;
+
+    }
+
+    function fecharVerMaisCritico(){
         boxVerAbrir.style.display = "none"
         sobrepor.style.opacity = 1
         sobrepor.style.filter = "blur(0px)"
 
+
     }
-    function mudarCorPcAlerta(){
-        var iconPc = boxVerAbrir.querySelectorAll(".bx-laptop")
-        iconPc.forEach(elemento =>{
-            elemento.className = 'bx bx-laptop alerta'
-        })
+    function fecharVerMaisAlerta(){
+        boxVerAbrirAlerta.style.display = "none"
+        sobrepor.style.opacity = 1
+        sobrepor.style.filter = "blur(0px)"
+
+
     }
-    function mudarCorPcEmergencia(){
-        var iconPc = boxVerAbrir.querySelectorAll(".bx-laptop")
-        iconPc.forEach(elemento =>{
-            elemento.className = 'bx bx-laptop emergencia'
-        })
-    }
+
     function infoFiltro() {
         boxFiltros
         // Supondo que "informationBox" seja o ID do elemento que você deseja exibir/ocultar

@@ -1,9 +1,5 @@
 // document.write('<script src="../JsDashboard/dash.js"></script>');
-// script.js
-// Incluindo o arquivo com a função
 
-
-// // Espera o documento ser carregado
 
  
         function dashboardInfo1() {
@@ -76,6 +72,8 @@
           
             //         resposta.json().then(json => {
                         const ul = document.getElementById('listaFiltroPc');
+                        const ulCritico = document.getElementById('listaPcCritico');
+                        const ulAlerta = document.getElementById('listaPcAlerta');
                        
                             var ParametroRamAlerta = 60;
                             var ParametroDiscoAlerta = 70;
@@ -88,6 +86,11 @@
                             // var ParametroRamOk = 40;
                             // var ParametroDiscoOk = 30;
                             // var ParametroCpuOk = 30;
+                            var espacoAlerta = 0;
+                            var ramAlerta = 0;
+
+                            var componenteCritico = 0;
+                            var componenteAlerta = 0;
 
                         computadores.forEach((computador, i) => {
 
@@ -98,27 +101,34 @@
                             var estadoRam = computador.medidaRam;
                             var estadoDisco = computador.medidaDisco;
                             var estadoCpu = computador.medidaCpu;
+
+                            
                             
                             var estado = "normal";
                             var Parametro = "Parametro";
-                            var descricao = "normal";
+                            
+                            var descricao = "Normal";
                             var qntAlerta = 0;
                             var qntCritico = 0;
 
                             if (estadoRam >= ParametroRamCritico) {
                                 estado = "emergencia";
                                 qntCritico++;
+                                ramAlerta++;
                             }else if(estadoRam >= ParametroRamAlerta){
                                 estado = "alerta";
                                 qntAlerta++;
+                                ramAlerta++;
                             }
 
                             if (estadoDisco >= ParametroDiscoCritico) {
                                 estado = "emergencia";
                                 qntCritico++;
+                                espacoAlerta++;
                             }else if(estadoDisco >= ParametroDiscoAlerta){
                                 estado = "alerta";
                                 qntAlerta++;
+                                espacoAlerta++;
                             }
 
                             if (estadoCpu >= ParametroCpuCritico) {
@@ -131,16 +141,61 @@
 
     
                             if(qntCritico >= 1){
-                                estado = 'emergencia';
+                                estado = 'emergencia';  
+                                descricao = `${qntCritico} Critico` ;
+                            }
+                            if(qntCritico > 0 && qntAlerta >= 1){               
                                 descricao = `${qntCritico} Crítico, ${qntAlerta} Alerta`
-                            }else if(qntAlerta >= 1){
+                            }
+                            else if(qntAlerta >= 1 && qntCritico == 0){
                                 descricao = `${qntAlerta} Alerta`
+                            }
+
+                            if(qntCritico > 0){
+                                componenteCritico++;
+                            }
+                            if(qntAlerta > 0){
+                                componenteAlerta++;
                             }
 
                             Parametro += estado;
                             // console.log('quantidade Normal ===>', computador.modelo, qntNormal);
-                            console.log('quantidade alerta ===>', i, computador.modelo, qntAlerta , estado);
-                            console.log('quantidade Critico ===>', i, computador.modelo, qntCritico, estado);
+                            // console.log('quantidade alerta ===>', computador.modelo, qntAlerta , estado);
+                            // console.log('quadade Critico ===>', computador.modelo, qntCritico, estado);
+                            // console.log(descricao);
+                            console.log(Parametro);
+
+                            if(qntCritico > 0){
+                                const li1 = document.createElement('li');
+                                li1.innerHTML = 
+                                `<span class="${Parametro + 1}">
+                                <i class='bx bx-laptop emergencia'></i>
+                                        <div class="descricaoPc">
+                                            <p class="nomeComputador">${modelo} : ${numSerie}</p>
+                                                <p class="componentePc">${descricao}</p>
+                                        </div>
+                                   <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', ${numSerie})">Verificar</button>
+                                   </span>`;
+                                   
+        
+                                ulCritico.appendChild(li1);
+                            }
+
+                            if(qntAlerta >= 1){
+                                const li2 = document.createElement('li');
+                                li2.innerHTML = 
+                                `<span class="${Parametro + 1}">
+                                <i class='bx bx-laptop ${estado}'></i>
+                                        <div class="descricaoPc">
+                                            <p class="nomeComputador">${modelo} : ${numSerie}</p>
+                                                <p class="componentePc">${descricao}</p>
+                                        </div>
+                                   <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', ${numSerie})">Verificar</button>
+                                   </span>`;
+        
+                                ulAlerta.appendChild(li2);
+                            }
+
                             
 
                         const li = document.createElement('li');
@@ -157,10 +212,12 @@
                         ul.appendChild(li);
                     });
                        
+                    qnt(computadores.length, espacoAlerta, ramAlerta, componenteCritico, componenteAlerta)
           
                     }
 
                     document.write('<script src="../JsDashboard/PlotarGraficos.js"></script>');
+                    
 
         function acharPc(idComputador, modelo, numSerie){
         //     console.log('Dash geral ===> ', idComputador, modelo, numSerie);
