@@ -168,9 +168,11 @@
                             if(qntCritico > 0){
                                 const li1 = document.createElement('li');
                                 li1.innerHTML = 
-                                `<span class="${Parametro + 1}">
+                                `<span style="display: flex;
+                                justify-content: space-between;
+                                width: 100%;" class="${Parametro + 1}">
                                 <i class='bx bx-laptop emergencia'></i>
-                                        <div class="descricaoPc">
+                                        <div style="width: 150px;" class="descricaoPc">
                                             <p class="nomeComputador">${modelo} : ${numSerie}</p>
                                                 <p class="componentePc">${descricao}</p>
                                         </div>
@@ -184,9 +186,12 @@
                             if(qntAlerta >= 1){
                                 const li2 = document.createElement('li');
                                 li2.innerHTML = 
-                                `<span class="${Parametro + 1}">
+                                `<span style="display: flex;
+                                justify-content: space-between;
+                                width: 100%;
+                                align-itens: center;" class="${Parametro + 1}">
                                 <i class='bx bx-laptop ${estado}'></i>
-                                        <div class="descricaoPc">
+                                        <div style="width: 150px;" class="descricaoPc">
                                             <p class="nomeComputador">${modelo} : ${numSerie}</p>
                                                 <p class="componentePc">${descricao}</p>
                                         </div>

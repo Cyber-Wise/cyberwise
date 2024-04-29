@@ -133,13 +133,19 @@
    //   alert("Preencha todos os campos.");
    // } 
     else{ 
-   
+      
 
       var emailAdm = `${nomeVar}@cyberwise42.com`;
       var nomeAdm = `${nomeVar} administrador`
       var senhaVar  = gerarSenha(nomeVar);
+      boxCredencial.style.display = 'block'
+      setTimeout(function() {
+        boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
+      }, 10);
+      containerCadastro.style.display = 'none'
       
-      
+      emailGerado.innerHTML = emailAdm
+      senhaGerado.innerHTML = senhaVar
       //alert(emailAdm, senhaVar);
       
       console.log('Email gerado ===>',emailAdm);
