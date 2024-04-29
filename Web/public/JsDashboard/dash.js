@@ -167,7 +167,7 @@
     // }
 
     
-    function filtrar(){
+    function filtrar(inputb, ul1, tagName){
     var input,
     filter,
     ul,
@@ -178,8 +178,8 @@
     txtvalue,
     count = 0;
 
-    input = document.getElementById('inputBusca');
-    ul = document.getElementById('listaComputadores');
+    input = document.getElementById(inputb);
+    ul = document.getElementById(ul1);
 
     filter = input.value.toUpperCase();
 
@@ -188,7 +188,7 @@
 
     for (i = 0; i < li.length; i++) {
     //    a = li[i].getElementsByTagName("a")[0];
-       a = li[i].getElementsByClassName("tituloComputadores")[0]
+       a = li[i].getElementsByClassName(tagName)[0]
 
        txtvalue = a.textContent || a.innerText;
 

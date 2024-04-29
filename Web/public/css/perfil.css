@@ -201,3 +201,8 @@ margin-left: 10px;
     height: 10px;
     margin-left: 180px;
 }
+
+/* aqui! */
+.inputCadastrar, .inputCadastrar > option{
+    color: black;
+}

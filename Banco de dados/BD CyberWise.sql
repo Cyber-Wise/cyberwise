@@ -39,16 +39,19 @@ insert into funcionario values
 
 CREATE TABLE parametros(
 id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(30),
 alertaCPU VARCHAR(20),
 criticoCPU VARCHAR(20),
 alertaDISCO VARCHAR(20),
 criticoDISCO VARCHAR(20),
 alertaRAM VARCHAR(20),
-criticoRAM VARCHAR(20)
+criticoRAM VARCHAR(20),
+ fk_empresa int,
+FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 insert into parametros values
-(null, 50, 70, 60, 80, 60, 80);
+(null, 'parametro1', 50, 70, 60, 80, 60, 80, 1);
 
 CREATE TABLE maquina(
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -61,9 +64,13 @@ CREATE TABLE maquina(
 );
 
 insert into maquina values
-(null, 'dell', 1212, 1, 1),
-(null, 'dell', 1513, 1, 1),
-(null, 'acer', 1010, 1, 1);
+(null, 'Dell', 1212, 1, 1),
+(null, 'Dell', 1414, 1, 1),
+(null, 'Dell', 1545, 1, 1),
+(null, 'Acer', 3434, 1, 1),
+(null, 'Positivo', 2232, 1, 1),
+(null, 'Lg', 3232, 1, 1);
+
     
 CREATE TABLE monitoramento(
 	dadosCPU FLOAT,
@@ -76,7 +83,12 @@ CREATE TABLE monitoramento(
 );
 
 insert into monitoramento values
-(56.0, 70.0, 67.0, 54, 1, CURRENT_TIMESTAMP);
+(80, 90, 70, 50, 1, CURRENT_TIMESTAMP),
+(60, 70, 60, 50, 2, CURRENT_TIMESTAMP),
+(40, 30, 30, 50, 3, CURRENT_TIMESTAMP),
+(90, 30, 40, 50, 4, CURRENT_TIMESTAMP),
+(90, 80, 40, 50, 5, CURRENT_TIMESTAMP),
+(50, 60, 60, 50, 6, CURRENT_TIMESTAMP);
 
 CREATE TABLE alertas(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -90,7 +102,8 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 
 
     select * from empresa;
-    select * from funcionario;
+    select * from funcionario where fk_empresa = 1;
     select * from maquina;
     select * from monitoramento;
+    
     -- drop database cyberwise;

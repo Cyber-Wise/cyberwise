@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+// var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -29,6 +29,7 @@ function autenticar(req, res) {
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
                                         empresa: resultadoAutenticar[0].fk_empresa,
+                                        nome_empresa: resultadoAutenticar[0].nome_empresa,
                                        
                                     });
                             //     } else {

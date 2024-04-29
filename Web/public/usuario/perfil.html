@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/menu_lateral.css">
-    <script src="./js/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="../css/headerPerfil.css">
     <link rel="stylesheet" href="../css/gerenciar.css">
 </head>
@@ -53,19 +53,19 @@
             <img src="../assets/Group 534.png" alt="">
         </div>
         <div class="divNomeEempresa">
-            <h4>adm papai fala</h4>
-            <h3>EMPRESA</h3>
+            <h4><span id="nomeDaConta"></span></h4>
+            <h3><span id="nomeDaEmpresa"></span> </h3>
         </div>
         <div class="divPerfil">
             <div class="divInformacoesGerente">
 
                 <button class="botaoEditar" id="botaoEditar" onclick="editar()"> Editar <img src="../assets/iconeEditar.png" alt=""></button>
-                <button class="botaoEditar" id="botaoSalvar" onclick="salvar()" style="display: none;"> Salvar </button>
+                <button class="botaoEditar" id="botaoSalvar" onclick="salvarPerfil()" style="display: none;"> Salvar </button>
                 <div class="divInformacao">
                     <h3>Nome</h3>
 
                     <div class="divInformacoes" id="infoPerfil">
-                      <span id="nome">Marcio da Costa Silva </span>
+                      <span id="nomePerfil">Marcio da Costa Silva </span>
                     </div>
                     <input type="text" class="inputInformacoes" id="inputNome" style="display: none;" value="Davi Mendonça :/">
                 </div>
@@ -115,24 +115,25 @@
                         <div class="container">
                             <div class="pesquisaDiv"><p>Pesquisar funcionário:</p>
                                 <div class="search">
-                                    <input type="search">
-                                    <p><i class='bx bx-search-alt'></i></p>
-                                </div></div>
+                                    <input type="search" id="buscarFuncionarios" onkeyup="filtrar('buscarFuncionarios', 'listaFuncionarios', 'funcionarioNome')">
+                                    <!-- <p><i class='bx bx-search-alt'></i></p> -->
+                                </div>
+                            </div>
                                 <button onclick="fecharFuncionarios()" class="btnFecha">X</button>
 
                         </div>
                          
                         </div>
                         <div class="corpoGerenciar">
-                          <ul class="listaDeFuncionarios">
-                              <li>
+                          <ul class="listaDeFuncionarios" id="listaFuncionarios">
+                              <!-- <li>
                                   <p class="funcionarioNome">Claudio Frizza</p>
                                   <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
                                   <div class="botaosGerenciar">
                                       <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
                                       <button onclick="abrirEditar()"><i class='bx bxs-edit-alt'></i></button>
                                   </div>
-                              </li>
+                              </li> -->
                               
                           </ul>
                         </div> 
@@ -142,42 +143,42 @@
                     <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar de Funcionário</h2>
                     <div class="funcLabel">
                         <p>Nome:</p>
-                        <input type="text">
+                        <input type="text" class="inputCadastrar" id="nomeFuncionario">
                     </div>
                     <div class="funcLabel">
                         <p>E-mail:</p>
-                        <input type="email">
+                        <input type="email" class="inputCadastrar" id="emailFuncionario">
                     </div>
                     <div class="funcLabel">
                         <p>Senha:</p>
-                        <input type="password">
+                        <input type="password" class="inputCadastrar" id="senhaFuncionario">
                     </div>
                     <div class="funcLabel">
                         <p>Confirmar senha:</p>
-                        <input type="password">
+                        <input type="password" class="inputCadastrar" id="confirmarSenhaFuncionario">
                     </div>
-                    <button class="btnCadastrar">Cadastrar</button>
+                    <button class="btnCadastrar" onclick="cadastrarFuncionario()">Cadastrar</button>
                 </div>
                 <div id="editarFuncionario" class="cadastroDeFuncionario">
                     <button onclick="fecharEditar()" class="fechar">X</button>
                     <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
-                    <div class="funcLabel">
-                        <p>Nome:</p>
-                        <input type="text">
-                    </div>
+                    <p><span id="nomeEditarFuncionario"></span></p>
+                    <!-- <div class="funcLabel">
+                        <input type="text" class="inputCadastrar" id="nomeEditarFuncionario">
+                    </div> -->
                     <div class="funcLabel">
                         <p>E-mail:</p>
-                        <input type="email">
+                        <input type="email" class="inputCadastrar" id="emailEditarFuncionario">
                     </div>
                     <div class="funcLabel">
                         <p>Senha:</p>
-                        <input type="password">
+                        <input type="text" class="inputCadastrar" id="senhaEditarFuncionario">
                     </div>
-                    <div class="funcLabel">
+                    <!-- <div class="funcLabel">
                         <p>Confirmar senha:</p>
                         <input type="password">
-                    </div>
-                    <button class="btnCadastrar">Atualizar Funcionário</button>
+                    </div> -->
+                    <button class="btnCadastrar" onclick="atualizarFuncionario()">Atualizar Funcionário</button>
                 </div>
             </div>
 
@@ -190,7 +191,8 @@
             <div class="container">
                 <div class="pesquisaDiv"><p>Pesquisar máquina:</p>
                     <div class="search">
-                        <input type="search">
+                        <input type="search" id="buscarMaquinas">
+                        <!-- onkeyup="filtrar('buscarMaquinas', 'listaMaquinas', 'maquinaNome')" -->
                         <p><i class='bx bx-search-alt'></i></p>
                     </div></div>
                     <button onclick="fecharMaquinas()" class="btnFecha">X</button>
@@ -199,33 +201,30 @@
              
             </div>
             <div class="corpoGerenciar">
-              <ul class="listaDeFuncionarios">
-                  <li>
-                      <!-- <p class="funcionarioNome"> -->
-                        <img src="../assets/maquinaCERTO.png" alt="">
-                    <!-- </p> -->
-                      <p class="funcionarioEmail">Dell : 1213</p>
-                      <div class="botaosGerenciar">
-                          <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
-                          <button onclick="abrirEditar2()"><i class='bx bxs-edit-alt'></i></button>
-                      </div>
-                  </li>
-                  
+              <ul class="listaDeFuncionarios" id="listaMaquinas">
+
               </ul>
             </div> 
     </div>
     <div id="divMaquina" class="cadastroDeFuncionario">
         <button onclick="fechar2()" class="fechar">X</button>
         <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar máquinas</h2>
-        <div class="funcLabel">
+        <div class="funcLabel" >
             <p>Modelo:</p>
-            <input type="text">
+            <input type="text" class="inputCadastrar" id="modeloCadastrarPc">
         </div>
         <div class="funcLabel">
             <p>Numero de série:</p>
-            <input type="email">
+            <input type="email" class="inputCadastrar" id="numSerieCadastrarPc">
         </div>
-        <button class="btnCadastrar">Cadastrar</button>
+        <div class="funcLabel">
+            <p>Paramteros:</p>
+            <select id="selectParametros" class="inputCadastrar">
+                <option value="default">escolha o parametro</option>
+    
+            </select>
+        </div>
+        <button class="btnCadastrar" onclick="cadastrarMaquina()">Cadastrar</button>
     </div>
     <div id="editarMaquina" class="cadastroDeFuncionario">
         <button onclick="fecharEditar2()" class="fechar">X</button>
@@ -262,8 +261,8 @@
             <div class="corpoGerenciar">
               <ul class="listaDeFuncionarios">
                   <li>
-                      <p class="funcionarioNome">Claudio Frizza</p>
-                      <p class="funcionarioEmail">claudiofrizza@empresa.com</p>
+                      <p class="funcionarioNome">Computadores Dell</p>
+                      <p class="funcionarioEmail">RAM alerta: 50, RAM critica: 80, CPU alerta: 50, CPU critica: 80 DISCO alerta: 50, DISCO critica: 80 </p>
                       <div class="botaosGerenciar">
                           <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
                           <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
@@ -276,6 +275,10 @@
     <div id="divParametro" class="cadastroDeFuncionario">
         <button onclick="fechar3()" class="fechar">X</button>
         <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar parâmetros</h2>
+        <div class="funcLabel">
+            <p>Nome do Parametro:</p>
+            <input type="text">
+        </div>
         <div class="funcLabel">
             <p>CPU crítico:</p>
             <input type="text">
@@ -333,24 +336,19 @@
     </div>
 </div>
 
-
-
 </div>
-
-
 </div>
-
-
-
-
         </div>
-
-        
-
     </main>
 </body>
 <script src="../js/header.js"></script>
+<script src="../JsDashboard/perfilFuncoes.js"></script>
 <script>
+    window.onload = funcionarios();
+    window.onload = maquinas();
+    window.onload = buscarParametros();
+    window.onload = dadosPerfil();
+
     function editar(){
 
         //console.log('oi')
@@ -388,25 +386,18 @@
     }
 
     function salvar(){
-        infoPerfil.style.display = "flex";
-        infoPerfil1.style.display = "flex";
-        infoPerfil2.style.display = "flex";
+       // infoPerfil.style.display = "flex";
+       // infoPerfil1.style.display = "flex";
+       // infoPerfil2.style.display = "flex";
         // infoPerfil3.style.display = "flex";
         
         botaoEditar.style.display = "flex";
         botaoSalvar.style.display = "none";
 
-        inputNome.style.display = "none";
-        inputEmail.style.display = "none";
-        inputSenha.style.display = "none";
+       // inputNome.style.display = "none";
+       // inputEmail.style.display = "none";
+       // inputSenha.style.display = "none";
         // inputdesc.style.display = "none";
-
-        <!--  -->
-        var inputNome1 = inputNome.value;
-        var inputEmail1 = inputEmail.value;
-
-        inputNome.value = inputNome1;
-        inputEmail.value = inputEmail1;
 
     }
 
