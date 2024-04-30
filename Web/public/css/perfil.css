@@ -206,3 +206,16 @@ margin-left: 10px;
 .inputCadastrar, .inputCadastrar > option{
     color: black;
 }
+
+
+.sobrepor {
+    display: flex;
+    flex-direction: column;
+    /* background-color: #000; */
+  }
+
+  .globalFuncionario{
+    z-index: 1000;
+    display: flex;
+    margin-left: 400px;
+  }

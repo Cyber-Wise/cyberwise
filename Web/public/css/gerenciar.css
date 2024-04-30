@@ -25,6 +25,7 @@ main {
     width: 70%;
     padding: 20px 20px;
     background-color: #1b1e3b;
+    border-radius: 10px 10px 0 0;
 }
 .search input {
     background-color: transparent;
@@ -57,8 +58,10 @@ main {
     font-size: 20px;
     color: #d7d5d5;
     font-family: "Chakra Petch";
-
 }
+
+
+
 .corpoGerenciar {
     width: 70%;
     margin-bottom: 30px;
@@ -67,6 +70,7 @@ main {
     height: 400px;
     overflow-x: hidden;
     overflow-y: scroll;
+    border-radius: 0 0 10px 10px;
 }
 
 .btnFuncionario {
