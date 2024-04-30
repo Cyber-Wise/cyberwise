@@ -8,10 +8,10 @@
 }
 
 body {
-    background-image: url(../assets/loginCadastroFundo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+    /* background-image: url(../assets/loginCadastroFundo.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* height: 100vh; */
 }
 
 .container_cadastro {
@@ -25,7 +25,7 @@ body {
     margin: 100px auto auto 200px;
     margin-top: 60px;
     padding: 20px 0 20px 0;
-    position: relative;
+    position: absolute;
     border: 1px solid white;
     border-top: none;
 }
@@ -114,7 +114,7 @@ h2 {
         text-align: center;
         margin: auto;
         margin-top: 100px;
-        position: relative;
+        position: absolute;
         border: none;
     }
 

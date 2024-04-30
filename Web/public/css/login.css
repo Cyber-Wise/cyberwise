@@ -1,8 +1,11 @@
 body {
-    background-image: url(../assets/loginCadastroFundo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+    /* background-image: url(../assets/loginCadastroFundo.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover;
+    height: 100vh; */
+}
+::-webkit-scrollbar {
+    display: none;
 }
 
 .centralizarBox {
@@ -13,7 +16,8 @@ body {
 }
 
 .box_login {
-    position: relative;
+    position: absolute;
+    left: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     display: flex;
@@ -109,7 +113,7 @@ body {
     }
 
     .box_login {
-        position: relative;
+        position: absolute;
         background-color: rgba(0, 0, 0, 0.122);
         backdrop-filter: blur(2px);
         margin: auto;
