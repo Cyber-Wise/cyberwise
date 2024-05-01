@@ -56,7 +56,7 @@
                     <div class="container">
                         <div class="pesquisaDiv"><p>Pesquisar funcionário:</p>
                             <div class="search">
-                                <input type="search" id="buscarFuncionarios" onkeyup="filtrar('buscarFuncionarios', 'listaFuncionarios', 'funcionarioNome')">
+                                <input type="search" placeholder="Pesquisar" id="buscarFuncionarios" onkeyup="filtrar('buscarFuncionarios', 'listaFuncionarios', 'funcionarioNome')">
                                 <!-- <p><i class='bx bx-search-alt'></i></p> -->
                             </div>
                         </div>
@@ -98,6 +98,13 @@
                     <p>Confirmar senha:</p>
                     <input type="password" class="inputCadastrar" id="confirmarSenhaFuncionario">
                 </div>
+                <div class="funcLabel">
+                    <p>Cargo:</p>
+                    <select name="" id="">
+                        <option value="funcionario">Funcionário</option>
+                        <option value="gerente">Gerente</option>
+                    </select>
+                </div>
                 <button class="btnCadastrar" onclick="cadastrarFuncionario()">Cadastrar</button>
             </div>
             <div id="editarFuncionario" class="cadastroDeFuncionario">
@@ -132,9 +139,9 @@
         <div class="container">
             <div class="pesquisaDiv"><p>Pesquisar máquina:</p>
                 <div class="search">
-                    <input type="search" id="buscarMaquinas">
+                    <input placeholder="Pesquisar" type="search" id="buscarMaquinas">
                     <!-- onkeyup="filtrar('buscarMaquinas', 'listaMaquinas', 'maquinaNome')" -->
-                    <p><i class='bx bx-search-alt'></i></p>
+                    <!-- <p><i class='bx bx-search-alt'></i></p> -->
                 </div></div>
                 <button onclick="fecharMaquinas()" class="btnFecha">X</button>
 
@@ -191,8 +198,8 @@
         <div class="container">
             <div class="pesquisaDiv"><p>Pesquisar parâmetros:</p>
                 <div class="search">
-                    <input type="search">
-                    <p><i class='bx bx-search-alt'></i></p>
+                    <input type="search" placeholder="Pesquisar">
+                    
                 </div></div>
                 <button onclick="fecharParametros()" class="btnFecha">X</button>
 
@@ -220,29 +227,33 @@
         <p>Nome do Parametro:</p>
         <input type="text">
     </div>
-    <div class="funcLabel">
-        <p>CPU crítico:</p>
-        <input type="text">
+    <div class="displayFlex">
+        <div class="funcLabel">
+            <p>CPU crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>CPU alerta: </p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>RAM crítico:</p>
+            <input type="text">
+        </div>
     </div>
-    <div class="funcLabel">
-        <p>CPU alerta: </p>
-        <input type="text">
-    </div>
-    <div class="funcLabel">
-        <p>RAM crítico:</p>
-        <input type="text">
-    </div>
-    <div class="funcLabel">
-        <p>RAM alerta:</p>
-        <input type="text">
-    </div>
-    <div class="funcLabel">
-        <p>Disco crítico:</p>
-        <input type="text">
-    </div>
-    <div class="funcLabel">
-        <p>Disco alerta:</p>
-        <input type="text">
+    <div class="displayFlex">
+        <div class="funcLabel">
+            <p>RAM alerta:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>Disco crítico:</p>
+            <input type="text">
+        </div>
+        <div class="funcLabel">
+            <p>Disco alerta:</p>
+            <input type="text">
+        </div>
     </div>
     <button class="btnCadastrar">Cadastrar</button>
 </div>

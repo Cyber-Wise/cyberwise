@@ -76,7 +76,26 @@ main {
     width: calc(100% - 20px);
     
 }
-
+.funcLabel select {
+    padding: 10px 0;
+    width: 100%;
+    color: #000;
+}
+#globalParametros {
+    width: 1600px;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+.funcLabel select option {
+    width: 100%;
+    color: #000;
+    border-radius: 0;
+}
+.displayFlex {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
 .divInformacao{
     margin: 10px 0;
     width: 100%;
