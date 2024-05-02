@@ -78,16 +78,25 @@
         <h2 class="titulo">DASHBOARD GERAL</h2>
         <div class="container">
             <div class="item1">
-                <h3 class="tituloCards"><span id="qntMaquinas"></span></h3>
-                <p class="descricaoCards">Máquinas</p>
+                <div class="flex1">
+                    <h3 class="descricaoCards">Total de máquinas</h3>
+                    <h3 class="tituloCards"><span id="qntMaquinas"></span></h3>
+                
+                </div>
             </div>
             <div class="item2">
-                <h3 class="tituloCards"><span id="PoucoEspaco"></span></h3>
-                <p class="descricaoCards">Máquinas com pouco espaço</p>
+                
+                    <h3 class="tituloCards"><span id="PoucoEspaco"></span></h3>
+                    <p class="descricaoCards">Máquinas com pouco espaço</p>
+               
+                <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
             </div>
             <div class="item3">
-                <h3 class="tituloCards"><span id="poucaRam"></span></h3>
+                <div class="divFlex">
+                    <h3 class="tituloCards"><span id="poucaRam"></span></h3>
                 <p class="descricaoCards">Máquinas com pouca memória RAM</p>
+                </div>
+                <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
             </div>
         </div>
         <div class="container2">
@@ -104,10 +113,12 @@
         </div>
         <div class="container3">
             <div class="item6">
+                <div class="titulos">
                 <p>Modelo:N° série</p>
                 <p>N° de alertas na CPU</p>
                 <p>N° de alertas da memoria</p>
                 <p>N° de alertas do disco</p>
+                </div>
                 <ul>
                     <!-- <li>Modelo:N° série</li>
                     <li>N° de alertas na CPU</li>
@@ -126,13 +137,9 @@
                     
                   </table> -->
             </div>
-            <div class="subContainer">
+                
                 <div class="item7">
 
-                </div>
-                <div class="item8">
-
-                </div>
             </div>
         </div>
     </div>

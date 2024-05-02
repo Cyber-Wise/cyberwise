@@ -133,6 +133,13 @@ body {
 .normal {
     color: green;
 }
+.item6 .titulos {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
 #informationBox {
     display: none;
 }
@@ -173,7 +180,7 @@ body {
     margin-bottom: 10px;
     gap: 10px;
     grid-template-rows: 170px; /* Duas linhas de altura 100px e 200px */
-    grid-template-columns: 1fr 2fr 1fr; /* Duas colunas, a primeira com 1 parte e a segunda com 2 partes */
+    grid-template-columns: 0.5fr 1fr 1fr; /* Duas colunas, a primeira com 1 parte e a segunda com 2 partes */
 }
 .dashboard .container2 {
     margin-bottom: 10px;
@@ -188,11 +195,7 @@ body {
     grid-template-rows: 250px ; /* Duas linhas de altura 100px e 200px */
     grid-template-columns: 2fr 1fr; 
 }
-.subContainer {
-    display: grid;
-    gap: 10px;
-    grid-template-rows: 1fr 1fr;
-}
+
 .item1, .item2, .item3, .item4, .item5, .item7, .item8 {
     padding: 10px;
     border-radius: 20px;
@@ -203,6 +206,15 @@ body {
     color: #fff;
     justify-content: center;
     background-color: #2D325A;
+}
+.divFlex {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.item3 {
+    justify-content: space-between;
+   flex-direction: column;
 }
 .item5, .item6 {
     justify-content: space-between;
@@ -246,7 +258,7 @@ body {
     font-size: 25px;
     font-weight: bold;
 }
-.container2 .btnVerMais {
+.btnVerMais {
     background-color: #25294A;
     border: none;
     padding: 4px 30px;
