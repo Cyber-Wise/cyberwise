@@ -130,13 +130,22 @@ main {
 .funcLabel p {
     color: #fff;
 }
+.funcionarioEmail {
+    width: 180px;
+    text-align: left;
+}
 .funcionarioNome {
+    text-align: left;
+
+    width: 180px;
     color: #fff;
 }
 .listaDeFuncionarios li:first-child{
     margin-top: 0;
 }
 .listaDeFuncionarios li {
+    /* padding-bottom: 5px;
+    border-bottom: 1px solid rgb(135, 135, 135); */
     margin-top: 20px;
     list-style: none;
     align-items: center;

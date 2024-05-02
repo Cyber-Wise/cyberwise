@@ -50,7 +50,7 @@
     </header>
     <main>
         <div class="globalFuncionario" id="globalFuncionario">
-            <button onclick="abrir()" class="btnFuncionario">Adicionar Funcionário<i class='bx bx-add-to-queue'></i></button>
+            <button onclick="abrir()" id="addFunc" class="btnFuncionario">Adicionar Funcionário<i class='bx bx-add-to-queue'></i></button>
             <div id="sumiuPesquisa">
                 <div class="headerGerenciar">
                     <div class="container">
@@ -338,7 +338,7 @@
                 <textarea name="" id="inputdesc" cols="30" rows="10" class="inputdescricao" ></textarea> -->
               
 
-                <button class="botoesGerenciar" onclick="abrirFuncionarios()">
+                <button class="botoesGerenciar" onclick="abrirFuncionarios(), validarCargoGerente()">
                     Gerenciar Funcionários
                 </button>
                 <button class="botoesGerenciar" onclick="abrirMaquinas()">
@@ -362,12 +362,36 @@
     window.onload = maquinas();
     window.onload = buscarParametros();
     window.onload = dadosPerfil();
-
+    window.onload = validarCargo();
+    
   //  O nome do cargo do usuario ta no ===> sessionStorage.Cargo 
   // id no banco         nome no sessionStorage.cargo
   // 0                      Adiministrador
   // 1                      Gerente
   // 3                      Funcionário
+  function validarCargoGerente(){
+    if(sessionStorage.Cargo == 'Gerente'){
+        globalFuncionario.style.marginTop = "70px"
+        addFunc.style.display = 'none'
+        let btnEdit = document.querySelectorAll(".editFunc")
+        let btnRemove = document.querySelectorAll(".removeFunc")
+        btnEdit.forEach(element=>{
+            element.style.display = 'none'
+        })
+        btnRemove.forEach(element=>{
+            element.style.display = 'none'
+        })
+    }
+  }
+function validarCargo(){
+    if(sessionStorage.Cargo == 'Funcionário'){
+        console.log("ola funcionario")
+        let botoesDeFuncionario = document.querySelector(".infoEmpresaEBotoes")
+        botoesDeFuncionario.style.display = 'none'
+    }
+   
+}
+
 
 
     function editar(){

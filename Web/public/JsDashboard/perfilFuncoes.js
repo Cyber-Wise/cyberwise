@@ -113,18 +113,34 @@ function funcionarios() {
                   var email =  funcionario.email;
                   var idFuncionario =  funcionario.id;
                   var senha =  funcionario.senha;
-                   
+                var fkCargo = funcionario.fk_cargo;
+                var cargo;
+
+                switch(fkCargo){
+                    case 1:
+                        cargo = 'Administrador';
+                        break;
+                    case 2:
+                        cargo = 'Gerente';
+                        break;
+                    case 3:
+                        cargo = 'Funcionário'
+                        break;
+
+                }
 
                 const li = document.createElement('li');
                 
                 li.innerHTML = `
                 <p class="funcionarioNome">${nome}</p>
                 <p class="funcionarioEmail">${email}</p>
+                <p class="funcionarioCargo">${cargo}</p>
                 <div class="botaosGerenciar">
-                    <button><i class='bx bx-trash-alt' onclick="deletar(${idFuncionario})"></i></button>
-                    <button onclick="abrirEditar()"><i class='bx bxs-edit-alt' onclick="editarFuncionario1(${idFuncionario}, '${nome}', '${email}', '${senha}')"></i></button>
+                    <button class="removeFunc"><i class='bx bx-trash-alt' onclick="deletar(${idFuncionario})"></i></button>
+                    <button class="editFunc" onclick="abrirEditar()"><i class='bx bxs-edit-alt' onclick="editarFuncionario1(${idFuncionario}, '${nome}', '${email}', '${senha}')"></i></button>
                 </div>
                 `;
+            
                 ul.appendChild(li);
                             });
                         });
