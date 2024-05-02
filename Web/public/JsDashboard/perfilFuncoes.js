@@ -162,7 +162,24 @@ function funcionarios() {
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO PERFIL!")
-  
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Funcionário deletado com sucesso!",
+            icon: "success",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "green",
+            });
         if (resposta.ok) {
             console.log(resposta);
 
@@ -206,11 +223,47 @@ function funcionarios() {
         senha == "" ||
         confirmarSenha == ""
       ) {
-            alert("Preencha todos os campos.");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Erro",
+            text: "Preencha todos os campos!",
+            icon: "error",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "red",
+            });
             return false;
       }
         else if(senha != confirmarSenha){
-            alert('As senhas são diferentes')
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Senha",
+                text: "As senhas não são as mesmas!",
+                icon: "error",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "red",
+                });
             return false;
         }
         else{
@@ -230,7 +283,24 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-          
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Cadastro de funcionário realizado!",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
                 if (resposta.ok) {
                     console.log(resposta);
         
@@ -272,7 +342,24 @@ function funcionarios() {
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO PERFIL!")
-  
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Funcionário atualizado com sucesso",
+            icon: "success",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "green",
+            });
         if (resposta.ok) {
             console.log(resposta);
 
@@ -326,7 +413,7 @@ function funcionarios() {
                     
                     li.innerHTML = `
                     <!-- <p class="funcionarioNome"> -->
-                    <img src="../assets/maquinaCERTO.png" alt="">
+                    <i class='bx bx-laptop listaPCtop'></i>
                 <!-- </p> -->
                   <p class="funcionarioEmail" id="maquinaNome">${modelo} : ${numeroSerie}</p>
                   <div class="botaosGerenciar">
@@ -397,7 +484,25 @@ function funcionarios() {
         modelo == "" ||
         numeroSerie == "" 
       ) {
-            alert("Preencha todos os campos.");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Erro",
+            text: "Preencha todos os campos!",
+            icon: "error",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "red",
+            });
             return false;
       }
         else{
@@ -414,7 +519,24 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-          
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Cadastro de máquina realizado!",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
                 if (resposta.ok) {
                     console.log(resposta);
         
@@ -465,7 +587,24 @@ function funcionarios() {
          })
      }).then(function (resposta) {
          console.log("ESTOU NO THEN DO PERFIL!")
-   
+         const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Maquina realizado com sucesso!",
+            icon: "success",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "green",
+            });
          if (resposta.ok) {
              console.log(resposta);
  
@@ -497,7 +636,24 @@ function funcionarios() {
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO PERFIL!")
-      
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Máquina deletada com sucesso",
+                icon: "success",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "green",
+                });
             if (resposta.ok) {
                 console.log(resposta);
     
@@ -535,7 +691,25 @@ function funcionarios() {
         discoCritico == "" ||
         discoAlerta == "" 
       ) {
-            alert("Preencha todos os campos.");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Erro",
+            text: "Preencha todos os campos!",
+            icon: "error",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "red",
+            });
             return false;
       }
         else{
@@ -556,7 +730,24 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-          
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Cadastro de parâmetro realizado!",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
                 if (resposta.ok) {
                     console.log(resposta);
         

@@ -193,7 +193,7 @@
 <!-- 33333333333333333333333333333 -->
 
 <div class="globalFuncionario" id="globalParametros">
-<button onclick="abrir3()" class="btnFuncionario">Adicionar Parâmetros<i class='bx bx-add-to-queue'></i></button>
+<button id="addParametro" onclick="abrir3()" class="btnFuncionario">Adicionar Parâmetros<i class='bx bx-add-to-queue'></i></button>
 <div id="sumiuPesquisa3">
     <div class="headerGerenciar">
         <div class="container">
@@ -208,10 +208,22 @@
          
         </div>
         <div class="corpoGerenciar">
-          <ul class="listaDeFuncionarios">
+          <ul class="listaDeParametros">
               <li>
                   <p class="funcionarioNome">Computadores Dell</p>
-                  <p class="funcionarioEmail">RAM alerta: 50, RAM critica: 80, CPU alerta: 50, CPU critica: 80 DISCO alerta: 50, DISCO critica: 80 </p>
+                  <p class="parametroDescricao"> 
+                <div class="separacaoParametro">
+                    <p>RAM alerta: 50</p>
+                    <p>RAM critico: 50</p>
+                </div>
+                <div class="separacaoParametro">
+                    <p>CPU alerta: 50</p>
+                    <p>CPU critico: 50</p>
+                </div>
+                <div class="separacaoParametro">
+                    <p>DISCO alerta: 50</p>
+                    <p>DISCO critico: 50</p>
+                </div>
                   <div class="botaosGerenciar">
                       <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
                       <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
@@ -228,33 +240,36 @@
         <p>Nome do Parâmetro:</p>
         <input type="text" id="nomeParametro" class="inputCadastrar">
     </div>
-    <div class="displayFlex">
-        <div class="funcLabel">
-            <p>CPU crítico:</p>
-            <input type="text" id="cpuCritico1" class="inputCadastrar">
+    <div class="globalFlex">
+        <div class="displayFlex">
+            <div class="funcLabel">
+                <p>CPU crítico:</p>
+                <input type="text" id="cpuCritico1" class="inputCadastrar">
+            </div>
+            <div class="funcLabel">
+                <p>CPU alerta: </p>
+                <input type="text" id="cpuAlerta1" class="inputCadastrar">
+            </div>
         </div>
-        <div class="funcLabel">
-            <p>CPU alerta: </p>
-            <input type="text" id="cpuAlerta1" class="inputCadastrar">
+        <div class="displayFlex">
+            <div class="funcLabel">
+                <p>RAM crítico:</p>
+                <input type="text" id="ramCritico1" class="inputCadastrar">
+            </div>
+            <div class="funcLabel">
+                <p>RAM alerta:</p>
+                <input type="text" id="ramAlerta1" class="inputCadastrar">
+            </div>
+            
         </div>
-        <div class="funcLabel">
-            <p>RAM crítico:</p>
-            <input type="text" id="ramCritico1" class="inputCadastrar">
-        </div>
-    </div>
-    <div class="displayFlex">
-        <div class="funcLabel">
-            <p>RAM alerta:</p>
-            <input type="text" id="ramAlerta1" class="inputCadastrar">
-        </div>
-        <div class="funcLabel">
+        <div class="displayFlex"><div class="funcLabel">
             <p>Disco crítico:</p>
             <input type="text" id="discoCritico1" class="inputCadastrar">
         </div>
         <div class="funcLabel">
             <p>Disco alerta:</p>
             <input type="text" id="discoAlerta1" class="inputCadastrar">
-        </div>
+        </div></div>
     </div>
     <button class="btnCadastrar" onclick="cadastrarParametro()">Cadastrar Parâmetro</button>
 </div>
@@ -355,6 +370,8 @@
         </div>
     </div>
     </main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 <script src="../js/header.js"></script>
 <script src="../JsDashboard/perfilFuncoes.js"></script>
@@ -497,10 +514,12 @@ function validarCargo(){
     function abrir3(){
         sumiuPesquisa3.style.display = 'none'
         divParametro.style.display = 'block'
+        addParametro.style.marginLeft = '120px'
     }
     function fechar3(){
         sumiuPesquisa3.style.display = 'block'
         divParametro.style.display = 'none'
+        addParametro.style.marginLeft = '40px'
     }
     function abrirEditar3(){
         sumiuPesquisa3.style.display = 'none'

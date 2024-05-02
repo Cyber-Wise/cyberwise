@@ -131,8 +131,24 @@ main {
     color: #fff;
 }
 .funcionarioEmail {
-    width: 180px;
+    width: 200px;
     text-align: left;
+}
+.funcionarioCargo {
+    width: 100px;
+}
+.listaDeParametros li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 100px; */
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #cbd9f512;
+
+}
+.listaDeParametros li .funcionarioNome {
+    /* width: 180px; */
 }
 .funcionarioNome {
     text-align: left;
@@ -144,8 +160,8 @@ main {
     margin-top: 0;
 }
 .listaDeFuncionarios li {
-    /* padding-bottom: 5px;
-    border-bottom: 1px solid rgb(135, 135, 135); */
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cbd9f512;
     margin-top: 20px;
     list-style: none;
     align-items: center;
