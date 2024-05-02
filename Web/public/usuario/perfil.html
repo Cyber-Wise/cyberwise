@@ -21,6 +21,10 @@
     <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="../css/headerPerfil.css">
     <link rel="stylesheet" href="../css/gerenciar.css">
+
+    <!-- <script src="sweetalert2.min.js"></script> -->
+    <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
 </head>
 
 <body>
@@ -208,8 +212,8 @@
          
         </div>
         <div class="corpoGerenciar">
-          <ul class="listaDeParametros">
-              <li>
+          <ul class="listaDeParametros" id="listaParametros">
+              <!-- <li>
                   <p class="funcionarioNome">Computadores Dell</p>
                   <p class="parametroDescricao"> 
                 <div class="separacaoParametro">
@@ -228,7 +232,7 @@
                       <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
                       <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
                   </div>
-              </li>
+              </li> -->
               
           </ul>
         </div> 
@@ -370,17 +374,19 @@
         </div>
     </div>
     </main>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 
 </body>
 <script src="../js/header.js"></script>
 <script src="../JsDashboard/perfilFuncoes.js"></script>
 <script>
+
     window.onload = funcionarios();
     window.onload = maquinas();
     window.onload = buscarParametros();
     window.onload = dadosPerfil();
     window.onload = validarCargo();
+    window.onload = listaParametros();
     
   //  O nome do cargo do usuario ta no ===> sessionStorage.Cargo 
   // id no banco         nome no sessionStorage.cargo

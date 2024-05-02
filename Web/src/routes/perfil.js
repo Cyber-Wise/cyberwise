@@ -51,5 +51,9 @@ router.post("/cadastrarParametro", function (req, res) {
     perfilController.cadastrarParametro(req, res);
 });
 
+router.post("/listaParametros", function (req, res) {
+    perfilController.listaParametros(req, res);
+});
+
 
 module.exports = router;

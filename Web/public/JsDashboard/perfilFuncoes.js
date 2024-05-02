@@ -1,4 +1,3 @@
-nomeDaConta.innerHTML = sessionStorage.NOME_USUARIO;
 nomeDaEmpresa.innerHTML = sessionStorage.NomeEmpresa;
 
 function dadosPerfil(){
@@ -27,6 +26,9 @@ function dadosPerfil(){
             var nome = json[0].nome;
             var emailU = json[0].email;
             var senha = json[0].senha;
+
+            nomeDaConta.innerHTML = nome;
+           
 
             nomePerfil.innerHTML = nome;
             email.innerHTML = emailU;
@@ -113,8 +115,8 @@ function funcionarios() {
                   var email =  funcionario.email;
                   var idFuncionario =  funcionario.id;
                   var senha =  funcionario.senha;
-                var fkCargo = funcionario.fk_cargo;
-                var cargo;
+                  var fkCargo = funcionario.fk_cargo;
+                  var cargo;
 
                 switch(fkCargo){
                     case 1:
@@ -163,25 +165,26 @@ function funcionarios() {
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO PERFIL!")
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-            });
-            Toast.fire({
-                title: "Funcionário deletado com sucesso!",
-            icon: "success",
-            color: "#fff",
-            background: "#011126",
-            iconColor : "green",
-            });
+       
         if (resposta.ok) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Funcionário deletado com sucesso!",
+                icon: "success",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "green",
+                });
             console.log(resposta);
 
             setTimeout(function () {
@@ -284,25 +287,26 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                    });
-                    Toast.fire({
-                    title: "Cadastro de funcionário realizado!",
-                    icon: "success",
-                    color: "#fff",
-                    background: "#011126",
-                    iconColor : "green",
-                    });
+               
                 if (resposta.ok) {
+                   const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                        Toast.fire({
+                        title: "Cadastro de funcionário realizado!",
+                        icon: "success",
+                        color: "#fff",
+                        background: "#011126",
+                        iconColor : "green",
+                        });
                     console.log(resposta);
         
                     resposta.json().then(json => {
@@ -343,25 +347,26 @@ function funcionarios() {
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO PERFIL!")
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-            });
-            Toast.fire({
-                title: "Funcionário atualizado com sucesso",
-            icon: "success",
-            color: "#fff",
-            background: "#011126",
-            iconColor : "green",
-            });
+       
         if (resposta.ok) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Funcionário atualizado com sucesso",
+                icon: "success",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "green",
+                });
             console.log(resposta);
 
             resposta.json().then(json => {
@@ -520,25 +525,26 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                    });
-                    Toast.fire({
-                        title: "Cadastro de máquina realizado!",
-                    icon: "success",
-                    color: "#fff",
-                    background: "#011126",
-                    iconColor : "green",
-                    });
+               
                 if (resposta.ok) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                        });
+                        Toast.fire({
+                            title: "Cadastro de máquina realizado!",
+                        icon: "success",
+                        color: "#fff",
+                        background: "#011126",
+                        iconColor : "green",
+                        });
                     console.log(resposta);
         
                     resposta.json().then(json => {
@@ -588,25 +594,26 @@ function funcionarios() {
          })
      }).then(function (resposta) {
          console.log("ESTOU NO THEN DO PERFIL!")
-         const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-            });
-            Toast.fire({
-                title: "Maquina realizado com sucesso!",
-            icon: "success",
-            color: "#fff",
-            background: "#011126",
-            iconColor : "green",
-            });
+        
          if (resposta.ok) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Maquina realizado com sucesso!",
+                icon: "success",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "green",
+                });
              console.log(resposta);
  
              resposta.json().then(json => {
@@ -637,25 +644,26 @@ function funcionarios() {
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO PERFIL!")
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-                });
-                Toast.fire({
-                    title: "Máquina deletada com sucesso",
-                icon: "success",
-                color: "#fff",
-                background: "#011126",
-                iconColor : "green",
-                });
+           
             if (resposta.ok) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Máquina deletada com sucesso",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
                 console.log(resposta);
     
                 setTimeout(function () {
@@ -731,25 +739,26 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                    });
-                    Toast.fire({
-                        title: "Cadastro de parâmetro realizado!",
-                    icon: "success",
-                    color: "#fff",
-                    background: "#011126",
-                    iconColor : "green",
-                    });
+                
                 if (resposta.ok) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                        });
+                        Toast.fire({
+                            title: "Cadastro de parâmetro realizado!",
+                        icon: "success",
+                        color: "#fff",
+                        background: "#011126",
+                        iconColor : "green",
+                        });
                     console.log(resposta);
         
                     resposta.json().then(json => {
@@ -769,43 +778,158 @@ function funcionarios() {
 
     }
 
+    function listaParametros() {
+        var idEmpresa = sessionStorage.empresa;
+    
+        fetch("/perfil/listaParametros", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                empresaServer: idEmpresa,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO PERFIL!")
+      
+            if (resposta.ok) {
+                console.log(resposta);
+    
+                resposta.json().then(json => {
+                    console.log('console ====> ',json);
+                    console.log(JSON.stringify(json));
+                    
+                const ul = document.getElementById('listaParametros');
+    
+         
+                    json.forEach((parametro) => {
+                      var idParametro = parametro.id;
+                      var nome = parametro.nome;
+                      var ramAlerta = parametro.alertaRAM;
+                      var ramCritico = parametro.criticoRAM;
+                      var cpuAlerta = parametro.alertaCPU;
+                      var cpuCritico = parametro.criticoCPU;
+                      var discoAlerta = parametro.alertaDISCO;
+                      var discoCritico = parametro.criticoDISCO;
+                       
+    
+                    const li = document.createElement('li');
+                    
+                    li.innerHTML = `
+                    <p class="funcionarioNome">${nome}</p>
+                    <p class="parametroDescricao"> 
+                  <div class="separacaoParametro">
+                      <p>RAM alerta: ${ramAlerta}</p>
+                      <p>RAM critico: ${ramCritico}</p>
+                  </div>
+                  <div class="separacaoParametro">
+                      <p>CPU alerta: ${cpuAlerta}</p>
+                      <p>CPU critico: ${cpuCritico}</p>
+                  </div>
+                  <div class="separacaoParametro">
+                      <p>DISCO alerta: ${discoAlerta}</p>
+                      <p>DISCO critico: ${discoCritico}</p>
+                  </div>
+                    <div class="botaosGerenciar">
+                        <button><i class='bx bx-trash-alt' onclick="deletarParametro(${idParametro})"></i></button>
+                        <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
+                    `;
+                    ul.appendChild(li);
+                                });
+                            });
+                         } 
+    
+                    })
+    }
+
+    function deletarParametro(idParametro){
+
+        fetch("/perfil/deletarParametro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idParametroServer: idParametro,
+             
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO PERFIL!")
+           
+            if (resposta.ok) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Máquina deletada com sucesso",
+                        text: "certo",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
+                console.log(resposta);
+    
+                setTimeout(function () {
+                    window.location = "./perfil.html";
+                }, 1000);
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+      
+                }
+            );
+    
+            } 
+    
+        })
+    }
+
 
 
 function filtrar(inputb, ul1, tagName){
-var input,
-filter,
-ul,
-li,
-a,
-i,
-txtvalue,
-count = 0;
+        var input,
+        filter,
+        ul,
+        li,
+        a,
+        i,
+        txtvalue,
+        count = 0;
 
-console.log(inputb, ul1, tagName)
+        console.log(inputb, ul1, tagName)
 
-input = document.getElementById(inputb);
-ul = document.getElementById(ul1);
+        input = document.getElementById(inputb);
+        ul = document.getElementById(ul1);
 
-filter = input.value.toUpperCase();
+        filter = input.value.toUpperCase();
 
-li = ul.getElementsByTagName("li");
+        li = ul.getElementsByTagName("li");
 
 
-for (i = 0; i < li.length; i++) {
-a = li[i].getElementsByClassName(tagName)[0];
+        for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByClassName(tagName)[0];
 
-txtvalue = a.textContent || a.innerText;
+        txtvalue = a.textContent || a.innerText;
 
-if(txtvalue.toLocaleUpperCase().indexOf(filter) > -1){
-li[i].style.display = "";
+        if(txtvalue.toLocaleUpperCase().indexOf(filter) > -1){
+        li[i].style.display = "";
 
-count++;
+        count++;
 
-}else{
-    li[i].style.display = "none";
-}
+        }else{
+            li[i].style.display = "none";
+        }
 
-}
-if(count === 0) ul.style.display = "none";
-else ul.style.display = "block";
+        }
+        if(count === 0) ul.style.display = "none";
+        else ul.style.display = "block";
 }

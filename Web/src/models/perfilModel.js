@@ -98,6 +98,14 @@ function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, 
   return database.executar(query);
 }
 
+function listaParametros(empresa) {
+  console.log("Acessei perfil Model")
+var query = `SELECT * FROM parametros WHERE fk_empresa = ${empresa}`;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
 
 module.exports = {
     dadosFuncionarios,
@@ -111,5 +119,6 @@ module.exports = {
     dadosPerfil,
     atualizarPerfil,
     cadastrarParametro,
-    atualizarMaquina
+    atualizarMaquina,
+    listaParametros
 };

@@ -153,6 +153,16 @@ function dadosFuncionarios1(req, res) {
       
     });
   }
+
+  function listaParametros(req, res) {
+    var empresa = req.body.empresaServer;
+  
+    perfilModel.listaParametros(empresa).then(function (resultado){
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+
+    });
+  }
   
 module.exports = {
     dadosFuncionarios1,
@@ -166,5 +176,6 @@ module.exports = {
     dadosPerfil,
     atualizarPerfil,
     cadastrarParametro,
-    atualizarMaquina
+    atualizarMaquina,
+    listaParametros
 }

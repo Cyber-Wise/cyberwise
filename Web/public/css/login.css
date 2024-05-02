@@ -7,6 +7,10 @@
 ::-webkit-scrollbar {
     display: none;
 }
+h2, div {
+    font-family: "Chakra Petch";
+
+}
 
 .centralizarBox {
     width: auto;
