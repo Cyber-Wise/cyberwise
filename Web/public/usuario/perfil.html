@@ -172,20 +172,21 @@
 
         </select>
     </div>
-    <button class="btnCadastrar" onclick="cadastrarMaquina()">Cadastrar</button>
+    <button class="btnCadastrar" onclick="cadastrarMaquina()">Cadastrar Maquina</button>
 </div>
 <div id="editarMaquina" class="cadastroDeFuncionario">
     <button onclick="fecharEditar2()" class="fechar">X</button>
     <h2 class="tituloFuncionarios" style="color: #fff;">Editar máquina</h2>
-    <div class="funcLabel">
+    <div class="funcLabel" >
         <p>Modelo:</p>
-        <input type="text">
+        <input type="text" id="modeloEditar" class="inputCadastrar">
     </div>
-    <div class="funcLabel">
+    <div class="funcLabel numeroSerieEditar">
         <p>Número de série:</p>
-        <input type="email">
+        <!-- <input type="text" class="inputCadastrar"> -->
     </div>
-    <button class="btnCadastrar">Atualizar máquina</button>
+    <span id="numeroSerieEditar"></span>
+    <button class="btnCadastrar" onclick="atualizarMaquina()">Atualizar máquina</button>
 </div>
 </div>
 
@@ -224,38 +225,38 @@
     <button onclick="fechar3()" class="fechar">X</button>
     <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar parâmetros</h2>
     <div class="funcLabel">
-        <p>Nome do Parametro:</p>
-        <input type="text">
+        <p>Nome do Parâmetro:</p>
+        <input type="text" id="nomeParametro" class="inputCadastrar">
     </div>
     <div class="displayFlex">
         <div class="funcLabel">
             <p>CPU crítico:</p>
-            <input type="text">
+            <input type="text" id="cpuCritico1" class="inputCadastrar">
         </div>
         <div class="funcLabel">
             <p>CPU alerta: </p>
-            <input type="text">
+            <input type="text" id="cpuAlerta1" class="inputCadastrar">
         </div>
         <div class="funcLabel">
             <p>RAM crítico:</p>
-            <input type="text">
+            <input type="text" id="ramCritico1" class="inputCadastrar">
         </div>
     </div>
     <div class="displayFlex">
         <div class="funcLabel">
             <p>RAM alerta:</p>
-            <input type="text">
+            <input type="text" id="ramAlerta1" class="inputCadastrar">
         </div>
         <div class="funcLabel">
             <p>Disco crítico:</p>
-            <input type="text">
+            <input type="text" id="discoCritico1" class="inputCadastrar">
         </div>
         <div class="funcLabel">
             <p>Disco alerta:</p>
-            <input type="text">
+            <input type="text" id="discoAlerta1" class="inputCadastrar">
         </div>
     </div>
-    <button class="btnCadastrar">Cadastrar</button>
+    <button class="btnCadastrar" onclick="cadastrarParametro()">Cadastrar Parâmetro</button>
 </div>
 <div id="editarParametro" class="cadastroDeFuncionario">
     <button onclick="fecharEditar3()" class="fechar">X</button>
@@ -369,6 +370,7 @@
   // 0                      Adiministrador
   // 1                      Gerente
   // 3                      Funcionário
+
   function validarCargoGerente(){
     if(sessionStorage.Cargo == 'Gerente'){
         globalFuncionario.style.marginTop = "70px"
@@ -392,33 +394,11 @@ function validarCargo(){
    
 }
 
-
-
     function editar(){
-
-        //console.log('oi')
-        //var div = document.querySelectorAll(".divInformacoes");
-        //var input = document.querySelectorAll(".inputInformacoes");
-        //var info = document.querySelector(".infoEmpresa");
-        //var textareaaa = document.querySelectorAll(".textareahh");
-
-
-        //info.style.display = "none";
-        //textareaaa.style.display = "flex";
-
-        // console.log(input);
-        //for (let i = 0; i < div.length ; i++) {
-         //   const element = div[i];
-          //  const element2 = input[i];
-           // element.style.display = "none";
-            //element2.style.display = "flex";
-
-        //}
 
         infoPerfil.style.display = "none";
         infoPerfil1.style.display = "none";
         infoPerfil2.style.display = "none";
-        // infoPerfil3.style.display = "none";
         
         botaoEditar.style.display = "none";
         botaoSalvar.style.display = "flex";
@@ -426,23 +406,12 @@ function validarCargo(){
         inputNome.style.display = "flex";
         inputEmail.style.display = "flex";
         inputSenha.style.display = "flex";
-        // inputdesc.style.display = "flex";
 
     }
 
     function salvar(){
-       // infoPerfil.style.display = "flex";
-       // infoPerfil1.style.display = "flex";
-       // infoPerfil2.style.display = "flex";
-        // infoPerfil3.style.display = "flex";
-        
         botaoEditar.style.display = "flex";
         botaoSalvar.style.display = "none";
-
-       // inputNome.style.display = "none";
-       // inputEmail.style.display = "none";
-       // inputSenha.style.display = "none";
-        // inputdesc.style.display = "none";
 
     }
 
@@ -462,8 +431,8 @@ function validarCargo(){
         editarFuncionario.style.display = 'block'
     }
     function fecharEditar(){
-        sumiuPesquisa.style.display = 'block'
-        editarFuncionario.style.display = 'none'
+        sumiuPesquisa.style.display = 'block';
+        editarFuncionario.style.display = 'none';
     }
 
     function abrirFuncionarios(){

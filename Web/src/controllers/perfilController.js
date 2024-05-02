@@ -112,17 +112,47 @@ function dadosFuncionarios1(req, res) {
     });
   }
 
-  function deletarMaquina(req, res) {
-    var Maquina = req.body.idMaquinaServer;
-  
-    perfilModel.deletarMaquina(Maquina).then(function (resultado){
+  function atualizarMaquina(req, res) {
+    var modelo = req.body.modeloServer;
+    var id = req.body.idServer;
+
+    perfilModel.atualizarMaquina(modelo, id).then(function (resultado){
     //   console.log(`\nResultados encontrados: ${resultado}`);
      console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+
+    });
+  }
+  
+  function deletarMaquina(req, res) {
+    var Maquina = req.body.idMaquinaServer;
+    
+    perfilModel.deletarMaquina(Maquina).then(function (resultado){
+      //   console.log(`\nResultados encontrados: ${resultado}`);
+      console.log(`Resultados: ${JSON.stringify(resultado)}`)
       res.status(200).json(resultado);
       
     });
   }
+  
+  function cadastrarParametro(req, res) {
+    var nome = req.body.nomeServer;
+    var cpuCritico = req.body.cpuCriticoServer;
+    var cpuAlerta = req.body.cpuAlertaServer;
+    var ramCritico = req.body.ramCriticoServer;
+    var ramAlerta = req.body.ramAlertaServer;
+    var discoCritico = req.body.discoCriticoServer;
+    var discoAlerta = req.body.discoAlertaServer;
+    var idEmpresa = req.body.idEmpresaServer;
 
+  
+    perfilModel.cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, discoCritico, discoAlerta, idEmpresa).then(function (resultado){
+   
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+      
+    });
+  }
   
 module.exports = {
     dadosFuncionarios1,
@@ -134,5 +164,7 @@ module.exports = {
     cadastrarMaquina,
     deletarMaquina,
     dadosPerfil,
-    atualizarPerfil
+    atualizarPerfil,
+    cadastrarParametro,
+    atualizarMaquina
 }

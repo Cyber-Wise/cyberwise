@@ -74,9 +74,25 @@ function cadastrarMaquina(modelo, numeroSerie, idParametro, idEmpresa) {
   return database.executar(query);
 }
 
+function atualizarMaquina(modelo, id) {
+  console.log("Acessei perfil Model")
+var query = `UPDATE maquina SET modelo = '${modelo}' WHERE id = ${id};`;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
 function deletarMaquina(idMaquina) {
     console.log("Acessei perfil Model")
   var query = `DELETE FROM maquina WHERE id = ${idMaquina};`;
+  
+  console.log("Executando a instrução SQL: \n" + query);
+  return database.executar(query);
+}
+
+function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, discoCritico, discoAlerta, idEmpresa) {
+    console.log("Acessei perfil Model")
+  var query = `INSERT INTO parametros VALUES (NULL, '${nome}', ${cpuAlerta}, ${cpuCritico}, ${discoAlerta}, ${discoCritico}, ${ramAlerta}, ${ramCritico}, ${idEmpresa});`;
   
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
@@ -93,5 +109,7 @@ module.exports = {
     cadastrarMaquina,
     deletarMaquina,
     dadosPerfil,
-    atualizarPerfil
+    atualizarPerfil,
+    cadastrarParametro,
+    atualizarMaquina
 };

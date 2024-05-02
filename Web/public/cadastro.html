@@ -134,7 +134,7 @@
       let nome = nomeVar.toLowerCase();
       nome = nome.replace(/\s/g, "");
 
-      var emailAdm = `${nome}@cyberwise42.com`;
+      var emailAdm = `${nome}@cyberwise.com`;
       var nomeAdm = `${nomeVar} administrador`;
       var senhaVar  = gerarSenha(nome);
 
@@ -233,7 +233,7 @@
         },
         body: JSON.stringify({
          // nomeEmpresaServer: nomeVar,
-          nomeAdmServer : nomeAdm,
+          nomeAdmServer : nomeVar,
         //  cnpjServer: cnpjVar,
          // telefoneServer : telefoneVar,
           emailServer : emailAdm,

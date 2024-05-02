@@ -39,8 +39,16 @@ router.post("/cadastrarMaquina", function (req, res) {
     perfilController.cadastrarMaquina(req, res);
 });
 
+router.post("/atualizarMaquina", function (req, res) {
+    perfilController.atualizarMaquina(req, res);
+});
+
 router.post("/deletarMaquina", function (req, res) {
     perfilController.deletarMaquina(req, res);
+});
+
+router.post("/cadastrarParametro", function (req, res) {
+    perfilController.cadastrarParametro(req, res);
 });
 
 

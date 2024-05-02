@@ -252,7 +252,6 @@ function funcionarios() {
     }
 
     function atualizarFuncionario(){
-    //    var nome = nomeEditarFuncionario.value;
        var email = emailEditarFuncionario.value;
        var senha = senhaEditarFuncionario.value;
        var id = sessionStorage.idFuncionario;
@@ -289,8 +288,6 @@ function funcionarios() {
                      } 
 
                 })
-
-
 
     }
 
@@ -334,7 +331,7 @@ function funcionarios() {
                   <p class="funcionarioEmail" id="maquinaNome">${modelo} : ${numeroSerie}</p>
                   <div class="botaosGerenciar">
                       <button><i class='bx bx-trash-alt' onclick="deletarMaquina(${idmaquina})"></i></button>
-                      <button onclick="abrirEditar2()"><i class='bx bxs-edit-alt'></i></button>
+                      <button onclick="abrirEditar2()"><i class='bx bxs-edit-alt' onclick="editarMaquina1(${idmaquina}, '${modelo}', ${numeroSerie})"></i></button>
                   </div>
                     `;
                     ul.appendChild(li);
@@ -348,7 +345,7 @@ function funcionarios() {
 
     function buscarParametros(){
         var idEmpresa1 = sessionStorage.empresa;
-        console.log(idEmpresa1, "buscar parametro");
+        // console.log(idEmpresa1, "buscar parametro");
 
         fetch("/perfil/buscarParametros", {
             method: "POST",
@@ -373,22 +370,15 @@ function funcionarios() {
                 var selectElement = document.getElementById("selectParametros");
               
                 json.forEach(function(item) {[]
-                    var optionText = item.nome + " - ";
-                    var optionValue =  item.id + "   ";
-                    Object.keys(item).forEach(function(key) {
-                        if (key.includes("alerta") || key.includes("critico")) {
-                            optionText += key + ": " + item[key] + ", ";
-                            optionValue += item[key] + ", "; 
-                        }
-                    });
-                    optionText = optionText.slice(0, -2); 
-                    optionValue = optionValue.slice(0, -2);
+                    var optionText = item.nome;
+                    var optionValue =  item.id;
                     var optionElement = document.createElement("option");
+
                     optionElement.textContent = optionText;
                     optionElement.value = optionValue; 
                     selectElement.appendChild(optionElement);
                 });
-
+               
                         });
                      } 
         })
@@ -397,11 +387,11 @@ function funcionarios() {
     function cadastrarMaquina(){
         var modelo = modeloCadastrarPc.value;
         var numeroSerie = numSerieCadastrarPc.value;
-        var Parametro = selectParametros.value;
+        // var Parametro = selectParametros.value;
         var idEmpresa = sessionStorage.empresa;
-        var idParametro = parseInt(Parametro.substring(0, 2));
-        console.log(idParametro)
+        var idParametro = selectParametros.value;
 
+        // console.log('select do parametro ===> ',selectParametros.value);
     
     if (
         modelo == "" ||
@@ -445,6 +435,55 @@ function funcionarios() {
 
     }
 
+    function editarMaquina1(id, modelo, numeroSerie){
+           // console.log(nome, email, senha)
+        // nomeEditarFuncionario.innerHTML = nome;
+        modeloEditar.value = modelo;
+        numeroSerieEditar.innerHTML = numeroSerie;
+        sessionStorage.idMaquina = id;
+
+    }
+
+    function atualizarMaquina(){
+        var modelo = modeloEditar.value;
+        // var senha = senhaEditarFuncionario.value;
+        var id = sessionStorage.idMaquina;
+        console.log(modelo, 'atualizar funcionario')
+ 
+        
+     fetch("/perfil/atualizarMaquina", {
+         method: "POST",
+         headers: {
+             "Content-Type": "application/json"
+         },
+         body: JSON.stringify({
+             // nomeServer: nome,
+             modeloServer: modelo,
+            //  senhaServer: senha,
+             idServer: id,
+            
+         })
+     }).then(function (resposta) {
+         console.log("ESTOU NO THEN DO PERFIL!")
+   
+         if (resposta.ok) {
+             console.log(resposta);
+ 
+             resposta.json().then(json => {
+                 console.log(json);
+                 console.log(JSON.stringify(json));
+                 setTimeout(function () {
+                     window.location = "./perfil.html";
+                 }, 1000);
+                 
+ 
+                         });
+                      } 
+ 
+                 })
+ 
+    }
+
     function deletarMaquina(idMaquina){
 
         fetch("/perfil/deletarMaquina", {
@@ -475,6 +514,67 @@ function funcionarios() {
             } 
     
         })
+    }
+
+    function cadastrarParametro(){
+        var nome = nomeParametro.value;
+        var cpuCritico = cpuCritico1.value;
+        var cpuAlerta = cpuAlerta1.value;
+        var ramCritico = ramCritico1.value;
+        var ramAlerta = ramAlerta1.value;
+        var discoCritico = discoCritico1.value;
+        var discoAlerta = discoAlerta1.value;
+        var idEmpresa = sessionStorage.empresa;
+    
+    if (
+        nome == "" ||
+        cpuCritico == "" ||
+        cpuAlerta == "" ||
+        ramCritico == "" ||
+        ramAlerta == "" ||
+        discoCritico == "" ||
+        discoAlerta == "" 
+      ) {
+            alert("Preencha todos os campos.");
+            return false;
+      }
+        else{
+            fetch("/perfil/cadastrarParametro", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nomeServer: nome,
+                    cpuCriticoServer: cpuCritico,
+                    cpuAlertaServer: cpuAlerta,
+                    ramCriticoServer: ramCritico,
+                    ramAlertaServer: ramAlerta,
+                    discoCriticoServer: discoCritico,
+                    discoAlertaServer: discoAlerta,
+                    idEmpresaServer: idEmpresa,
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO PERFIL!")
+          
+                if (resposta.ok) {
+                    console.log(resposta);
+        
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        setTimeout(function () {
+                            window.location = "./perfil.html";
+                        }, 1000);
+                        
+                                });
+                             } 
+        
+                        })
+
+    }
+
     }
 
 
