@@ -18,7 +18,7 @@ body {
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .menuLateral header img {
     width: 50px;
@@ -219,7 +219,23 @@ body {
 .item5, .item6 {
     justify-content: space-between;
 }
+.item6 ul li {
+    display: flex;
+   margin-top: 10px;
+    justify-content: space-between;
+}
+.descricaoTabela {
+    font-size: 18px;
+    width: 140px;
+}
+.descricaoHrAtualizacao {
+    font-family: "Chakra Petch";
+   padding: 5px;
+    color: #c9c9c9;
+}
 .item6 {
+    overflow-x: hidden;
+    overflow-y: scroll;
     color: #fff;
     font-family: "Chakra Petch";
     background-color: #2D325A;
