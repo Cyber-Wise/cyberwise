@@ -92,6 +92,7 @@
     <button class="botao_cadastro" onclick="gerarConta()">Cadastrar</button>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 <script src="./js/header.js"></script>  
 </html>
@@ -119,22 +120,118 @@
     var nomeVar = nome_input.value;
     var cnpjVar = cnpj_input.value;
     var telefoneVar = telefone_input.value;
-
+    
     if (
       nomeVar == "" ||
       telefoneVar == "" ||
       cnpjVar == ""
     ) {
-      alert("Preencha todos os campos.");
-    }
-    else if(!politica){
-        alert("Por favor concorde com os termos")
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+        });
+        Toast.fire({
+            title: "Erro",
+        text: "Preencha todos os campos",
+        icon: "error",
+        color: "#fff",
+        background: "#011126",
+        iconColor : "red",
+        });
+    }else if(cnpjVar.length  != 11){
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+        });
+        Toast.fire({
+            title: "CNPJ",
+        text: "Cnpj inválido!",
+        icon: "error",
+        color: "#fff",
+        background: "#011126",
+        iconColor : "red",
+        });
+    }else if(telefoneVar.length != 9){
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+        });
+        Toast.fire({
+            title: "Telefone",
+        text: "Telefone inválido!",
+        icon: "error",
+        color: "#fff",
+        background: "#011126",
+        iconColor : "red",
+        });
+    }else if(!politica){
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+        });
+        Toast.fire({
+            title: "Erro",
+        text: "Selecione a check-box",
+        icon: "error",
+        color: "#fff",
+        background: "#011126",
+        iconColor : "red",
+        });
     }
     else{ 
       let nome = nomeVar.toLowerCase();
       nome = nome.replace(/\s/g, "");
 
       var emailAdm = `${nome}@cyberwise.com`;
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+        });
+        Toast.fire({
+            title: "Cadastro realizado",
+        text: "Faça o login!",
+        icon: "success",
+        color: "#fff",
+        background: "#011126",
+        iconColor : "green",
+        });
+
+      var emailAdm = `${nome}@cyberwise42.com`;
       var nomeAdm = `${nomeVar} administrador`;
       var senhaVar  = gerarSenha(nome);
 
@@ -256,7 +353,6 @@
             senhaGerado.innerHTML = senhaVar
             
   
-             alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
   
            
           } else {

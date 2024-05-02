@@ -72,6 +72,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 <script src="./js/header.js"></script>
 </html>
@@ -86,8 +87,25 @@
 
         if (emailVar == "" || senhaVar == "") {
          
-            alert("Mensagem de erro para todos os campos em branco");
-           
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Erro",
+                text: "Preencha os campos!",
+                icon: "error",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "red",
+                });
             return false;
         }
         else {
@@ -111,7 +129,25 @@
 
             if (resposta.ok) {
                 console.log(resposta);
-
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Cadastro realizado!",
+                    text: "Redirecionando para tela de login",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "red",
+                    });
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -129,13 +165,24 @@
                 });
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                 
-                });
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Usuário inválido!",
+                    icon: "error",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "red",
+                    });
             }
 
         }).catch(function (erro) {
