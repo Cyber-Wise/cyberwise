@@ -181,6 +181,7 @@ function funcionarios() {
         var senha = senhaFuncionario.value;
         var confirmarSenha = confirmarSenhaFuncionario.value;
         var idEmpresa = sessionStorage.empresa;
+        var cargo = cargoFuncionario.value;
 
     
     if (
@@ -208,6 +209,7 @@ function funcionarios() {
                     emailServer: email,
                     senhaServer: senha,
                     idEmpresaServer: idEmpresa,
+                    cargoServer : cargo
                    
                 })
             }).then(function (resposta) {

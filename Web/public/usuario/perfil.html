@@ -100,9 +100,9 @@
                 </div>
                 <div class="funcLabel">
                     <p>Cargo:</p>
-                    <select name="" id="">
-                        <option value="funcionario">Funcionário</option>
-                        <option value="gerente">Gerente</option>
+                    <select name="" id="cargoFuncionario">
+                        <option value="2">Gerente</option>
+                        <option value="3">Funcionário</option>
                     </select>
                 </div>
                 <button class="btnCadastrar" onclick="cadastrarFuncionario()">Cadastrar</button>
@@ -362,6 +362,13 @@
     window.onload = maquinas();
     window.onload = buscarParametros();
     window.onload = dadosPerfil();
+
+  //  O nome do cargo do usuario ta no ===> sessionStorage.Cargo 
+  // id no banco         nome no sessionStorage.cargo
+  // 0                      Adiministrador
+  // 1                      Gerente
+  // 3                      Funcionário
+
 
     function editar(){
 

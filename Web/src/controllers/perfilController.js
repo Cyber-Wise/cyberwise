@@ -52,8 +52,9 @@ function dadosFuncionarios1(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var idEmpresa = req.body.idEmpresaServer;
+    var cargo = req.body.cargoServer;
 
-    perfilModel.cadastrarFuncionario(nome, email, senha, idEmpresa).then(function (resultado){
+    perfilModel.cadastrarFuncionario(nome, email, senha, idEmpresa, cargo).then(function (resultado){
     //   console.log(`\nResultados encontrados: ${resultado}`);
     console.log(`Resultados: ${JSON.stringify(resultado)}`)
     res.status(200).json(resultado);

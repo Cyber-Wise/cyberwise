@@ -9,6 +9,8 @@ CREATE TABLE empresa (
     cnpj char(11)
 	);
     
+   -- SELECT COUNT(*) AS total_registros FROM empresa;
+    
 insert into empresa values
 (null, 'CyberWise', '119845382', '12345678912');
 
@@ -19,7 +21,8 @@ CREATE TABLE cargos(
     
     insert into cargos (cargo) values
     ('Administrador'),
-    ('Gerente');
+    ('Gerente'),
+    ('Funcionário');
     
     
 CREATE TABLE funcionario(
@@ -106,11 +109,28 @@ fk_maquina INT,
 FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
 
+SELECT 
+    funcionario.id, 
+    funcionario.nome, 
+    funcionario.email, 
+    funcionario.fk_empresa,
+    empresa.nome AS nome_empresa,
+    cargos.cargo AS nome_cargo
+FROM 
+    funcionario
+JOIN 
+    empresa ON funcionario.fk_empresa = empresa.id
+JOIN 
+    cargos ON funcionario.fk_cargo = cargos.id
+WHERE 
+    funcionario.email = 'davi.mendonca@sptech.school' AND funcionario.senha = '222';
 
 
-    select * from empresa;
+
+    select * from empresa;	
     select * from funcionario;
     select * from maquina;
     select * from monitoramento;
+    select * from cargos;
     
     -- drop database cyberwise;

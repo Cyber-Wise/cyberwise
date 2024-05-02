@@ -32,9 +32,9 @@ function deletarFuncionario(funcionario) {
   return database.executar(query);
 }
 
-function cadastrarFuncionario(nome, email, senha, idEmpresa) {
+function cadastrarFuncionario(nome, email, senha, idEmpresa, cargo) {
     console.log("Acessei perfil Model")
-  var query = `INSERT INTO funcionario VALUES (NULL, '${nome}', '${email}', '${senha}', ${idEmpresa}, 1);`;
+  var query = `INSERT INTO funcionario VALUES (NULL, '${nome}', '${email}', '${senha}', ${idEmpresa}, ${cargo});`;
 
   
   console.log("Executando a instrução SQL: \n" + query);

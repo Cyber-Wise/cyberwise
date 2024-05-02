@@ -1,11 +1,21 @@
 var database = require("../database/config")
 
 function autenticar(email, senha) {
-    var instrucao = `
-    SELECT funcionario.id, funcionario.nome, funcionario.email, funcionario.fk_empresa, empresa.nome AS nome_empresa
-    FROM funcionario
-    JOIN empresa ON funcionario.fk_empresa = empresa.id
-    WHERE funcionario.email = '${email}' AND funcionario.senha = '${senha}';`;
+            var instrucao = `
+            SELECT 
+            funcionario.id, 
+            funcionario.nome, 
+            funcionario.email, 
+            funcionario.fk_empresa,
+            empresa.nome AS nome_empresa,
+            cargos.cargo AS nome_cargo
+        FROM 
+            funcionario
+        JOIN 
+            empresa ON funcionario.fk_empresa = empresa.id
+        JOIN 
+            cargos ON funcionario.fk_cargo = cargos.id
+        WHERE  funcionario.email = '${email}' AND funcionario.senha = '${senha}';`;
         
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -16,7 +26,17 @@ function cadastrarEmpresa(nomeEmpresa, telefone, cnpj) {
 
     var instrucao = `
         INSERT INTO empresa (nome, telefone, cnpj) VALUES ('${nomeEmpresa}', '${telefone}', '${cnpj}');
+        `;
 
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+    
+}
+
+function buscarEmpresa() {
+
+    var instrucao = `
+        SELECT COUNT(*) AS total_registros FROM empresa;
     `;
     
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -24,10 +44,10 @@ function cadastrarEmpresa(nomeEmpresa, telefone, cnpj) {
     
 }
 
-function cadastrarFuncionario(nomeAdm, email, senha){
+function cadastrarFuncionario(nomeAdm, email, senha, fkEmpresa){
     console.log('Nome adm usuario model ===>', nomeAdm);
         var instrucao = `
-            INSERT INTO funcionario (nome, email, senha, fk_cargo) VALUES ('${nomeAdm}', '${email}', '${senha}', 1);
+            INSERT INTO funcionario (nome, email, senha, fk_cargo, fk_empresa) VALUES ('${nomeAdm}', '${email}', '${senha}', 1, ${fkEmpresa});
         `;
         
         console.log("Executando a instrução SQL: \n" + instrucao);
@@ -37,5 +57,6 @@ function cadastrarFuncionario(nomeAdm, email, senha){
 module.exports = {
     autenticar,
     cadastrarEmpresa,
-    cadastrarFuncionario
+    cadastrarFuncionario,
+    buscarEmpresa
 };

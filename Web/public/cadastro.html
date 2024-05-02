@@ -133,23 +133,23 @@
     else{ 
       let nome = nomeVar.toLowerCase();
       nome = nome.replace(/\s/g, "");
-     // nome = nomeVar.toLowerCase();
 
       var emailAdm = `${nome}@cyberwise42.com`;
-      var nomeAdm = `${nomeVar} administrador`
+      var nomeAdm = `${nomeVar} administrador`;
       var senhaVar  = gerarSenha(nome);
-      boxCredencial.style.display = 'block'
-      setTimeout(function() {
-        boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
-      }, 10);
-      containerCadastro.style.display = 'none'
+
+     // boxCredencial.style.display = 'block';
+    //  setTimeout(function() {
+    //    boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
+    //  }, 10);
+    //  containerCadastro.style.display = 'none'
       
-      emailGerado.innerHTML = emailAdm
-      senhaGerado.innerHTML = senhaVar
+    //  emailGerado.innerHTML = emailAdm
+     // senhaGerado.innerHTML = senhaVar
       
       console.log('Email gerado ===>',emailAdm);
       console.log('Senha gerada ===>', senhaVar);
-      console.log('Nome Adm ===>', nomeAdm);
+     // console.log('Nome Adm ===>', nomeAdm);
 
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -157,31 +157,21 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        nomeEmpresaServer: nomeVar,
-        nomeAdmServer : nomeAdm,
+        nomeEmpresaServer: nome,
+      //  nomeAdmServer : nomeAdm,
         cnpjServer: cnpjVar,
         telefoneServer : telefoneVar,
-        emailServer : emailAdm,
-        senhaServer: senhaVar,
+      //  emailServer : emailAdm,
+       // senhaServer: senhaVar,
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          boxCredencial.style.display = 'block'
-          setTimeout(function() {
-            boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
-          }, 10);
-    
-          containerCadastro.style.display = 'none';
-          
-          emailGerado.innerHTML = emailAdm
-          senhaGerado.innerHTML = senhaVar
-          
-
-           alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-
+       // console.log(resposta, 'resposta ok!!!!!!!!')
+        console.log(`dentro resposta ok: ${JSON.stringify(resposta)}`);
+        buscarEmpresa();
          
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
@@ -192,9 +182,98 @@
       });
 
     return false;
+
+   function buscarEmpresa() {
+    fetch("/usuarios/buscarEmpresa", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      //  nomeEmpresaServer: nome,
+      //  nomeAdmServer : nomeAdm,
+      //  cnpjServer: cnpjVar,
+      //  telefoneServer : telefoneVar,
+      //  emailServer : emailAdm,
+       // senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ===>  ", resposta);
+
+        if (resposta.ok) {
+
+          resposta.json().then(json => {
+            console.log(json);
+            // console.log(JSON.stringify(json));
+            
+            cadastrarFuncionario(json.registros)
+
+        });
+
+         
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });}
+
+
+
+    function cadastrarFuncionario(idEmpresa){
+    // var fk_Empresa = idEmpresa
+    console.log(idEmpresa)
+
+      fetch("/usuarios/cadastrarFuncionario", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+         // nomeEmpresaServer: nomeVar,
+          nomeAdmServer : nomeAdm,
+        //  cnpjServer: cnpjVar,
+         // telefoneServer : telefoneVar,
+          emailServer : emailAdm,
+          senhaServer: senhaVar,
+          fkEmpresa : idEmpresa
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            boxCredencial.style.display = 'block'
+            setTimeout(function() {
+              boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
+            }, 10);
+      
+            containerCadastro.style.display = 'none';
+            
+            emailGerado.innerHTML = emailAdm
+            senhaGerado.innerHTML = senhaVar
+            
+  
+             alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+  
+           
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+  
+      return false;
+    }
     }
 
   }
+
+
 
 
 </script>
