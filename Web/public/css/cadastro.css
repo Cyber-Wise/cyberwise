@@ -7,12 +7,12 @@
     display: none;
 }
 
-body {
+/* body { */
     /* background-image: url(../assets/loginCadastroFundo.jpg); */
     /* background-repeat: no-repeat; */
     /* background-size: cover; */
     /* height: 100vh; */
-}
+/* } */
 
 .container_cadastro {
     background-color: rgba(0, 0, 0, 0.5);
@@ -82,7 +82,11 @@ body {
     border: none;
     cursor: pointer;
     text-decoration: bold;
+    transition: 0.5s;
+}
 
+.botao_cadastro:hover{
+    background-color: #3d447a;
 }
 
 h1 {

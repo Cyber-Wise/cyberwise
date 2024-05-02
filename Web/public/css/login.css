@@ -1,9 +1,9 @@
-body {
+/* body { */
     /* background-image: url(../assets/loginCadastroFundo.jpg); */
     /* background-repeat: no-repeat; */
     /* background-size: cover;
     height: 100vh; */
-}
+/* } */
 ::-webkit-scrollbar {
     display: none;
 }
@@ -84,6 +84,11 @@ body {
     border: none;
     background-color: #979797;
     color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn_continue:hover{
+    background-color: #3d447a;
 }
 
 .btn_naoTemConta {
