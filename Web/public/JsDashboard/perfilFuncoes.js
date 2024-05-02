@@ -131,17 +131,18 @@ function funcionarios() {
 
                 const li = document.createElement('li');
                 
-                li.innerHTML = `
-                <p class="funcionarioNome">${nome}</p>
-                <p class="funcionarioEmail">${email}</p>
-                <p class="funcionarioCargo">${cargo}</p>
-                <div class="botaosGerenciar">
-                    <button class="removeFunc"><i class='bx bx-trash-alt' onclick="deletar(${idFuncionario})"></i></button>
-                    <button class="editFunc" onclick="abrirEditar()"><i class='bx bxs-edit-alt' onclick="editarFuncionario1(${idFuncionario}, '${nome}', '${email}', '${senha}')"></i></button>
-                </div>
-                `;
-            
-                ul.appendChild(li);
+                if(fkCargo != 1){
+                    li.innerHTML = `
+                    <p class="funcionarioNome">${nome}</p>
+                    <p class="funcionarioEmail">${email}</p>
+                    <p class="funcionarioCargo">${cargo}</p>
+                    <div class="botaosGerenciar">
+                        <button class="removeFunc"><i class='bx bx-trash-alt' onclick="deletar(${idFuncionario})"></i></button>
+                        <button class="editFunc" onclick="abrirEditar()"><i class='bx bxs-edit-alt' onclick="editarFuncionario1(${idFuncionario}, '${nome}', '${email}', '${senha}')"></i></button>
+                    </div>
+                    `;
+                
+                    ul.appendChild(li);}
                             });
                         });
                      } 
@@ -295,7 +296,7 @@ function funcionarios() {
                     }
                     });
                     Toast.fire({
-                        title: "Cadastro de funcionário realizado!",
+                    title: "Cadastro de funcionário realizado!",
                     icon: "success",
                     color: "#fff",
                     background: "#011126",

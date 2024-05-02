@@ -60,9 +60,6 @@ main {
     color: #d7d5d5;
     font-family: "Chakra Petch";
 }
-
-
-
 .corpoGerenciar {
     width: 70%;
     margin-bottom: 30px;
@@ -175,7 +172,11 @@ main {
 
 }
 .globalFuncionario {
-    width: 70%;   
+    width: 1200px;   
+    margin-left: 350px;
+}
+#globalFuncionario .funcionarioEmail {
+    width: 300px;
 }
 .botaosGerenciar {
     display: flex;

@@ -132,5 +132,6 @@ WHERE
     select * from maquina;
     select * from monitoramento;
     select * from cargos;
+    select * from parametros;
     
     -- drop database cyberwise;
