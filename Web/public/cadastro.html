@@ -127,19 +127,14 @@
     ) {
       alert("Preencha todos os campos.");
     }
-   //  else if (
-    //  nomeVar == "" ||
-    //  telefoneVar == "" ||
-    //  cnpjVar == ""
-   // ) {
-   //   alert("Preencha todos os campos.");
-   // } 
     else{ 
-      
+      let nome = nomeVar.toLowerCase();
+      nome = nome.replace(/\s/g, "");
+     // nome = nomeVar.toLowerCase();
 
-      var emailAdm = `${nomeVar}@cyberwise42.com`;
+      var emailAdm = `${nome}@cyberwise42.com`;
       var nomeAdm = `${nomeVar} administrador`
-      var senhaVar  = gerarSenha(nomeVar);
+      var senhaVar  = gerarSenha(nome);
       boxCredencial.style.display = 'block'
       setTimeout(function() {
         boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
@@ -148,7 +143,6 @@
       
       emailGerado.innerHTML = emailAdm
       senhaGerado.innerHTML = senhaVar
-      //alert(emailAdm, senhaVar);
       
       console.log('Email gerado ===>',emailAdm);
       console.log('Senha gerada ===>', senhaVar);
@@ -185,11 +179,6 @@
 
            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-       //   setTimeout(() => {
-         //   window.location = "login.html";
-        //  }, "2000");
-
-        //  limparFormulario();
          
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";

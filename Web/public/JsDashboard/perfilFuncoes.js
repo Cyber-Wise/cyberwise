@@ -81,9 +81,6 @@ function salvarPerfil(){
                         } 
 
                     })
-
-
-
 }
 
 function funcionarios() {

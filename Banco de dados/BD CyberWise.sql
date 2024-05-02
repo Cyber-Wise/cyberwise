@@ -33,6 +33,7 @@ CREATE TABLE funcionario(
     FOREIGN KEY (fk_cargo) REFERENCES cargos(id)
 );
 
+
 insert into funcionario values
 (null, 'davi', 'davi@cyberwise', 'senha123', 1, 1),
 (null, 'joao', 'joao@cyberwise', 'senha12', 1, 2);
@@ -71,16 +72,22 @@ insert into maquina values
 (null, 'Positivo', 2232, 1, 1),
 (null, 'Lg', 3232, 1, 1);
 
+-- INSERT INTO maquina (numSerie)
+-- SELECT 1212
+-- WHERE NOT EXISTS (
+   --  SELECT 1 FROM maquina WHERE numSerie = 1212
+-- );
     
 CREATE TABLE monitoramento(
-	dadosCPU FLOAT,
-	dadosRAM FLOAT,
-	dadosDISCO FLOAT,
+	cpuEmUso FLOAT,
+	ramDisponivel FLOAT,
+	tamanhoDisponivelDisco FLOAT,
     dadosREDE FLOAT,
     fk_maquina INT,
-	data_hora datetime,
+	data_hora  datetime,
     FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
+select * from monitoramento;
 
 insert into monitoramento values
 (80, 90, 70, 50, 1, CURRENT_TIMESTAMP),
@@ -102,7 +109,7 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 
 
     select * from empresa;
-    select * from funcionario where fk_empresa = 1;
+    select * from funcionario;
     select * from maquina;
     select * from monitoramento;
     
