@@ -80,7 +80,7 @@
     <input type="text" class="inputs_cadastro" id="cnpj_input">
         <div class="container_inputEtexto">
       <p>Telefone</p>
-      <input type="number" class="inputs_cadastro" id="telefone_input">
+      <input type="text" class="inputs_cadastro" id="telefone_input">
     </div>
   </div>
   </div>
@@ -145,7 +145,8 @@
         background: "#011126",
         iconColor : "red",
         });
-    }else if(cnpjVar.length  != 11){
+    }
+    else if(cnpjVar.length  != 11){
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -199,7 +200,7 @@
         });
         Toast.fire({
             title: "Erro",
-        text: "Selecione a check-box",
+        text: "Concorde com os termos e políticas",
         icon: "error",
         color: "#fff",
         background: "#011126",

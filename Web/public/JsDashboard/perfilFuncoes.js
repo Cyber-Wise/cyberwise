@@ -418,10 +418,8 @@ function funcionarios() {
                     const li = document.createElement('li');
                     
                     li.innerHTML = `
-                    <!-- <p class="funcionarioNome"> -->
                     <i class='bx bx-laptop listaPCtop'></i>
-                <!-- </p> -->
-                  <p class="funcionarioEmail" id="maquinaNome">${modelo} : ${numeroSerie}</p>
+                  <p class="funcionarioEmail maquinanome" id="maquinaNome">${modelo} : ${numeroSerie}</p>
                   <div class="botaosGerenciar">
                       <button><i class='bx bx-trash-alt' onclick="deletarMaquina(${idmaquina})"></i></button>
                       <button onclick="abrirEditar2()"><i class='bx bxs-edit-alt' onclick="editarMaquina1(${idmaquina}, '${modelo}', ${numeroSerie})"></i></button>
@@ -435,6 +433,7 @@ function funcionarios() {
                     })
     }
 
+    var parametro;
 
     function buscarParametros(){
         var idEmpresa1 = sessionStorage.empresa;
@@ -456,10 +455,13 @@ function funcionarios() {
             console.log(resposta);
 
             resposta.json().then(json => {
-                console.log(json);
+                console.log('PARAMETROS ====>',json);
                 console.log(JSON.stringify(json));
                 
-                
+                if(Object.keys(json).length === 0){
+                        console.log('VAZIO')
+                        parametro = 0;
+                }
                 var selectElement = document.getElementById("selectParametros");
               
                 json.forEach(function(item) {[]
@@ -485,8 +487,29 @@ function funcionarios() {
         var idParametro = selectParametros.value;
 
         // console.log('select do parametro ===> ',selectParametros.value);
+        // if(parametro == 0){
+        //     const Toast = Swal.mixin({
+        //         toast: true,
+        //         position: "top-end",
+        //         showConfirmButton: false,
+        //         timer: 3000,
+        //         timerProgressBar: true,
+        //         didOpen: (toast) => {
+        //             toast.onmouseenter = Swal.stopTimer;
+        //             toast.onmouseleave = Swal.resumeTimer;
+        //         }
+        //         });
+        //         Toast.fire({
+        //         title: "Erro",
+        //         text: "Adicione um parâmetro!",
+        //         icon: "error",
+        //         color: "#fff",
+        //         background: "#011126",
+        //         iconColor : "red",
+        //         });
+        // }
     
-    if (
+     if (
         modelo == "" ||
         numeroSerie == "" 
       ) {
@@ -720,6 +743,57 @@ function funcionarios() {
             iconColor : "red",
             });
             return false;
+      } else if(nomeParametro.value.length >= 30){
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Erro",
+            text: "Preencha o nome corretamente!",
+            icon: "error",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "red",
+            });
+      }else if(
+        (cpuCritico.length ||
+        cpuAlerta.length || 
+        ramCritico.length || 
+        ramAlerta.length || 
+        discoCritico.length || 
+        discoAlerta.length) >= 3
+     ){
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Erro",
+            text: "Insira parâmetros válidos!",
+            icon: "error",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "red",
+            });
+            
+            return false;
+
       }
         else{
             fetch("/perfil/cadastrarParametro", {
@@ -816,8 +890,7 @@ function funcionarios() {
                     const li = document.createElement('li');
                     
                     li.innerHTML = `
-                    <p class="funcionarioNome">${nome}</p>
-                    <p class="parametroDescricao"> 
+                    <p class="funcionarioNome nomeParametro">${nome}</p> 
                   <div class="separacaoParametro">
                       <p>RAM alerta: ${ramAlerta}</p>
                       <p>RAM critico: ${ramCritico}</p>

@@ -143,7 +143,7 @@
         <div class="container">
             <div class="pesquisaDiv"><p>Pesquisar máquina:</p>
                 <div class="search">
-                    <input placeholder="Pesquisar" type="search" id="buscarMaquinas">
+                    <input placeholder="Pesquisar" type="search" id="buscarMaquinas" onkeyup="filtrar('buscarMaquinas', 'listaMaquinas', 'maquinanome')">
                     <!-- onkeyup="filtrar('buscarMaquinas', 'listaMaquinas', 'maquinaNome')" -->
                     <!-- <p><i class='bx bx-search-alt'></i></p> -->
                 </div></div>
@@ -203,7 +203,7 @@
         <div class="container">
             <div class="pesquisaDiv"><p>Pesquisar parâmetros:</p>
                 <div class="search">
-                    <input type="search" placeholder="Pesquisar">
+                    <input type="search" placeholder="Pesquisar" id="buscarParametros" onkeyup="filtrar('buscarParametros', 'listaParametros', 'nomeParametro')">
                     
                 </div></div>
                 <button onclick="fecharParametros()" class="btnFecha">X</button>
@@ -213,26 +213,6 @@
         </div>
         <div class="corpoGerenciar">
           <ul class="listaDeParametros" id="listaParametros">
-              <!-- <li>
-                  <p class="funcionarioNome">Computadores Dell</p>
-                  <p class="parametroDescricao"> 
-                <div class="separacaoParametro">
-                    <p>RAM alerta: 50</p>
-                    <p>RAM critico: 50</p>
-                </div>
-                <div class="separacaoParametro">
-                    <p>CPU alerta: 50</p>
-                    <p>CPU critico: 50</p>
-                </div>
-                <div class="separacaoParametro">
-                    <p>DISCO alerta: 50</p>
-                    <p>DISCO critico: 50</p>
-                </div>
-                  <div class="botaosGerenciar">
-                      <button><i class='bx bx-trash-alt' onclick="poeaiDavi"></i></button>
-                      <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
-                  </div>
-              </li> -->
               
           </ul>
         </div> 
@@ -247,31 +227,31 @@
     <div class="globalFlex">
         <div class="displayFlex">
             <div class="funcLabel">
-                <p>CPU crítico:</p>
+                <p>CPU crítico (%):</p>
                 <input type="text" id="cpuCritico1" class="inputCadastrar">
             </div>
             <div class="funcLabel">
-                <p>CPU alerta: </p>
+                <p>CPU alerta (%): </p>
                 <input type="text" id="cpuAlerta1" class="inputCadastrar">
             </div>
         </div>
         <div class="displayFlex">
             <div class="funcLabel">
-                <p>RAM crítico:</p>
+                <p>RAM crítica (GB):</p>
                 <input type="text" id="ramCritico1" class="inputCadastrar">
             </div>
             <div class="funcLabel">
-                <p>RAM alerta:</p>
+                <p>RAM alerta (GB):</p>
                 <input type="text" id="ramAlerta1" class="inputCadastrar">
             </div>
             
         </div>
         <div class="displayFlex"><div class="funcLabel">
-            <p>Disco crítico:</p>
+            <p>Disco crítico (GB):</p>
             <input type="text" id="discoCritico1" class="inputCadastrar">
         </div>
         <div class="funcLabel">
-            <p>Disco alerta:</p>
+            <p>Disco alerta (GB):</p>
             <input type="text" id="discoAlerta1" class="inputCadastrar">
         </div></div>
     </div>
@@ -412,7 +392,8 @@ function validarCargo(){
     if(sessionStorage.Cargo == 'Funcionário'){
         console.log("ola funcionario")
         let botoesDeFuncionario = document.querySelector(".infoEmpresaEBotoes")
-        botoesDeFuncionario.style.display = 'none'
+        botoesDeFuncionario.style.display = 'none';
+        botaoEditar.style.display = 'none';
     }
    
 }
@@ -488,8 +469,31 @@ function validarCargo(){
     }
 
     function abrir2(){
-        sumiuPesquisa2.style.display = 'none'
-        divMaquina.style.display = 'block'
+        if(parametro == 0){
+            console.log('abrir funcionario deu certo')
+                  const Toast = Swal.mixin({
+                 toast: true,
+                 position: "top-end",
+                 showConfirmButton: false,
+                 timer: 3000,
+                 timerProgressBar: true,
+                 didOpen: (toast) => {
+                     toast.onmouseenter = Swal.stopTimer;
+                     toast.onmouseleave = Swal.resumeTimer;
+                 }
+                 });
+                 Toast.fire({
+                 title: "Erro",
+                 text: "Adicione um parâmetro!",
+                 icon: "error",
+                 color: "#fff",
+                 background: "#011126",
+                 iconColor : "red",
+                 });
+        }else{
+            sumiuPesquisa2.style.display = 'none'
+            divMaquina.style.display = 'block'
+        }
     }
     function fechar2(){
         sumiuPesquisa2.style.display = 'block'
