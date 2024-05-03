@@ -165,9 +165,7 @@ function funcionarios() {
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO PERFIL!")
-       
-        if (resposta.ok) {
-            const Toast = Swal.mixin({
+       const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",
                 showConfirmButton: false,
@@ -185,6 +183,8 @@ function funcionarios() {
                 background: "#011126",
                 iconColor : "green",
                 });
+        if (resposta.ok) {
+            
             console.log(resposta);
 
             setTimeout(function () {
