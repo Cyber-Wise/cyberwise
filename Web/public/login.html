@@ -142,7 +142,7 @@
                     });
                     Toast.fire({
                         title: "Login realizado!",
-                    text: "Redirecionando para tela de perfil",
+                    text: "Redirecionando...",
                     icon: "success",
                     color: "#fff",
                     background: "#011126",
@@ -159,7 +159,7 @@
                     sessionStorage.Cargo = json.cargo;
   
                     setTimeout(function () {
-                        window.location = "./usuario/perfil.html";
+                        window.location = "./usuario/home.html";
                     }, 1000);
 
                 });
