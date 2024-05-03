@@ -5,8 +5,8 @@ USE cyberwise;
 CREATE TABLE empresa (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
-    telefone char(9),
-    cnpj char(11)
+    telefone char(15),
+    cnpj char(18)
 	);
     
    -- SELECT COUNT(*) AS total_registros FROM empresa;

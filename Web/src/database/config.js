@@ -22,8 +22,8 @@ var mySqlConfig = {
     host: "localhost",
     database: "cyberwise",
     user: "root",
-    password: "1513",
-    // password: "fUtur@13",
+    // password: "1513",
+    password: "fUtur@13",
 };
 
 function executar(instrucao) {
