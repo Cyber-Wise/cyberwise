@@ -4,30 +4,53 @@ from chatterbot.trainers import ListTrainer
 from spacy.cli import download
 import spacy
 
-app = Flask(__name__)
+def check_biblioteca_flask(flask):
+    try:
+        __import__(flask)
+        return True
+    except ImportError:
+        return False
+    
+def check_biblioteca_chat(chatterbot):
+    try:
+        __import__(chatterbot)
+        return True
+    except ImportError:
+        return False
+    
+def check_biblioteca_spacy(spacy):
+    try:
+        __import__(spacy)
+        return True
+    except ImportError:
+        return False
 
-def check_spacy_model_installed(model_name):
+def check_spacy_model_instalado(model_name):
     try:
         spacy.load(model_name)
         return True
     except OSError:
         return False
 
+if not check_spacy_model_instalado("pt_core_news_sm"):
+    spacy.cli.download("pt_core_news_sm")
 
-if not check_spacy_model_installed("en_core_web_sm"):
-    download("en_core_web_sm")
+class PTB:
+    ISO_639_1 = 'pt_core_news_sm'
 
-class ENGSM:
-    ISO_639_1 = 'en_core_web_sm'
+chatbot = ChatBot("Cyber", tagger_language=PTB)
 
-chatbot = ChatBot("Cyber", tagger_language=ENGSM)
+
+app = Flask(__name__)
+
+
 chatbot.storage.drop()
 
 conversa = [
     "oie",
-    "fala meu parceiro",
+    "Olá , como posso ajuda-lo?",
     "qual o melhor grupo?",
-    "Obvio que o grupo 8",
+    "Grupo 8",
     "qual a melhor empresa",
     "Com certeza a CYBERWISEEEEEEE !!!!!!!!!!!",
 ]
@@ -43,8 +66,8 @@ def home():
 
 @app.route('/get_response', methods=['POST'])
 def get_response():
-    user_input = request.form['user_input']
-    resposta_chatbot = str(chatbot.get_response(user_input))
+    input_usuario = request.form['input_usuario']
+    resposta_chatbot = str(chatbot.get_response(input_usuario))
     return jsonify({'response': resposta_chatbot})
 
 if __name__ == '__main__':
