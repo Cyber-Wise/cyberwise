@@ -99,6 +99,27 @@
 <script type="text/JavaScript" src="particles/particles.js"></script>
 <script type="text/JavaScript" src="particles/app.js"></script>
 <script>
+  document.getElementById('telefone_input').addEventListener('input', function(e) {
+    let input = e.target.value;
+    input = input.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    input = input.slice(0, 11); // Limita a 9 caracteres
+    input = input.replace(/^(\d{2})(\d)/g, '($1) $2'); // Coloca parênteses em volta dos dois primeiros dígitos
+    input = input.replace(/(\d)(\d{4})$/, '$1-$2'); // Coloca hífen entre o quinto e o sexto dígitos
+    e.target.value = input;
+    console.log("to aqui =========>",telefone_input.value)
+});
+document.getElementById('cnpj_input').addEventListener('input', function(e) {
+  let input = e.target.value;
+  input = input.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+  input = input.slice(0, 14); // Limita a 14 caracteres
+  input = input.replace(/^(\d{2})(\d)/g, '$1.$2'); // Coloca ponto após os primeiros 2 dígitos
+  input = input.replace(/^(\d{2})\.(\d{3})(\d)/g, '$1.$2.$3'); // Coloca ponto após os próximos 3 dígitos
+  input = input.replace(/\.(\d{3})(\d)/g, '.$1/$2'); // Coloca barra após os próximos 3 dígitos
+  input = input.replace(/(\d{4})(\d)/g, '$1-$2'); // Coloca hífen após os próximos 4 dígitos
+  e.target.value = input;
+  console.log("to aqui =========>",cnpj_input.value)
+
+});
   var t = 1;
   function teste(){
     console.log(checkboxid.value);
@@ -146,7 +167,7 @@
         iconColor : "red",
         });
     }
-    else if(cnpjVar.length  != 11){
+    else if(cnpjVar.length  != 18){
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -166,7 +187,7 @@
         background: "#011126",
         iconColor : "red",
         });
-    }else if(telefoneVar.length != 9){
+    }else if(telefoneVar.length != 15){
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
