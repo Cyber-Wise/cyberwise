@@ -144,9 +144,7 @@ main {
     border-bottom: 1px solid #cbd9f512;
 
 }
-.listaDeParametros li .funcionarioNome {
-    /* width: 180px; */
-}
+
 .funcionarioNome {
     text-align: left;
 
