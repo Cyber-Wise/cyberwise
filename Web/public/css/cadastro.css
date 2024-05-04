@@ -14,6 +14,10 @@
     /* height: 100vh; */
 /* } */
 
+    body{
+        overflow-y: hidden;
+    }
+
 .container_cadastro {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
@@ -117,11 +121,11 @@ h2 {
         flex-direction: column;
         text-align: center;
         margin: auto;
-        margin-top: 100px;
+        margin-top: 50px;
         position: absolute;
         border: none;
     }
-
+    
     .container_inputs {
         display: flex;
         width: auto;
@@ -129,11 +133,11 @@ h2 {
         flex-direction: column;
         margin: auto;
     }
-
+    
     .container_coluna_esquerda_cadastro {
         margin-right: 0px;
     }
-
+    
     .conteiner_termos_servico {
         display: flex;
         max-width: 600px;
@@ -160,10 +164,10 @@ h2 {
 .tituloCredencial {
     color: #fff;
     /* text-shadow: 
-        -1px -1px 0 black,  
-        1px -1px 0 black,
-        -1px 1px 0 black,
-        1px 1px 0 black; */
+    -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black; */
     font-size: 32px;
     text-align: center;
     margin-bottom: 20px;
@@ -176,7 +180,7 @@ h2 {
     padding: 10px;
     width: calc(100% - 20px);
     height: 30px;
-
+    
 }
 .labelsCredencial {
     margin-top: 20px;

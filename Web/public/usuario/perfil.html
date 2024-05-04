@@ -28,30 +28,7 @@
 </head>
 
 <body>
-    <header class="cabecalho" style="background-color: #141728;">
-        <div class="container_cabecalho">
-            <div class="container_logo">
-                <img src="../assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
-            </div>
-            <nav class="container_nav">
-                <ul>
-                  <li><a href="./home.html" id="letraPreta">Home</a></li>
-                  <li><a href="./dashGeral.html" id="letraPreta4">Dashboard</a></li>
-                  <li><a href="./perfil.html" id="letraPreta5">Conta</a></li>
-                </ul>
-            </nav>
-            <button id="btnMenu">
-                <i class='bx bx-menu'></i>
-            </button>
-            <nav class="container_nav-mob" id="navBarMobile">
-                <ul>
-                    <li><a href="./home.html">Home</a></li>
-                    <li><a href="./dashGeral.html">Dashboard</a></li>
-                    <li><a href="./perfil.html">Perfil</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+   
     <main>
         <div class="globalFuncionario" id="globalFuncionario">
             <button onclick="abrir()" id="addFunc" class="btnFuncionario">Adicionar Funcionário<i class='bx bx-add-to-queue'></i></button>
@@ -85,7 +62,7 @@
             </div>
             <div id="divFuncionario" class="cadastroDeFuncionario">
                 <button onclick="fechar()" class="fechar"><i class='bx bx-window-close'></i></button>
-                <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar de Funcionário</h2>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar Funcionário</h2>
                 <div class="funcLabel">
                     <p>Nome:</p>
                     <input type="text" class="inputCadastrar" id="nomeFuncionario">
@@ -114,7 +91,7 @@
             </div>
             <div id="editarFuncionario" class="cadastroDeFuncionario">
                 <button onclick="fecharEditar()" class="fechar"><i class='bx bx-window-close'></i></button>
-                <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Editar Funcionário</h2>
                 <p><span id="nomeEditarFuncionario"></span></p>
                 <div class="funcLabel">
                     <p>E-mail:</p>
@@ -134,7 +111,7 @@
 <!-- 222222222222222222222222222222222222222222222222 -->
 
 <div class="globalFuncionario" id="globalMaquinas">
-<button onclick="abrir2()" class="btnFuncionario">Adicionar máquinas<i class='bx bx-add-to-queue'></i></button>
+<button onclick="abrir2()" id="addMaquina" class="btnFuncionario">Adicionar máquinas<i class='bx bx-add-to-queue'></i></button>
 <div id="sumiuPesquisa2">
     <div class="headerGerenciar">
         <div class="container">
@@ -254,7 +231,49 @@
     </div>
     <button class="btnCadastrar" onclick="cadastrarParametro()">Cadastrar Parâmetro</button>
 </div>
+
+<!-- aa -->
 <div id="editarParametro" class="cadastroDeFuncionario">
+    <button onclick="fecharEditar3()" class="fechar"><i class='bx bx-window-close'></i></button>
+    <h2 class="tituloFuncionarios" style="color: #fff;">Editar parâmetros</h2>
+    <div class="funcLabel">
+        <p>Nome do Parâmetro:</p>
+        <input type="text" id="nomeParametro" class="inputCadastrar">
+    </div>
+    <div class="globalFlex">
+        <div class="displayFlex">
+            <div class="funcLabel">
+                <p>CPU crítico (%):</p>
+                <input type="text" id="cpuCritico1" class="inputCadastrar">
+            </div>
+            <div class="funcLabel">
+                <p>CPU alerta (%): </p>
+                <input type="text" id="cpuAlerta1" class="inputCadastrar">
+            </div>
+        </div>
+        <div class="displayFlex">
+            <div class="funcLabel">
+                <p>RAM crítica (GB):</p>
+                <input type="text" id="ramCritico1" class="inputCadastrar">
+            </div>
+            <div class="funcLabel">
+                <p>RAM alerta (GB):</p>
+                <input type="text" id="ramAlerta1" class="inputCadastrar">
+            </div>
+            
+        </div>
+        <div class="displayFlex"><div class="funcLabel">
+            <p>Disco crítico (GB):</p>
+            <input type="text" id="discoCritico1" class="inputCadastrar">
+        </div>
+        <div class="funcLabel">
+            <p>Disco alerta (GB):</p>
+            <input type="text" id="discoAlerta1" class="inputCadastrar">
+        </div></div>
+    </div>
+    <button class="btnCadastrar" onclick="">Editar Parâmetro</button>
+</div>
+<!-- <div id="editarParametro" class="cadastroDeFuncionario">
     <button onclick="fecharEditar3()" class="fechar"><i class='bx bx-window-close'></i></button>
     <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
     <div class="funcLabel">
@@ -282,11 +301,35 @@
         <input type="text">
     </div>
     <button class="btnCadastrar">Atualizar parâmetros</button>
-</div>
+</div> -->
 </div>
 
 </div>
         <div class="sobrepor">
+            <header class="cabecalho" style="background-color: #141728;">
+                <div class="container_cabecalho">
+                    <div class="container_logo">
+                        <img src="../assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
+                    </div>
+                    <nav class="container_nav">
+                        <ul>
+                          <li><a href="./home.html" id="letraPreta">Home</a></li>
+                          <li><a href="./dashGeral.html" id="letraPreta4">Dashboard</a></li>
+                          <li><a href="./perfil.html" id="letraPreta5">Conta</a></li>
+                        </ul>
+                    </nav>
+                    <button id="btnMenu">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <nav class="container_nav-mob" id="navBarMobile">
+                        <ul>
+                            <li><a href="./home.html">Home</a></li>
+                            <li><a href="./dashGeral.html">Dashboard</a></li>
+                            <li><a href="./perfil.html">Perfil</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         <div class="divFoto">
             <img src="../assets/Group 534.png" alt="">
         </div>
@@ -297,8 +340,10 @@
         <div class="divPerfil">
             <div class="divInformacoesGerente">
 
-                <button class="botaoEditar" id="botaoEditar" onclick="editar()"> Editar <img src="../assets/iconeEditar.png" alt=""></button>
-                <button class="botaoEditar" id="botaoSalvar" onclick="salvarPerfil()" style="display: none;"> Salvar </button>
+                <button class="botaoEditar" id="botaoEditar" onclick="editar()"> Editar <img src="../assets/iconeEditar.png" alt="">
+                </button>
+                <button class="botaoEditar" id="botaoSalvar" onclick="salvarPerfil()" style="display: none;"> Salvar 
+                </button>
                 <div class="divInformacao">
                     <h3>Nome</h3>
 
@@ -422,19 +467,22 @@ function validarCargo(){
     function abrir(){
         sumiuPesquisa.style.display = 'none'
         divFuncionario.style.display = 'block'
-      
+        addFunc.style.display = 'none'
     }
     function fechar(){
         sumiuPesquisa.style.display = 'block'
         divFuncionario.style.display = 'none'
+        addFunc.style.display = 'block'
     }
     function abrirEditar(){
         sumiuPesquisa.style.display = 'none'
         editarFuncionario.style.display = 'block'
+        addFunc.style.display = 'none'
     }
     function fecharEditar(){
         sumiuPesquisa.style.display = 'block';
         editarFuncionario.style.display = 'none';
+        addFunc.style.display = 'block'
     }
 
     function abrirFuncionarios(){
@@ -491,19 +539,23 @@ function validarCargo(){
         }else{
             sumiuPesquisa2.style.display = 'none'
             divMaquina.style.display = 'block'
+            addMaquina.style.display = 'none'
         }
     }
     function fechar2(){
         sumiuPesquisa2.style.display = 'block'
         divMaquina.style.display = 'none'
+        addMaquina.style.display = 'block'
     }
     function abrirEditar2(){
         sumiuPesquisa2.style.display = 'none'
         editarMaquina.style.display = 'block'
+        addMaquina.style.display = 'none'
     }
     function fecharEditar2(){
         sumiuPesquisa2.style.display = 'block'
         editarMaquina.style.display = 'none'
+        addMaquina.style.display = 'block'
     }
 
 
@@ -523,19 +575,23 @@ function validarCargo(){
         sumiuPesquisa3.style.display = 'none'
         divParametro.style.display = 'block'
         addParametro.style.marginLeft = '120px'
+        addParametro.style.display = 'none'
     }
     function fechar3(){
         sumiuPesquisa3.style.display = 'block'
         divParametro.style.display = 'none'
         addParametro.style.marginLeft = '40px'
+        addParametro.style.display = 'block'
     }
     function abrirEditar3(){
         sumiuPesquisa3.style.display = 'none'
         editarParametro.style.display = 'block'
+        addParametro.style.display = 'none'
     }
     function fecharEditar3(){
         sumiuPesquisa3.style.display = 'block'
         editarParametro.style.display = 'none'
+        addParametro.style.display = 'block'
     }
 </script>
 </html>

@@ -118,12 +118,17 @@ body {
     font-family: "Chakra Petch";
     font-weight: bold;
     color: #fff;
-    background-color: #141728;
+    background-color: #25294A;
     border: none;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 14px;
     }
+
+    .btnVerificar:hover{
+        background-color: #3d447a;
+    }
+
     .emergencia {
         color: red;
     }
@@ -282,7 +287,13 @@ body {
     font-family: "Chakra Petch";
     border-radius: 20px;
     cursor: pointer;
+    transition: 0.5s;
 }
+
+.btnVerMais:hover{
+    background-color: #3d447a;
+}
+
 .item6 table{
     width: 100%;
 }
@@ -413,4 +424,11 @@ body {
     font-weight: bold;
     padding: 5px 20px;
     background-color: #141728;
+  }
+
+  .botaoVoltarPerfil{
+    transition: 0.5s;
+  }
+  .botaoVoltarPerfil:hover{
+    background-color: #3d447a;
   }

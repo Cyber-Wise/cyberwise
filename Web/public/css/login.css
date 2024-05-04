@@ -12,16 +12,22 @@ h2, div {
 
 }
 
+body{
+    overflow-y: hidden;
+}
+
 .centralizarBox {
     width: auto;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
 .box_login {
     position: absolute;
-    left: 20px;
+    left: 30px;
+    top: 100px;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     display: flex;
@@ -123,10 +129,18 @@ h2, div {
 
     .box_login {
         position: absolute;
+        left: -250px;
+        top: 50px;
         background-color: rgba(0, 0, 0, 0.122);
         backdrop-filter: blur(2px);
-        margin: auto;
-        width: auto;
-        border: none;
+        display: flex;
+        margin: 100px auto auto 200px;
+        align-items: center;
+        flex-direction: column;
+        width: 470px;
+        height: 600px;
+        border: 1px solid white;
+        border-top: none;
+    
     }
 }
