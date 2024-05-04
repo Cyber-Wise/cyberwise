@@ -137,7 +137,7 @@
 <!-- 222222222222222222222222222222222222222222222222 -->
 
 <div class="globalFuncionario" id="globalMaquinas">
-<button onclick="abrir2()" class="btnFuncionario">Adicionar máquinas<i class='bx bx-add-to-queue'></i></button>
+<button onclick="abrir2()" id="addMaquina" class="btnFuncionario">Adicionar máquinas<i class='bx bx-add-to-queue'></i></button>
 <div id="sumiuPesquisa2">
     <div class="headerGerenciar">
         <div class="container">
@@ -466,19 +466,22 @@ function validarCargo(){
     function abrir(){
         sumiuPesquisa.style.display = 'none'
         divFuncionario.style.display = 'block'
-      
+        addFunc.style.display = 'none'
     }
     function fechar(){
         sumiuPesquisa.style.display = 'block'
         divFuncionario.style.display = 'none'
+        addFunc.style.display = 'block'
     }
     function abrirEditar(){
         sumiuPesquisa.style.display = 'none'
         editarFuncionario.style.display = 'block'
+        addFunc.style.display = 'none'
     }
     function fecharEditar(){
         sumiuPesquisa.style.display = 'block';
         editarFuncionario.style.display = 'none';
+        addFunc.style.display = 'block'
     }
 
     function abrirFuncionarios(){
@@ -535,19 +538,23 @@ function validarCargo(){
         }else{
             sumiuPesquisa2.style.display = 'none'
             divMaquina.style.display = 'block'
+            addMaquina.style.display = 'none'
         }
     }
     function fechar2(){
         sumiuPesquisa2.style.display = 'block'
         divMaquina.style.display = 'none'
+        addMaquina.style.display = 'block'
     }
     function abrirEditar2(){
         sumiuPesquisa2.style.display = 'none'
         editarMaquina.style.display = 'block'
+        addMaquina.style.display = 'none'
     }
     function fecharEditar2(){
         sumiuPesquisa2.style.display = 'block'
         editarMaquina.style.display = 'none'
+        addMaquina.style.display = 'block'
     }
 
 
@@ -567,19 +574,23 @@ function validarCargo(){
         sumiuPesquisa3.style.display = 'none'
         divParametro.style.display = 'block'
         addParametro.style.marginLeft = '120px'
+        addParametro.style.display = 'none'
     }
     function fechar3(){
         sumiuPesquisa3.style.display = 'block'
         divParametro.style.display = 'none'
         addParametro.style.marginLeft = '40px'
+        addParametro.style.display = 'block'
     }
     function abrirEditar3(){
         sumiuPesquisa3.style.display = 'none'
         editarParametro.style.display = 'block'
+        addParametro.style.display = 'none'
     }
     function fecharEditar3(){
         sumiuPesquisa3.style.display = 'block'
         editarParametro.style.display = 'none'
+        addParametro.style.display = 'block'
     }
 </script>
 </html>
