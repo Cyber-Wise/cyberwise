@@ -59,6 +59,24 @@ function salvarPerfil(){
             console.log("ESTOU NO THEN DO PERFIL!")
 
             if (resposta.ok) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Perfil atualizado com sucesso!",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
                 console.log(resposta);
 
                 resposta.json().then(json => {
