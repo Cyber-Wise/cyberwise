@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CapturarDados {
-    public static void pegarDados() {
+    public static void pegarDados(Integer id) {
         Looca looca = new Looca();
         Componentes componentes = new Componentes();
         Rede rede = looca.getRede();
@@ -72,7 +72,7 @@ public class CapturarDados {
         componentes.setCpuEmUso(cpuEmUso);
 //        System.out.println(sistema.toString());
 
-        InsertDados.inserirBanco(componentes);
+        InsertDados.inserirBanco(componentes, id);
 
     }
 
