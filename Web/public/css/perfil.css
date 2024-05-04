@@ -102,7 +102,7 @@ main {
     justify-content: space-between;
     display: flex;
 }
-#divParametro, #editarParametro {
+#divParametro {
     margin-left: 100px;
     width: 600px;
 }
@@ -167,7 +167,13 @@ hr{
     border-radius: 20px;
     font-size: 20px;
     cursor: pointer;
+    transition: 0.5s;
 }
+
+.botoesGerenciar:hover{
+ background-color: #3d447a;
+}
+
 
 .botaoEditar{
     padding: 5px;
@@ -182,6 +188,11 @@ hr{
     align-items: center;
     cursor: pointer;
 }
+
+.botaoEditar:hover{
+    background-color: #3d447a;
+}
+
 .botaoEditar img{
     width: 15px;
 margin-left: 10px;

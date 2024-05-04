@@ -28,30 +28,7 @@
 </head>
 
 <body>
-    <header class="cabecalho" style="background-color: #141728;">
-        <div class="container_cabecalho">
-            <div class="container_logo">
-                <img src="../assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
-            </div>
-            <nav class="container_nav">
-                <ul>
-                  <li><a href="./home.html" id="letraPreta">Home</a></li>
-                  <li><a href="./dashGeral.html" id="letraPreta4">Dashboard</a></li>
-                  <li><a href="./perfil.html" id="letraPreta5">Conta</a></li>
-                </ul>
-            </nav>
-            <button id="btnMenu">
-                <i class='bx bx-menu'></i>
-            </button>
-            <nav class="container_nav-mob" id="navBarMobile">
-                <ul>
-                    <li><a href="./home.html">Home</a></li>
-                    <li><a href="./dashGeral.html">Dashboard</a></li>
-                    <li><a href="./perfil.html">Perfil</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+   
     <main>
         <div class="globalFuncionario" id="globalFuncionario">
             <button onclick="abrir()" id="addFunc" class="btnFuncionario">Adicionar Funcionário<i class='bx bx-add-to-queue'></i></button>
@@ -85,7 +62,7 @@
             </div>
             <div id="divFuncionario" class="cadastroDeFuncionario">
                 <button onclick="fechar()" class="fechar"><i class='bx bx-window-close'></i></button>
-                <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar de Funcionário</h2>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Cadastrar Funcionário</h2>
                 <div class="funcLabel">
                     <p>Nome:</p>
                     <input type="text" class="inputCadastrar" id="nomeFuncionario">
@@ -113,7 +90,7 @@
             </div>
             <div id="editarFuncionario" class="cadastroDeFuncionario">
                 <button onclick="fecharEditar()" class="fechar"><i class='bx bx-window-close'></i></button>
-                <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
+                <h2 class="tituloFuncionarios" style="color: #fff;">Editar Funcionário</h2>
                 <p><span id="nomeEditarFuncionario"></span></p>
                 <!-- <div class="funcLabel">
                     <input type="text" class="inputCadastrar" id="nomeEditarFuncionario">
@@ -332,6 +309,30 @@
 
 </div>
         <div class="sobrepor">
+            <header class="cabecalho" style="background-color: #141728;">
+                <div class="container_cabecalho">
+                    <div class="container_logo">
+                        <img src="../assets/logoCWbranca.png" alt="Logo da empresa CyberWise" class="logo_img">
+                    </div>
+                    <nav class="container_nav">
+                        <ul>
+                          <li><a href="./home.html" id="letraPreta">Home</a></li>
+                          <li><a href="./dashGeral.html" id="letraPreta4">Dashboard</a></li>
+                          <li><a href="./perfil.html" id="letraPreta5">Conta</a></li>
+                        </ul>
+                    </nav>
+                    <button id="btnMenu">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <nav class="container_nav-mob" id="navBarMobile">
+                        <ul>
+                            <li><a href="./home.html">Home</a></li>
+                            <li><a href="./dashGeral.html">Dashboard</a></li>
+                            <li><a href="./perfil.html">Perfil</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
         <div class="divFoto">
             <img src="../assets/Group 534.png" alt="">
         </div>
@@ -342,8 +343,10 @@
         <div class="divPerfil">
             <div class="divInformacoesGerente">
 
-                <button class="botaoEditar" id="botaoEditar" onclick="editar()"> Editar <img src="../assets/iconeEditar.png" alt=""></button>
-                <button class="botaoEditar" id="botaoSalvar" onclick="salvarPerfil()" style="display: none;"> Salvar </button>
+                <button class="botaoEditar" id="botaoEditar" onclick="editar()"> Editar <img src="../assets/iconeEditar.png" alt="">
+                </button>
+                <button class="botaoEditar" id="botaoSalvar" onclick="salvarPerfil()" style="display: none;"> Salvar 
+                </button>
                 <div class="divInformacao">
                     <h3>Nome</h3>
 
