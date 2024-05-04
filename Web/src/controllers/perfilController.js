@@ -76,6 +76,20 @@ function dadosFuncionarios1(req, res) {
     });
   }
 
+  function atualizarFuncionario1(req, res) {
+    var cargo = req.body.cargoServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+    var id = req.body.idServer;
+
+    perfilModel.atualizarFuncionario1(email, senha, id, cargo).then(function (resultado){
+    //   console.log(`\nResultados encontrados: ${resultado}`);
+     console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+
+    });
+  }
+
   function dadosMaquinas(req, res) {
     var empresa = req.body.empresaServer;
   
@@ -124,6 +138,17 @@ function dadosFuncionarios1(req, res) {
     });
   }
   
+  function deletarMonitoramento(req, res) {
+    var Maquina = req.body.idMaquinaServer;
+    
+    perfilModel.deletarMonitoramento(Maquina).then(function (resultado){
+      //   console.log(`\nResultados encontrados: ${resultado}`);
+      console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+      
+    });
+  }
+
   function deletarMaquina(req, res) {
     var Maquina = req.body.idMaquinaServer;
     
@@ -155,9 +180,29 @@ function dadosFuncionarios1(req, res) {
   }
 
   function listaParametros(req, res) {
-    var empresa = req.body.empresaServer;
+    var idEmpesa = req.body.empresaServer;
   
-    perfilModel.listaParametros(empresa).then(function (resultado){
+    perfilModel.listaParametros(idEmpesa).then(function (resultado){
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+
+    });
+  }
+
+  function updateParametro(req, res) {
+    var idParametro = req.body.idParametroServer;
+  
+    perfilModel.updateParametro(idParametro).then(function (resultado){
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+
+    });
+  }
+
+  function deletarParametro(req, res) {
+    var idParametro = req.body.idParametroServer;
+  
+    perfilModel.deletarParametro(idParametro).then(function (resultado){
     console.log(`Resultados: ${JSON.stringify(resultado)}`)
       res.status(200).json(resultado);
 
@@ -168,6 +213,7 @@ module.exports = {
     dadosFuncionarios1,
     deletarFuncionario,
     atualizarFuncionario,
+    atualizarFuncionario1,
     dadosMaquinas,
     buscarParametros,
     cadastrarFuncionario,
@@ -177,5 +223,8 @@ module.exports = {
     atualizarPerfil,
     cadastrarParametro,
     atualizarMaquina,
-    listaParametros
+    listaParametros,
+    deletarMonitoramento,
+    deletarParametro,
+    updateParametro
 }

@@ -253,22 +253,14 @@ document.getElementById('cnpj_input').addEventListener('input', function(e) {
         iconColor : "green",
         });
 
-   //   var emailAdm = `${nome}@cyberwise42.com`;
       var nomeAdm = `${nomeVar} administrador`;
       var senhaVar  = gerarSenha(nome);
-
-     // boxCredencial.style.display = 'block';
-    //  setTimeout(function() {
-    //    boxCredencial.style.opacity = '1'; // Aplica a transição de opacidade
-    //  }, 10);
-    //  containerCadastro.style.display = 'none'
-      
-    //  emailGerado.innerHTML = emailAdm
-     // senhaGerado.innerHTML = senhaVar
       
       console.log('Email gerado ===>',emailAdm);
       console.log('Senha gerada ===>', senhaVar);
      // console.log('Nome Adm ===>', nomeAdm);
+     cnpjVar = cnpjVar.replace(/[()\./-]/g, "");
+     telefoneVar = telefoneVar.replace(/[()\s./-]/g, "");
 
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -277,11 +269,9 @@ document.getElementById('cnpj_input').addEventListener('input', function(e) {
       },
       body: JSON.stringify({
         nomeEmpresaServer: nome,
-      //  nomeAdmServer : nomeAdm,
         cnpjServer: cnpjVar,
         telefoneServer : telefoneVar,
-      //  emailServer : emailAdm,
-       // senhaServer: senhaVar,
+ 
       }),
     })
       .then(function (resposta) {
@@ -342,7 +332,7 @@ document.getElementById('cnpj_input').addEventListener('input', function(e) {
 
 
     function cadastrarFuncionario(idEmpresa){
-    // var fk_Empresa = idEmpresa
+    // var fk_Empresa = idEmpresa;
     console.log(idEmpresa)
 
       fetch("/usuarios/cadastrarFuncionario", {
@@ -351,10 +341,7 @@ document.getElementById('cnpj_input').addEventListener('input', function(e) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-         // nomeEmpresaServer: nomeVar,
           nomeAdmServer : nomeVar,
-        //  cnpjServer: cnpjVar,
-         // telefoneServer : telefoneVar,
           emailServer : emailAdm,
           senhaServer: senhaVar,
           fkEmpresa : idEmpresa

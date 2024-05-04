@@ -131,7 +131,8 @@ function cadastrarFuncionario(req, res) {
     } else {
         console.log('Nome adm usuario controler dentro do if ===>', nomeAdm);
 
-            usuarioModel.cadastrarFuncionario(nomeAdm, email, senha, idEmpresa)
+            usuarioModel.cadastrarFuncionario(nomeAdm, email, senha, idEmpresa),
+            usuarioModel.cadastrarParametro(idEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -49,6 +49,14 @@ function atualizarFuncionario(email, senha, id) {
   return database.executar(query);
 }
 
+function atualizarFuncionario1(email, senha, id, cargo) {
+    console.log("Acessei perfil Model")
+  var query = `UPDATE funcionario SET email = '${email}', senha = '${senha}', fk_cargo = ${cargo} WHERE id = ${id};`;
+
+  console.log("Executando a instrução SQL: \n" + query);
+  return database.executar(query);
+}
+
 function dadosMaquinas(empresa) {
     console.log("Acessei perfil Model")
   var query = `select * from maquina where fk_empresa = ${empresa}`;
@@ -82,6 +90,14 @@ console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }
 
+function deletarMonitoramento(idMaquina) {
+    console.log("Acessei perfil Model")
+  var query = `DELETE FROM monitoramento WHERE fk_maquina = ${idMaquina};`;
+  
+  console.log("Executando a instrução SQL: \n" + query);
+  return database.executar(query);
+}
+
 function deletarMaquina(idMaquina) {
     console.log("Acessei perfil Model")
   var query = `DELETE FROM maquina WHERE id = ${idMaquina};`;
@@ -100,7 +116,25 @@ function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, 
 
 function listaParametros(empresa) {
   console.log("Acessei perfil Model")
-var query = `SELECT * FROM parametros WHERE fk_empresa = ${empresa}`;
+var query = `SELECT * FROM parametros WHERE fk_empresa = ${empresa};`;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
+function updateParametro(idParametro) {
+  console.log("Acessei perfil Model")
+var query = `UPDATE maquina
+            SET fk_parametros = 1
+            WHERE fk_parametros = ${idParametro};`;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
+function deletarParametro(idParametro) {
+  console.log("Acessei perfil Model")
+var query = `DELETE FROM parametros WHERE id = ${idParametro}`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -111,6 +145,7 @@ module.exports = {
     dadosFuncionarios,
     deletarFuncionario,
     atualizarFuncionario,
+    atualizarFuncionario1,
     dadosMaquinas,
     buscarParametros,
     cadastrarFuncionario,
@@ -120,5 +155,8 @@ module.exports = {
     atualizarPerfil,
     cadastrarParametro,
     atualizarMaquina,
-    listaParametros
+    listaParametros,
+    deletarMonitoramento,
+    deletarParametro,
+    updateParametro
 };

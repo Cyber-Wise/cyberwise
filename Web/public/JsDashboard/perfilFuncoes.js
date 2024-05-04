@@ -15,21 +15,14 @@ function dadosPerfil(){
     console.log("ESTOU NO THEN DO PERFIL!")
 
     if (resposta.ok) {
-        // console.log(resposta, 'resposta aqui');
-
         resposta.json().then(json => {
-            
-            // console.log(resposta.nome, 'teste nome perfil');
             console.log(JSON.stringify(json));
             
-
             var nome = json[0].nome;
             var emailU = json[0].email;
             var senha = json[0].senha;
 
             nomeDaConta.innerHTML = nome;
-           
-
             nomePerfil.innerHTML = nome;
             email.innerHTML = emailU;
 
@@ -48,7 +41,6 @@ function salvarPerfil(){
             var email = inputEmail.value;
             var senha = inputSenha.value;
             var id = sessionStorage.ID_USUARIO;
-            // console.log(id, 'atualizar funcionario')
 
             
         fetch("/perfil/atualizarPerfil", {
@@ -72,17 +64,15 @@ function salvarPerfil(){
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    // salvar();
                    
                     setTimeout(function () {
                         window.location = "./perfil.html";
                     }, 1000);
-                    
 
-                            });
-                        } 
+                        });
+                    } 
 
-                    })
+                })
 }
 
 function funcionarios() {
@@ -108,8 +98,6 @@ function funcionarios() {
                 
             const ul = document.getElementById('listaFuncionarios');
 
-     
-  
                 json.forEach((funcionario) => {
                   var nome = funcionario.nome;
                   var email =  funcionario.email;
@@ -140,7 +128,7 @@ function funcionarios() {
                     <p class="funcionarioCargo">${cargo}</p>
                     <div class="botaosGerenciar">
                         <button class="removeFunc"><i class='bx bx-trash-alt' onclick="deletar(${idFuncionario})"></i></button>
-                        <button class="editFunc" onclick="abrirEditar()"><i class='bx bxs-edit-alt' onclick="editarFuncionario1(${idFuncionario}, '${nome}', '${email}', '${senha}')"></i></button>
+                        <button class="editFunc" onclick="abrirEditar()"><i class='bx bxs-edit-alt' onclick="editarFuncionario1(${idFuncionario}, '${nome}', '${email}', '${senha}', ${fkCargo})"></i></button>
                     </div>
                     `;
                 
@@ -203,13 +191,30 @@ function funcionarios() {
 
     }
 
-    function editarFuncionario1(id, nome, email, senha){
-        console.log(nome, email, senha)
+    function editarFuncionario1(id, nome, email, senha, fkCargo){
         nomeEditarFuncionario.innerHTML = nome;
         emailEditarFuncionario.value = email;
         senhaEditarFuncionario.value = senha;
         sessionStorage.idFuncionario = id;
 
+        selectCargo.innerHTML = ` <p>Cargo:</p>
+        <select name="" id="cargoFuncionario222">
+            <option value="0">default</option>
+            <option value="3">Funcionário</option>
+            <option value="2">Gerente</option>
+        </select>`;
+
+        if(fkCargo == 3){
+            selectCargo.innerHTML = ` 
+            <p>Cargo:</p>
+            <select name="" id="cargoFuncionario222">
+                <option value="3">Funcionário</option>
+                <option value="2">Gerente</option>
+            </select>`
+        }else{
+            selectCargo.style.display = "none";
+        }
+     
     }
 
     function cadastrarFuncionario(){
@@ -269,6 +274,26 @@ function funcionarios() {
                 iconColor : "red",
                 });
             return false;
+        } else if(cargo == 0){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Cargp",
+                text: "Selecione um cargo!",
+                icon: "error",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "red",
+                });
         }
         else{
 
@@ -327,12 +352,70 @@ function funcionarios() {
     }
 
     function atualizarFuncionario(){
+        // console.log(cargoFuncionario222.value, '=====================')
        var email = emailEditarFuncionario.value;
        var senha = senhaEditarFuncionario.value;
        var id = sessionStorage.idFuncionario;
-       console.log(id, 'atualizar funcionario')
+       if(cargoFuncionario222.value != undefined){
+        var cargo = cargoFuncionario222.value;
+       } else{
 
-       
+        cargo = cargoFuncionario.value;
+       }
+
+
+       if(cargo == 2){
+
+        fetch("/perfil/atualizarFuncionario1", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha,
+                idServer: id,
+                cargoServer: cargo,
+               
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO PERFIL!")
+           
+            if (resposta.ok) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Funcionário atualizado com sucesso",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
+                console.log(resposta);
+    
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    setTimeout(function () {
+                        window.location = "./perfil.html";
+                    }, 1000);
+                    
+    
+                            });
+                         } 
+    
+                    })
+       }
+ else{
     fetch("/perfil/atualizarFuncionario", {
         method: "POST",
         headers: {
@@ -381,6 +464,7 @@ function funcionarios() {
                      } 
 
                 })
+            }
 
     }
 
@@ -485,29 +569,6 @@ function funcionarios() {
         // var Parametro = selectParametros.value;
         var idEmpresa = sessionStorage.empresa;
         var idParametro = selectParametros.value;
-
-        // console.log('select do parametro ===> ',selectParametros.value);
-        // if(parametro == 0){
-        //     const Toast = Swal.mixin({
-        //         toast: true,
-        //         position: "top-end",
-        //         showConfirmButton: false,
-        //         timer: 3000,
-        //         timerProgressBar: true,
-        //         didOpen: (toast) => {
-        //             toast.onmouseenter = Swal.stopTimer;
-        //             toast.onmouseleave = Swal.resumeTimer;
-        //         }
-        //         });
-        //         Toast.fire({
-        //         title: "Erro",
-        //         text: "Adicione um parâmetro!",
-        //         icon: "error",
-        //         color: "#fff",
-        //         background: "#011126",
-        //         iconColor : "red",
-        //         });
-        // }
     
      if (
         modelo == "" ||
@@ -656,52 +717,88 @@ function funcionarios() {
 
     function deletarMaquina(idMaquina){
 
-        fetch("/perfil/deletarMaquina", {
+        fetch("/perfil/deletarMonitoramento", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 idMaquinaServer: idMaquina,
-             
+            
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO PERFIL!")
-           
+        
             if (resposta.ok) {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                    });
-                    Toast.fire({
-                        title: "Máquina deletada com sucesso",
-                    icon: "success",
-                    color: "#fff",
-                    background: "#011126",
-                    iconColor : "green",
-                    });
+
+                deletarMaquina1();
+
                 console.log(resposta);
     
-                setTimeout(function () {
-                    window.location = "./perfil.html";
-                }, 1000);
+
+                // setTimeout(function () {
+                //     window.location = "./perfil.html";
+                // }, 1000);
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-      
+    
                 }
             );
     
             } 
     
         })
+
+
+
+       function deletarMaquina1(){ 
+        fetch("/perfil/deletarMaquina", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idMaquinaServer: idMaquina,
+                
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO PERFIL!")
+            
+                if (resposta.ok) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                        });
+                        Toast.fire({
+                            title: "Máquina deletada com sucesso",
+                        icon: "success",
+                        color: "#fff",
+                        background: "#011126",
+                        iconColor : "green",
+                        });
+                    console.log(resposta);
+        
+                    setTimeout(function () {
+                        window.location = "./perfil.html";
+                    }, 1000);
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+        
+                    }
+                );
+        
+                } 
+        
+            })}
     }
 
     function cadastrarParametro(){
@@ -888,7 +985,8 @@ function funcionarios() {
                        
     
                     const li = document.createElement('li');
-                    
+                    if(idParametro == 1 && nome == "Parâmetro base"){
+                         
                     li.innerHTML = `
                     <p class="funcionarioNome nomeParametro">${nome}</p> 
                   <div class="separacaoParametro">
@@ -904,9 +1002,30 @@ function funcionarios() {
                       <p>DISCO critico: ${discoCritico}</p>
                   </div>
                     <div class="botaosGerenciar">
-                        <button><i class='bx bx-trash-alt' onclick="deletarParametro(${idParametro})"></i></button>
-                        <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
+                        
                     `;
+
+                    }
+                    else{
+                        li.innerHTML = `
+                        <p class="funcionarioNome nomeParametro">${nome}</p> 
+                      <div class="separacaoParametro">
+                          <p>RAM alerta: ${ramAlerta}</p>
+                          <p>RAM critico: ${ramCritico}</p>
+                      </div>
+                      <div class="separacaoParametro">
+                          <p>CPU alerta: ${cpuAlerta}</p>
+                          <p>CPU critico: ${cpuCritico}</p>
+                      </div>
+                      <div class="separacaoParametro">
+                          <p>DISCO alerta: ${discoAlerta}</p>
+                          <p>DISCO critico: ${discoCritico}</p>
+                      </div>
+                        <div class="botaosGerenciar">
+                            <button><i class='bx bx-trash-alt' onclick="deletarParametro(${idParametro})"></i></button>
+                            <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
+                        `;
+                    }
                     ul.appendChild(li);
                                 });
                             });
@@ -915,20 +1034,52 @@ function funcionarios() {
                     })
     }
 
+
     function deletarParametro(idParametro){
 
-        fetch("/perfil/deletarParametro", {
+
+        fetch("/perfil/updateParametro", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 idParametroServer: idParametro,
-             
+
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO PERFIL!")
-           
+
+            if (resposta.ok) {
+              
+                delParametro();
+                console.log(resposta);
+    
+                
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+      
+                }
+            );
+    
+            } 
+    
+        })
+
+        function delParametro(){
+            fetch("/perfil/deletarParametro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idParametroServer: idParametro,
+
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO PERFIL!")
+
             if (resposta.ok) {
                 const Toast = Swal.mixin({
                     toast: true,
@@ -942,8 +1093,8 @@ function funcionarios() {
                     }
                     });
                     Toast.fire({
-                        title: "Máquina deletada com sucesso",
-                        text: "certo",
+                        title: "Sucesso",
+                        text: "Parâmetro deletado com sucesso",
                     icon: "success",
                     color: "#fff",
                     background: "#011126",
@@ -965,7 +1116,7 @@ function funcionarios() {
     
         })
     }
-
+    }
 
 
 function filtrar(inputb, ul1, tagName){

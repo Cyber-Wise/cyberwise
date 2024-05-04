@@ -105,6 +105,7 @@
                 <div class="funcLabel">
                     <p>Cargo:</p>
                     <select name="" id="cargoFuncionario">
+                        <option value="0">Selecione um cargo</option>
                         <option value="2">Gerente</option>
                         <option value="3">Funcionário</option>
                     </select>
@@ -115,9 +116,6 @@
                 <button onclick="fecharEditar()" class="fechar"><i class='bx bx-window-close'></i></button>
                 <h2 class="tituloFuncionarios" style="color: #fff;">Editar de Funcionário</h2>
                 <p><span id="nomeEditarFuncionario"></span></p>
-                <!-- <div class="funcLabel">
-                    <input type="text" class="inputCadastrar" id="nomeEditarFuncionario">
-                </div> -->
                 <div class="funcLabel">
                     <p>E-mail:</p>
                     <input type="email" class="inputCadastrar" id="emailEditarFuncionario">
@@ -126,10 +124,9 @@
                     <p>Senha:</p>
                     <input type="text" class="inputCadastrar" id="senhaEditarFuncionario">
                 </div>
-                <!-- <div class="funcLabel">
-                    <p>Confirmar senha:</p>
-                    <input type="password">
-                </div> -->
+                <div class="funcLabel" id="selectCargo">
+                    
+                </div>
                 <button class="btnCadastrar" onclick="atualizarFuncionario()">Atualizar Funcionário</button>
             </div>
         </div>
@@ -387,6 +384,7 @@
             element.style.display = 'none'
         })
     }
+    
   }
 function validarCargo(){
     if(sessionStorage.Cargo == 'Funcionário'){

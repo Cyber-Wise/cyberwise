@@ -54,9 +54,20 @@ function cadastrarFuncionario(nomeAdm, email, senha, fkEmpresa){
         return database.executar(instrucao);
     }
 
+function cadastrarParametro(fkEmpresa){
+
+        var instrucao = `
+            INSERT INTO parametros VALUES (NULL, 'Parâmetro base', 80, 100, 80, 100, 80, 100, ${fkEmpresa});
+        `;
+        
+        console.log("Executando a instrução SQL: \n" + instrucao);
+        return database.executar(instrucao);
+    }
+
 module.exports = {
     autenticar,
     cadastrarEmpresa,
     cadastrarFuncionario,
-    buscarEmpresa
+    buscarEmpresa,
+    cadastrarParametro
 };

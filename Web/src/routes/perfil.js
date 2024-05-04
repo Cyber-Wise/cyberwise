@@ -23,6 +23,10 @@ router.post("/atualizarFuncionario", function (req, res) {
     perfilController.atualizarFuncionario(req, res);
 });
 
+router.post("/atualizarFuncionario1", function (req, res) {
+    perfilController.atualizarFuncionario1(req, res);
+});
+
 router.post("/dadosMaquinas", function (req, res) {
     perfilController.dadosMaquinas(req, res);
 });
@@ -43,12 +47,24 @@ router.post("/atualizarMaquina", function (req, res) {
     perfilController.atualizarMaquina(req, res);
 });
 
+router.post("/deletarMonitoramento", function (req, res) {
+    perfilController.deletarMonitoramento(req, res);
+});
+
 router.post("/deletarMaquina", function (req, res) {
     perfilController.deletarMaquina(req, res);
 });
 
 router.post("/cadastrarParametro", function (req, res) {
     perfilController.cadastrarParametro(req, res);
+});
+
+router.post("/updateParametro", function (req, res) {
+    perfilController.updateParametro(req, res);
+});
+
+router.post("/deletarParametro", function (req, res) {
+    perfilController.deletarParametro(req, res);
 });
 
 router.post("/listaParametros", function (req, res) {
