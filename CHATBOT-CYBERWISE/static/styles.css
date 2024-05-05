@@ -74,10 +74,7 @@ body{
     margin: 0 10px 7px 0;
 }
 
-.chatbox .outgoing{
-    margin: 20px 0;
-    justify-content: flex-end;
-}
+
 
 .chatbox .chat p{
     color: #fff;
@@ -144,9 +141,6 @@ body{
     cursor: pointer;
 }
 
-/*.input_usuario textarea:valid ~ button{
-    visibility: visible;
-}*/
 
 .message-container {
     background-color: rgb(9, 9, 39);
@@ -160,9 +154,6 @@ body{
 .message-container strong {
     font-weight: bold;
 }
-
-
-
 
 
 @media(max-width: 490px){

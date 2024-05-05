@@ -3,6 +3,15 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from spacy.cli import download
 import spacy
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="melancia",
+    database="chatterbot_database"
+)
+
 
 def check_biblioteca_flask(flask):
     try:
@@ -38,10 +47,12 @@ if not check_spacy_model_instalado("pt_core_news_sm"):
 class PTB:
     ISO_639_1 = 'pt_core_news_sm'
 
-chatbot = ChatBot("Cyber", tagger_language=PTB)
-
 
 app = Flask(__name__)
+
+
+
+chatbot = ChatBot("Cyber", tagger_language=PTB)
 
 
 chatbot.storage.drop()
@@ -68,7 +79,18 @@ def home():
 def get_response():
     input_usuario = request.form['input_usuario']
     resposta_chatbot = str(chatbot.get_response(input_usuario))
+
+    get_send_workbench(input_usuario, resposta_chatbot)
+
     return jsonify({'response': resposta_chatbot})
+
+def get_send_workbench(input_usuario, resposta_chatbot):
+
+    mycursor = mydb.cursor()
+    mycursor.execute("INSERT INTO conversation (pergunta, resposta) VALUES (%s, %s)", (input_usuario, resposta_chatbot))
+    mydb.commit()
+    mycursor.close()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
