@@ -71,5 +71,9 @@ router.post("/listaParametros", function (req, res) {
     perfilController.listaParametros(req, res);
 });
 
+router.post("/atualizarParametro", function (req, res) {
+    perfilController.atualizarParametro(req, res);
+});
+
 
 module.exports = router;

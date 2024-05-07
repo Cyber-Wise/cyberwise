@@ -164,6 +164,12 @@
         <!-- <input type="text" class="inputCadastrar"> -->
     </div>
     <span id="numeroSerieEditar"></span>
+    <div class="funcLabel" id="">
+        <!-- <select id="selectParametro" class="inputCadastrar">
+            <option value="0">escolha o parametro</option>
+
+        </select>         -->
+    </div>
     <button class="btnCadastrar" onclick="atualizarMaquina()">Atualizar máquina</button>
 </div>
 </div>
@@ -202,31 +208,31 @@
         <div class="displayFlex">
             <div class="funcLabel">
                 <p>CPU crítico (%):</p>
-                <input type="text" id="cpuCritico1" class="inputCadastrar">
+                <input type="number" id="cpuCritico1" class="inputCadastrar">
             </div>
             <div class="funcLabel">
                 <p>CPU alerta (%): </p>
-                <input type="text" id="cpuAlerta1" class="inputCadastrar">
+                <input type="number" id="cpuAlerta1" class="inputCadastrar">
             </div>
         </div>
         <div class="displayFlex">
             <div class="funcLabel">
                 <p>RAM crítica (GB):</p>
-                <input type="text" id="ramCritico1" class="inputCadastrar">
+                <input type="number" id="ramCritico1" class="inputCadastrar">
             </div>
             <div class="funcLabel">
                 <p>RAM alerta (GB):</p>
-                <input type="text" id="ramAlerta1" class="inputCadastrar">
+                <input type="number" id="ramAlerta1" class="inputCadastrar">
             </div>
             
         </div>
         <div class="displayFlex"><div class="funcLabel">
             <p>Disco crítico (GB):</p>
-            <input type="text" id="discoCritico1" class="inputCadastrar">
+            <input type="number" id="discoCritico1" class="inputCadastrar">
         </div>
         <div class="funcLabel">
             <p>Disco alerta (GB):</p>
-            <input type="text" id="discoAlerta1" class="inputCadastrar">
+            <input type="number" id="discoAlerta1" class="inputCadastrar">
         </div></div>
     </div>
     <button class="btnCadastrar" onclick="cadastrarParametro()">Cadastrar Parâmetro</button>
@@ -238,40 +244,40 @@
     <h2 class="tituloFuncionarios" style="color: #fff;">Editar parâmetros</h2>
     <div class="funcLabel">
         <p>Nome do Parâmetro:</p>
-        <input type="text" id="nomeParametro" class="inputCadastrar">
+        <input type="text" id="nomeParametroEditar" class="inputCadastrar">
     </div>
     <div class="globalFlex">
         <div class="displayFlex">
             <div class="funcLabel">
                 <p>CPU crítico (%):</p>
-                <input type="text" id="cpuCritico1" class="inputCadastrar">
+                <input type="number" id="cpuCriticoEditar" class="inputCadastrar">
             </div>
             <div class="funcLabel">
                 <p>CPU alerta (%): </p>
-                <input type="text" id="cpuAlerta1" class="inputCadastrar">
+                <input type="number" id="cpuAlertaEditar" class="inputCadastrar">
             </div>
         </div>
         <div class="displayFlex">
             <div class="funcLabel">
                 <p>RAM crítica (GB):</p>
-                <input type="text" id="ramCritico1" class="inputCadastrar">
+                <input type="number" id="ramCriticoEditar" class="inputCadastrar">
             </div>
             <div class="funcLabel">
                 <p>RAM alerta (GB):</p>
-                <input type="text" id="ramAlerta1" class="inputCadastrar">
+                <input type="number" id="ramAlertaEditar" class="inputCadastrar">
             </div>
             
         </div>
         <div class="displayFlex"><div class="funcLabel">
             <p>Disco crítico (GB):</p>
-            <input type="text" id="discoCritico1" class="inputCadastrar">
+            <input type="number" id="discoCriticoEditar" class="inputCadastrar">
         </div>
         <div class="funcLabel">
             <p>Disco alerta (GB):</p>
-            <input type="text" id="discoAlerta1" class="inputCadastrar">
+            <input type="number" id="discoAlertaEditar" class="inputCadastrar">
         </div></div>
     </div>
-    <button class="btnCadastrar" onclick="">Editar Parâmetro</button>
+    <button class="btnCadastrar" onclick="atualizarParametro()">Editar Parâmetro</button>
 </div>
 
 </div> 

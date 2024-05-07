@@ -132,6 +132,25 @@ console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }
 
+function atualizarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, discoCritico, discoAlerta, idParametro) {
+  console.log("Acessei perfil Model")
+var query = ` UPDATE parametros 
+              SET 
+                  nome = '${nome}',
+                  alertaCPU = '${cpuAlerta}',
+                  criticoCPU = '${cpuCritico}',
+                  alertaDISCO = '${discoAlerta}',
+                  criticoDISCO = '${discoCritico}',
+                  alertaRAM = '${ramAlerta}',
+                  criticoRAM = '${ramCritico}'
+              WHERE 
+                  id = ${idParametro};
+ `;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
 function deletarParametro(idParametro) {
   console.log("Acessei perfil Model")
 var query = `DELETE FROM parametros WHERE id = ${idParametro}`;
@@ -158,5 +177,6 @@ module.exports = {
     listaParametros,
     deletarMonitoramento,
     deletarParametro,
-    updateParametro
+    updateParametro,
+    atualizarParametro
 };

@@ -199,6 +199,25 @@ function dadosFuncionarios1(req, res) {
     });
   }
 
+  function atualizarParametro(req, res) {
+    var nome = req.body.nomeServer;
+    var cpuCritico = req.body.cpuCriticoServer;
+    var cpuAlerta = req.body.cpuAlertaServer;
+    var ramCritico = req.body.ramCriticoServer;
+    var ramAlerta = req.body.ramAlertaServer;
+    var discoCritico = req.body.discoCriticoServer;
+    var discoAlerta = req.body.discoAlertaServer;
+    var idParametro = req.body.idParametroServer;
+
+  
+    perfilModel.atualizarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, discoCritico, discoAlerta, idParametro).then(function (resultado){
+   
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+      
+    });
+  }
+
   function deletarParametro(req, res) {
     var idParametro = req.body.idParametroServer;
   
@@ -226,5 +245,6 @@ module.exports = {
     listaParametros,
     deletarMonitoramento,
     deletarParametro,
-    updateParametro
+    updateParametro,
+    atualizarParametro
 }

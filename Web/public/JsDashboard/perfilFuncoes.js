@@ -370,10 +370,10 @@ function funcionarios() {
     }
 
     function atualizarFuncionario(){
-        // console.log(cargoFuncionario222.value, '=====================')
        var email = emailEditarFuncionario.value;
        var senha = senhaEditarFuncionario.value;
        var id = sessionStorage.idFuncionario;
+
        if(cargoFuncionario222.value != undefined){
         var cargo = cargoFuncionario222.value;
        } else{
@@ -561,9 +561,9 @@ function funcionarios() {
                 console.log(JSON.stringify(json));
                 
                 if(Object.keys(json).length === 0){
-                        console.log('VAZIO')
                         parametro = 0;
                 }
+               
                 var selectElement = document.getElementById("selectParametros");
               
                 json.forEach(function(item) {[]
@@ -606,6 +606,29 @@ function funcionarios() {
             Toast.fire({
                 title: "Erro",
             text: "Preencha todos os campos!",
+            icon: "error",
+            color: "#fff",
+            background: "#011126",
+            iconColor : "red",
+            });
+            return false;
+      } else if (
+            idParametro == "default") 
+        {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+                title: "Erro",
+            text: "Escolha um parametro!",
             icon: "error",
             color: "#fff",
             background: "#011126",
@@ -677,10 +700,9 @@ function funcionarios() {
 
     function atualizarMaquina(){
         var modelo = modeloEditar.value;
-        // var senha = senhaEditarFuncionario.value;
+        var parametro = selectParametro.value;
         var id = sessionStorage.idMaquina;
-        console.log(modelo, 'atualizar funcionario')
- 
+        // console.log(modelo, 'atualizar funcionario')
         
      fetch("/perfil/atualizarMaquina", {
          method: "POST",
@@ -733,6 +755,50 @@ function funcionarios() {
  
     }
 
+    // function buscarParametros1(){
+    //     var idEmpresa1 = sessionStorage.empresa;
+    //     // console.log(idEmpresa1, "buscar parametro");
+
+    //     fetch("/perfil/buscarParametros", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             idEmpresa1Server: idEmpresa1,
+             
+    //         })
+    //     }).then(function (resposta) {
+    //         console.log("ESTOU NO THEN DO PERFIL!")
+            
+    //     if (resposta.ok) {
+    //         console.log(resposta);
+
+    //         resposta.json().then(json => {
+    //             console.log('PARAMETROS ====>',json);
+    //             console.log(JSON.stringify(json));
+                
+    //             if(Object.keys(json).length === 0){
+    //                     console.log('VAZIO')
+    //                     parametro = 0;
+    //             }
+    //             var selectElement = document.getElementById("selectParametros");
+              
+    //             json.forEach(function(item) {[]
+    //                 var optionText = item.nome;
+    //                 var optionValue =  item.id;
+    //                 var optionElement = document.createElement("option");
+
+    //                 optionElement.textContent = optionText;
+    //                 optionElement.value = optionValue; 
+    //                 selectElement.appendChild(optionElement);
+    //             });
+               
+    //                     });
+    //                  } 
+    //     })
+    // }
+
     function deletarMaquina(idMaquina){
 
         fetch("/perfil/deletarMonitoramento", {
@@ -753,10 +819,6 @@ function funcionarios() {
 
                 console.log(resposta);
     
-
-                // setTimeout(function () {
-                //     window.location = "./perfil.html";
-                // }, 1000);
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -820,6 +882,7 @@ function funcionarios() {
     }
 
     function cadastrarParametro(){
+
         var nome = nomeParametro.value;
         var cpuCritico = cpuCritico1.value;
         var cpuAlerta = cpuAlerta1.value;
@@ -967,6 +1030,155 @@ function funcionarios() {
 
     }
 
+    function atualizarParametro(){
+        var nome = nomeParametroEditar.value;
+        var cpuCritico = cpuCriticoEditar.value;
+        var cpuAlerta = cpuAlertaEditar.value;
+        var ramCritico = ramCriticoEditar.value;
+        var ramAlerta = ramAlertaEditar.value;
+        var discoCritico = discoCriticoEditar.value;
+        var discoAlerta = discoAlertaEditar.value;
+        // var idEmpresa = sessionStorage.empresa;
+    
+        if (
+            nome == "" ||
+            cpuCritico == "" ||
+            cpuAlerta == "" ||
+            ramCritico == "" ||
+            ramAlerta == "" ||
+            discoCritico == "" ||
+            discoAlerta == "" 
+          ) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Erro",
+                text: "Preencha todos os campos!",
+                icon: "error",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "red",
+                });
+                return false;
+          } else if(nomeParametro.value.length >= 30){
+    
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Erro",
+                text: "Preencha o nome corretamente!",
+                icon: "error",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "red",
+                });
+          }else if(
+            (cpuCritico.length ||
+            cpuAlerta.length || 
+            ramCritico.length || 
+            ramAlerta.length || 
+            discoCritico.length || 
+            discoAlerta.length) >= 3
+         ){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Erro",
+                text: "Insira parâmetros válidos!",
+                icon: "error",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "red",
+                });
+                
+                return false;
+    
+          }
+ 
+       else{ 
+     fetch("/perfil/atualizarParametro", {
+         method: "POST",
+         headers: {
+             "Content-Type": "application/json"
+         },
+         body: JSON.stringify({
+            nomeServer: nome,
+            cpuCriticoServer: cpuCritico,
+            cpuAlertaServer: cpuAlerta,
+            ramCriticoServer: ramCritico,
+            ramAlertaServer: ramAlerta,
+            discoCriticoServer: discoCritico,
+            discoAlertaServer: discoAlerta,
+            idParametroServer: idParametro,
+            
+         })
+     }).then(function (resposta) {
+         console.log("ESTOU NO THEN DO PERFIL!")
+        
+         if (resposta.ok) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                    title: "Parâmetro atualizado com sucesso!",
+                icon: "success",
+                color: "#fff",
+                background: "#011126",
+                iconColor : "green",
+                });
+             console.log(resposta);
+ 
+             resposta.json().then(json => {
+                 console.log(json);
+                 console.log(JSON.stringify(json));
+                 setTimeout(function () {
+                     window.location = "./perfil.html";
+                 }, 1000);
+                 
+ 
+                         });
+                      } 
+ 
+                 })
+                }
+ 
+    }
+
     function listaParametros() {
         var idEmpresa = sessionStorage.empresa;
     
@@ -1003,8 +1215,8 @@ function funcionarios() {
                        
     
                     const li = document.createElement('li');
-                    if(idParametro == 1 && nome == "Parâmetro base"){
-                         
+                    if(nome == "Parâmetro base"){
+                         console.log('parametro base foi');
                     li.innerHTML = `
                     <p class="funcionarioNome nomeParametro">${nome}</p> 
                   <div class="separacaoParametro">
@@ -1037,11 +1249,11 @@ function funcionarios() {
                       </div>
                       <div class="separacaoParametro">
                           <p>DISCO alerta: ${discoAlerta}</p>
-                          <p>DISCO critico: ${discoCritico}</p>
+                          <p>DISCO critico: ${discoCritico}</p>        
                       </div>
                         <div class="botaosGerenciar">
                             <button><i class='bx bx-trash-alt' onclick="deletarParametro(${idParametro})"></i></button>
-                            <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt'></i></button>
+                            <button onclick="abrirEditar3()"><i class='bx bxs-edit-alt' onclick="editarParametro1('${nome}', ${cpuCritico}, ${cpuAlerta}, ${ramCritico}, ${ramAlerta}, ${discoCritico}, ${discoAlerta}, ${idParametro})"></i></button>
                         `;
                     }
                     ul.appendChild(li);
@@ -1050,6 +1262,19 @@ function funcionarios() {
                          } 
     
                     })
+    }
+        var idParametro;
+    function editarParametro1(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, discoCritico, discoAlerta, idParametro1){
+         nomeParametroEditar.value = nome;
+         cpuCriticoEditar.value = cpuCritico;
+         cpuAlertaEditar.value = cpuAlerta;
+         ramCriticoEditar.value = ramCritico;
+         ramAlertaEditar.value = ramAlerta;
+         discoCriticoEditar.value = discoCritico;
+         discoAlertaEditar.value = discoAlerta;
+         idParametro = idParametro1
+        //  sessionStorage.empresa;
+
     }
 
 
