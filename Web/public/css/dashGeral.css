@@ -214,6 +214,8 @@ body {
 }
 .item7 {
     flex-direction: column;
+    border-bottom: 2px solid red;
+
 }
 .item7 .btnVerMais {
     margin-top: 20px;

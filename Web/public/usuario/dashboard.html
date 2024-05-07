@@ -22,29 +22,38 @@
             <h2 class="titulosCaixas">Modelo: <span id="modeloPc"> default</span></h2>
             <h2 class="titulosCaixas">N° de série: <span id="numeroSerie"> default</span></h2>
         </div>
-        <div id="informationBox" class="boxInformationAlerts">
-          <div class="information"><span style="border-radius: 100%;" class="emergencia"></span><p class="nomeInfo">Emergência</p></div>
-          <div class="information"><span class="alerta"></span><p class="nomeInfo">Alerta</p></div>
-          <div class="information"><span class="normal"></span><p class="nomeInfo">Normal</p></div>
-      </div>
         <div class="caixaAnalytics">
           
             <header>
               <h2 class="titulosCaixas">Analytics</h2>
-              <button onclick="abrirFiltro()" class="infoFiltro"><i class='bx bx-info-circle' ></i></button>
             </header>
             <div class="informacoes">
-              <span class="emergencia"></span><p class="infoTitulo">50%</p><p>de uso da memória RAM</p>
+              <span class="emergencia"></span><p class="infoTitulo">6 gb</p><p>usado na memória RAM</p>
             </div>
             <div class="informacoes">
-              <span class="alerta"></span><p class="infoTitulo">20%</p><p>de uso da CPU</p>
+              <span class="normal"></span><p class="infoTitulo">20%</p><p>de uso da CPU</p>
             </div>
             <div class="informacoes">
-              <span class="normal"></span><p class="infoTitulo">50%</p><p>de uso do DISCO</p>
+              <span class="normal"></span><p class="infoTitulo">100 gb</p><p>usado no DISCO</p>
             </div>
             <p class="analyticsDescricao">Dados coletados em <span>14/02/2025</span> as <span>14:15</span></p>
         </div>
-        
+        <div  class="analyticsParametros">
+          <h2 class="titulosCaixas">Informações analytics</h2>
+
+          <div class="information"><span style="border-radius: 100%;" class="emergencia"></span><p class="nomeInfo">Emergência</p></div>
+          <p class="descricaoAlertas">RAM: 5.1 gb a 8 gb</p>
+          <p class="descricaoAlertas">CPU: 81% a 100%</p>
+          <p class="descricaoAlertas">DISCO: 401 gb a 500 gb</p>
+          <div class="information"><span class="alerta"></span><p class="nomeInfo">Alerta</p></div>
+          <p class="descricaoAlertas">RAM: 3.1 gb a 5 gb</p>
+          <p class="descricaoAlertas">CPU: 41% a 80%</p>
+          <p class="descricaoAlertas">DISCO: 201 a 400 gb</p>
+          <div class="information"><span class="normal"></span><p class="nomeInfo">Normal</p></div>
+          <p class="descricaoAlertas">RAM: 0 gb a 3 gb</p>
+          <p class="descricaoAlertas">CPU: 0% a 40%</p>
+          <p class="descricaoAlertas">DISCO: 0 gb a 200 gb</p>
+      </div>
     </div>
     <div class="conteudo">
         <div class="listaEgraficos">
@@ -55,10 +64,25 @@
                             <canvas id="myChart3" style="width: 180px; height: 180px; display: block; box-sizing: border-box;"></canvas>
                         
                     </div>
+                    <div id="informationBox" class="boxInformationAlerts">
+                      <div class="information"><span style="border-radius: 100%;" class="emergencia"></span><p class="nomeInfo">Emergência</p></div>
+                      <div class="information"><span class="alerta"></span><p class="nomeInfo">Alerta</p></div>
+                      <div class="information"><span class="normal"></span><p class="nomeInfo">Normal</p></div>
+                    </div>
                     <div class="caixaRolagem">
-                        <h2 class="tituloNormal">capturas de dados de rede</h2>
+                        <div class="headerInfo">
+                          <h2 class="tituloNormal">capturas de dados de rede</h2>
+                          <button onclick="abrirFiltro()"><i class='bx bxs-info-circle'></i></button>
+                        </div>
                         <div class="globalRede">
-                        <p class="descricaoRede"> <span class="redeAlerta"></span> Bytes enviados: <span>22</span><i class='bx bx-chip'></i></p>
+                        <p class="hostname">Hostname: <span>RM0E9889I</span></p>
+                        <p class="hostname">IPv4: <span>123.21313.11</span></p>
+                        <!-- <p class="descricaoRede"> Bytes enviados: <span>22</span><i class='bx bx-chip'></i></p>
+                        <p class="descricaoRede"></span>Bytes recebidos: <span>13</span> <i class='bx bx-chip'></i></p>
+                        <p class="descricaoRede"></span>Pacotes enviados: <span>55</span><i class='bx bx-package'></i></p>
+                        <p class="descricaoRede">Pacotes recebidos: <span>44</span><i class='bx bx-package'></i></p>
+                       -->
+                       <p class="descricaoRede"> <span class="redeAlerta"></span> Bytes enviados: <span>22</span><i class='bx bx-chip'></i></p>
                         <p class="descricaoRede"><span class="redeCritico"></span>Bytes recebidos: <span>13</span> <i class='bx bx-chip'></i></p>
                         <p class="descricaoRede"><span class="redeNormal"></span>Pacotes enviados: <span>55</span><i class='bx bx-package'></i></p>
                         <p class="descricaoRede"><span class="redeCritico"></span>Pacotes recebidos: <span>44</span><i class='bx bx-package'></i></p>

@@ -32,6 +32,25 @@ body {
 
     color: #fff;
 }
+.nomeInfo {
+    font-weight: bold;
+
+}
+.headerInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerInfo button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.headerInfo .bx {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #e5e5e5;
+}
 .menuLateral {
     padding: 20px;
     background-color: #202442;
@@ -226,7 +245,7 @@ text-align: center;
     align-items: center;
 } 
 .infoTitulo {
-    width: 70px;
+    width: 100px;
     font-size: 30px;
 }
 
@@ -237,12 +256,19 @@ text-align: center;
 .normal {
     padding: 10px;
 
-    background-color: rgb(0, 255, 0);
+    background-color: green;
 }
 .alerta {
     padding: 10px;
 
     background-color: yellow;
+}
+
+.descricaoAlertas {
+    margin-top: 5px;
+    font-family: "Chakra Petch";
+    font-size: 16px;
+    color: #ffffff;
 }
 .informacoes .emergencia, .normal, .alerta {
     border-radius: 100%;
@@ -260,28 +286,29 @@ text-align: center;
     background-color: transparent;
     border: none;
 }
-.bx-info-circle {
-    color: #5347ff;
-    font-size: 20px;
-}
 
+.analyticsParametros {
+    padding: 20px;
+    background-color: #2D325A;
+    border-radius: 20px;
+}
 
 .boxInformationAlerts {
     display: none;
     border-right: 1px solid white;
+    margin-top: 10px;
     position: absolute;
-    left: 19.9%;
+    left: 41.1%;
     padding: 20px;
     background-color: #2D325A;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-.boxInformationAlerts .information {
+.information {
     margin-top: 10px;
     display: flex;
     color: #fff;
     font-family: "Chakra Petch";
-    
     gap: 20px;
 }
 
@@ -299,7 +326,7 @@ text-align: center;
     /* border-bottom: 1px solid #c6c6c6c6; */
   }
   .globalRede {
-    margin-top: 30px;
+    margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -325,4 +352,9 @@ text-align: center;
     margin-right: 6px;
     background-color: green;
     border-radius: 200px;
+  }
+  .hostname {
+    color: #c9c9c9;
+    font-family: "Chakra Petch";
+    margin-bottom: 10px;
   }
