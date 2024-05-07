@@ -8,7 +8,8 @@ console.log('Arquivo js plotar graficos')
     new Chart(ctx,{
         type: 'line',
         data: {
-            labels: ['Horario', 'Horario', 'Horario', 'Horario', 'Horario', 'Horario'],
+            labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
+            
             datasets: [{
                 label: 'CPU',
                 data: [65, 59, 80, 81, 56, 55, 40],
@@ -19,6 +20,13 @@ console.log('Arquivo js plotar graficos')
             }]
             },
             options: {
+              plugins: {
+                legend: {
+                    labels: {
+                        color: 'white' // Altera a cor do texto dos rótulos
+                    }
+                }
+            },
         scales: {
           y: {
             ticks: {
@@ -39,19 +47,26 @@ console.log('Arquivo js plotar graficos')
 
 new Chart(ctx2,{
     type: 'line',
+    color: '#fff',
     data: {
-        labels: ['Horario', 'Horario', 'Horario', 'Horario', 'Horario', 'Horario'],
+        labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
         datasets: [{
             label: 'MEMÓRIA RAM',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: [90, 39, 50, 81, 56, 55, 70],
             fill: false,
             borderColor: 'red',
             backgroundColor: 'red',
             tension: 0.1,
-            
         }]
         },
         options: {
+          plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Altera a cor do texto dos rótulos
+                }
+            }
+        },
         scales: {
           y: {
             ticks: {
@@ -84,6 +99,15 @@ new Chart(ctx2,{
             
         },]
         },
+        options: {
+          plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Altera a cor do texto dos rótulos
+                }
+            }
+        },
+        }
        }
     );
 }

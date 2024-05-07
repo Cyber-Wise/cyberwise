@@ -212,6 +212,12 @@ body {
     justify-content: center;
     background-color: #2D325A;
 }
+.item7 {
+    flex-direction: column;
+}
+.item7 .btnVerMais {
+    margin-top: 20px;
+}
 .divFlex {
     display: flex;
     align-items: center;

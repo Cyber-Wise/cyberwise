@@ -37,7 +37,7 @@ body {
     background-color: #202442;
     width: 20%;
     height: calc(100vh - 40px);
-    scrollbar-color: #1c1f36 #2D325A;
+    scrollbar-color: #1c1f3600 #0022ff00;
     
     overflow: auto;
 }
@@ -52,7 +52,7 @@ body {
     margin: 6% auto 10px;
     background-color: #2D325A;
     border-radius: 20px;
-    height: 120px;
+    /* height: 120px; */
     padding: 10px;
 }
 .caixaRolagem {
@@ -216,7 +216,7 @@ text-align: center;
 
 }
 .caixaAnalytics .informacoes {
-    margin-top: 20px;
+    margin-top: 10px;
     font-family: "Chakra Petch";
     font-weight: bold;
     gap: 4px;
@@ -290,4 +290,39 @@ text-align: center;
   }
   .botaoVoltarPerfil:hover{
     background-color: #3d447a;
+  }
+  .descricaoRede {
+    color: #fff;
+    font-family: "Chakra Petch";
+    padding: 10px 0;
+    font-size: 18px;
+    /* border-bottom: 1px solid #c6c6c6c6; */
+  }
+  .globalRede {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .descricaoRede .bx {
+    margin-left: 20px;
+  }
+  .redeAlerta {
+    padding: 1px 13px;
+    margin-right: 6px;
+    background-color: yellow;
+    border-radius: 200px;
+  }
+  .redeCritico {
+    padding: 1px 13px;
+    margin-right: 6px;
+    background-color: red;
+    border-radius: 200px;
+  }
+  .redeNormal {
+    padding: 1px 13px;
+    margin-right: 6px;
+    background-color: green;
+    border-radius: 200px;
   }
