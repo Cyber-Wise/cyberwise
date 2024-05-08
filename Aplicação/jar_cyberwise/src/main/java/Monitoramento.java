@@ -27,6 +27,7 @@ public class Monitoramento {
             System.out.println(lista.get(0).getId());
             System.out.println("Logado com sucesso");
             System.out.println("Dados sendo coletados");
+            System.out.println("Pressione (crtl + c) para interromper");
 
             CapturarDados.pegarDados(lista.get(0).getId());
 
