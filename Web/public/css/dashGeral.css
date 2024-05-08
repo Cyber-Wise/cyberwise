@@ -36,16 +36,41 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 20px;
-    height: 216px;
+    /* height: 216px; */
     margin-bottom: 30px;
 }
+.btnSlack {
+    padding: 5px 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    border-radius: 30px;
+    font-family: "Chakra Petch";
 
+    background-color: #202442;
+    transition: 0.2s;
+}
+
+.btnSlack:hover {
+    background-color: #3d447b;
+}
 .notification .bx {
     font-size: 20px;
     color: white;
 }
 .notification ul {
     padding: 3px 20px;
+}
+.notification .titulo {
+    font-size: 20px;
+    text-align: center;
+}
+.centerSlack {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .notification ul li {
     font-family: "Chakra Petch";
