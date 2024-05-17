@@ -9,7 +9,7 @@ body {
 .menuLateral {
 
     padding: 20px;
-    width: 26%;
+    width: 40%;
     height: calc(100vh - 40px);
     background-color: #202442;
 }
@@ -88,16 +88,33 @@ body {
     background-color: #2D325A;
     width: 90%;
     margin: 0 auto;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     /* scrollbar-width: thin; */
     /* scrollbar-color: #1c1f36 #2d325a00; */
     /* thumb cor, track cor */
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     border-radius: 20px;
     height: 300px;
     font-family: "Chakra Petch";
 }
-
+.headerLinks {
+    display: flex;
+    gap: 20px;
+}
+.headerLinks a {
+    transition: all .1s linear;
+}
+.headerLinks a:hover {
+    scale: 1.2;
+    background-color: transparent;
+    border-bottom: 3px solid rgb(255, 255, 255);
+}
+#listaFiltroPc {
+    padding-right: 10px;
+    height: 270px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 .filtro {
     background-color: transparent;
     color: #ffff;
@@ -110,15 +127,22 @@ body {
     font-size: 15px;
 }
 
-.bx-info-circle {
-    color: #5347ff;
+.bxs-info-circle {
     font-size: 20px;
+    color: #fff;
 }
 .infoFiltro {
     cursor: pointer;
+    margin-right: 5px;
     background-color: transparent;
     border: none;
 }
+.nomeParametro {
+    color: #fff;
+    width: 70px;
+    font-size: 14px;
+}
+
 .listaDeComputadores ul li {
     display: flex;
     align-items: center;
@@ -131,6 +155,7 @@ body {
 }
 .descricaoPc {
     color: #fff;
+    width: 120px;
 }
 .descricaoPc .nomePc  {
     font-size: 16px;
@@ -170,13 +195,14 @@ body {
     font-size: 16px;
     font-weight: bold;
 }
-#informationBox {
-    display: none;
+.titulos p {
+    width: 100px;
 }
 .boxInformationAlerts {
+    display: none;
     border-right: 1px solid white;
     position: absolute;
-    left: 19%;
+    left: 26.4%;
     width: 200px;
     padding: 20px;
     background-color: #2D325A;
@@ -257,6 +283,11 @@ body {
 .item5, .item6 {
     justify-content: space-between;
 }
+.item6 ul {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 190px;
+}
 .item6 ul li {
     display: flex;
    margin-top: 10px;
@@ -264,7 +295,7 @@ body {
 }
 .descricaoTabela {
     font-size: 18px;
-    width: 140px;
+    width: 100px;
     color: #c9c9c9;
 }
 .descricaoHrAtualizacao {
@@ -273,8 +304,6 @@ body {
     color: #c9c9c9;
 }
 .item6 {
-    overflow-x: hidden;
-    overflow-y: scroll;
     color: #fff;
     font-family: "Chakra Petch";
     background-color: #2D325A;
@@ -408,7 +437,7 @@ body {
   }
   .boxVerMais .bx-laptop {
     font-size: 30px;
-    width: 10px;
+    width: 40px;
   }
   #listaFiltroPc li span .bx {
     width: 50px;
@@ -436,7 +465,7 @@ body {
     margin-top: 60px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
   .boxVerMais ul li {
     display: flex;
@@ -445,9 +474,10 @@ body {
   }
   .boxVerMais ul li p {
     font-family: "Chakra Petch";
-
     color: #fff;
-    font-size: 20px;
+  }
+  .boxVerMais .nomeComputador, .componentePc {
+    width: 120px;
   }
   .btnVer {
     color: #fff;

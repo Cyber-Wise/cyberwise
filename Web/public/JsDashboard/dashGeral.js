@@ -172,10 +172,11 @@
                                 justify-content: space-between;
                                 width: 100%;" class="${Parametro + 1}">
                                 <i class='bx bx-laptop emergencia'></i>
-                                        <div style="width: 150px;" class="descricaoPc">
+                                        <div style="width: 120px;" class="descricaoPc">
                                             <p class="nomeComputador">${modelo} : ${numSerie}</p>
                                                 <p class="componentePc">${descricao}</p>
                                         </div>
+                                        <p class="nomeParametro">Parametro Padrao</p>
                                    <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', ${numSerie})">Verificar</button>
                                    </span>`;
                                    
@@ -191,10 +192,12 @@
                                 width: 100%;
                                 align-itens: center;" class="${Parametro + 1}">
                                 <i class='bx bx-laptop ${estado}'></i>
-                                        <div style="width: 150px;" class="descricaoPc">
+                                        <div style="width: 120px;" class="descricaoPc">
                                             <p class="nomeComputador">${modelo} : ${numSerie}</p>
                                                 <p class="componentePc">${descricao}</p>
                                         </div>
+                                        <p class="nomeParametro">Parametro Padrao</p>
+
                                    <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', ${numSerie})">Verificar</button>
                                    </span>`;
         
@@ -211,6 +214,8 @@
                                     <p class="nomePc">${modelo} : ${numSerie}</p>
                                         <p class="componentePc">${descricao}</p>
                                 </div>
+                                <p class="nomeParametro">Parametro Padrao</p>
+
                            <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', ${numSerie})">Verificar</button>
                            </span>`;
 
