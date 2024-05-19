@@ -32,8 +32,11 @@ CREATE TABLE funcionario(
     FOREIGN KEY (fk_cargo) REFERENCES cargos(id)
 );
 
-
-
+CREATE TABLE fotoPerfil(
+id_usuario INT PRIMARY KEY,
+fotoBase64 MEDIUMBLOB,
+metadata varchar(100)
+);
 
 CREATE TABLE parametros(
 id INT PRIMARY KEY AUTO_INCREMENT,
