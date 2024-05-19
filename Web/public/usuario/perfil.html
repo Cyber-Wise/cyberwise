@@ -28,8 +28,18 @@
 </head>
 
 <body>
+<!-- <script src="../JsDashboard/perfilFuncoes.js"></script> -->
    
     <main>
+        <div class="modalPerfil" id="perfilModal">
+            <button onclick="fecharModal()" id="fecharModal">X</button>
+            <div class="centerModal">
+                <img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png" id="perfilImgModal">
+                <input type="file" class="uploadDeFoto" id="uploadInput">
+                <button class="btnPerfilImg" onclick="handleSalvarFoto()" id="btnSalvarFoto">Salvar Imagem</button>
+                <img src="../assets/loading.gif" alt="" id="loading">
+            </div>
+        </div>
         <div class="globalFuncionario" id="globalFuncionario">
             <button onclick="abrir()" id="addFunc" class="btnFuncionario">Adicionar Funcionário<i class='bx bx-add-to-queue'></i></button>
             <div id="sumiuPesquisa">
@@ -310,8 +320,10 @@
                     </nav>
                 </div>
             </header>
-        <div class="divFoto">
-            <img src="../assets/Group 534.png" alt="">
+            <div class="divFoto">
+            <img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png" id="perfilImg">
+            <button onclick="abrirEditPerfilFoto()" id="editFotoDePerfil"><i class='bx bxs-edit-alt'></i></button>
+            
         </div>
         <div class="divNomeEempresa">
             <h4><span id="nomeDaConta"></span></h4>
@@ -390,6 +402,7 @@
     window.onload = dadosPerfil();
     window.onload = validarCargo();
     window.onload = listaParametros();
+    window.onload = foto();
     
   //  O nome do cargo do usuario ta no ===> sessionStorage.Cargo 
   // id no banco         nome no sessionStorage.cargo
@@ -473,15 +486,22 @@ function validarCargo(){
 
     }
 
+    function abrirEditPerfilFoto(){
+        perfilModal.style.display = "block";
+        sobrepor.style.filter = "blur(2px)";
+        sobrepor.style.opacity = 0.2;
+
+    }
+    function fecharModal(){
+        perfilModal.style.display = "none";
+        sobrepor.style.filter = "blur(0px)";
+        sobrepor.style.opacity = "1"; 
+    }
     function fecharFuncionarios(){
         globalFuncionario.style.display = "none";
         sobrepor.style.filter = "blur(0px)";
         sobrepor.style.opacity = "1"; 
     }
-
-
-
-// 222222222222222222222222
 
     function abrirMaquinas(){
         globalMaquinas.style.display = "block";
@@ -540,7 +560,6 @@ function validarCargo(){
     }
 
 
-// 33333333333333333333333333333
     function abrirParametros(){
         globalParametros.style.display = "block";
         sobrepor.style.filter = "blur(2px)";
@@ -574,5 +593,6 @@ function validarCargo(){
         editarParametro.style.display = 'none'
         addParametro.style.display = 'block'
     }
+    
 </script>
 </html>

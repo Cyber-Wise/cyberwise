@@ -58,7 +58,15 @@ router.post("/deletarMaquina", function (req, res) {
 router.post("/cadastrarParametro", function (req, res) {
     perfilController.cadastrarParametro(req, res);
 });
-
+router.post("/inserirFoto", function (req, res) {
+    perfilController.inserirFoto(req, res);
+});
+router.post("/atualizarFoto", function (req, res) {
+    perfilController.atualizarFoto(req, res);
+});
+router.post("/pegarFoto", function (req, res) {
+    perfilController.pegarFoto(req, res);
+});
 router.post("/updateParametro", function (req, res) {
     perfilController.updateParametro(req, res);
 });

@@ -178,7 +178,42 @@ function dadosFuncionarios1(req, res) {
       
     });
   }
+  function inserirFoto(req, res) {
+    var idUsuario = req.body.idUsuarioServer
+    var fotobase64 = req.body.fotobase64Server
+    var metadata = req.body.metadataServer
 
+  
+    perfilModel.inserirFoto(idUsuario, fotobase64, metadata).then(function (resultado){
+   
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+      
+    });
+  }
+  function atualizarFoto(req, res) {
+    var idUsuario = req.body.idUsuarioServer
+    var fotobase64 = req.body.fotobase64Server
+    var metadata = req.body.metadataServer
+
+  
+    perfilModel.atualizarFoto(idUsuario, fotobase64, metadata).then(function (resultado){
+   
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+      
+    });
+  }
+  function pegarFoto(req, res) {
+    var idUsuario = req.body.idUsuarioServer
+  
+    perfilModel.pegarFoto(idUsuario).then(function (resultado){
+   
+    console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+      
+    });
+  }
   function listaParametros(req, res) {
     var idEmpesa = req.body.empresaServer;
   
@@ -234,6 +269,7 @@ module.exports = {
     atualizarFuncionario,
     atualizarFuncionario1,
     dadosMaquinas,
+    atualizarFoto,
     buscarParametros,
     cadastrarFuncionario,
     cadastrarMaquina,
@@ -241,6 +277,8 @@ module.exports = {
     dadosPerfil,
     atualizarPerfil,
     cadastrarParametro,
+    inserirFoto,
+    pegarFoto,
     atualizarMaquina,
     listaParametros,
     deletarMonitoramento,

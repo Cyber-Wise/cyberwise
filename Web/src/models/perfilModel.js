@@ -113,7 +113,25 @@ function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, 
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
 }
+function inserirFoto(idUsuario, fotobase64, metadata) {
 
+var query = `INSERT INTO fotoPerfil VALUES (${idUsuario}, '${fotobase64}', '${metadata}')`
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
+function atualizarFoto(idUsuario, fotobase64, metadata) {
+  var query = `UPDATE fotoPerfil SET fotoBase64 = '${fotobase64}', metadata = '${metadata}' WHERE id_usuario = ${idUsuario}; `
+  console.log("Executando a instrução SQL: \n" + query);
+  return database.executar(query);
+  }
+
+function pegarFoto(idUsuario) {
+  console.log("entrei no inserir foto");
+var query = `SELECT fotoBase64 As fotoConvertidaBase64, metadata FROM fotoPerfil WHERE id_usuario = ${idUsuario}`
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
 function listaParametros(empresa) {
   console.log("Acessei perfil Model")
 var query = `SELECT * FROM parametros WHERE fk_empresa = ${empresa};`;
@@ -166,6 +184,7 @@ module.exports = {
     atualizarFuncionario,
     atualizarFuncionario1,
     dadosMaquinas,
+    atualizarFoto,
     buscarParametros,
     cadastrarFuncionario,
     cadastrarMaquina,
@@ -175,6 +194,8 @@ module.exports = {
     cadastrarParametro,
     atualizarMaquina,
     listaParametros,
+    inserirFoto,
+    pegarFoto,
     deletarMonitoramento,
     deletarParametro,
     updateParametro,

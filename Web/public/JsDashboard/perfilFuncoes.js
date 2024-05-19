@@ -1400,3 +1400,152 @@ function filtrar(inputb, ul1, tagName){
         if(count === 0) ul.style.display = "none";
         else ul.style.display = "block";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var uploadInput = document.getElementById('uploadInput');
+    var image = document.getElementById('perfilImgModal'); 
+
+    uploadInput.addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        if(!file.type.startsWith("image/"))
+            {
+                alert("criar um popup");
+                return;
+            }
+            
+        var previewFile = URL.createObjectURL(file);
+        image.src = previewFile;
+    });
+});
+
+
+const converterfotoBase64 = (file) => {
+    const fileReader = new FileReader();
+
+    return new Promise((resolve, reject) => {
+      fileReader.readAsDataURL(file);
+  
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+  
+      fileReader.onerror = () => {
+        reject(fileReader.result);
+      };
+      
+    });
+  };
+
+function handleSalvarFoto(){
+    var uploadInput = document.getElementById('uploadInput');
+    var loading = document.getElementById('loading');
+    var file = uploadInput.files[0];
+    var dataFoto = { metadata: "", foto: ""}
+
+converterfotoBase64(file).then(data => {
+         const foto = data.split(",")
+         const metadataFoto = foto[0];
+         const fotoBase64 = foto[1]
+
+         dataFoto.foto = fotoBase64;
+         dataFoto.metadata = metadataFoto
+
+        var idUsuario = sessionStorage.ID_USUARIO
+        var metadataDaFoto = dataFoto.metadata
+        var fotoBase64Foto = dataFoto.foto
+
+        fetch("/perfil/pegarFoto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer : idUsuario,
+            })
+        }).then(function (resposta) {        
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    if(json.length == 0){
+                        fetch("/perfil/inserirFoto", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                idUsuarioServer : idUsuario,
+                                metadataServer : metadataDaFoto,
+                                fotobase64Server : fotoBase64Foto
+                            })
+                        }).then(function (resposta) {
+                            console.log("ESTOU NO THEN DO PERFIL!")
+                            if (resposta.ok) {
+                                console.log(resposta);
+                                loading.style.display = 'block'
+                                setTimeout(function () {
+                                    window.location = "./perfil.html";
+                                }, 1000);
+                                resposta.json().then(json => {
+                                    
+                                }
+                            );
+                    
+                            } 
+                    
+                        })
+                    }else {
+                        fetch("/perfil/atualizarFoto", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                idUsuarioServer : idUsuario,
+                                metadataServer : metadataDaFoto,
+                                fotobase64Server : fotoBase64Foto
+                            })
+                        }).then(function (resposta) {
+                            console.log("ESTOU NO THEN DO PERFIL!")
+                            if (resposta.ok) {
+                                console.log(resposta);
+                                loading.style.display = 'block'
+                                setTimeout(function () {
+                                    window.location = "./perfil.html";
+                                }, 1000);
+                                resposta.json().then(json => {
+                                    
+                                }
+                            );
+                            } 
+                        })
+                    }
+                }
+            );
+            } 
+        })
+     });    
+     
+}
+function foto(){
+    var idUsuario = sessionStorage.ID_USUARIO
+    fetch("/perfil/pegarFoto", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuarioServer : idUsuario,
+        })
+    }).then(function (resposta) {        
+        if (resposta.ok) {
+            
+            resposta.json().then(json => {
+                var { metadata ,fotoConvertidaBase64: { data } } = json[0];                
+                let fotoBase64 = String.fromCharCode(...data);
+                var fotoConcat = `${metadata},${fotoBase64}`
+                var image = document.getElementById('perfilImg'); 
+                image.src = fotoConcat
+            }
+        );
+        } 
+    })
+}
