@@ -1409,7 +1409,25 @@ document.addEventListener("DOMContentLoaded", function() {
         var file = event.target.files[0];
         if(!file.type.startsWith("image/"))
             {
-                alert("criar um popup");
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Erro",
+                        text: "Tipo de imagem inválido!",
+                    icon: "error",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "red",
+                    });
                 return;
             }
             

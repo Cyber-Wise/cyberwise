@@ -34,7 +34,7 @@
         <div class="modalPerfil" id="perfilModal">
             <button onclick="fecharModal()" id="fecharModal">X</button>
             <div class="centerModal">
-                <img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png" id="perfilImgModal">
+                <img src="" id="perfilImgModal">
                 <input type="file" class="uploadDeFoto" id="uploadInput">
                 <button class="btnPerfilImg" onclick="handleSalvarFoto()" id="btnSalvarFoto">Salvar Imagem</button>
                 <img src="../assets/loading.gif" alt="" id="loading">
@@ -321,7 +321,7 @@
                 </div>
             </header>
             <div class="divFoto">
-            <img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png" id="perfilImg">
+            <img src="../assets/perfimImg.png" id="perfilImg">
             <button onclick="abrirEditPerfilFoto()" id="editFotoDePerfil"><i class='bx bxs-edit-alt'></i></button>
             
         </div>
@@ -487,12 +487,16 @@ function validarCargo(){
     }
 
     function abrirEditPerfilFoto(){
+        var imgModal = document.getElementById('perfilImgModal')
+        var imgPerfil = document.getElementById('perfilImg')
+        imgModal.src = imgPerfil.src
         perfilModal.style.display = "block";
         sobrepor.style.filter = "blur(2px)";
         sobrepor.style.opacity = 0.2;
 
     }
     function fecharModal(){
+        
         perfilModal.style.display = "none";
         sobrepor.style.filter = "blur(0px)";
         sobrepor.style.opacity = "1"; 
