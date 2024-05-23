@@ -34,8 +34,10 @@ CREATE TABLE funcionario(
 
 CREATE TABLE fotoPerfil(
 id_usuario INT PRIMARY KEY,
-fotoBase64 MEDIUMBLOB,
+fotoBase64 longblob,
 metadata varchar(100)
+-- fk_funcionario int,
+-- FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id)
 );
 
 CREATE TABLE parametros(
@@ -51,7 +53,6 @@ criticoRAM VARCHAR(20),
 FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
-
 select * from parametros;
 
 CREATE TABLE maquina(
@@ -63,20 +64,15 @@ CREATE TABLE maquina(
     FOREIGN KEY (fk_empresa) REFERENCES empresa(id),
     FOREIGN KEY (fk_parametros) REFERENCES parametros(id)
 );
-
-
-
--- INSERT INTO maquina (numSerie)
--- SELECT 1212
--- WHERE NOT EXISTS (
-   --  SELECT 1 FROM maquina WHERE numSerie = 1212
--- );
     
 CREATE TABLE monitoramento(
 	cpuEmUso FLOAT,
 	ramDisponivel FLOAT,
 	tamanhoDisponivelDisco FLOAT,
-    dadosREDE FLOAT,
+    bytesEnviados DECIMAL,
+    bytesRecebidos DECIMAL,
+    pacotesEnviados DECIMAL,
+    pacotesRecebidos DECIMAL,
     fk_maquina INT,
 	data_hora  datetime,
     FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
@@ -86,7 +82,7 @@ select * from monitoramento;
 
 CREATE TABLE alertas(
 id INT PRIMARY KEY AUTO_INCREMENT,
-tipo VARCHAR(20),
+criticidade VARCHAR(20),
 data_hora datetime,
 componente VARCHAR(30),
 fk_maquina INT,
