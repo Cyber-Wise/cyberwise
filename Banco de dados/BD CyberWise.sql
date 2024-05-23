@@ -57,8 +57,15 @@ select * from parametros;
 
 CREATE TABLE maquina(
 	id INT PRIMARY KEY AUTO_INCREMENT,
+    codigoAcesso INT,
 	modelo VARCHAR(20),
-	numSerie int,
+    sistemaOperacional VARCHAR(50),
+    fabricante VARCHAR(50),
+    NumeroSerieProcessador VARCHAR(100),
+    ramTotal INT,
+	qtdDisco INT,
+    discoTotal INT,
+	hostname INT,
 	fk_parametros INT,
     fk_empresa INT,
     FOREIGN KEY (fk_empresa) REFERENCES empresa(id),
@@ -85,9 +92,11 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 criticidade VARCHAR(20),
 data_hora datetime,
 componente VARCHAR(30),
-fk_maquina INT,
+fk_maquina INT,		
 FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
+-- SELECT funcionario.id, funcionario.nome, funcionario.fk_empresa, empresa.nome AS nome_empresa 
+-- FROM funcionario JOIN empresa ON funcionario.fk_empresa = empresa.id WHERE email = 'davi@cyberwise.com' AND senha = 'davi602079';  
 	
     select * from empresa;	
     select * from funcionario;
@@ -95,5 +104,8 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
     select * from monitoramento;
     select * from cargos;
     select * from parametros;
+    select * from alertas;
+    -- select alertas.id as id_alertas, alertas.criticidade as criticidade_alerta, maquina.modelo as modelo_maquina, maquina.numSerie as maquina_numSerie 
+    -- from alertas join maquina on fk_maquina = maquina.id;
     
     -- drop database cyberwise;
