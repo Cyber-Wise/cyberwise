@@ -84,6 +84,22 @@ function cadastrarMaquina(modelo, numeroSerie, idParametro, idEmpresa) {
   return database.executar(query);
 }
 
+function verificarNumeroSerie(numeroSerie) {
+  var query = `SELECT COUNT(*) AS count FROM maquina WHERE codigoAcesso = '${numeroSerie}'`;
+  console.log("Executando a instrução SQL: \n" + query);
+
+  return database.executar(query)
+      .then(function (result) {
+          console.log("Resultado da consulta:", result);
+          var count = result[0].count;
+          return count > 0;
+      })
+      .catch(function (error) {
+          console.error("Erro ao executar a consulta SQL:", error);
+          throw error;
+      });
+}
+
 function atualizarMaquina(modelo, id) {
   console.log("Acessei perfil Model")
 var query = `UPDATE maquina SET modelo = '${modelo}' WHERE id = ${id};`;
@@ -202,5 +218,6 @@ module.exports = {
     deletarMonitoramento,
     deletarParametro,
     updateParametro,
-    atualizarParametro
-};
+    atualizarParametro,
+    verificarNumeroSerie: verificarNumeroSerie,
+  };

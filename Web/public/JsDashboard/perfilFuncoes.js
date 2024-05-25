@@ -1,5 +1,6 @@
 nomeDaEmpresa.innerHTML = sessionStorage.NomeEmpresa;
 
+
 function dadosPerfil(){
    var idUser = sessionStorage.ID_USUARIO;
 
@@ -636,56 +637,64 @@ function funcionarios() {
             });
             return false;
       }
-        else{
-            fetch("/perfil/cadastrarMaquina", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    modeloServer: modelo,
-                    numeroSerieServer: numeroSerie,
-                    idParametroServer: idParametro,
-                    idEmpresaServer: idEmpresa,
-                })
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO PERFIL!")
-               
-                if (resposta.ok) {
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.onmouseenter = Swal.stopTimer;
-                            toast.onmouseleave = Swal.resumeTimer;
-                        }
-                        });
-                        Toast.fire({
-                            title: "Cadastro de máquina realizado!",
-                        icon: "success",
-                        color: "#fff",
-                        background: "#011126",
-                        iconColor : "green",
-                        });
-                    console.log(resposta);
-        
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-
-                        setTimeout(function () {
-                            window.location = "./perfil.html";
-                        }, 1000);
-                        
-                                });
-                             } 
-        
-                        })
-
+      else{
+        fetch("/perfil/cadastrarMaquina", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                modeloServer: modelo,
+                numeroSerieServer: numeroSerie,
+                idParametroServer: idParametro,
+                idEmpresaServer: idEmpresa,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO CADASTRAR MAQUINAS!")
+           
+            if (resposta.ok) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        title: "Cadastro de máquina realizado!",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#011126",
+                    iconColor : "green",
+                    });
+                console.log(resposta);
+    
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+    
+                    setTimeout(function () {
+                        window.location = "./perfil.html";
+                    }, 1000);
+                    
+                            });
+                         } else {
+                             exibirMensagemErro("Não é possível cadastrar máquinas com o mesmo código de acesso.");
+                         }
+    
+                    })
     }
+    
+
+    function exibirMensagemErro(mensagem) {
+        var mensagemErro = document.getElementById("mensagemErro");
+        mensagemErro.textContent = mensagem;
+        mensagemErro.style.display = "block";
+      }
 
     }
 
