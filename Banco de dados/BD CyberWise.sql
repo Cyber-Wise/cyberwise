@@ -59,25 +59,29 @@ CREATE TABLE maquina(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     codigoAcesso INT,
 	modelo VARCHAR(20),
+	status_maquina VARCHAR(20),
     sistemaOperacional VARCHAR(50),
     fabricante VARCHAR(50),
     NumeroSerieProcessador VARCHAR(100),
-    ramTotal INT,
-	qtdDisco INT,
-    discoTotal INT,
-	hostname INT,
+    ramTotal VARCHAR(20),
+	qtdDisco VARCHAR(20),
+    discoTotal VARCHAR(20),
+	hostname VARCHAR(50),
 	fk_parametros INT,
     fk_empresa INT,
     FOREIGN KEY (fk_empresa) REFERENCES empresa(id),
     FOREIGN KEY (fk_parametros) REFERENCES parametros(id)
 );
+
+-- INSERT INTO maquina (sistemaOperacional, fabricante, NumeroSerieProcessador, ramTotal, qtdDisco, discoTotal, hostname) VALUES ('', '', '', 1, 1, 1, '');
+-- UPDATE maquina SET sistemaOperacional = '', fabricante = '', NumeroSerieProcessador = '', ramTotal = 1, qtdDisco = 1, discoTotal = 1, hostname = '' WHERE id = 1;
     
 CREATE TABLE monitoramento(
 	cpuEmUso FLOAT,
-	ramDisponivel FLOAT,
+	ramEmUso FLOAT,
 	tamanhoDisponivelDisco FLOAT,
-    bytesEnviados DECIMAL,
-    bytesRecebidos DECIMAL,
+    gbEnviados DECIMAL,
+    gbRecebidos DECIMAL,
     pacotesEnviados DECIMAL,
     pacotesRecebidos DECIMAL,
     fk_maquina INT,
