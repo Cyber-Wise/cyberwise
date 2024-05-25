@@ -1471,6 +1471,7 @@ converterfotoBase64(file).then(data => {
         var idUsuario = sessionStorage.ID_USUARIO
         var metadataDaFoto = dataFoto.metadata
         var fotoBase64Foto = dataFoto.foto
+        console.log('base 64 teste 1',fotoBase64);
 
         fetch("/perfil/pegarFoto", {
             method: "POST",
@@ -1480,7 +1481,8 @@ converterfotoBase64(file).then(data => {
             body: JSON.stringify({
                 idUsuarioServer : idUsuario,
             })
-        }).then(function (resposta) {        
+        }).then(function (resposta) { 
+            console.log('entrou no then');       
             if (resposta.ok) {
                 resposta.json().then(json => {
                     if(json.length == 0){
@@ -1521,7 +1523,7 @@ converterfotoBase64(file).then(data => {
                                 fotobase64Server : fotoBase64Foto
                             })
                         }).then(function (resposta) {
-                            console.log("ESTOU NO THEN DO PERFIL!")
+    console.log("ESTOU NO THEN DO PERFIL!")
                             if (resposta.ok) {
                                 loading.style.display = 'block'
                                 setTimeout(function () {
