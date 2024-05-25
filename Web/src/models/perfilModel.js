@@ -76,7 +76,9 @@ function buscarParametros(empresa) {
 
 function cadastrarMaquina(modelo, numeroSerie, idParametro, idEmpresa) {
     console.log("Acessei perfil Model")
-  var query = `INSERT INTO maquina VALUES (NULL, '${modelo}', '${numeroSerie}', '${idParametro}', ${idEmpresa});`;
+  var query = `INSERT INTO maquina (codigoAcesso, modelo, fk_parametros, fk_empresa)
+              SELECT '${numeroSerie}', '${modelo}', '${idParametro}', ${idEmpresa}
+              WHERE NOT EXISTS (SELECT 1 FROM maquina WHERE codigoAcesso = '${numeroSerie}')`;
 
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
@@ -113,14 +115,17 @@ function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, 
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
 }
+
 function inserirFoto(idUsuario, fotobase64, metadata) {
 
 var query = `INSERT INTO fotoPerfil VALUES (${idUsuario}, '${fotobase64}', '${metadata}')`
+console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }
 
 function atualizarFoto(idUsuario, fotobase64, metadata) {
   var query = `UPDATE fotoPerfil SET fotoBase64 = '${fotobase64}', metadata = '${metadata}' WHERE id_usuario = ${idUsuario}; `
+  console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
   }
 
