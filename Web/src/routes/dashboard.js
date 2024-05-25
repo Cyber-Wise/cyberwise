@@ -6,7 +6,18 @@ var dashboardController = require("../controllers/dashboardController");
 router.post("/dadosDashboard", function (req, res) {
     dashboardController.dadosDashboard(req, res);
 });
-
+router.post("/maquinasComProblemas", function (req, res) {
+    dashboardController.maquinasComProblemas(req, res);
+});
+router.post("/notificacao", function (req, res) {
+    dashboardController.notificacao(req, res);
+});
+router.post("/totalDeMaquinas", function (req, res) {
+    dashboardController.totalDeMaquinas(req, res);
+});
+router.post("/maquinasEmpresa", function (req, res) {
+    dashboardController.maquinasEmpresa(req, res);
+});
 // //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 // router.post("/cadastrar", function (req, res) {
 //     empresaController.cadastrar(req, res);

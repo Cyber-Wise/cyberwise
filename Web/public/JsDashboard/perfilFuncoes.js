@@ -1499,7 +1499,6 @@ converterfotoBase64(file).then(data => {
                         }).then(function (resposta) {
                             console.log("ESTOU NO THEN DO PERFIL!")
                             if (resposta.ok) {
-                                console.log(resposta);
                                 loading.style.display = 'block'
                                 setTimeout(function () {
                                     window.location = "./perfil.html";
@@ -1526,7 +1525,6 @@ converterfotoBase64(file).then(data => {
                         }).then(function (resposta) {
     console.log("ESTOU NO THEN DO PERFIL!")
                             if (resposta.ok) {
-                                console.log(resposta);
                                 loading.style.display = 'block'
                                 setTimeout(function () {
                                     window.location = "./perfil.html";
