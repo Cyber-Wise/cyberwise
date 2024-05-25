@@ -1,23 +1,43 @@
 var dashboardModel = require("../models/dashboardModel");
 
 function dadosDashboard(req, res) {
-  var empresa = req.body.empresaServer;
+  var empresa = req.body.empresa;
 
   dashboardModel.dadosDashboard(empresa).then((resultado) => {
-    console.log(`\nResultados encontrados: ${resultado}`);
+    console.log(`\nResultados encontrados dado: ${resultado}`);
     res.status(200).json(resultado);
-    
-    // res.json({
-        // id: resultadoAutenticar[0].id,
-        // email: resultadoAutenticar[0].email,
-        // nome: resultadoAutenticar[0].nome,
-        // senha: resultadoAutenticar[0].senha,
-        // empresa: resultadoAutenticar[0].fk_empresa,
-       
-    // });
   });
 }
+function maquinasComProblemas(req, res) {
+  var empresa = req.body.empresa;
 
+  dashboardModel.maquinasComProblemas(empresa).then((resultado) => {
+    console.log(`\nResultados encontrados: ${resultado}`);
+    res.status(200).json(resultado);
+  });
+}
+function notificacao(req, res) {
+  var empresa = req.body.empresa;
+
+  dashboardModel.notificacao(empresa).then((resultado) => {
+    console.log(`\nResultados encontrados: ${resultado}`);
+    res.status(200).json(resultado);
+  });
+}
+function totalDeMaquinas(req, res) {
+  var empresa = req.body.empresa;
+  dashboardModel.totalDeMaquinas(empresa).then((resultado) => {
+    console.log(`\nResultados encontrados: ${resultado}`);
+    res.status(200).json(resultado);
+  });
+}
+function maquinasEmpresa(req, res) {
+  var empresa = req.body.empresa;
+  dashboardModel.maquinasEmpresa(empresa).then((resultado) => {
+    console.log(`\nResultados encontrados: ${resultado}`);
+    res.status(200).json(resultado);
+  });
+}
 // function listar(req, res) {
 //   empresaModel.listar().then((resultado) => {
 //     res.status(200).json(resultado);
@@ -49,6 +69,11 @@ function dadosDashboard(req, res) {
 //   });
 // }
 
+
 module.exports = {
-dadosDashboard
+dadosDashboard,
+maquinasComProblemas,
+totalDeMaquinas,
+maquinasEmpresa,
+notificacao
 };

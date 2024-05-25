@@ -12,7 +12,7 @@
     <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
     <title>CyberWise | Dashboard Geral</title>
 </head>
-<body onload="dashboardInfo1()">
+<body>
     <div id="boxVerAbrir" class="boxVerMais">
         <header>
             <h2>Lista de computadores</h2>
@@ -42,19 +42,15 @@
                 <a href="./perfil.html" class="botaoVoltarPerfil"><i class='bx bxs-user'></i></a>
             </div>
         </header>
-        <p class="descricaoHrAtualizacao">Última atualização de dados as <span>02/05/2004</span> <span>22:22</span></p>
+        <p class="descricaoHrAtualizacao">Dados sendo atualizados de 2 em 2 minutos</p>
 
         <div class="notification">
             <div class="centerSlack">
                 <i class='bx bxs-bell-ring' ></i>
                 <a href="https://slack.com/intl/pt-br" class="btnSlack">Ir para o slack</a>
             </div>
-            <ul>
-                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
-                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
-                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
-                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
-                <li><p class="tituloNotification">notificação</p><p class="data">19/02/2023</p></li>
+            <ul id="listaDeNotificacao">
+                
             </ul>
         </div>
         <div id="informationBox" class="boxInformationAlerts">
@@ -94,14 +90,14 @@
             </div>
             <div class="item2">
                 
-                    <h3 class="tituloCards"><span id="PoucoEspaco"></span></h3>
-                    <p class="descricaoCards">Máquinas com pouco espaço</p>
+                    <h3 class="tituloCards"><span id="idMaquinasPoucoEspaco"></span></h3>
+                    <p class="descricaoCards" >Máquinas com pouco espaço</p>
                
                 <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
             </div>
             <div class="item3">
                 <div class="divFlex">
-                    <h3 class="tituloCards"><span id="poucaRam"></span></h3>
+                    <h3 class="tituloCards"><span id="idMaquinasPoucaMemoria"></span></h3>
                 <p class="descricaoCards">Máquinas com pouca memória RAM</p>
                 </div>
                 <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
@@ -127,22 +123,14 @@
                 <p>N° de alertas da memoria</p>
                 <p>N° de alertas do disco</p>
                 </div>
-                <ul>
-                    <li><p class="descricaoTabela">Dell: 1212</p><p class="descricaoTabela">2</p><p class="descricaoTabela">1</p><p class="descricaoTabela">1</p></li>
-                    <li><p class="descricaoTabela">Dell: 1414</p><p class="descricaoTabela">4</p><p class="descricaoTabela">5</p><p class="descricaoTabela">6</p></li>
-                    <li><p class="descricaoTabela">Acer: 3434</p><p class="descricaoTabela">1</p><p class="descricaoTabela">8</p><p class="descricaoTabela">1</p></li>
-                    <li><p class="descricaoTabela">Dell: 1545</p><p class="descricaoTabela">5</p><p class="descricaoTabela">0</p><p class="descricaoTabela">8</p></li>
-                    <li><p class="descricaoTabela">Positivo: 2232</p><p class="descricaoTabela">9</p><p class="descricaoTabela">4</p><p class="descricaoTabela">2</p></li>
-                    <li><p class="descricaoTabela">Lg: 3232</p><p class="descricaoTabela">0</p><p class="descricaoTabela">1</p><p class="descricaoTabela">0</p></li>
-                    <li><p class="descricaoTabela">Lg: 3232</p><p class="descricaoTabela">0</p><p class="descricaoTabela">1</p><p class="descricaoTabela">0</p></li>
-                    <li><p class="descricaoTabela">Lg: 3232</p><p class="descricaoTabela">0</p><p class="descricaoTabela">1</p><p class="descricaoTabela">0</p></li>
-                    <li><p class="descricaoTabela">Lg: 3232</p><p class="descricaoTabela">0</p><p class="descricaoTabela">1</p><p class="descricaoTabela">0</p></li>
+                <ul id="tabelaAlertas">
+                    
                 </ul>
                 
             </div>
                 
                 <div class="item7">
-                    <h3 class="tituloCards"><span id="redeComProblema">5</span></h3>
+                    <h3 class="tituloCards"><span id="redeComProblema"></span></h3>
                     <p class="descricaoCards">Máquinas com problemas de rede</p>
                     <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
             </div>
@@ -154,6 +142,10 @@
 <script src="../JsDashboard/dashGeral.js"></script>
 <!-- <script src="../JsDashboard/dash.js"></script> -->
 <script>
+    window.onload = maquinasEmpresa()
+    window.onload = notificacao()
+    window.onload = kpisMaquinasComProblemas()
+    window.onload = totalDeMaquinas()
     var sobrepor = document.querySelector(".sobrepor")
 
     function abrirListaPcCritico(){
