@@ -118,13 +118,20 @@ function dadosFuncionarios1(req, res) {
     var idParametro = req.body.idParametroServer;
     var idEmpresa = req.body.idEmpresaServer;
   
-    perfilModel.cadastrarMaquina(modelo, numeroSerie, idParametro, idEmpresa).then(function (resultado){
-   
-    console.log(`Resultados: ${JSON.stringify(resultado)}`)
-      res.status(200).json(resultado);
-      
+    perfilModel.verificarNumeroSerie(numeroSerie).then(function (existe) {
+        if (existe) {
+            res.status(400).json({ message: "Número de série já cadastrado." });
+        } else {
+            perfilModel.cadastrarMaquina(modelo, numeroSerie, idParametro, idEmpresa).then(function (resultado) {
+                console.log(`Resultados: ${JSON.stringify(resultado)}`)
+                res.status(200).json(resultado);
+            });
+        }
+    }).catch(function (error) {
+        res.status(500).json({ error: error.message });
     });
-  }
+}
+
 
   function atualizarMaquina(req, res) {
     var modelo = req.body.modeloServer;

@@ -23,8 +23,15 @@ var mySqlConfig = {
     database: "cyberwise",
     user: "root",
     // password: "1513",
+<<<<<<< HEAD
     password: "fUtur@13",
     // password: "0511",
+=======
+    // password: "fUtur@13",
+    // password: "1513",
+    // password: "fUtur@13",
+    password: "0511",
+>>>>>>> 9a7af1f17dda9e2be0e9d4224d90bca24b840065
 
 };
 
