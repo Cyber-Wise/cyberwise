@@ -90,7 +90,15 @@ body {
 .notification .tituloNotification {
     width: 160px;
 }
-    
+.Normal {
+    color: rgb(0, 255, 0);
+}
+.Alerta {
+    color: yellow;
+}
+.Crítico {
+    color: red;
+}
 .listaDeComputadores {
     padding: 10px;
     background-color: #2D325A;

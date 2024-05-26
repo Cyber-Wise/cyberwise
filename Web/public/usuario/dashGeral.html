@@ -13,24 +13,13 @@
     <title>CyberWise | Dashboard Geral</title>
 </head>
 <body>
-    <div id="boxVerAbrir" class="boxVerMais">
-        <header>
-            <h2>Lista de computadores</h2>
-            <button onclick="fecharVerMaisCritico()" class="btnFecha"><i class='bx bx-window-close'></i></button>
-        </header>
-        <ul id="listaPcCritico">
-            <!-- <li><i class='bx bx-laptop emergencia'></i><p class="nomeComputador">Dell: 2323312</p><p class="componenteEstado">CPU</p><a href="" class="btnVer">Verificar</a></li> -->
-            
-        </ul>
-    </div>
     <div id="boxVerAbrirAlerta" class="boxVerMais">
         <header>
             <h2>Lista de computadores</h2>
             <button onclick="fecharVerMaisAlerta()" class="btnFecha"><i class='bx bx-window-close'></i></button>
         </header>
         <ul id="listaPcAlerta">
-            <!-- <li><i class='bx bx-laptop emergencia'></i><p class="nomeComputador">Dell: 2323312</p><p class="componenteEstado">CPU</p><a href="" class="btnVer">Verificar</a></li> -->
-            
+           
         </ul>
     </div>
    <div class="sobrepor">
@@ -93,14 +82,14 @@
                     <h3 class="tituloCards"><span id="idMaquinasPoucoEspaco"></span></h3>
                     <p class="descricaoCards" >Máquinas com pouco espaço</p>
                
-                <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
+                <button onclick="abrirlistaDisco()" class="btnVerMais">Ver mais</button>
             </div>
             <div class="item3">
                 <div class="divFlex">
                     <h3 class="tituloCards"><span id="idMaquinasPoucaMemoria"></span></h3>
                 <p class="descricaoCards">Máquinas com pouca memória RAM</p>
                 </div>
-                <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
+                <button onclick="abrirlistaRam()" class="btnVerMais">Ver mais</button>
             </div>
         </div>
         <div class="container2">
@@ -122,9 +111,10 @@
                 <p>N° de alertas na CPU</p>
                 <p>N° de alertas da memoria</p>
                 <p>N° de alertas do disco</p>
+                <p>N° de alertas da rede</p>
                 </div>
                 <ul id="tabelaAlertas">
-                    
+                    <!-- <li><p class="descricaoTabela">Dell: 1222</p><p class="descricaoTabela">2</p><p class="descricaoTabela">10</p><p class="descricaoTabela">5</p><p class="descricaoTabela">0</p></li> -->
                 </ul>
                 
             </div>
@@ -132,7 +122,7 @@
                 <div class="item7">
                     <h3 class="tituloCards"><span id="redeComProblema"></span></h3>
                     <p class="descricaoCards">Máquinas com problemas de rede</p>
-                    <button onclick="abrirListaPcAlerta()" class="btnVerMais">Ver mais</button>
+                    <button onclick="abrirlistaRede()" class="btnVerMais">Ver mais</button>
             </div>
         </div>
     </div>
@@ -143,36 +133,58 @@
 <!-- <script src="../JsDashboard/dash.js"></script> -->
 <script>
     window.onload = maquinasEmpresa()
-    window.onload = notificacao()
-    window.onload = kpisMaquinasComProblemas()
     window.onload = totalDeMaquinas()
+    window.onload = componentesEmEstadoCritico()
+    window.onload = maquinasComPoucaRam()
+    window.onload = listaDeAlertas()
+    window.onload = maquinasComPoucoEspaco()
+    window.onload = notificacao()
+    window.onload = listaDeMaquinasCOmComponentesCriticos()
+    window.onload = componentesEmEstadoAlerta()
+    window.onload = maquinasComProblemasDeRede()
+
     var sobrepor = document.querySelector(".sobrepor")
 
-    function abrirListaPcCritico(){
-        boxVerAbrir.style.display = "block"
+    function abrirlistaDisco(){
+        boxVerAbrirAlerta.style.display = "block"
         sobrepor.style.filter = "blur(2px)"
         sobrepor.style.opacity = 0.2;
-    }
+        listaDeMaquinasComPoucoEspaco()
 
+    }
+    function abrirlistaRam(){
+        boxVerAbrirAlerta.style.display = "block"
+        sobrepor.style.filter = "blur(2px)"
+        sobrepor.style.opacity = 0.2;
+        listaDeMaquinasComPoucaRam()
+
+    }
+    function abrirlistaRede(){
+        boxVerAbrirAlerta.style.display = "block"
+        sobrepor.style.filter = "blur(2px)"
+        sobrepor.style.opacity = 0.2;
+        listaDeMaquinasProblemaRede()
+
+    }
+    function abrirListaPcCritico(){
+        boxVerAbrirAlerta.style.display = "block"
+        sobrepor.style.filter = "blur(2px)"
+        sobrepor.style.opacity = 0.2;
+        listaDeMaquinasCOmComponentesCriticos()
+
+    }
     function abrirListaPcAlerta(){
         boxVerAbrirAlerta.style.display = "block"
         sobrepor.style.filter = "blur(2px)"
         sobrepor.style.opacity = 0.2;
-
-    }
-
-    function fecharVerMaisCritico(){
-        boxVerAbrir.style.display = "none"
-        sobrepor.style.opacity = 1
-        sobrepor.style.filter = "blur(0px)"
-
+        listaDeMaquinasCOmComponentesAlertas()
 
     }
     function fecharVerMaisAlerta(){
         boxVerAbrirAlerta.style.display = "none"
         sobrepor.style.opacity = 1
         sobrepor.style.filter = "blur(0px)"
-
+        listaPcAlerta.innerHTML = ''
 
     }
 
