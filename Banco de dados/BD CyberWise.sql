@@ -43,12 +43,12 @@ metadata varchar(100)
 CREATE TABLE parametros(
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(30),
-alertaCPU VARCHAR(20),
-criticoCPU VARCHAR(20),
-alertaDISCO VARCHAR(20),
-criticoDISCO VARCHAR(20),
-alertaRAM VARCHAR(20),
-criticoRAM VARCHAR(20),
+alertaCPU DECIMAL,
+criticoCPU DECIMAL,
+alertaDISCO DECIMAL,
+criticoDISCO DECIMAL,
+alertaRAM DECIMAL,
+criticoRAM DECIMAL,
  fk_empresa int,
 FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
@@ -59,7 +59,6 @@ CREATE TABLE maquina(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     codigoAcesso INT,
 	modelo VARCHAR(20),
-	status_maquina VARCHAR(20),
     sistemaOperacional VARCHAR(50),
     fabricante VARCHAR(50),
     NumeroSerieProcessador VARCHAR(100),
@@ -73,13 +72,11 @@ CREATE TABLE maquina(
     FOREIGN KEY (fk_parametros) REFERENCES parametros(id)
 );
 
--- INSERT INTO maquina (sistemaOperacional, fabricante, NumeroSerieProcessador, ramTotal, qtdDisco, discoTotal, hostname) VALUES ('', '', '', 1, 1, 1, '');
--- UPDATE maquina SET sistemaOperacional = '', fabricante = '', NumeroSerieProcessador = '', ramTotal = 1, qtdDisco = 1, discoTotal = 1, hostname = '' WHERE id = 1;
-    
 CREATE TABLE monitoramento(
-	cpuEmUso FLOAT,
-	ramEmUso FLOAT,
-	tamanhoDisponivelDisco FLOAT,
+	status_maquina VARCHAR(10),
+	cpuEmUso DECIMAL,
+	ramEmUso DECIMAL,
+	tamanhoEmUsoDisco FLOAT,
     gbEnviados DECIMAL,
     gbRecebidos DECIMAL,
     pacotesEnviados DECIMAL,
@@ -99,17 +96,19 @@ componente VARCHAR(30),
 fk_maquina INT,		
 FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
--- SELECT funcionario.id, funcionario.nome, funcionario.fk_empresa, empresa.nome AS nome_empresa 
--- FROM funcionario JOIN empresa ON funcionario.fk_empresa = empresa.id WHERE email = 'davi@cyberwise.com' AND senha = 'davi602079';  
-	
+   
     select * from empresa;	
     select * from funcionario;
     select * from maquina;
-    select * from monitoramento;
     select * from cargos;
     select * from parametros;
+	select * from monitoramento;
     select * from alertas;
-    -- select alertas.id as id_alertas, alertas.criticidade as criticidade_alerta, maquina.modelo as modelo_maquina, maquina.numSerie as maquina_numSerie 
-    -- from alertas join maquina on fk_maquina = maquina.id;
+    
+    INSERT INTO monitoramento (status_maquina, fk_maquina) VALUES ('Sla', 1);
+
+    
+    -- truncate table monitoramento;
+    -- truncate table alertas;
     
     -- drop database cyberwise;
