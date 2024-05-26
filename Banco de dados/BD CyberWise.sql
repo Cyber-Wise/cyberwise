@@ -85,8 +85,6 @@ CREATE TABLE monitoramento(
 	data_hora  datetime,
     FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
-select * from monitoramento;
-
 
 CREATE TABLE alertas(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -104,8 +102,6 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
     select * from parametros;
 	select * from monitoramento;
     select * from alertas;
-    
-    INSERT INTO monitoramento (status_maquina, fk_maquina) VALUES ('Sla', 1);
 
     
     -- truncate table monitoramento;
