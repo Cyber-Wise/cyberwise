@@ -51,21 +51,13 @@ router.post("/totalDeMaquinas", function (req, res) {
 router.post("/maquinasEmpresa", function (req, res) {
     dashboardController.maquinasEmpresa(req, res);
 });
-// //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-// router.post("/cadastrar", function (req, res) {
-//     empresaController.cadastrar(req, res);
-// })
+//dash especifica
+router.post("/informacoesAnalytics", function (req, res) {
+    dashboardController.informacoesAnalytics(req, res);
+});
+router.post("/dadosAtual", function (req, res) {
+    dashboardController.dadosAtual(req, res);
+});
 
-// router.get("/buscar", function (req, res) {
-//     empresaController.buscarPorCnpj(req, res);
-// });
-
-// router.get("/buscar/:id", function (req, res) {
-//   empresaController.buscarPorId(req, res);
-// });
-
-// router.get("/listar", function (req, res) {
-//   empresaController.listar(req, res);
-// });
 
 module.exports = router;

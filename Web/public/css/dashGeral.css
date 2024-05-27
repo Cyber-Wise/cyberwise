@@ -468,8 +468,13 @@ body {
     font-size: 20px;
     background-color: transparent;
     color: #fff;
-    height: 10px;
+    padding: 0px 7px;
+    border-radius: 100px;
+    transition: 0.1s;
   }
+.btnFecha:hover {
+    background-color: rgb(122, 142, 255);
+}
   .boxVerMais h2 {
     color: #fff;
     padding-top: 10px;

@@ -15,17 +15,16 @@ function maquinasEmpresa(){
                             resposta.json().then(json => {
 
                         const ul = document.getElementById('listaFiltroPc');
-                        const ulCritico = document.getElementById('listaPcCritico');
-                        const ulAlerta = document.getElementById('listaPcAlerta');
+
 
                         json.forEach(computador => {
 
                             var modelo = computador.modelo;
                             var numSerie = computador.NumeroSerieProcessador;
-                            var idComputador = computador.id;                                       
+                            var idComputador = computador.idMaquina;                                       
                             var nomeParametro = computador.nome;  
                             var status = computador.status_maquina
-                        
+                            console.log('id pc', idComputador);
                         const li = document.createElement('li');
                         li.innerHTML = 
                         `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
@@ -54,7 +53,7 @@ function maquinasEmpresa(){
                     
 
         function acharPc(idComputador, modelo, numSerie){
-
+        console.log('oq tem auqi', idComputador);
         sessionStorage.idComputador = idComputador;
         sessionStorage.numeroSerie = numSerie;
         sessionStorage.modelopc = modelo;
@@ -80,13 +79,15 @@ function notificacao(){
             })
         }).then(function (resposta) {        
             if (resposta.ok) {
-                
+                listaDeNotificacao.innerHTML = ''
                 resposta.json().then(json => {
                     json.forEach(element =>{
+                        console.log(element);
                         var splitDate = element.data_hora.split('T')
                         var splitMinut = splitDate[1].split('.')
                         var horaParaConverter = splitMinut[0].split(':')
                         var horaConvertida = horaParaConverter[0] - 3
+                        console.log('ta funfanfo legal');
                         var horaCompleta = horaConvertida + ':' + horaParaConverter[1] + ':' + horaParaConverter[2]
                         listaDeNotificacao.innerHTML += `
                     <li><p class="tituloNotification">${element.modelo} ${element.numSerie}, ${element.componente}, ${element.criticidade} </p><p class="data">${splitDate[0]} ${horaCompleta}</p></li>
@@ -153,7 +154,7 @@ function totalDeMaquinas(){
             })
         }).then(function (resposta) {        
             if (resposta.ok) {
-                
+                console.log('hahahha');
                 resposta.json().then(json => {
                     qntMaquinas.innerHTML = json[0].contador
                 }
@@ -462,29 +463,32 @@ function listaDeAlertas(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    // console.log('maquinas', JSON.stringify(json));
                     json.forEach(computador => {
-
-                        console.log('lista de alertas', computador);
+                        
                         var modelo = computador.modelo;
                         var numSerie = computador.numSerie;
                         var alertasCPU = computador.alertasCPU
                         var alertasDisco = computador.alertasDisco
                         var alertasRAM = computador.alertasRAM
                         var alertasRede = computador.alertasRede
-
-                    const li = document.createElement('li');
-                    li.innerHTML = 
-                    `<p class="descricaoTabela">${modelo}: ${numSerie}</p>
-                    <p class="descricaoTabela">${alertasCPU}</p>
-                    <p class="descricaoTabela">${alertasRAM}</p>
-                    <p class="descricaoTabela">${alertasDisco}</p>
-                    <p class="descricaoTabela">${alertasRede}</p>`;
-
-                       tabelaAlertas.appendChild(li);
-                });
+                        
+                        const li = document.createElement('li');
+                        tabelaAlertas.innerHTML = ''
+                        li.innerHTML = 
+                        `<p class="descricaoTabela">${modelo}: ${numSerie}</p>
+                        <p class="descricaoTabela">${alertasCPU}</p>
+                        <p class="descricaoTabela">${alertasRAM}</p>
+                        <p class="descricaoTabela">${alertasDisco}</p>
+                        <p class="descricaoTabela">${alertasRede}</p>`;
+                        
+                        tabelaAlertas.appendChild(li);
+                    });
                 }
             );
             } 
         })
 }
+
+    
+
+    

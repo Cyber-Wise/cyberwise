@@ -16,7 +16,7 @@
     <div id="boxVerAbrirAlerta" class="boxVerMais">
         <header>
             <h2>Lista de computadores</h2>
-            <button onclick="fecharVerMaisAlerta()" class="btnFecha"><i class='bx bx-window-close'></i></button>
+            <button onclick="fecharVerMaisAlerta()" class="btnFecha">X</button>
         </header>
         <ul id="listaPcAlerta">
            
@@ -139,9 +139,19 @@
     window.onload = listaDeAlertas()
     window.onload = maquinasComPoucoEspaco()
     window.onload = notificacao()
-    window.onload = listaDeMaquinasCOmComponentesCriticos()
     window.onload = componentesEmEstadoAlerta()
     window.onload = maquinasComProblemasDeRede()
+
+    setInterval(componentesEmEstadoAlerta, 5000);
+    setInterval(componentesEmEstadoCritico, 5000);
+    setInterval(maquinasComPoucaRam, 5000);
+    setInterval(listaDeAlertas, 5000);
+    setInterval(maquinasComPoucoEspaco, 5000);
+    setInterval(notificacao, 5000);
+    setInterval(maquinasComProblemasDeRede, 5000);
+
+
+
 
     var sobrepor = document.querySelector(".sobrepor")
 

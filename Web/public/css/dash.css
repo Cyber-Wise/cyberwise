@@ -207,19 +207,19 @@ text-align: center;
     gap: 5px;
     width: 100%;
 }
-.statusVerde, .statusVermelho, .statusAmarelo {
+.Alerta, .Normal, .Crítico {
     display: inline-block;
     width: 10px;
     height: 10px;
     border-radius: 100%;
 }
-.statusAmarelo {
+.Alerta {
     background-color: yellow;
 }
-.statusVerde {
+.Normal {
     background-color: green;
 }
-.statusVermelho {
+.Crítico {
     background-color: red;
 }
 .computador button {

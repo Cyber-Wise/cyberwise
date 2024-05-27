@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "cyberwise",
     user: "root",
-    password: "1513",
+    password: "fUtur@13",
     // password: "fUtur@13",
     // password: "0511",
 

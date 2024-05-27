@@ -14,7 +14,14 @@ var database = require("../database/config");
 
 function maquinasEmpresa(empresa) {
   console.log("Acessei dashboardModel dados")
-var query = `select * from maquina join parametros on fk_parametros = parametros.id where maquina.fk_empresa = ${empresa};`;
+var query = `
+select maquina.id as idMaquina,
+modelo,
+status_maquina,
+NumeroSerieProcessador,
+nome
+ from maquina join parametros on
+ fk_parametros = parametros.id where maquina.fk_empresa = ${empresa};`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -322,6 +329,43 @@ maquina.NumeroSerieProcessador;
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }
+
+//dash especifica
+
+function informacoesAnalytics(empresa, idMaquinaSelecionada) {
+  console.log("Acessei dashboardModel", idMaquinaSelecionada)
+var query = `select maquina.id as idMaquina,
+maquina.modelo ,
+parametros.nome,
+parametros.alertaCPU,
+parametros.criticoCPU,
+parametros.alertaDISCO, 
+parametros.criticoDISCO,
+parametros.alertaRAM,
+parametros.criticoRAM
+from maquina 
+join parametros 
+on fk_parametros = parametros.id
+where maquina.fk_empresa = ${empresa}
+and maquina.id = ${idMaquinaSelecionada}
+;
+`;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+function dadosAtual(idMaquinaSelecionada) {
+  console.log("Acessei dashboardModel", idMaquinaSelecionada)
+var query = `SELECT * FROM monitoramento 
+WHERE fk_maquina = ${idMaquinaSelecionada}
+ORDER BY data_hora DESC 
+LIMIT 1;
+`;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
 module.exports = { 
   listaDeMaquinasComPoucoEspaco,
     maquinasComProblemas,
@@ -329,12 +373,14 @@ module.exports = {
     listaDeMaquinasCOmComponentesAlertas,
     listaDeMaquinasCOmComponentesCriticos,
     totalDeMaquinas,
+    dadosAtual,
     listaDeMaquinasProblemaRede,
     maquinasComPoucaRam,
     maquinasComProblemasDeRede,
     maquinasEmpresa,
     componentesEmEstadoCritico,
     listaDeAlertas,
+    informacoesAnalytics,
     maquinasComPoucoEspaco,
     componentesEmEstadoAlerta,
     notificacao
