@@ -1,0 +1,5 @@
+Dependencias para instalar na hora de rodar a aplicação
+versão usada do python 3.11
+Flask
+mysql-connector-python
+- pip install flask mysql-connector-python
