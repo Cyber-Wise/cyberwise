@@ -34,7 +34,6 @@ public class InsertData {
                         + "VALUES ('" + status +"', "+ cpuEmUso + ", " + porcentagemRam + ", " + porcentagemDisco + ", " + gbEnviados + ", "
                         + gbRecebidos + "," + pacotesEnviados + ", " + pacotesRecebidos + ", " + id + ", CURRENT_TIMESTAMP)");
 
-//                System.out.println(monitoramento.getRamEmUso());
                 CaptureData.pegarDados(id);
 
                 Thread.sleep(5000);

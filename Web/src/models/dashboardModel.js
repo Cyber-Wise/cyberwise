@@ -15,13 +15,30 @@ var database = require("../database/config");
 function maquinasEmpresa(empresa) {
   console.log("Acessei dashboardModel dados")
 var query = `
-select maquina.id as idMaquina,
-modelo,
-status_maquina,
-NumeroSerieProcessador,
-nome
- from maquina join parametros on
- fk_parametros = parametros.id where maquina.fk_empresa = ${empresa};`;
+SELECT 
+m.id AS maquina_id,
+m.modelo,
+m.sistemaOperacional,
+m.fabricante,
+m.NumeroSerieProcessador,
+m.hostname,
+mon.status_maquina,
+mon.data_hora,
+parametros.nome
+FROM 
+maquina m
+JOIN 
+monitoramento mon ON m.id = mon.fk_maquina
+join parametros on m.fk_parametros = parametros.id
+WHERE 
+mon.data_hora = (
+    SELECT 
+        MAX(data_hora)
+    FROM 
+        monitoramento
+    WHERE 
+  m.fk_empresa = ${empresa}
+);`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -72,7 +89,11 @@ ON
 alertas.fk_maquina = maquina.id 
 WHERE 
 maquina.fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 1440 MINUTE);`;
+ORDER BY 
+alertas.data_hora DESC
+LIMIT 
+20;
+`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -87,15 +108,15 @@ return database.executar(query);
 function componentesEmEstadoCritico(empresa) {
   console.log("Acessei dashboardModel")
 var query = `SELECT 
-COUNT(DISTINCT maquina.id) AS totalMaquinasCritico
+COUNT(DISTINCT m.id) AS quantidade_maquinas_com_critico
 FROM 
-alertas 
+maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id 
+alertas al ON m.id = al.fk_maquina
 WHERE 
-alertas.criticidade = 'Crítico' AND fk_empresa = ${empresa} AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE);`;
+al.data_hora >= DATE_SUB(NOW(), INTERVAL 5 SECOND)
+AND al.criticidade = 'Critico'
+AND m.fk_empresa = ${empresa};`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -103,47 +124,61 @@ return database.executar(query);
 function componentesEmEstadoAlerta(empresa) {
   console.log("Acessei dashboardModel")
 var query = `SELECT 
-COUNT(DISTINCT maquina.id) AS totalMaquinasCritico
+COUNT(DISTINCT m.id) AS quantidade_maquinas_com_alerta
 FROM 
-alertas 
+maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id 
+alertas al ON m.id = al.fk_maquina
 WHERE 
-alertas.criticidade = 'Alerta' AND fk_empresa = ${empresa} AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE);`;
+al.data_hora >= DATE_SUB(NOW(), INTERVAL 5 SECOND)
+AND al.criticidade = 'Alerta'
+AND m.fk_empresa = ${empresa};`;
 return database.executar(query);
 
 }
 function maquinasComProblemasDeRede(empresa) {
   console.log("Acessei dashboardModel")
 var query = `SELECT 
-COUNT(DISTINCT maquina.id) AS totalMaquinasCritico
+COUNT(DISTINCT m.id) AS quantidade_maquinas_com_alerta_rede
 FROM 
-alertas 
+maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id 
+alertas al ON m.id = al.fk_maquina
 WHERE 
-alertas.componente = 'rede' AND fk_empresa = ${empresa} AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE);`;
+al.componente = 'Rede'
+AND m.fk_empresa = ${empresa}
+AND al.data_hora >= DATE_SUB(NOW(), INTERVAL 5 SECOND);`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }
 function maquinasComPoucoEspaco(empresa) {
   console.log("Acessei dashboardModel")
-var query = `SELECT 
-COUNT(DISTINCT maquina.id) AS totalDeMaquinasComPoucaMemoria
+var query = `
+SELECT COUNT(DISTINCT m.id) AS maquinas_com_alerta_disco
 FROM 
-alertas 
+    maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id 
+    (SELECT 
+         mon1.fk_maquina, 
+         MAX(mon1.data_hora) AS ultima_data_hora 
+     FROM 
+         monitoramento mon1 
+     GROUP BY 
+         mon1.fk_maquina
+    ) ult_mon ON m.id = ult_mon.fk_maquina
+JOIN 
+    monitoramento mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
+JOIN 
+    alertas al ON m.id = al.fk_maquina AND al.componente = 'Disco'
 WHERE 
-alertas.componente = 'disco' AND fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE);`;
+    al.data_hora = (SELECT MAX(al2.data_hora) 
+                    FROM alertas al2 
+                    WHERE al2.fk_maquina = m.id 
+                      AND al2.componente = 'Disco')
+    AND mon.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE)
+    AND m.fk_empresa = ${empresa};
+`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -151,17 +186,31 @@ return database.executar(query);
 
 function maquinasComPoucaRam(empresa) {
   console.log("Acessei dashboardModel")
-var query = `SELECT 
-COUNT(DISTINCT maquina.id) AS totalDeMaquinasComPoucaRam
+var query = `SELECT COUNT(DISTINCT m.id) AS maquinas_com_alerta_ram
 FROM 
-alertas 
+    maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id 
+    (SELECT 
+         mon1.fk_maquina, 
+         MAX(mon1.data_hora) AS ultima_data_hora 
+     FROM 
+         monitoramento mon1 
+     GROUP BY 
+         mon1.fk_maquina
+    ) ult_mon ON m.id = ult_mon.fk_maquina
+JOIN 
+    monitoramento mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
+JOIN 
+    alertas al ON m.id = al.fk_maquina AND al.componente = 'Ram'
 WHERE 
-alertas.componente = 'ram' AND fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE);`;
+    al.data_hora = (SELECT MAX(al2.data_hora) 
+                    FROM alertas al2 
+                    WHERE al2.fk_maquina = m.id 
+                      AND al2.componente = 'Ram')
+    AND mon.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE)
+    AND m.fk_empresa = ${empresa};
+;
+`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -169,27 +218,29 @@ return database.executar(query);
 function listaDeMaquinasComPoucoEspaco(empresa) {
   console.log("Acessei dashboardModel")
 var query = `SELECT 
-DISTINCT maquina.id AS idMaquina, 
-maquina.status_maquina,
-maquina.modelo,
-parametros.nome,
-maquina.NumeroSerieProcessador AS numSerie, 
-maquina.fk_parametros, 
-maquina.fk_empresa AS idEmpresa 
+DISTINCT m.id AS maquina_id,
+m.codigoAcesso,
+m.modelo,
+m.sistemaOperacional,
+m.fabricante,
+m.NumeroSerieProcessador,
+m.ramTotal,
+m.qtdDisco,
+m.discoTotal,
+m.hostname,
+mon.status_maquina,
+p.nome AS nome_parametro
 FROM 
-alertas 
+maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id
-JOIN 
-parametros 
-ON 
-maquina.fk_parametros = parametros.id
+alertas al ON m.id = al.fk_maquina
+JOIN
+monitoramento mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
+JOIN
+parametros p ON m.fk_parametros = p.id
 WHERE 
-alertas.componente = 'disco'
-AND maquina.fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 0.5 MINUTE);
+al.componente = 'Disco'
+AND m.fk_empresa = ${empresa} AND al.data_hora >= DATE_SUB(NOW(), INTERVAL 5 SECOND);
 `;
 
 console.log("Executando a instrução SQL: \n" + query);
@@ -198,24 +249,30 @@ return database.executar(query);
 function listaDeMaquinasComPoucaRam(empresa) {
   console.log("Acessei dashboardModel")
 var query = `SELECT 
-maquina.id AS idMaquina, 
-maquina.status_maquina,
-maquina.modelo,
-parametros.nome,
-maquina.NumeroSerieProcessador AS numSerie, 
-maquina.fk_parametros, 
-maquina.fk_empresa AS idEmpresa 
+DISTINCT m.id AS maquina_id,
+m.codigoAcesso,
+m.modelo,
+m.sistemaOperacional,
+m.fabricante,
+m.NumeroSerieProcessador,
+m.ramTotal,
+m.qtdDisco,
+m.discoTotal,
+m.hostname,
+mon.status_maquina,
+p.nome AS nome_parametro
 FROM 
-alertas 
+maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id
-JOIN parametros on fk_parametros = parametros.id
+alertas al ON m.id = al.fk_maquina
+JOIN
+monitoramento mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
+JOIN
+parametros p ON m.fk_parametros = p.id
 WHERE 
-alertas.componente = 'ram'
-AND maquina.fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 00.5 MINUTE);`;
+al.componente = 'RAM'
+AND m.fk_empresa = ${empresa}
+AND al.data_hora >= DATE_SUB(NOW(), INTERVAL 5 SECOND);`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -223,107 +280,55 @@ return database.executar(query);
 function listaDeMaquinasProblemaRede(empresa) {
   console.log("Acessei dashboardModel")
 var query = `SELECT 
-maquina.id AS idMaquina, 
-maquina.status_maquina,
-maquina.modelo,
-parametros.nome,
-maquina.NumeroSerieProcessador AS numSerie, 
-maquina.fk_parametros, 
-maquina.fk_empresa AS idEmpresa 
+DISTINCT m.id AS maquina_id,
+m.codigoAcesso,
+m.modelo,
+m.sistemaOperacional,
+m.fabricante,
+m.NumeroSerieProcessador,
+m.ramTotal,
+m.qtdDisco,
+m.discoTotal,
+m.hostname,
+mon.status_maquina,
+p.nome AS nome_parametro
 FROM 
-alertas 
+maquina m
 JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id
-JOIN parametros on fk_parametros = parametros.id
+alertas al ON m.id = al.fk_maquina
+JOIN
+monitoramento mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
+JOIN
+parametros p ON m.fk_parametros = p.id
 WHERE 
-alertas.componente = 'rede'
-AND maquina.fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 00.5 MINUTE);`;
-
-console.log("Executando a instrução SQL: \n" + query);
-return database.executar(query);
-}
-function listaDeMaquinasCOmComponentesCriticos(empresa) {
-  console.log("Acessei dashboardModel")
-var query = `SELECT 
-DISTINCT maquina.id AS idMaquina, 
-maquina.status_maquina,
-maquina.modelo,
-parametros.nome,
-maquina.NumeroSerieProcessador AS numSerie, 
-maquina.fk_parametros, 
-maquina.fk_empresa AS idEmpresa 
-FROM 
-alertas 
-JOIN 
-maquina 
-JOIN parametros
-ON maquina.fk_parametros = parametros.id
-ON 
-alertas.fk_maquina = maquina.id
-WHERE 
-alertas.criticidade = 'Crítico'
-AND maquina.fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 00.5 MINUTE
-);`;
+al.componente = 'Rede'
+AND m.fk_empresa = ${empresa}
+AND al.data_hora >= DATE_SUB(NOW(), INTERVAL 5 SECOND);`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }
 
-function listaDeMaquinasCOmComponentesAlertas(empresa) {
-  console.log("Acessei dashboardModel")
-var query = `SELECT 
-DISTINCT maquina.id AS idMaquina, 
-maquina.status_maquina,
-maquina.modelo,
-parametros.nome,
-maquina.NumeroSerieProcessador AS numSerie, 
-maquina.fk_parametros, 
-maquina.fk_empresa AS idEmpresa 
-FROM 
-alertas 
-JOIN 
-maquina 
-JOIN parametros
-ON maquina.fk_parametros = parametros.id
-ON 
-alertas.fk_maquina = maquina.id
-WHERE 
-alertas.criticidade = 'Alerta'
-AND maquina.fk_empresa = ${empresa}
-AND alertas.data_hora >= DATE_SUB(NOW(), INTERVAL 00.5 MINUTE
-);`;
-
-console.log("Executando a instrução SQL: \n" + query);
-return database.executar(query);
-}
 function listaDeAlertas(empresa) {
   console.log("Acessei dashboardModel")
-var query = `SELECT 
-maquina.id AS idMaquina, 
-maquina.modelo, 
-maquina.NumeroSerieProcessador AS numSerie, 
-SUM(CASE WHEN alertas.componente = 'CPU' THEN 1 ELSE 0 END) AS alertasCPU,
-SUM(CASE WHEN alertas.componente = 'RAM' THEN 1 ELSE 0 END) AS alertasRAM,
-SUM(CASE WHEN alertas.componente = 'DISCO' THEN 1 ELSE 0 END) AS alertasDisco,
-SUM(CASE WHEN alertas.componente = 'REDE' THEN 1 ELSE 0 END) AS alertasRede
+var query = ` SELECT 
+m.id AS idMaquina, 
+m.modelo, 
+m.NumeroSerieProcessador AS numSerie, 
+SUM(CASE WHEN a.componente = 'CPU' THEN 1 ELSE 0 END) AS alertasCPU,
+SUM(CASE WHEN a.componente = 'RAM' THEN 1 ELSE 0 END) AS alertasRAM,
+SUM(CASE WHEN a.componente = 'DISCO' THEN 1 ELSE 0 END) AS alertasDISCO,
+SUM(CASE WHEN a.componente = 'REDE' THEN 1 ELSE 0 END) AS alertasREDE
 FROM 
-alertas 
-JOIN 
-maquina 
-ON 
-alertas.fk_maquina = maquina.id
+maquina m
+LEFT JOIN 
+alertas a ON m.id = a.fk_maquina
 WHERE 
-alertas.data_hora >= NOW() - INTERVAL 24 HOUR
-AND
-maquina.fk_empresa = ${empresa}
+m.fk_empresa = ${empresa}
 GROUP BY 
-maquina.id, 
-maquina.modelo, 
-maquina.NumeroSerieProcessador;
+m.id, 
+m.modelo, 
+m.NumeroSerieProcessador;
 `;
 
 console.log("Executando a instrução SQL: \n" + query);
@@ -370,8 +375,6 @@ module.exports = {
   listaDeMaquinasComPoucoEspaco,
     maquinasComProblemas,
     listaDeMaquinasComPoucaRam,
-    listaDeMaquinasCOmComponentesAlertas,
-    listaDeMaquinasCOmComponentesCriticos,
     totalDeMaquinas,
     dadosAtual,
     listaDeMaquinasProblemaRede,

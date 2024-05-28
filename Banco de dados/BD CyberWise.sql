@@ -102,9 +102,3 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
     select * from parametros;
 	select * from monitoramento;
     select * from alertas;
-
-    
-    -- truncate table monitoramento;
-    -- truncate table alertas;
-    
-    -- drop database cyberwise;
