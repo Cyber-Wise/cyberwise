@@ -1,5 +1,5 @@
 package ParameterManager;
-
+import AlertManagement.SendAlert;
 import AlertManagement.Status;
 import CaptureData.InsertData;
 import CaptureData.Monitoring;
@@ -43,6 +43,7 @@ public class ParameterAnalyzer {
        if(componente.equals("Cpu") && components.getStatus() != Status.NORMAL) {
            InsertData.inserirAlerta(componente, components.getStatus(), idMaquina);
            InsertData.HistoricoLocal(componente, components.getStatus(), idMaquina);
+           SendAlert.sendSlackAlert(componente, idMaquina, components.getStatus().getStatusMaquina());
        }
 
 
@@ -59,6 +60,7 @@ public class ParameterAnalyzer {
         if(componente.equals("Ram") && components.getStatus() != Status.NORMAL){
             InsertData.inserirAlerta(componente, components.getStatus(), idMaquina);
             InsertData.HistoricoLocal(componente, components.getStatus(), idMaquina);
+            SendAlert.sendSlackAlert(componente, idMaquina, components.getStatus().getStatusMaquina());
         }
 
 
@@ -75,6 +77,7 @@ public class ParameterAnalyzer {
         if(componente.equals("Disco") && components.getStatus() != Status.NORMAL) {
             InsertData.inserirAlerta(componente, components.getStatus(), idMaquina);
             InsertData.HistoricoLocal(componente, components.getStatus(), idMaquina);
+            SendAlert.sendSlackAlert(componente, idMaquina, components.getStatus().getStatusMaquina());
         }
 
         InsertData.inserirBanco(components, idMaquina);
