@@ -65,7 +65,7 @@ function cadastrarFuncionario(nomeAdm, email, senha, fkEmpresa){
 function cadastrarParametro(fkEmpresa){
 
         var instrucao = `
-            INSERT INTO parametros (nome, alertaCPU, crticoCPU, alertaDISCO, criticoDISCO, alertaRAM, criticoRAM) VALUES ('Parâmetro padrão', 80, 100, 80, 100, 80, 100, ${fkEmpresa});
+            INSERT INTO parametros (nome, alertaCPU, criticoCPU, alertaDISCO, criticoDISCO, alertaRAM, criticoRAM) VALUES ('Parâmetro padrão', 80, 100, 80, 100, 80, 100, ${fkEmpresa});
         `;
         
         console.log("Executando a instrução SQL: \n" + instrucao);
