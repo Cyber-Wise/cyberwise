@@ -20,21 +20,22 @@ function maquinasEmpresa(){
                         json.forEach(computador => {
                             console.log(computador);
                             var modelo = computador.modelo;
-                            var numSerie = computador.NumeroSerieProcessador;
-                            var idComputador = computador.idMaquina;                                       
+                        
+                            var idComputador = computador.maquina_id;                                       
                             var nomeParametro = computador.nome;  
                             var status = computador.status_maquina
-                            console.log('id pc', idComputador);
+                            var codigoAcesso = computador.codigoAcesso
+                            console.log('id pc', computador);
                         const li = document.createElement('li');
                         li.innerHTML = 
                         `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                         <i class='bx bx-laptop ${status}'></i>
                                 <div class="descricaoPc">
-                                    <p class="nomePc">${modelo}</p>
+                                    <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                                 </div>
                                 <p class="nomeParametro">${nomeParametro}</p>
 
-                           <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}')">Verificar</button>
+                           <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                            </span>`;
 
                         ul.appendChild(li);
@@ -249,21 +250,24 @@ function listaDeMaquinasComPoucoEspaco(){
                         console.log('comp', computador);
                     
                         var modelo = computador.modelo;
-                        var idComputador = computador.idMaquina;                                       
+                        var idComputador = computador.maquina_id;                                       
+                                                              
                         var nomeParametro = computador.nome_parametro;  
                         var status = computador.status_maquina
-                        console.log('asdasd',status);
+                        var codigoAcesso = computador.codigoAcesso
+
+                    
 
                     const li = document.createElement('li');
                     li.innerHTML = 
                     `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                     <i class='bx bx-laptop ${status}'></i>
                             <div class="descricaoPc">
-                                <p class="nomePc">${modelo}</p>
+                                <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                             </div>
                             <p class="nomeParametro">${nomeParametro}</p>
 
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}')">Verificar</button>
+                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                        </span>`;
 
                        listaPcAlerta.appendChild(li);
@@ -291,23 +295,25 @@ function listaDeMaquinasComPoucaRam(){
          
                     json.forEach(computador => {
 
-      
+                     
                         var modelo = computador.modelo;
-                        var idComputador = computador.idMaquina;                                       
+                        var idComputador = computador.maquina_id;                                       
+                                                               
                         var nomeParametro = computador.nome_parametro;  
                         var status = computador.status_maquina
-                        console.log('asdasd',status);
+                        var codigoAcesso = computador.codigoAcesso
+                    
 
                     const li = document.createElement('li');
                     li.innerHTML = 
                     `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                     <i class='bx bx-laptop ${status}'></i>
                             <div class="descricaoPc">
-                                <p class="nomePc">${modelo}</p>
+                                <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                             </div>
                             <p class="nomeParametro">${nomeParametro}</p>
 
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}')">Verificar</button>
+                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                        </span>`;
 
                        listaPcAlerta.appendChild(li);
@@ -336,21 +342,22 @@ function listaDeMaquinasProblemaRede(){
 
                    
                         var modelo = computador.modelo;
-                        var idComputador = computador.idMaquina;                                       
+                        var idComputador = computador.maquina_id;                                       
+                                                             
                         var nomeParametro = computador.nome_parametro;  
                         var status = computador.status_maquina
-                        console.log('asdasd',status);
+                        var codigoAcesso = computador.codigoAcesso
 
                     const li = document.createElement('li');
                     li.innerHTML = 
                     `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                     <i class='bx bx-laptop ${status}'></i>
                             <div class="descricaoPc">
-                                <p class="nomePc">${modelo}</p>
+                                <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                             </div>
                             <p class="nomeParametro">${nomeParametro}</p>
 
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}')">Verificar</button>
+                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                        </span>`;
 
                        listaPcAlerta.appendChild(li);
@@ -376,7 +383,6 @@ function listaDeAlertas(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    console.log('hahah borges', json);
                     json.forEach(computador => {
                         var modelo = computador.modelo;
                     

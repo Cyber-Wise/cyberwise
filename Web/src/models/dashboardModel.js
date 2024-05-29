@@ -18,6 +18,7 @@ var query = `
 SELECT 
 m.id AS maquina_id,
 m.modelo,
+codigoAcesso,
 m.sistemaOperacional,
 m.fabricante,
 m.NumeroSerieProcessador,
@@ -207,7 +208,7 @@ WHERE
                     FROM alertas al2 
                     WHERE al2.fk_maquina = m.id 
                       AND al2.componente = 'Ram')
-    AND mon.data_hora >= DATE_SUB(NOW(), INTERVAL 0.05 MINUTE)
+
     AND m.fk_empresa = ${empresa};
 ;
 `;
@@ -339,21 +340,26 @@ return database.executar(query);
 
 function informacoesAnalytics(empresa, idMaquinaSelecionada) {
   console.log("Acessei dashboardModel", idMaquinaSelecionada)
-var query = `select maquina.id as idMaquina,
-maquina.modelo ,
+var query = `SELECT 
+maquina.id AS idMaquina,
+maquina.modelo,
 parametros.nome,
 parametros.alertaCPU,
 parametros.criticoCPU,
-parametros.alertaDISCO, 
+parametros.alertaDISCO,
 parametros.criticoDISCO,
 parametros.alertaRAM,
 parametros.criticoRAM
-from maquina 
-join parametros 
-on fk_parametros = parametros.id
-where maquina.fk_empresa = ${empresa}
-and maquina.id = ${idMaquinaSelecionada}
-;
+FROM 
+maquina
+JOIN 
+parametros 
+ON 
+maquina.fk_parametros = parametros.id
+WHERE 
+maquina.fk_empresa = ${empresa}
+AND maquina.id = ${idMaquinaSelecionada};
+
 `;
 
 console.log("Executando a instrução SQL: \n" + query);
@@ -361,8 +367,8 @@ return database.executar(query);
 }
 function dadosAtual(idMaquinaSelecionada) {
   console.log("Acessei dashboardModel", idMaquinaSelecionada)
-var query = `SELECT * FROM monitoramento 
-WHERE fk_maquina = ${idMaquinaSelecionada}
+var query = `SELECT * FROM monitoramento
+WHERE fk_maquina = 1
 ORDER BY data_hora DESC 
 LIMIT 1;
 `;
