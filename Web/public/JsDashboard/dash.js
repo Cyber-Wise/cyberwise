@@ -100,7 +100,7 @@ var parametroDiscoCritico;
 function informacoesAnalytics() {
     var empresa = sessionStorage.empresa
     var idMaquinaSelecionada = sessionStorage.idComputador
-    console.log('sadadasda', idMaquinaSelecionada);
+    // console.log('sadadasda', idMaquinaSelecionada);
     fetch("/dashboard/informacoesAnalytics", {
         method: "POST",
         headers: {
@@ -142,6 +142,7 @@ function informacoesAnalytics() {
         }
     })
 }
+
 function dadosAtual() {
     var idMaquinaSelecionada = sessionStorage.idComputador
     fetch("/dashboard/dadosAtual", {
@@ -165,7 +166,7 @@ function dadosAtual() {
                 var dataDiscoEmUso = json[0].tamanhoEmUsoDisco.toFixed(2)
                 var dataList = [dataCpuEmUso, dataRamEmUso, dataDiscoEmUso];
                 // atualizarDados(dataList);
-                // graficos(dataList);+
+                // graficos(dataList);
                 
 
                 //json[0].tamanhoDisponivelDisco
@@ -202,5 +203,5 @@ function dadosAtual() {
         }
     })
 }
-setInterval(dadosAtual, 5000);
+// setInterval(dadosAtual, 5000);
 // document.write('<script src="./PlotarGraficos.js"></script>');

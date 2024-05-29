@@ -11,6 +11,7 @@ public class SendAlert {
 
     private static final String WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
+    
     public static void sendSlackAlert(String componente, Integer idMaquina, String status) {
         var logger = LoggerFactory.getLogger("slack-alert-service");
         try {
