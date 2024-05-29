@@ -34,7 +34,7 @@ function deletarFuncionario(funcionario) {
 
 function cadastrarFuncionario(nome, email, senha, idEmpresa, cargo) {
     console.log("Acessei perfil Model")
-  var query = `INSERT INTO funcionario VALUES (NULL, '${nome}', '${email}', '${senha}', ${idEmpresa}, ${cargo});`;
+  var query = `INSERT INTO funcionario (nome, email, senha, fk_empresa, fk_cargo)VALUES ('${nome}', '${email}', '${senha}', ${idEmpresa}, ${cargo});`;
 
   
   console.log("Executando a instrução SQL: \n" + query);
