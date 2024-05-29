@@ -1,0 +1,18 @@
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: ROBSON
+Data: 29/16/2024 19:16:25.652
+Mensagem: Erro no login
+logLevel: Error
+statusCode: 401
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: ROBSON
+Data: 29/16/2024 19:16:52.769
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
