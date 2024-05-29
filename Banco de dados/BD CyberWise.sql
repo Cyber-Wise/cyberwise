@@ -33,11 +33,12 @@ CREATE TABLE funcionario(
 );
 
 CREATE TABLE fotoPerfil(
-id_usuario INT PRIMARY KEY,
+idFoto INT PRIMARY KEY UNIQUE AUTO_INCREMENT,
+id_usuario INT,
 fotoBase64 longblob,
-metadata varchar(100)
+metadata varchar(100),
 -- fk_funcionario int,
--- FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id)
+ FOREIGN KEY (id_usuario) REFERENCES funcionario(id)
 );
 
 CREATE TABLE parametros(
@@ -97,14 +98,10 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
    
     select * from empresa;	
     select * from funcionario;
+    select * from funcionario where email = 'davi@cyberwise' or senha = 'davi936037';
     select * from maquina;
     select * from cargos;
     select * from parametros;
 	select * from monitoramento;
     select * from alertas;
-
-    
-    -- truncate table monitoramento;
-    -- truncate table alertas;
-    
     -- drop database cyberwise;

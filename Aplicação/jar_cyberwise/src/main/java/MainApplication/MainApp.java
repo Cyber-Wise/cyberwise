@@ -26,7 +26,6 @@ public class MainApp {
         if(logado){
             Integer codigoAcesso;
 
-
             System.out.println("Insira o código de acesso da máquina:");
             codigoAcesso = scanner.nextInt();
 

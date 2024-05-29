@@ -20,15 +20,16 @@ function maquinasEmpresaLista() {
 
                     var modelo = computador.modelo;
                     var numSerie = computador.NumeroSerieProcessador;
+                    var codigoAcesso = computador.codigoAcesso;
                     var idComputador = computador.id;
-                    var nomeParametro = computador.nome;
+                    
                     var status = computador.status_maquina
 
                     const li = document.createElement('li');
                     li.innerHTML =
                         `<div class="computador">
                                 <div class="descricao">
-                                <h2 class="tituloComputadores">${modelo} : ${numSerie}</h2>
+                                <h2 class="tituloComputadores">${modelo} : ${codigoAcesso}</h2>
                                 <div class="status">
                                     <p>status</p>
                                     <div class="${status}"></div>
@@ -159,9 +160,9 @@ function dadosAtual() {
                 console.log('id maquina', idMaquinaSelecionada);
 
                 console.log('dados', json);
-                var dataCpuEmUso = json[0].cpuEmUso.toFixed(2)
-                var dataRamEmUso = json[0].ramEmUso.toFixed(2)
-                var dataDiscoEmUso = 100
+                var dataCpuEmUso = json[0].cpuEmUso
+                var dataRamEmUso = Number(json[0].ramEmUso)
+                var dataDiscoEmUso = json[0].tamanhoEmUsoDisco.toFixed(2)
                 //json[0].tamanhoDisponivelDisco
                 ramEmUso.textContent = dataRamEmUso
                 cpuEmUso.textContent = dataCpuEmUso

@@ -18,23 +18,24 @@ function maquinasEmpresa(){
 
 
                         json.forEach(computador => {
-
+                            console.log(computador);
                             var modelo = computador.modelo;
-                            var numSerie = computador.NumeroSerieProcessador;
-                            var idComputador = computador.idMaquina;                                       
+                        
+                            var idComputador = computador.maquina_id;                                       
                             var nomeParametro = computador.nome;  
                             var status = computador.status_maquina
-                            console.log('id pc', idComputador);
+                            var codigoAcesso = computador.codigoAcesso
+                            console.log('id pc', computador);
                         const li = document.createElement('li');
                         li.innerHTML = 
                         `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                         <i class='bx bx-laptop ${status}'></i>
                                 <div class="descricaoPc">
-                                    <p class="nomePc">${modelo} : ${numSerie}</p>
+                                    <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                                 </div>
                                 <p class="nomeParametro">${nomeParametro}</p>
 
-                           <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${numSerie}')">Verificar</button>
+                           <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                            </span>`;
 
                         ul.appendChild(li);
@@ -57,6 +58,7 @@ function maquinasEmpresa(){
         sessionStorage.idComputador = idComputador;
         sessionStorage.numeroSerie = numSerie;
         sessionStorage.modelopc = modelo;
+        console.log('achar pc ===> ', numSerie);
             // document.addEventListener("DOMContentLoaded", function() {
     
                 // acharId(idComputador, modelo, numSerie);
@@ -113,8 +115,9 @@ function maquinasComPoucoEspaco(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
+                    console.log('oq tem aquiii', json);
                     // qntMaquinas.innerHTML = json[0].contador
-                    idMaquinasPoucoEspaco.innerHTML = json[0].totalDeMaquinasComPoucaMemoria
+                    idMaquinasPoucoEspaco.innerHTML = json[0].maquinas_com_alerta_disco
                 }
             );
             } 
@@ -134,8 +137,8 @@ function maquinasComPoucaRam(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    
-                    idMaquinasPoucaMemoria.innerHTML = json[0].totalDeMaquinasComPoucaRam
+                    console.log(json);
+                    idMaquinasPoucaMemoria.innerHTML = json[0].maquinas_com_alerta_ram
                 }
             );
             } 
@@ -177,7 +180,8 @@ function componentesEmEstadoCritico(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    componentesCriticos.innerHTML = json[0].totalMaquinasCritico
+                    console.log('asda', json);
+                    componentesCriticos.innerHTML = json[0].quantidade_maquinas_com_critico
                 }
             );
             } 
@@ -197,7 +201,7 @@ function componentesEmEstadoAlerta(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    componentesAlerta.innerHTML = json[0].totalMaquinasCritico
+                    componentesAlerta.innerHTML = json[0].quantidade_maquinas_com_alerta
                 }
             );
             } 
@@ -218,8 +222,8 @@ function maquinasComProblemasDeRede(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                 
-                    redeComProblema.innerHTML = json[0].totalMaquinasCritico
+                 console.log('oq aqui', json);
+                    redeComProblema.innerHTML = json[0].quantidade_maquinas_com_alerta_rede
                 }
             );
             } 
@@ -244,24 +248,27 @@ function listaDeMaquinasComPoucoEspaco(){
                 resposta.json().then(json => {
            
                     json.forEach(computador => {
-
+                        console.log('comp', computador);
                     
                         var modelo = computador.modelo;
-                        var numSerie = computador.numSerie;
-                        var idComputador = computador.idMaquina;                                       
-                        var nomeParametro = computador.nome;  
+                        var idComputador = computador.maquina_id;                                       
+                                                              
+                        var nomeParametro = computador.nome_parametro;  
                         var status = computador.status_maquina
+                        var codigoAcesso = computador.codigoAcesso
+
+                    
 
                     const li = document.createElement('li');
                     li.innerHTML = 
                     `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                     <i class='bx bx-laptop ${status}'></i>
                             <div class="descricaoPc">
-                                <p class="nomePc">${modelo} : ${numSerie}</p>
+                                <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                             </div>
                             <p class="nomeParametro">${nomeParametro}</p>
 
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${numSerie}')">Verificar</button>
+                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                        </span>`;
 
                        listaPcAlerta.appendChild(li);
@@ -289,23 +296,25 @@ function listaDeMaquinasComPoucaRam(){
          
                     json.forEach(computador => {
 
-      
+                     
                         var modelo = computador.modelo;
-                        var numSerie = computador.numSerie;
-                        var idComputador = computador.idMaquina;                                       
-                        var nomeParametro = computador.nome;  
+                        var idComputador = computador.maquina_id;                                       
+                                                               
+                        var nomeParametro = computador.nome_parametro;  
                         var status = computador.status_maquina
+                        var codigoAcesso = computador.codigoAcesso
+                    
 
                     const li = document.createElement('li');
                     li.innerHTML = 
                     `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                     <i class='bx bx-laptop ${status}'></i>
                             <div class="descricaoPc">
-                                <p class="nomePc">${modelo} : ${numSerie}</p>
+                                <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                             </div>
                             <p class="nomeParametro">${nomeParametro}</p>
 
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${numSerie}')">Verificar</button>
+                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                        </span>`;
 
                        listaPcAlerta.appendChild(li);
@@ -334,21 +343,22 @@ function listaDeMaquinasProblemaRede(){
 
                    
                         var modelo = computador.modelo;
-                        var numSerie = computador.numSerie;
-                        var idComputador = computador.idMaquina;                                       
-                        var nomeParametro = computador.nome;  
+                        var idComputador = computador.maquina_id;                                       
+                                                             
+                        var nomeParametro = computador.nome_parametro;  
                         var status = computador.status_maquina
+                        var codigoAcesso = computador.codigoAcesso
 
                     const li = document.createElement('li');
                     li.innerHTML = 
                     `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
                     <i class='bx bx-laptop ${status}'></i>
                             <div class="descricaoPc">
-                                <p class="nomePc">${modelo} : ${numSerie}</p>
+                                <p class="nomePc">${modelo} : ${codigoAcesso}</p>
                             </div>
                             <p class="nomeParametro">${nomeParametro}</p>
 
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${numSerie}')">Verificar</button>
+                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">Verificar</button>
                        </span>`;
 
                        listaPcAlerta.appendChild(li);
@@ -359,95 +369,6 @@ function listaDeMaquinasProblemaRede(){
         })
 }
 
-
-function listaDeMaquinasCOmComponentesCriticos(){
-    var empresa = sessionStorage.empresa
-        fetch("/dashboard/listaDeMaquinasCOmComponentesCriticos", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                empresa : empresa,
-            })
-        }).then(function (resposta) {        
-            if (resposta.ok) {
-                
-                resposta.json().then(json => {
-
-                    json.forEach(computador => {
-
-
-                        var modelo = computador.modelo;
-                        var numSerie = computador.numSerie;
-                        var idComputador = computador.idMaquina;                                       
-                        var nomeParametro = computador.nome;  
-                        var status = computador.status_maquina
-
-                    const li = document.createElement('li');
-                    li.innerHTML = 
-                    `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                    <i class='bx bx-laptop ${status}'></i>
-                            <div class="descricaoPc">
-                                <p class="nomePc">${modelo} : ${numSerie}</p>
-                            </div>
-                            <p class="nomeParametro">${nomeParametro}</p>
-
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${numSerie}')">Verificar</button>
-                       </span>`;
-
-                       listaPcAlerta.appendChild(li);
-                });
-                }
-            );
-            } 
-        })
-}
-
-
-function listaDeMaquinasCOmComponentesAlertas(){
-    var empresa = sessionStorage.empresa
-        fetch("/dashboard/listaDeMaquinasCOmComponentesAlertas", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                empresa : empresa,
-            })
-        }).then(function (resposta) {        
-            if (resposta.ok) {
-                
-                resposta.json().then(json => {
-
-                    json.forEach(computador => {
-
-
-                        var modelo = computador.modelo;
-                        var numSerie = computador.numSerie;
-                        var idComputador = computador.idMaquina;                                       
-                        var nomeParametro = computador.nome;  
-                        var status = computador.status_maquina
-
-                    const li = document.createElement('li');
-                    li.innerHTML = 
-                    `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                    <i class='bx bx-laptop ${status}'></i>
-                            <div class="descricaoPc">
-                                <p class="nomePc">${modelo} : ${numSerie}</p>
-                            </div>
-                            <p class="nomeParametro">${nomeParametro}</p>
-
-                       <button class="btnVerificar" onclick="acharPc(${idComputador},'${modelo}', '${numSerie}')">Verificar</button>
-                       </span>`;
-
-                       listaPcAlerta.appendChild(li);
-                });
-                }
-            );
-            } 
-        })
-}
 
 function listaDeAlertas(){
     var empresa = sessionStorage.empresa
@@ -464,18 +385,17 @@ function listaDeAlertas(){
                 
                 resposta.json().then(json => {
                     json.forEach(computador => {
-                        
                         var modelo = computador.modelo;
-                        var numSerie = computador.numSerie;
+                    
                         var alertasCPU = computador.alertasCPU
-                        var alertasDisco = computador.alertasDisco
+                        var alertasDisco = computador.alertasDISCO
                         var alertasRAM = computador.alertasRAM
-                        var alertasRede = computador.alertasRede
+                        var alertasRede = computador.alertasREDE
                         
                         const li = document.createElement('li');
                         tabelaAlertas.innerHTML = ''
                         li.innerHTML = 
-                        `<p class="descricaoTabela">${modelo}: ${numSerie}</p>
+                        `<p class="descricaoTabela">${modelo}</p>
                         <p class="descricaoTabela">${alertasCPU}</p>
                         <p class="descricaoTabela">${alertasRAM}</p>
                         <p class="descricaoTabela">${alertasDisco}</p>

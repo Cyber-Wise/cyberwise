@@ -23,7 +23,7 @@
         <div class="caixaInformacoesComputador">
             <h2 class="titulosCaixas">informações do computador</h2> <br>
             <h2 class="titulosCaixas">Modelo: <span id="modeloPc"> default</span></h2>
-            <h2 class="titulosCaixas">N° de série: <span id="numeroSerie"> default</span></h2>
+            <h2 class="titulosCaixas">Código de acesso: <span id="codigoAcesso"> default</span></h2>
         </div>
         <div class="caixaAnalytics">
           
@@ -39,7 +39,7 @@
             <div class="informacoes">
               <span id="statusDadoAtuallDisco"></span><p class="infoTitulo"><span id="discoEmUso"></span>%</p><p>usado no DISCO</p>
             </div>
-            <p class="analyticsDescricao">Dados coletados em <span>14/02/2025</span> as <span>14:15</span></p>
+            <p class="analyticsDescricao">Dados sendo mostrados de 5 em 5 segundos</p>
         </div>
         <div  class="analyticsParametros">
           <h2 class="titulosCaixas">Informações analytics</h2>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="globalRede">
                         <p class="hostname">Hostname: <span>RM0E9889I</span></p>
-                        <p class="hostname">IPv4: <span>123.21313.11</span></p>
+                      
                         <!-- <p class="descricaoRede"> Bytes enviados: <span>22</span><i class='bx bx-chip'></i></p>
                         <p class="descricaoRede"></span>Bytes recebidos: <span>13</span> <i class='bx bx-chip'></i></p>
                         <p class="descricaoRede"></span>Pacotes enviados: <span>55</span><i class='bx bx-package'></i></p>
@@ -117,17 +117,11 @@
 
 <script>
 
-  numeroSerie.innerHTML = sessionStorage.numeroSerie;
   modeloPc.innerHTML = sessionStorage.modelopc;
-  
+  codigoAcesso.innerHTML = sessionStorage.numeroSerie;
   function acharId(idComputador, modelo, numSerie){
-    // var model = modelo;
-    // var serie = numSerie;
-   console.log(idComputador)
-   console.log(modelo)
-
+   
    console.log(numSerie)
-   numeroSerie.innerHTML = numSerie;
    modeloPc.innerHTML = modelo;
 
    
