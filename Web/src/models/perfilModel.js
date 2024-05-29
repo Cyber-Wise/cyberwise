@@ -134,7 +134,7 @@ function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, 
 
 function inserirFoto(idUsuario, fotobase64, metadata) {
 
-var query = `INSERT INTO fotoPerfil VALUES (${idUsuario}, '${fotobase64}', '${metadata}')`
+var query = `INSERT INTO fotoPerfil VALUES (NULL, ${idUsuario}, '${fotobase64}', '${metadata}')`
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }

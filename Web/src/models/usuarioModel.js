@@ -21,6 +21,14 @@ function autenticar(email, senha) {
     return database.executar(instrucao);
 }
 
+// function checkarCredenciais(email, senha) {
+
+//             var instrucao = `SELECT `;
+
+//         console.log("Executando a instrução SQL: \n" + instrucao);
+//         return database.executar(instrucao);
+    
+// }
 
 function cadastrarEmpresa(nomeEmpresa, telefone, cnpj) {
 
@@ -69,5 +77,6 @@ module.exports = {
     cadastrarEmpresa,
     cadastrarFuncionario,
     buscarEmpresa,
-    cadastrarParametro
+    cadastrarParametro,
+    // checkarCredenciais
 };

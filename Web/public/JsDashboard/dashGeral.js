@@ -58,6 +58,7 @@ function maquinasEmpresa(){
         sessionStorage.idComputador = idComputador;
         sessionStorage.numeroSerie = numSerie;
         sessionStorage.modelopc = modelo;
+        console.log('achar pc ===> ', numSerie);
             // document.addEventListener("DOMContentLoaded", function() {
     
                 // acharId(idComputador, modelo, numSerie);
