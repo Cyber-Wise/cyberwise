@@ -6,23 +6,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.io.OutputStream;
-import io.github.cdimascio.dotenv.Dotenv;
 
 public class SendAlert {
+
+    private static final String WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
     public static void sendSlackAlert(String componente, Integer idMaquina, String status) {
         var logger = LoggerFactory.getLogger("slack-alert-service");
         try {
-            Dotenv dotenv = Dotenv.load();
-            var webhookUrl = dotenv.get("SLACK_WEBHOOK_URL");
-            if (webhookUrl == null || webhookUrl.isEmpty()) {
-                throw new IllegalStateException("SLACK_WEBHOOK_URL não está definido.");
-            }
-
             String message = String.format(":warning: *Alerta:*\nComponente *%s* da máquina *%d* está em estado *%s*!", componente, idMaquina, status);
             String payload = String.format("{\"text\": \"%s\"}", message);
 
-            URL url = new URL(webhookUrl);
+            URL url = new URL(WEBHOOK_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);

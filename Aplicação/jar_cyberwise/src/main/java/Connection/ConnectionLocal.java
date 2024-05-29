@@ -13,7 +13,8 @@ public class ConnectionLocal {
         dataSource1.setUsername("root");
 //        dataSource1.setUsername("cyberwise");
 //        dataSource1.setPassword("cyber100");
-        dataSource1.setPassword("0511");
+//        dataSource1.setPassword("0511");
+        dataSource1.setPassword("1513");
 
 
         conexaoDoBanco1 = new JdbcTemplate(dataSource1);

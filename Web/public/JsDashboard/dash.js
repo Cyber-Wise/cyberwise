@@ -157,12 +157,17 @@ function dadosAtual() {
         if (resposta.ok) {
 
             resposta.json().then(json => {
-                console.log('id maquina', idMaquinaSelecionada);
-
-                console.log('dados', json);
+                // console.log('id maquina', idMaquinaSelecionada);
+                
+                console.log('Dados maquinas ==> ', json);
                 var dataCpuEmUso = json[0].cpuEmUso
                 var dataRamEmUso = Number(json[0].ramEmUso)
                 var dataDiscoEmUso = json[0].tamanhoEmUsoDisco.toFixed(2)
+                var dataList = [dataCpuEmUso, dataRamEmUso, dataDiscoEmUso];
+                // atualizarDados(dataList);
+                // graficos(dataList);+
+                
+
                 //json[0].tamanhoDisponivelDisco
                 ramEmUso.textContent = dataRamEmUso
                 cpuEmUso.textContent = dataCpuEmUso
@@ -198,3 +203,4 @@ function dadosAtual() {
     })
 }
 setInterval(dadosAtual, 5000);
+// document.write('<script src="./PlotarGraficos.js"></script>');

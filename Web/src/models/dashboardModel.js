@@ -16,30 +16,34 @@ function maquinasEmpresa(empresa) {
   console.log("Acessei dashboardModel dados")
 var query = `
 SELECT 
-m.id AS maquina_id,
-m.modelo,
-codigoAcesso,
-m.sistemaOperacional,
-m.fabricante,
-m.NumeroSerieProcessador,
-m.hostname,
-mon.status_maquina,
-mon.data_hora,
-parametros.nome
+    m.id AS maquina_id,
+    m.modelo,
+    m.codigoAcesso,
+    m.sistemaOperacional,
+    m.fabricante,
+    m.NumeroSerieProcessador,
+    m.hostname,
+    mon.status_maquina,
+    mon.data_hora,
+    p.nome AS nome_parametro
 FROM 
-maquina m
+    maquina m
 JOIN 
-monitoramento mon ON m.id = mon.fk_maquina
-join parametros on m.fk_parametros = parametros.id
+    parametros p ON m.fk_parametros = p.id
+JOIN 
+    monitoramento mon ON m.id = mon.fk_maquina
+JOIN 
+    (
+        SELECT 
+            fk_maquina, 
+            MAX(data_hora) AS ultima_data_hora
+        FROM 
+            monitoramento
+        GROUP BY 
+            fk_maquina
+    ) ult_mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
 WHERE 
-mon.data_hora = (
-    SELECT 
-        MAX(data_hora)
-    FROM 
-        monitoramento
-    WHERE 
-  m.fk_empresa = ${empresa}
-);`;
+    m.fk_empresa = ${empresa};`;
 
 console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
@@ -209,7 +213,8 @@ WHERE
                     WHERE al2.fk_maquina = m.id 
                       AND al2.componente = 'Ram')
 
-    AND m.fk_empresa = ${empresa};
+    AND m.fk_empresa = ${empresa}
+    AND m.fk_empresa = ${empresa} AND al.data_hora >= DATE_SUB(NOW(), INTERVAL 5 SECOND)
 ;
 `;
 

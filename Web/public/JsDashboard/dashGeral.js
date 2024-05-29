@@ -18,14 +18,14 @@ function maquinasEmpresa(){
 
 
                         json.forEach(computador => {
-                            console.log(computador);
+                            // console.log(computador);
                             var modelo = computador.modelo;
                         
                             var idComputador = computador.maquina_id;                                       
-                            var nomeParametro = computador.nome;  
+                            var nomeParametro = computador.nome_parametro;  
                             var status = computador.status_maquina
                             var codigoAcesso = computador.codigoAcesso
-                            console.log('id pc', computador);
+                            // console.log('id pc', computador);
                         const li = document.createElement('li');
                         li.innerHTML = 
                         `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
@@ -54,11 +54,11 @@ function maquinasEmpresa(){
                     
 
         function acharPc(idComputador, modelo, numSerie){
-        console.log('oq tem auqi', idComputador);
+        // console.log('oq tem auqi', idComputador);
         sessionStorage.idComputador = idComputador;
         sessionStorage.numeroSerie = numSerie;
         sessionStorage.modelopc = modelo;
-        console.log('achar pc ===> ', numSerie);
+        // console.log('achar pc ===> ', numSerie);
             // document.addEventListener("DOMContentLoaded", function() {
     
                 // acharId(idComputador, modelo, numSerie);
@@ -84,12 +84,12 @@ function notificacao(){
                 listaDeNotificacao.innerHTML = ''
                 resposta.json().then(json => {
                     json.forEach(element =>{
-                        console.log(element);
+                        // console.log('Hora notificação ===> ',element);
                         var splitDate = element.data_hora.split('T')
                         var splitMinut = splitDate[1].split('.')
                         var horaParaConverter = splitMinut[0].split(':')
                         var horaConvertida = horaParaConverter[0] - 3
-                        console.log('ta funfanfo legal');
+                        // console.log('ta funfanfo legal');
                         var horaCompleta = horaConvertida + ':' + horaParaConverter[1] + ':' + horaParaConverter[2]
                         listaDeNotificacao.innerHTML += `
                     <li><p class="tituloNotification">${element.modelo} ${element.numSerie}, ${element.componente}, ${element.criticidade} </p><p class="data">${splitDate[0]} ${horaCompleta}</p></li>
@@ -115,7 +115,7 @@ function maquinasComPoucoEspaco(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    console.log('oq tem aquiii', json);
+                    // console.log('oq tem aquiii', json);
                     // qntMaquinas.innerHTML = json[0].contador
                     idMaquinasPoucoEspaco.innerHTML = json[0].maquinas_com_alerta_disco
                 }
@@ -137,7 +137,7 @@ function maquinasComPoucaRam(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    console.log(json);
+                    // console.log(json);
                     idMaquinasPoucaMemoria.innerHTML = json[0].maquinas_com_alerta_ram
                 }
             );
@@ -157,7 +157,7 @@ function totalDeMaquinas(){
             })
         }).then(function (resposta) {        
             if (resposta.ok) {
-                console.log('hahahha');
+                // console.log('hahahha');
                 resposta.json().then(json => {
                     qntMaquinas.innerHTML = json[0].contador
                 }
@@ -180,7 +180,7 @@ function componentesEmEstadoCritico(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                    console.log('asda', json);
+                    // console.log('asda', json);
                     componentesCriticos.innerHTML = json[0].quantidade_maquinas_com_critico
                 }
             );
@@ -222,7 +222,7 @@ function maquinasComProblemasDeRede(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
-                 console.log('oq aqui', json);
+                //  console.log('oq aqui', json);
                     redeComProblema.innerHTML = json[0].quantidade_maquinas_com_alerta_rede
                 }
             );
@@ -248,7 +248,7 @@ function listaDeMaquinasComPoucoEspaco(){
                 resposta.json().then(json => {
            
                     json.forEach(computador => {
-                        console.log('comp', computador);
+                        // console.log('comp', computador);
                     
                         var modelo = computador.modelo;
                         var idComputador = computador.maquina_id;                                       
@@ -391,7 +391,7 @@ function listaDeAlertas(){
                         var alertasDisco = computador.alertasDISCO
                         var alertasRAM = computador.alertasRAM
                         var alertasRede = computador.alertasREDE
-                        
+                        console.log('testeAAlerta', computador);
                         const li = document.createElement('li');
                         tabelaAlertas.innerHTML = ''
                         li.innerHTML = 

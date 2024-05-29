@@ -7,6 +7,7 @@ var sqlServerConfig = {
     database: "cyberwise",
     user: "cyberwise",
     password: "cyber100",
+    timezone: 'Z',
     pool: {
         max: 10,
         min: 0,
@@ -24,6 +25,7 @@ var mySqlConfig = {
     database: "cyberwise",
     user: "root",
     password: "1513",
+    timezone: 'Z'
     // password: "fUtur@13",
     // password: "0511",
 
