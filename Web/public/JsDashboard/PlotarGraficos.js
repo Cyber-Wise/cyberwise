@@ -5,7 +5,7 @@
     var dataCpu = [];
     var dataRam = [];
     var dataDisco = [];
-    
+
     function teste(){
       // while(true){
         console.log('teste set interval ====>');
@@ -76,162 +76,162 @@
 
     
 
-//   function graficos() {
-//     // function atualizar(){
-//     //   ctx.dataset[0].data.push()
-//     // }
+  function graficos() {
+    // function atualizar(){
+    //   ctx.dataset[0].data.push()
+    // }
     
    
-//     // console.log(dataCpu);
-//     // console.log(dataRam);
-//     // console.log(dataDisco);
-//     // let labels = [];
+    // console.log(dataCpu);
+    // console.log(dataRam);
+    // console.log(dataDisco);
+    // let labels = [];
 
-//     let dados = {
-//       labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
-//       datasets: [{
-//           label: 'CPU',
-//           data: [],
-//           fill: false,
-//           borderColor: 'rgb(75, 192, 192)',
-//           backgroundColor: 'rgb(75, 192, 192)',
-//           tension: 0.1
-//       }
-//     ]}
-
-
-//     const config = {
-//       type: 'line',
-//       data: dados,
-//   };
+    let dados = {
+      labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
+      datasets: [{
+          label: 'CPU',
+          data: [],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          backgroundColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+      }
+    ]}
 
 
-//   const myChart = new Chart(
-//       document.getElementById('myChart'),
-//       config
-//   );
+    const config = {
+      type: 'line',
+      data: dados,
+  };
 
-//   myChart.update();
-//   console.log('passou no update do chat');
 
-//   // dados.datasets[0].data.push(dataList[0])
-//   // if(dados.datasets[0].data.length >= 7) dados.datasets[0].data.shift();
-//     // const ctx =  document.getElementById('myChart');
+  const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+  );
+
+  myChart.update();
+  console.log('passou no update do chat');
+
+  // dados.datasets[0].data.push(dataList[0])
+  // if(dados.datasets[0].data.length >= 7) dados.datasets[0].data.shift();
+    // const ctx =  document.getElementById('myChart');
    
 
-//     // new Chart(ctx,{
-//     //     type: 'line',
-//     //     data: {
-//     //         labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
+    // new Chart(ctx,{
+    //     type: 'line',
+    //     data: {
+    //         labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
             
-//     //         datasets: [{
-//     //             label: 'CPU',
-//     //             data: [], 
-//     //             fill: false,
-//     //             borderColor: 'rgb(75, 192, 192)',
-//     //             backgroundColor: 'rgb(75, 192, 192)',
-//     //             tension: 0.1
-//     //         }]
+    //         datasets: [{
+    //             label: 'CPU',
+    //             data: [], 
+    //             fill: false,
+    //             borderColor: 'rgb(75, 192, 192)',
+    //             backgroundColor: 'rgb(75, 192, 192)',
+    //             tension: 0.1
+    //         }]
             
-//     //         },
-//     //         options: {
-//     //           plugins: {
-//     //             legend: {
-//     //                 labels: {
-//     //                     color: 'white' // Altera a cor do texto dos rótulos
-//     //                 }
-//     //             }
-//     //         },
-//     //     scales: {
-//     //       y: {
-//     //         ticks: {
-//     //           color: 'white' // Define a cor do texto para azul
-//     //         }
-//     //       },
-//     //       x: {
-//     //         ticks: {
-//     //           color: 'white' // Define a cor do texto para azul
-//     //         }
-//     //       }
-//     //     }
-//     //   }
-//     //        }
-//     //     );
+    //         },
+    //         options: {
+    //           plugins: {
+    //             legend: {
+    //                 labels: {
+    //                     color: 'white' // Altera a cor do texto dos rótulos
+    //                 }
+    //             }
+    //         },
+    //     scales: {
+    //       y: {
+    //         ticks: {
+    //           color: 'white' // Define a cor do texto para azul
+    //         }
+    //       },
+    //       x: {
+    //         ticks: {
+    //           color: 'white' // Define a cor do texto para azul
+    //         }
+    //       }
+    //     }
+    //   }
+    //        }
+    //     );
 
-// // Etiquetas (labels)
-// // const etiquetas = dadosDoGrafico.labels;
+// Etiquetas (labels)
+// const etiquetas = dadosDoGrafico.labels;
 
-// // Conjunto de dados (datasets)
-// // const conjuntoDeDados = 
-// // console.log('teste ===> ',conjuntoDeDados);
-//         const ctx2 =  document.getElementById('myChart2');
+// Conjunto de dados (datasets)
+// const conjuntoDeDados = 
+// console.log('teste ===> ',conjuntoDeDados);
+        const ctx2 =  document.getElementById('myChart2');
 
-// new Chart(ctx2,{
-//     type: 'line',
-//     color: '#fff',
-//     data: {
-//         labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
-//         datasets: [{
-//             label: 'MEMÓRIA RAM',
-//             data: dataRam,
-//             fill: false,
-//             borderColor: 'red',
-//             backgroundColor: 'red',
-//             tension: 0.1,
-//         }]
-//         },
-//         options: {
-//           plugins: {
-//             legend: {
-//                 labels: {
-//                     color: 'white' // Altera a cor do texto dos rótulos
-//                 }
-//             }
-//         },
-//         scales: {
-//           y: {
-//             ticks: {
-//               color: 'white' // Define a cor do texto para azul
-//             }
-//           },
-//           x: {
-//             ticks: {
-//               color: 'white' // Define a cor do texto para azul
-//             }
-//           }
-//         }
-//       }
-//        }
-//     );
+new Chart(ctx2,{
+    type: 'line',
+    color: '#fff',
+    data: {
+        labels: ['16:00', '16:05', '16:10', '16:15', '16:20', '16:25'],
+        datasets: [{
+            label: 'MEMÓRIA RAM',
+            data: dataRam,
+            fill: false,
+            borderColor: 'red',
+            backgroundColor: 'red',
+            tension: 0.1,
+        }]
+        },
+        options: {
+          plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Altera a cor do texto dos rótulos
+                }
+            }
+        },
+        scales: {
+          y: {
+            ticks: {
+              color: 'white' // Define a cor do texto para azul
+            }
+          },
+          x: {
+            ticks: {
+              color: 'white' // Define a cor do texto para azul
+            }
+          }
+        }
+      }
+       }
+    );
 
-//     const ctx3 =  document.getElementById('myChart3');
-//     new Chart(ctx3,{
-//     type: 'pie',
-//     data: {
-//         labels: ['usado', 'Livre'],
-//         datasets: [{
-//             label:  ['Disco'],
-//             data: [40, 60],
-//             fill: false,
+    const ctx3 =  document.getElementById('myChart3');
+    new Chart(ctx3,{
+    type: 'pie',
+    data: {
+        labels: ['usado', 'Livre'],
+        datasets: [{
+            label:  ['Disco'],
+            data: [40, 60],
+            fill: false,
             
-//             // backgroundColor: ['red', 'blue'],
-//             borderColor: ['red', 'blue'],
-//             tension: 0.1,
+            // backgroundColor: ['red', 'blue'],
+            borderColor: ['red', 'blue'],
+            tension: 0.1,
             
-//         },]
-//         },
-//         options: {
-//           plugins: {
-//             legend: {
-//                 labels: {
-//                     color: 'white' // Altera a cor do texto dos rótulos
-//                 }
-//             }
-//         },
-//         }
-//        }
-//     );
-// }
+        },]
+        },
+        options: {
+          plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Altera a cor do texto dos rótulos
+                }
+            }
+        },
+        }
+       }
+    );
+}
 
     // document.write('<script src="../JsDashboard/dashGeral.js"></script>');
 

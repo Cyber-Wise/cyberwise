@@ -1224,8 +1224,8 @@ function funcionarios() {
                        
     
                     const li = document.createElement('li');
-                    if(nome == "Parâmetro base"){
-                         console.log('parametro base foi');
+                    if(nome == "Parâmetro padrão"){
+                        //  console.log('parametro base foi');
                     li.innerHTML = `
                     <p class="funcionarioNome nomeParametro">${nome}</p> 
                   <div class="separacaoParametro">
