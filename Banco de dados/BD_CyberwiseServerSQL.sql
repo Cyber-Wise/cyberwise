@@ -37,11 +37,11 @@ CREATE TABLE funcionario (
 GO
 
 CREATE TABLE fotoPerfil (
-    id_usuario INT PRIMARY KEY,
-    fotoBase64 VARBINARY(MAX),
-    metadata VARCHAR(100)
-    -- fk_funcionario int,
-    -- FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id)
+   idFoto INT PRIMARY KEY UNIQUE AUTO_INCREMENT,
+	id_usuario INT,
+	fotoBase64 longblob,
+	metadata varchar(100),
+	 FOREIGN KEY (id_usuario) REFERENCES funcionario(id)
 );
 GO
 

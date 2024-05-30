@@ -37,7 +37,6 @@ idFoto INT PRIMARY KEY UNIQUE AUTO_INCREMENT,
 id_usuario INT,
 fotoBase64 longblob,
 metadata varchar(100),
--- fk_funcionario int,
  FOREIGN KEY (id_usuario) REFERENCES funcionario(id)
 );
 
@@ -95,10 +94,9 @@ componente VARCHAR(30),
 fk_maquina INT,		
 FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
-   
+
     select * from empresa;	
     select * from funcionario;
-    select * from funcionario where email = 'davi@cyberwise' or senha = 'davi936037';
     select * from maquina;
     select * from cargos;
     select * from parametros;
