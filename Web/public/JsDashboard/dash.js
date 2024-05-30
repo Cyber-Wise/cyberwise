@@ -91,12 +91,14 @@ function filtrar(inputb, ul1, tagName) {
     if (count === 0) ul.style.display = "none";
     else ul.style.display = "block";
 }
+
 var parametroCpuAlerta;
 var parametroCpuCritico;  
 var parametroRamAlerta; 
 var parametroRamCritico; 
 var parametroDiscoAlerta; 
 var parametroDiscoCritico; 
+
 function informacoesAnalytics() {
     var empresa = sessionStorage.empresa
     var idMaquinaSelecionada = sessionStorage.idComputador
@@ -161,15 +163,16 @@ function dadosAtual() {
                 // console.log('id maquina', idMaquinaSelecionada);
                 
                 console.log('Dados maquinas ==> ', json);
-                var dataCpuEmUso = json[0].cpuEmUso
+                var dataCpuEmUso = Number(json[0].cpuEmUso)
                 var dataRamEmUso = Number(json[0].ramEmUso)
-                var dataDiscoEmUso = json[0].tamanhoEmUsoDisco.toFixed(2)
-                var dataList = [dataCpuEmUso, dataRamEmUso, dataDiscoEmUso];
+                var dataDiscoEmUso = Number(json[0].tamanhoEmUsoDisco.toFixed(2))
+                var date = json[0].data_hora
+                var dataList = [dataCpuEmUso, dataRamEmUso, dataDiscoEmUso, date];
                 // atualizarDados(dataList);
                 // graficos(dataList);
+                hostname.innerHTML = json[0].hostname;
+                fetchData(dataList);
                 
-
-                //json[0].tamanhoDisponivelDisco
                 ramEmUso.textContent = dataRamEmUso
                 cpuEmUso.textContent = dataCpuEmUso
                 discoEmUso.textContent = dataDiscoEmUso
@@ -203,5 +206,5 @@ function dadosAtual() {
         }
     })
 }
-// setInterval(dadosAtual, 5000);
+setInterval(dadosAtual, 5000);
 // document.write('<script src="./PlotarGraficos.js"></script>');

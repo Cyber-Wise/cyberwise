@@ -372,9 +372,11 @@ return database.executar(query);
 }
 function dadosAtual(idMaquinaSelecionada) {
   console.log("Acessei dashboardModel", idMaquinaSelecionada)
-var query = `SELECT * FROM monitoramento
-WHERE fk_maquina = 1
-ORDER BY data_hora DESC 
+var query = `SELECT monitoramento.*, maquina.hostname
+FROM monitoramento
+JOIN maquina ON monitoramento.fk_maquina = maquina.id
+WHERE monitoramento.fk_maquina = ${idMaquinaSelecionada}
+ORDER BY monitoramento.data_hora DESC
 LIMIT 1;
 `;
 
