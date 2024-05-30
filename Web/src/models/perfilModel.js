@@ -34,7 +34,7 @@ function deletarFuncionario(funcionario) {
 
 function cadastrarFuncionario(nome, email, senha, idEmpresa, cargo) {
     console.log("Acessei perfil Model")
-  var query = `INSERT INTO funcionario (nome, email, senha, fk_empresa, fk_cargo)VALUES ('${nome}', '${email}', '${senha}', ${idEmpresa}, ${cargo});`;
+  var query = `INSERT INTO funcionario (nome, email, senha, fk_empresa, fk_cargo) VALUES ('${nome}', '${email}', '${senha}', ${idEmpresa}, ${cargo});`;
 
   
   console.log("Executando a instrução SQL: \n" + query);
@@ -126,7 +126,7 @@ function deletarMaquina(idMaquina) {
 
 function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, discoCritico, discoAlerta, idEmpresa) {
     console.log("Acessei perfil Model")
-  var query = `INSERT INTO parametros VALUES (NULL, '${nome}', ${cpuAlerta}, ${cpuCritico}, ${discoAlerta}, ${discoCritico}, ${ramAlerta}, ${ramCritico}, ${idEmpresa});`;
+  var query = `INSERT INTO parametros (nome, alertaCPU, criticoCPU, alertaDISCO, criticoDISCO, alertaRAM, criticoRAM, fk_empresa)VALUES ('${nome}', ${cpuAlerta}, ${cpuCritico}, ${discoAlerta}, ${discoCritico}, ${ramAlerta}, ${ramCritico}, ${idEmpresa});`;
   
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
