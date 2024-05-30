@@ -1,0 +1,78 @@
+.btnChatbot {
+    border: none;
+    padding: 10px 12px;
+    background-color: #16204b;
+    position: fixed;
+    right: 10px;
+    border-radius: 100px;
+    cursor: pointer;
+    top: 80%;
+}
+.btnChatbot img {
+    width: 40px;
+}
+.chatbot {
+    width: 300px;
+    font-family: "Chakra Petch";
+
+    height: 400px; 
+    position: fixed;
+    right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    top: 120px;
+    flex-direction: column;
+}
+#chat {
+    display: none;
+}
+.chatbot header {
+    background-color: #16204b;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.chatbox {
+    height: 75%;
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #131a38;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.message-container {
+    margin: 10px 0;
+}
+
+.input_usuario {
+    display: flex;
+}
+
+#input-usuario {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 0;
+    background-color: #16204b;
+    color: #fff;
+    outline: none;
+}
+#input-usuario::placeholder{
+    color: white;
+}
+#botao-enviar {
+    background-color: #0d1227;
+    transition: 0.2s;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#botao-enviar:hover {
+    background-color: #000000;
+}
