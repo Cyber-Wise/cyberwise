@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class SendAlert {
-z
+
     public static void sendSlackAlert(String componente, Integer idMaquina, String status) {
         var logger = LoggerFactory.getLogger("slack-alert-service");
         try {
