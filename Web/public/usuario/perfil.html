@@ -12,6 +12,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/perfil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../css/chatbot.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   
@@ -322,6 +323,20 @@
                     </nav>
                 </div>
             </header>
+            <div id="chat" class="chatbot">
+                <header>
+                    <h3>Chat CyberWise</h3>
+                </header>
+                <ul class="chatbox">
+                    <p> Olá <br> </p>
+                    <li id="chat-container"></li>
+                </ul>
+                <div class="input_usuario">
+                    <input type="text" id="input-usuario" placeholder="Digite aqui...">
+                    <button id="botao-enviar">Enviar</button>
+                </div>
+            </div>
+           <button onclick="abrirChat()" id="btnChat" class="btnChatbot"><img src="../assets/icons8-chatbot-90.png" alt=""></button>
             <div class="divFoto">
             <img src="../assets/perfimImg.png" id="perfilImg">
             <button onclick="abrirEditPerfilFoto()" id="editFotoDePerfil"><i class='bx bxs-edit-alt'></i></button>
@@ -599,6 +614,14 @@ function validarCargo(){
         editarParametro.style.display = 'none'
         addParametro.style.display = 'block'
     }
+    function abrirChat (){
+        if(chat.style.display == 'none'){
     
+          chat.style.display = 'block'
+        }else {
+          chat.style.display = 'none'
+    
+        }
+        }
 </script>
 </html>
