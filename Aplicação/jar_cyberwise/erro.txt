@@ -106,3 +106,12 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: PABLODESKTOP
+Data: 31/56/2024 01:56:55.095
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
