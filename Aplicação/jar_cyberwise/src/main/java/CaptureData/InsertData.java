@@ -49,8 +49,10 @@ public class InsertData {
 
         String criticiade = status.getStatusMaquina();
 
-        con.execute("INSERT INTO alertas VALUES " +
-                "(NULL, '" + criticiade +"', CURRENT_TIMESTAMP, '" + componente + "', " + idMaquina +");");
+        String sql = "INSERT INTO alertas (criticidade, data_hora, componente, fk_maquina) VALUES ('"
+                + criticiade + "', CURRENT_TIMESTAMP, '" + componente + "', " + idMaquina + ");";
+
+        con.execute(sql);
 
     }
     public static void HistoricoLocal(String componente, Status status, Integer idMaquina){

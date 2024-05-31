@@ -61,3 +61,48 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: PABLODESKTOP
+Data: 30/32/2024 14:32:17.791
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: PABLODESKTOP
+Data: 30/37/2024 14:37:17.959
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: PABLODESKTOP
+Data: 30/44/2024 14:44:23.688
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: PABLODESKTOP
+Data: 30/46/2024 14:46:39.781
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: PABLODESKTOP
+Data: 30/51/2024 14:51:34.409
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
