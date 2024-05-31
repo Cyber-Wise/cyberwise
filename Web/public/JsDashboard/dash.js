@@ -19,12 +19,12 @@ function maquinasEmpresaLista() {
                 json.forEach(computador => {
 
                     var modelo = computador.modelo;
-                    var numSerie = computador.NumeroSerieProcessador;
-                    var codigoAcesso = computador.codigoAcesso;
-                    var idComputador = computador.id;
                     
+                    var codigoAcesso = computador.codigoAcesso;
+                    var idComputador = computador.maquina_id;
+                   console.log(idComputador);
                     var status = computador.status_maquina
-
+                    console.log(computador);
                     const li = document.createElement('li');
                     li.innerHTML =
                         `<div class="computador">
@@ -35,7 +35,7 @@ function maquinasEmpresaLista() {
                                     <div class="${status}"></div>
                                 </div>
                                 </div>
-                                <button class="pointer" id="${idComputador}" onclick="acharId(${idComputador},'${modelo}', ${numSerie})">verificar</button>
+                                <button class="pointer" id="${idComputador}" onclick="acharPc(${idComputador},'${modelo}', '${codigoAcesso}')">verificar</button>
                             </div>`;
 
                     ul.appendChild(li);
@@ -46,7 +46,16 @@ function maquinasEmpresaLista() {
         }
     })
 }
+function acharPc(idComputador, modelo, numSerie){
+    
+    sessionStorage.idComputador = idComputador;
+    sessionStorage.numeroSerie = numSerie;
+    sessionStorage.modelopc = modelo;
+    
+        
+        window.location = '../usuario/dashboard.html';
 
+    }
 function filtrar(inputb, ul1, tagName) {
     var input,
         filter,
