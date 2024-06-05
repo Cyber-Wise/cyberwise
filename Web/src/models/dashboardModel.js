@@ -173,7 +173,7 @@ function maquinasComPoucoEspaco(empresa) {
                         FROM alertas al2 
                         WHERE al2.fk_maquina = m.id 
                           AND al2.componente = 'Disco')
-        AND mon.data_hora >= DATEADD(MINUTE, -0.05, GETDATE())
+        AND mon.data_hora >= DATEADD(MINUTE, -0.10, GETDATE())
         AND m.fk_empresa = ${empresa};
   `;
 
@@ -238,7 +238,7 @@ function listaDeMaquinasComPoucoEspaco(empresa) {
     parametros p ON m.fk_parametros = p.id
   WHERE 
     al.componente = 'Disco'
-    AND m.fk_empresa = ${empresa} AND al.data_hora >= DATEADD(SECOND, -5, GETDATE());
+    AND m.fk_empresa = ${empresa} AND al.data_hora >= DATEADD(SECOND, -10, GETDATE());
   `;
 
   console.log("Executando a instrução SQL: \n" + query);
@@ -271,7 +271,7 @@ function listaDeMaquinasComPoucaRam(empresa) {
   WHERE 
     al.componente = 'RAM'
     AND m.fk_empresa = ${empresa}
-    AND al.data_hora >= DATEADD(SECOND, -5, GETDATE());
+    AND al.data_hora >= DATEADD(SECOND, -10, GETDATE());
   `;
 
   console.log("Executando a instrução SQL: \n" + query);
@@ -304,7 +304,7 @@ function listaDeMaquinasProblemaRede(empresa) {
   WHERE 
     al.componente = 'Rede'
     AND m.fk_empresa = ${empresa}
-    AND al.data_hora >= DATEADD(SECOND, -5, GETDATE());
+    AND al.data_hora >= DATEADD(SECOND, -10, GETDATE());
   `;
 
   console.log("Executando a instrução SQL: \n" + query);

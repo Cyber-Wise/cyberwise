@@ -28,7 +28,7 @@ function maquinasEmpresa(){
                             // console.log('id pc', computador);
                         const li = document.createElement('li');
                         li.innerHTML = 
-                        `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                        `<span style="display: flex; align-items: center; justify-content: space-between; width: 100%;" class="${status}">
                         <i class='bx bx-laptop ${status}'></i>
                                 <div class="descricaoPc">
                                     <p class="nomePc">${modelo} : ${codigoAcesso}</p>
