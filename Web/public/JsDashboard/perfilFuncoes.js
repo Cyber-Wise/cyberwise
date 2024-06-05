@@ -651,15 +651,16 @@ function funcionarios() {
                     });
                 // console.log(resposta);
     
-                resposta.json().then(json => {
-                    // console.log(json);
-                    // console.log(JSON.stringify(json));
+                setTimeout(function () {
+                    window.location = "./perfil.html";
+                }, 1000);
+
+                // resposta.json().then(json => {
+                //     console.log(json);
+                //     // console.log(JSON.stringify(json));
     
-                    setTimeout(function () {
-                        window.location = "./perfil.html";
-                    }, 1000);
                     
-                            });
+                //             });
                          } else {
                              exibirMensagemErro("Não é possível cadastrar máquinas com o mesmo código de acesso.");
                          }
