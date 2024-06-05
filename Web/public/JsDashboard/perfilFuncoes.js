@@ -343,12 +343,12 @@ function funcionarios() {
                         iconColor : "green",
                         });
         
-                    resposta.json().then(json => {
+                    // resposta.json().then(json => {
+                        window.location = "./perfil.html";
                         setTimeout(function () {
-                            window.location = "./perfil.html";
                         }, 1000);
                         
-                                });
+                                // });
                              } 
         
                         })
@@ -743,49 +743,8 @@ function funcionarios() {
  
     }
 
-    // function buscarParametros1(){
-    //     var idEmpresa1 = sessionStorage.empresa;
-    //     // console.log(idEmpresa1, "buscar parametro");
+     document.createElement("option");
 
-    //     fetch("/perfil/buscarParametros", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             idEmpresa1Server: idEmpresa1,
-             
-    //         })
-    //     }).then(function (resposta) {
-    //         console.log("ESTOU NO THEN DO PERFIL!")
-            
-    //     if (resposta.ok) {
-    //         console.log(resposta);
-
-    //         resposta.json().then(json => {
-    //             console.log('PARAMETROS ====>',json);
-    //             console.log(JSON.stringify(json));
-                
-    //             if(Object.keys(json).length === 0){
-    //                     console.log('VAZIO')
-    //                     parametro = 0;
-    //             }
-    //             var selectElement = document.getElementById("selectParametros");
-              
-    //             json.forEach(function(item) {[]
-    //                 var optionText = item.nome;
-    //                 var optionValue =  item.id;
-    //                 var optionElement = document.createElement("option");
-
-    //                 optionElement.textContent = optionText;
-    //                 optionElement.value = optionValue; 
-    //                 selectElement.appendChild(optionElement);
-    //             });
-               
-    //                     });
-    //                  } 
-    //     })
-    // }
 
     function deletarMaquina(idMaquina){
 
@@ -857,12 +816,12 @@ function funcionarios() {
                     setTimeout(function () {
                         window.location = "./perfil.html";
                     }, 1000);
-                    resposta.json().then(json => {
+                    // resposta.json().then(json => {
                         // console.log(json);
                         // console.log(JSON.stringify(json));
         
-                    }
-                );
+                    // }
+                // );
         
                 } 
         
@@ -1001,7 +960,7 @@ function funcionarios() {
                         });
                     console.log(resposta);
         
-                    resposta.json().then(json => {
+                    // resposta.json().then(json => {
                         // console.log(json);
                         // console.log(JSON.stringify(json));
 
@@ -1009,7 +968,7 @@ function funcionarios() {
                             window.location = "./perfil.html";
                         }, 1000);
                         
-                                });
+                                // });
                              } 
         
                         })
@@ -1151,7 +1110,7 @@ function funcionarios() {
                 });
              console.log(resposta);
  
-             resposta.json().then(json => {
+            //  resposta.json().then(json => {
                 //  console.log(json);
                 //  console.log(JSON.stringify(json));
                  setTimeout(function () {
@@ -1159,7 +1118,7 @@ function funcionarios() {
                  }, 1000);
                  
  
-                         });
+                        //  });
                       } 
  
                  })
@@ -1336,12 +1295,12 @@ function funcionarios() {
                 setTimeout(function () {
                     window.location = "./perfil.html";
                 }, 1000);
-                resposta.json().then(json => {
+                // resposta.json().then(json => {
                     // console.log(json);
                     // console.log(JSON.stringify(json));
       
-                }
-            );
+                // }
+            // );
     
             } 
     
@@ -1517,10 +1476,10 @@ converterfotoBase64(file).then(data => {
                                 setTimeout(function () {
                                     window.location = "./perfil.html";
                                 }, 1000);
-                                resposta.json().then(json => {
+                                // resposta.json().then(json => {
                                     
-                                }
-                            );
+                                // }
+                            // );
                             } 
                         })
                     }
