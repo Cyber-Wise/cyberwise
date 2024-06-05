@@ -78,11 +78,8 @@ function salvarPerfil(){
                     background: "#011126",
                     iconColor : "green",
                     });
-                console.log(resposta);
 
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
                    
                     setTimeout(function () {
                         window.location = "./perfil.html";
@@ -109,11 +106,8 @@ function funcionarios() {
         console.log("ESTOU NO THEN DO PERFIL!")
   
         if (resposta.ok) {
-            console.log(resposta);
 
             resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
                 
             const ul = document.getElementById('listaFuncionarios');
 
@@ -192,14 +186,11 @@ function funcionarios() {
                 });
         if (resposta.ok) {
             
-            console.log(resposta);
 
             setTimeout(function () {
                 window.location = "./perfil.html";
             }, 1000);
             resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
   
             }
         );
@@ -351,12 +342,8 @@ function funcionarios() {
                         background: "#011126",
                         iconColor : "green",
                         });
-                    console.log(resposta);
         
                     resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-
                         setTimeout(function () {
                             window.location = "./perfil.html";
                         }, 1000);
@@ -419,11 +406,8 @@ function funcionarios() {
                     background: "#011126",
                     iconColor : "green",
                     });
-                console.log(resposta);
     
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
                     setTimeout(function () {
                         window.location = "./perfil.html";
                     }, 1000);
@@ -469,11 +453,8 @@ function funcionarios() {
                 background: "#011126",
                 iconColor : "green",
                 });
-            console.log(resposta);
 
             resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
                 setTimeout(function () {
                     window.location = "./perfil.html";
                 }, 1000);
@@ -502,11 +483,8 @@ function funcionarios() {
             console.log("ESTOU NO THEN DO PERFIL!")
       
             if (resposta.ok) {
-                console.log(resposta);
     
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
                     
                 const ul = document.getElementById('listaMaquinas');
     
@@ -555,11 +533,11 @@ function funcionarios() {
             console.log("ESTOU NO THEN DO PERFIL!")
             
         if (resposta.ok) {
-            console.log(resposta);
+            // console.log(resposta);
 
             resposta.json().then(json => {
-                console.log('PARAMETROS ====>',json);
-                console.log(JSON.stringify(json));
+                // console.log('PARAMETROS ====>',json);
+                // console.log(JSON.stringify(json));
                 
                 if(Object.keys(json).length === 0){
                         parametro = 0;
@@ -671,11 +649,11 @@ function funcionarios() {
                     background: "#011126",
                     iconColor : "green",
                     });
-                console.log(resposta);
+                // console.log(resposta);
     
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
+                    // console.log(json);
+                    // console.log(JSON.stringify(json));
     
                     setTimeout(function () {
                         window.location = "./perfil.html";
@@ -750,8 +728,8 @@ function funcionarios() {
              console.log(resposta);
  
              resposta.json().then(json => {
-                 console.log(json);
-                 console.log(JSON.stringify(json));
+                //  console.log(json);
+                //  console.log(JSON.stringify(json));
                  setTimeout(function () {
                      window.location = "./perfil.html";
                  }, 1000);
@@ -873,14 +851,14 @@ function funcionarios() {
                         background: "#011126",
                         iconColor : "green",
                         });
-                    console.log(resposta);
+                    // console.log(resposta);
         
                     setTimeout(function () {
                         window.location = "./perfil.html";
                     }, 1000);
                     resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
+                        // console.log(json);
+                        // console.log(JSON.stringify(json));
         
                     }
                 );
@@ -1023,8 +1001,8 @@ function funcionarios() {
                     console.log(resposta);
         
                     resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
+                        // console.log(json);
+                        // console.log(JSON.stringify(json));
 
                         setTimeout(function () {
                             window.location = "./perfil.html";
@@ -1173,8 +1151,8 @@ function funcionarios() {
              console.log(resposta);
  
              resposta.json().then(json => {
-                 console.log(json);
-                 console.log(JSON.stringify(json));
+                //  console.log(json);
+                //  console.log(JSON.stringify(json));
                  setTimeout(function () {
                      window.location = "./perfil.html";
                  }, 1000);
@@ -1206,8 +1184,8 @@ function funcionarios() {
                 console.log(resposta);
     
                 resposta.json().then(json => {
-                    console.log('console ====> ',json);
-                    console.log(JSON.stringify(json));
+                    // console.log('console ====> ',json);
+                    // console.log(JSON.stringify(json));
                     
                 const ul = document.getElementById('listaParametros');
     
@@ -1358,8 +1336,8 @@ function funcionarios() {
                     window.location = "./perfil.html";
                 }, 1000);
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
+                    // console.log(json);
+                    // console.log(JSON.stringify(json));
       
                 }
             );
