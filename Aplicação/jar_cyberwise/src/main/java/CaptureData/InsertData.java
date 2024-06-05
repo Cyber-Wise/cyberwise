@@ -1,12 +1,13 @@
 package CaptureData;
 
 import AlertManagement.Status;
+import AuthenticateMachine.Machine;
 import org.springframework.jdbc.core.JdbcTemplate;
 import Connection.ConnectionLocal;
 import Connection.ConnectionServer;
 
 public class InsertData {
-    public static void inserirBanco(Monitoring monitoramento, Integer id) {
+    public static void inserirBanco(Monitoring monitoramento, Integer id, Machine machine) {
         ConnectionServer connectionServer = new ConnectionServer();
         JdbcTemplate con = connectionServer.getConexaoDoBanco();
 
@@ -34,7 +35,7 @@ public class InsertData {
                         + "VALUES ('" + status +"', "+ cpuEmUso + ", " + porcentagemRam + ", " + porcentagemDisco + ", " + gbEnviados + ", "
                         + gbRecebidos + "," + pacotesEnviados + ", " + pacotesRecebidos + ", " + id + ", CURRENT_TIMESTAMP)");
 
-                CaptureData.pegarDados(id);
+                CaptureData.pegarDados(id, machine);
 
                 Thread.sleep(5000);
             }

@@ -1,11 +1,12 @@
 package ParameterManager;
 import AlertManagement.SendAlert;
 import AlertManagement.Status;
+import AuthenticateMachine.Machine;
 import CaptureData.InsertData;
 import CaptureData.Monitoring;
 
 public class ParameterAnalyzer {
-    public static void AnalisarDados(Monitoring components, Integer idMaquina){
+    public static void AnalisarDados(Monitoring components, Integer idMaquina, Machine machine){
         Parameters parametrosMaquina = ParameterQuery.BuscarParametros(idMaquina);
 
 //      Dados Looca
@@ -43,7 +44,7 @@ public class ParameterAnalyzer {
        if(componente.equals("Cpu") && components.getStatus() != Status.NORMAL) {
            InsertData.inserirAlerta(componente, components.getStatus(), idMaquina);
            InsertData.HistoricoLocal(componente, components.getStatus(), idMaquina);
-           SendAlert.sendSlackAlert(componente, idMaquina, components.getStatus().getStatusMaquina());
+           SendAlert.sendSlackAlert(componente, machine.getModelo(), machine.getHostname(), components.getStatus().getStatusMaquina(), cpuEmUso);
        }
 
 
@@ -60,7 +61,7 @@ public class ParameterAnalyzer {
         if(componente.equals("Ram") && components.getStatus() != Status.NORMAL){
             InsertData.inserirAlerta(componente, components.getStatus(), idMaquina);
             InsertData.HistoricoLocal(componente, components.getStatus(), idMaquina);
-            SendAlert.sendSlackAlert(componente, idMaquina, components.getStatus().getStatusMaquina());
+            SendAlert.sendSlackAlert(componente, machine.getModelo(), machine.getHostname(), components.getStatus().getStatusMaquina(), porcentagemRam);
         }
 
 
@@ -77,9 +78,9 @@ public class ParameterAnalyzer {
         if(componente.equals("Disco") && components.getStatus() != Status.NORMAL) {
             InsertData.inserirAlerta(componente, components.getStatus(), idMaquina);
             InsertData.HistoricoLocal(componente, components.getStatus(), idMaquina);
-            SendAlert.sendSlackAlert(componente, idMaquina, components.getStatus().getStatusMaquina());
+            SendAlert.sendSlackAlert(componente, machine.getModelo(), machine.getHostname(), components.getStatus().getStatusMaquina(), porcentagemDisco);
         }
 
-        InsertData.inserirBanco(components, idMaquina);
+        InsertData.inserirBanco(components, idMaquina, machine);
     }
 }

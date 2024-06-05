@@ -28,6 +28,7 @@ public class Machine {
         this.hostname = hostname;
     }
 
+
     @Override
     public String toString() {
         return "Machine{" +

@@ -7,22 +7,31 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.io.OutputStream;
 import io.github.cdimascio.dotenv.Dotenv;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class SendAlert {
 
-    public static void sendSlackAlert(String componente, Integer idMaquina, String status) {
+    private static final String WEBHOOK_URL = "https://hooks.slack.com/services/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";
+
+
+    public static void sendSlackAlert(String componente, String modelo, String hostname, String status, Double uso) {
         var logger = LoggerFactory.getLogger("slack-alert-service");
         try {
-            Dotenv dotenv = Dotenv.load();
-            var webhookUrl = dotenv.get("SLACK_WEBHOOK_URL");
-            if (webhookUrl == null || webhookUrl.isEmpty()) {
-                throw new IllegalStateException("SLACK_WEBHOOK_URL não está definido.");
-            }
+            // Obtendo data e hora atual
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            String date = now.format(dateFormatter);
+            String time = now.format(timeFormatter);
 
-            String message = String.format(":warning: *Alerta:*\nComponente *%s* da máquina *%d* está em estado *%s*!", componente, idMaquina, status);
+            String message = String.format(
+                    ":warning: *Alerta:*\nComponente *%s* da máquina (%s) - (%s) está em estado *%s* com %.2f%% em uso!\nData: %s\nHora: %s",
+                    componente, modelo, hostname, status, uso, date, time
+            );
             String payload = String.format("{\"text\": \"%s\"}", message);
 
-            URL url = new URL(webhookUrl);
+            URL url = new URL(WEBHOOK_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);

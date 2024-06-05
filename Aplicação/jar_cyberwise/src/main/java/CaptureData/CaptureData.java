@@ -1,5 +1,6 @@
 package CaptureData;
 
+import AuthenticateMachine.Machine;
 import ParameterManager.ParameterAnalyzer;
 import Converter.ConverterByte;
 import com.github.britooo.looca.api.core.Looca;
@@ -14,7 +15,7 @@ import com.github.britooo.looca.api.group.rede.RedeInterface;
 import java.util.List;
 
 public class CaptureData {
-    public static void pegarDados(Integer id) {
+    public static void pegarDados(Integer id, Machine machine) {
         Looca looca = new Looca();
         Monitoring monitoramento = new Monitoring();
         Rede rede = looca.getRede();
@@ -70,7 +71,7 @@ public class CaptureData {
         monitoramento.setCpuEmUso(cpuEmUso);
 
 
-        ParameterAnalyzer.AnalisarDados(monitoramento, id);
+        ParameterAnalyzer.AnalisarDados(monitoramento, id, machine);
     }
 }
 

@@ -38,7 +38,7 @@ public class MainApp {
                 if(retorno.equalsIgnoreCase("S")){
                     System.out.println("Monitoramento iniciado.");
                     System.out.println("Pressione (crtl + c) para interromper.");
-                    CaptureData.pegarDados(maquinaAutenticada.getId());
+                    CaptureData.pegarDados(maquinaAutenticada.getId(), maquinaAutenticada);
                 }
                 else if(retorno.equalsIgnoreCase("N")){
                     System.out.println("Até mais ;)");
