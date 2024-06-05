@@ -120,6 +120,8 @@ Sistema Operacional: Windows
 Arquitetura: 64
 hostname: AMANDITA
 Data: 04/56/2024 11:56:15.093
+hostname: DAVI
+Data: 05/46/2024 14:46:00.234
 Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
@@ -129,6 +131,8 @@ Sistema Operacional: Windows
 Arquitetura: 64
 hostname: AMANDITA
 Data: 04/59/2024 11:59:43.465
+hostname: DAVI
+Data: 05/47/2024 14:47:26.484
 Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
@@ -138,6 +142,8 @@ Sistema Operacional: Windows
 Arquitetura: 64
 hostname: AMANDITA
 Data: 04/19/2024 12:19:15.404
+hostname: DAVI
+Data: 05/49/2024 14:49:57.903
 Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
@@ -165,6 +171,9 @@ Sistema Operacional: Windows
 Arquitetura: 64
 hostname: AMANDITA
 Data: 05/35/2024 15:35:52.547
+
+hostname: DAVI
+Data: 05/55/2024 14:55:02.151
 Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
