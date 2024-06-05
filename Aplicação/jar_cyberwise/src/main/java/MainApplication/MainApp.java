@@ -25,7 +25,6 @@ public class MainApp {
 
         if(logado){
             Integer codigoAcesso;
-
             System.out.println("Insira o código de acesso da máquina:");
             codigoAcesso = scanner.nextInt();
 
@@ -43,9 +42,10 @@ public class MainApp {
                 else if(retorno.equalsIgnoreCase("N")){
                     System.out.println("Até mais ;)");
                 }
-            }else{
-                System.out.println("Não foi possível encontrar sua máquina, verifique o código de acesso.");
             }
+//            else{
+//                System.out.println("Não foi possível encontrar sua máquina, verifique o código de acesso.");
+//            }
         }
 
     }

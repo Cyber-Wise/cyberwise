@@ -115,3 +115,39 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: DAVI
+Data: 05/46/2024 14:46:00.234
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: DAVI
+Data: 05/47/2024 14:47:26.484
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: DAVI
+Data: 05/49/2024 14:49:57.903
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: DAVI
+Data: 05/55/2024 14:55:02.151
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}

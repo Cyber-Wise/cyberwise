@@ -1,5 +1,6 @@
 package AuthenticateClient;
 
+import Connection.ConnectionLocal;
 import Connection.ConnectionServer;
 import com.github.britooo.looca.api.core.Looca;
 import Logs.Logs;

@@ -14,10 +14,10 @@ public class ConnectionServer {
         dataSource.setPassword("cyber100");
 
         // Apenas para teste.
-//        dataSource.setUrl("jdbc:sqlserver://localhost:1433;databaseName=cyberwise");
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/cyberwise");
 //        dataSource.setUsername("root");
 //        dataSource.setPassword("1513");
-//        dataSource.setPassword("0511");
 
         conexaoDoBanco = new JdbcTemplate(dataSource);
     }
