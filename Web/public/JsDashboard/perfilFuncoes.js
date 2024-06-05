@@ -492,7 +492,7 @@ function funcionarios() {
       
                     json.forEach((maquina) => {
                       var modelo = maquina.modelo;
-                      var numeroSerie =  maquina.numSerie;
+                      var numeroSerie =  maquina.codigoAcesso;
                       var idmaquina =  maquina.id;
                        
     
@@ -688,7 +688,7 @@ function funcionarios() {
 
     function atualizarMaquina(){
         var modelo = modeloEditar.value;
-        var parametro = selectParametro.value;
+        // var parametro = selectParametro.value;
         var id = sessionStorage.idMaquina;
         // console.log(modelo, 'atualizar funcionario')
         
