@@ -14,17 +14,16 @@ function maquinasEmpresaLista() {
 
                 const ul = document.getElementById('listaComputadores');
                 const ulCritico = document.getElementById('listaPcCritico');
-                const ulAlerta = document.getElementById('listaPcAlerta');
+                const ulAlerta = document.getElementById('listaPcAlerta');                
 
                 json.forEach(computador => {
-
-                    var modelo = computador.modelo;
                     
+                    var modelo = computador.modelo;
                     var codigoAcesso = computador.codigoAcesso;
                     var idComputador = computador.maquina_id;
-                   console.log(idComputador);
                     var status = computador.status_maquina
-                    console.log(computador);
+
+                    
                     const li = document.createElement('li');
                     li.innerHTML =
                         `<div class="computador">
@@ -172,8 +171,8 @@ function dadosAtual() {
                 // console.log('id maquina', idMaquinaSelecionada);
                 
                 console.log('Dados maquinas ==> ', json);
-                var dataCpuEmUso = Number(json[0].cpuEmUso)
-                var dataRamEmUso = Number(json[0].ramEmUso)
+                var dataCpuEmUso = Number(json[0].cpuEmUso.toFixed(2))
+                var dataRamEmUso = Number(json[0].ramEmUso.toFixed(2))
                 var dataDiscoEmUso = Number(json[0].tamanhoEmUsoDisco.toFixed(2))
                 var date = json[0].data_hora
                 var dataList = [dataCpuEmUso, dataRamEmUso, dataDiscoEmUso, date];

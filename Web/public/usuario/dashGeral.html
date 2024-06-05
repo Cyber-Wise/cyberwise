@@ -294,4 +294,67 @@
 
         console.log(dataHoraFormatada); 
     }
+
+
+
+    function abrirFiltros(){
+        var filtro = selectFiltro.value;
+
+        let alerta = document.querySelectorAll('.Alerta');
+        let normal = document.querySelectorAll('.Normal');
+        let emergencia = document.querySelectorAll('.Emergencia');
+
+        switch(filtro){
+            case "emergencia": 
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+            case "alerta": 
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+            case "normal":
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'none';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+            case "todos":
+            alerta.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            emergencia.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            normal.forEach(function(elemento) {
+                elemento.style.display = 'flex';
+            });
+            break;
+
+            
+           
+
+        }
+
+        
+    }
 </script>

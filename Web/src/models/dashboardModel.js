@@ -206,7 +206,7 @@ function maquinasComPoucaRam(empresa) {
                         AND al2.componente = 'Ram')
 
       AND m.fk_empresa = ${empresa}
-      AND m.fk_empresa = ${empresa} AND al.data_hora >= DATEADD(SECOND, -5, GETDATE());
+      AND m.fk_empresa = ${empresa} AND al.data_hora >= DATEADD(SECOND, -10, GETDATE());
   `;
 
   console.log("Executando a instrução SQL: \n" + query);
