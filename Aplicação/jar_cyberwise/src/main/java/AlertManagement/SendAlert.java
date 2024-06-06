@@ -26,7 +26,7 @@ public class SendAlert {
             String time = now.format(timeFormatter);
 
             String message = String.format(
-                    ":warning: *Alerta:*\nComponente *%s* da máquina (%s) - (%s) está em estado *%s* com %.2f%% em uso!\nData: %s\nHora: %s",
+                    ":warning: *Alerta:*\nComponente *%s* da máquina (%s) do hostname %s está em estado *%s* com %.2f%% em uso!\nData: %s\nHora: %s",
                     componente, modelo, hostname, status, uso, date, time
             );
             String payload = String.format("{\"text\": \"%s\"}", message);
