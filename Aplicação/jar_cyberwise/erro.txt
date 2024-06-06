@@ -178,3 +178,12 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 05/15/2024 21:15:51.946
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
