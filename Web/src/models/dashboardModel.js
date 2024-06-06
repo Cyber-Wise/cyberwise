@@ -271,7 +271,7 @@ function listaDeMaquinasComPoucaRam(empresa) {
   WHERE 
     al.componente = 'RAM'
     AND m.fk_empresa = ${empresa}
-    AND al.data_hora >= DATEADD(SECOND, -10, GETDATE());
+    AND al.data_hora >= DATEADD(SECOND, -15, GETDATE());
   `;
 
   console.log("Executando a instrução SQL: \n" + query);

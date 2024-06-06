@@ -171,9 +171,20 @@ function dadosAtual() {
                 // console.log('id maquina', idMaquinaSelecionada);
                 
                 console.log('Dados maquinas ==> ', json);
-                var dataCpuEmUso = Number(json[0].cpuEmUso.toFixed(2))
-                var dataRamEmUso = Number(json[0].ramEmUso.toFixed(2))
+                var dataCpuEmUso = Number(json[0].cpuEmUso.toFixed(1))
+                var dataRamEmUso = Number(json[0].ramEmUso.toFixed(1))
                 var dataDiscoEmUso = Number(json[0].tamanhoEmUsoDisco.toFixed(2))
+
+                var pacotesEnv = json[0].pacotesEnviados
+                var pacotesRec = json[0].pacotesRecebidos
+                var bytesEnv = json[0].gbEnviados
+                var bytesRec = json[0].gbRecebidos
+
+                bytesEnviado.innerHTML = bytesEnv
+                bytesEnviado.innerHTML = bytesRec
+                pacotesEnviados.innerHTML = pacotesEnv
+                pacotesRecebidos.innerHTML = pacotesRec
+
                 var date = json[0].data_hora
                 var dataList = [dataCpuEmUso, dataRamEmUso, dataDiscoEmUso, date];
                 // atualizarDados(dataList);
@@ -214,5 +225,6 @@ function dadosAtual() {
         }
     })
 }
+
 setInterval(dadosAtual, 5000);
 // document.write('<script src="./PlotarGraficos.js"></script>');
