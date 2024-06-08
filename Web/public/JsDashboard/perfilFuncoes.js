@@ -190,10 +190,10 @@ function funcionarios() {
             setTimeout(function () {
                 window.location = "./perfil.html";
             }, 1000);
-            resposta.json().then(json => {
+        //     resposta.json().then(json => {
   
-            }
-        );
+        //     }
+        // );
 
         } 
 
@@ -454,13 +454,13 @@ function funcionarios() {
                 iconColor : "green",
                 });
 
-            resposta.json().then(json => {
                 setTimeout(function () {
                     window.location = "./perfil.html";
                 }, 1000);
+            // resposta.json().then(json => {
                 
 
-                        });
+            //             });
                      } 
 
                 })
@@ -766,12 +766,12 @@ function funcionarios() {
 
                 console.log(resposta);
     
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
+            //     resposta.json().then(json => {
+            //         console.log(json);
+            //         console.log(JSON.stringify(json));
     
-                }
-            );
+            //     }
+            // );
     
             } 
     
