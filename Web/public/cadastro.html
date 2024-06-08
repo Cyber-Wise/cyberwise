@@ -89,7 +89,7 @@
     <input type="checkbox" class="checkbox" id="checkboxid" onclick="teste()"><p>Concordo com os <a href="termos.html" class="texto_termos">termos de serviço</a> e a <a href="politicas.html" class="texto_termos">política de privacidade</a>.</p>
   </div>
   <div class="container_botao_cadastrar">
-    <button class="botao_cadastro" onclick="gerarConta()">Cadastrar</button>
+    <button class="botao_cadastro" id="botaoCadastroID" onclick="gerarConta()">Cadastrar</button>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -122,8 +122,18 @@ document.getElementById('cnpj_input').addEventListener('input', function(e) {
 });
   var t = 1;
   function teste(){
+    
     console.log(checkboxid.value);
       t++;
+      
+        if(t % 2 == 0){
+          if (nome_input.value != "" && cnpj_input.value != "" && telefone_input.value != ""){
+        document.getElementById("botaoCadastroID").style.backgroundColor="#3d447a";
+      }
+        }else{
+          document.getElementById("botaoCadastroID").style.backgroundColor="#979797";
+        }
+      
   }
 
     function gerarSenha(nomeEmpresa) {
