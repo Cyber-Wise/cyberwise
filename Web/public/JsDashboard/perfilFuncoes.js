@@ -762,7 +762,7 @@ function funcionarios() {
         
             if (resposta.ok) {
 
-                deletarMaquina1();
+                deletarMaquina1(idMaquina);
 
                 console.log(resposta);
     
@@ -779,7 +779,7 @@ function funcionarios() {
 
 
 
-       function deletarMaquina1(){ 
+       function deletarMaquina1(idMaquina){ 
         fetch("/perfil/deletarMaquina", {
                 method: "POST",
                 headers: {
