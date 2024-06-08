@@ -86,12 +86,12 @@
     border: none;
     cursor: pointer;
     text-decoration: bold;
-    transition: 0.5s;
+    /* transition: 0.5s; */
 }
-
+/* 
 .botao_cadastro:hover{
     background-color: #3d447a;
-}
+} */
 
 h1 {
     font-family: "Chakra Petch";
@@ -109,42 +109,6 @@ h2 {
 
 .checkbox {
     margin: 0 10px 20px 0;
-}
-
-@media screen and (max-width: 600px) {
-    .container_cadastro {
-        background-color: rgba(0, 0, 0, 0.122);
-        backdrop-filter: blur(2px);
-        display: flex;
-        width: auto;
-        height: auto;
-        flex-direction: column;
-        text-align: center;
-        margin: auto;
-        margin-top: 50px;
-        position: absolute;
-        border: none;
-    }
-    
-    .container_inputs {
-        display: flex;
-        width: auto;
-        align-items: center;
-        flex-direction: column;
-        margin: auto;
-    }
-    
-    .container_coluna_esquerda_cadastro {
-        margin-right: 0px;
-    }
-    
-    .conteiner_termos_servico {
-        display: flex;
-        max-width: 600px;
-        flex-direction: row;
-        margin: 20px 10px;
-        align-items: start;
-    }
 }
 
 .credenciasisGeradas {
@@ -198,3 +162,93 @@ h2 {
     margin-top: 30px;
     text-align: center;
 }
+
+
+@media screen and (max-width: 600px) {
+    .container_cadastro {
+        background-color: rgba(0, 0, 0, 0.122);
+        backdrop-filter: blur(2px);
+        display: flex;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+        margin-top: 50px;
+        position: absolute;
+        border: none;
+    }
+    
+    .container_inputs {
+        display: flex;
+        width: auto;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+    }
+    
+    .container_coluna_esquerda_cadastro {
+        margin-right: 0px;
+    }
+    
+    .conteiner_termos_servico {
+        display: flex;
+        max-width: 600px;
+        flex-direction: row;
+        margin: 20px 10px;
+        align-items: start;
+    }
+
+    .credenciasisGeradas {
+        position: absolute;
+        display: none;
+        width: 300px;
+        top: 20%;
+        left: 6%;
+        z-index: 100;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        background-color: #2D325A;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+    .tituloCredencial {
+        color: #fff;
+        /* text-shadow: 
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black; */
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .espacoParaCredencial {
+        display: flex;
+        align-items: center;
+        background-color: #3d447a;
+        color: #fff;
+        padding: 10px;
+        width: calc(100% - 20px);
+        height: 30px;
+        
+    }
+    .labelsCredencial {
+        margin-top: 20px;
+        color: #fff;
+    }
+    .btnConfirmar {
+        text-decoration: none;
+        color: #fff;
+        background-color: #3d447a;
+        border-radius: 20px;
+        padding: 10px 50px;
+        font-weight: bold;
+    }
+    .divBtn {
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+
