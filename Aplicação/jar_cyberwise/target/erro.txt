@@ -1,0 +1,9 @@
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: DAVI
+Data: 08/57/2024 14:57:21.935
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}

@@ -28,6 +28,7 @@ public class AuthenticateMachine {
             Machine machine = response.get(0);
             if (machine.getHostname() == null) {
                 CaptureDataRegister.RegistrarDados(machine.getId());
+                return machine;
             } else if (machine.getNumeroSerieProcessador().equalsIgnoreCase(idProcessador)) {
                 return machine;
             }
