@@ -3,9 +3,6 @@ package MainApplication;
 import AuthenticateMachine.AuthenticateMachine;
 import AuthenticateMachine.Machine;
 import CaptureData.CaptureData;
-import Connection.ConnectionLocal;
-import Connection.ConnectionServer;
-import org.springframework.jdbc.core.JdbcTemplate;
 import AuthenticateClient.AuthenticateClient;
 import java.util.Scanner;
 
@@ -41,11 +38,9 @@ public class MainApp {
                 }
                 else if(retorno.equalsIgnoreCase("N")){
                     System.out.println("Até mais ;)");
+
                 }
             }
-//            else{
-//                System.out.println("Não foi possível encontrar sua máquina, verifique o código de acesso.");
-//            }
         }
 
     }
