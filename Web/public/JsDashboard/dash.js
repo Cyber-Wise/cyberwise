@@ -22,7 +22,7 @@ function maquinasEmpresaLista() {
                     var codigoAcesso = computador.codigoAcesso;
                     var idComputador = computador.maquina_id;
                     var status = computador.status_maquina
-
+                    console.log('Computadores da lista', computador);
                     
                     const li = document.createElement('li');
                     li.innerHTML =
@@ -181,7 +181,7 @@ function dadosAtual() {
                 var bytesRec = json[0].gbRecebidos
 
                 bytesEnviado.innerHTML = bytesEnv
-                bytesEnviado.innerHTML = bytesRec
+                bytesRecebidos.innerHTML = bytesRec
                 pacotesEnviados.innerHTML = pacotesEnv
                 pacotesRecebidos.innerHTML = pacotesRec
 

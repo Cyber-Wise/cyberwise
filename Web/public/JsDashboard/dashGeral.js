@@ -384,6 +384,7 @@ function listaDeAlertas(){
             if (resposta.ok) {
                 
                 resposta.json().then(json => {
+                    tabelaAlertas.innerHTML = ''
                     json.forEach(computador => {
                         var modelo = computador.modelo;
                     
@@ -392,8 +393,8 @@ function listaDeAlertas(){
                         var alertasRAM = computador.alertasRAM
                         var alertasRede = computador.alertasREDE
                         console.log('testeAAlerta', computador);
-                        const li = document.createElement('li');
-                        tabelaAlertas.innerHTML = ''
+                        var li = document.createElement('li');
+                        
                         li.innerHTML = 
                         `<p class="descricaoTabela">${modelo}</p>
                         <p class="descricaoTabela">${alertasCPU}</p>
