@@ -47,6 +47,10 @@ router.post("/atualizarMaquina", function (req, res) {
     perfilController.atualizarMaquina(req, res);
 });
 
+router.post("/deletarAlerta", function (req, res) {
+    perfilController.deletarAlerta(req, res);
+});
+
 router.post("/deletarMonitoramento", function (req, res) {
     perfilController.deletarMonitoramento(req, res);
 });

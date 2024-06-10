@@ -12,7 +12,7 @@ public class ConnectionLocal {
         dataSource1.setUrl("jdbc:mysql://localhost:3306/CyberwiseClient");
         dataSource1.setUsername("root");
 //        dataSource1.setPassword("cyber100");
-        dataSource1.setPassword("1513");
+        dataSource1.setPassword("fUtur@13");
 
 
 //        dataSource1.setUrl("jdbc:mysql://localhost:3306/cyberwise");

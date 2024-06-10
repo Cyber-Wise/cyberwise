@@ -108,6 +108,14 @@ console.log("Executando a instrução SQL: \n" + query);
 return database.executar(query);
 }
 
+function deletarAlerta(idMaquina) {
+  console.log("Acessei perfil Model")
+var query = `DELETE FROM alertas WHERE fk_maquina = ${idMaquina};`;
+
+console.log("Executando a instrução SQL: \n" + query);
+return database.executar(query);
+}
+
 function deletarMonitoramento(idMaquina) {
     console.log("Acessei perfil Model")
   var query = `DELETE FROM monitoramento WHERE fk_maquina = ${idMaquina};`;
@@ -211,6 +219,7 @@ module.exports = {
     dadosPerfil,
     atualizarPerfil,
     cadastrarParametro,
+    deletarAlerta,
     atualizarMaquina,
     listaParametros,
     inserirFoto,

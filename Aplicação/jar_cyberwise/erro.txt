@@ -187,3 +187,21 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: IGORANTHONY
+Data: 10/52/2024 17:52:24.802
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: IGORANTHONY
+Data: 10/54/2024 17:54:34.380
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
