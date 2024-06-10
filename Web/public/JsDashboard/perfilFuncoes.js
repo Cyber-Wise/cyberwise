@@ -823,7 +823,7 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-            
+                console.log('ae');
                 if (resposta.ok) {
                     const Toast = Swal.mixin({
                         toast: true,
