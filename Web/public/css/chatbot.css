@@ -123,6 +123,9 @@
 }
 
 .message-container {
+    color: #fff;
+    font-family: "Chakra Petch";
+
     margin: 10px 0;
 }
 #chat-container {
