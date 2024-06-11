@@ -1,13 +1,14 @@
-/* .btnChatbot {
+.btnChat {
     border: none;
     padding: 10px 12px;
-    background-color: #16204b;
+    background-color: #243683;
     position: fixed;
     right: 10px;
     border-radius: 100px;
     cursor: pointer;
-    top: 80%;
+    top: 72%;
 }
+/*
 .btnChatbot img {
     width: 40px;
 }
@@ -85,25 +86,35 @@
     margin: 0;
     font-family: Arial, sans-serif;
 } */
-
+#chat {
+    display: none;
+}
+.imgRobo {
+    width: 30px;
+}
 .chatbot {
-    position: absolute;
-    width: 400px;
-    height: 500px; 
-    border: 1px solid #ccc;
+    
+    position: fixed;
+    right: 10px;
+    width: 350px;
+    height: 400px; 
+    background-color: #16204b;
+    /* border: 1px solid #ccc; */
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 10px;
-    overflow-y: auto;
+    /* padding: 10px; */
+    /* overflow-y: auto; */
     word-wrap: break-word;
     word-break: break-word;
 }
 
-header {
-    background-color: #16204b;
+.headerChatBot {
+    background-color: #121835;
+    font-family: "Chakra Petch";
+
     color: white;
     padding: 10px;
     text-align: center;
@@ -112,10 +123,12 @@ header {
 .message-container {
     margin: 10px 0;
 }
-
+#chat-container {
+    height: 320px;
+}
 .input_usuario {
     display: flex;
-    border-top: 1px solid #ccc;
+    /* border-top: 1px solid #ccc; */
 }
 
 #input-usuario {
@@ -127,7 +140,7 @@ header {
 }
 
 #botao-enviar {
-    background-color: #0f3447;
+    background-color: #050629;
     color: white;
     border: none;
     padding: 10px 20px;

@@ -11,6 +11,7 @@
     let dataRam = []; 
     let labels2 = [];
 
+    let dataDisco = []; 
     
     
 
@@ -99,7 +100,7 @@
         labels: ['usado', 'Livre'],
         datasets: [{
             label:  ['Disco'],
-            data: [40, 60],
+            data: dataDisco,
             fill: false,
             borderColor: ['red', 'blue'],
             tension: 0.1,
@@ -127,7 +128,7 @@ function fetchData(dataList) {
     //  console.log('time string ==> ',timeString); // "19:07"
     //  console.log('data list fetch data ==> ',dataList);
 
-
+  dataDisco = []
   // Cpu
   dataCpu.push(Number(dataList[0]));
   labels1.push(timeString);
@@ -136,6 +137,11 @@ function fetchData(dataList) {
   dataRam.push(dataList[1]);
   labels2.push(timeString);
 
+ var discoUsado = dataList[2]
+ var discoDisponivel = discoUsado - 100
+
+ dataDisco.push(discoUsado)
+ dataDisco.push(discoDisponivel)
   
   if (labels2.length > 7) {
       labels2.shift();
@@ -147,6 +153,7 @@ function fetchData(dataList) {
   }
   myChart1.update();
   myChart2.update();
+  myChart3.update();
 }
 
     function qnt(qntM, poucoEsp, poucaRa, criticos, alertas){

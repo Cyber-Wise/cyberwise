@@ -33,8 +33,8 @@
             </div>
         </header>
 
-        <div class="chatbot">
-            <header>
+        <div id="chat" class="chatbot">
+            <header class="headerChatBot">
                 <h3>Chat CyberWise</h3>
             </header>
             <ul class="chatbox">
@@ -46,7 +46,7 @@
                 <button id="botao-enviar">Enviar</button>
             </div>
         </div>
-        
+        <button onclick="abrirChat()" class="btnChat"><img src="../assets/icons8-chatbot-30.png" alt=""></button>
         <p class="descricaoHrAtualizacao">Dados sendo atualizados de 5 em 5 segundos</p>
 
         <div class="notification">
@@ -149,6 +149,15 @@
 <script src="../JsDashboard/chatbot.js"></script>
 <!-- <script src="../JsDashboard/dash.js"></script> -->
 <script>
+    function abrirChat (){
+        if(chat.style.display == 'none'){
+    
+          chat.style.display = 'block'
+        }else {
+          chat.style.display = 'none'
+    
+        }
+    }
  //   window.onload = maquinasEmpresa()
    // window.onload = totalDeMaquinas()
    // window.onload = componentesEmEstadoCritico()
