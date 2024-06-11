@@ -187,3 +187,48 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: IGORANTHONY
+Data: 10/52/2024 17:52:24.802
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: IGORANTHONY
+Data: 10/54/2024 17:54:34.380
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 10/42/2024 20:42:18.691
+Mensagem: Erro no login
+logLevel: Error
+statusCode: 401
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 10/44/2024 20:44:59.592
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 10/50/2024 20:50:58.548
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}

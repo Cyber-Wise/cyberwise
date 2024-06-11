@@ -746,6 +746,38 @@ function funcionarios() {
      document.createElement("option");
 
 
+     function deletarMaquina3(idMaquina){
+
+        fetch("/perfil/deletarAlerta", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idMaquinaServer: idMaquina,
+            
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO PERFIL!")
+        
+            if (resposta.ok) {
+                
+                deletarMaquina(idMaquina);
+
+                console.log(resposta);
+    
+            //     resposta.json().then(json => {
+            //         console.log(json);
+            //         console.log(JSON.stringify(json));
+    
+            //     }
+            // );
+    
+            } 
+    
+        })
+    }
+
     function deletarMaquina(idMaquina){
 
         fetch("/perfil/deletarMonitoramento", {
@@ -761,7 +793,7 @@ function funcionarios() {
             console.log("ESTOU NO THEN DO PERFIL!")
         
             if (resposta.ok) {
-
+                console.log('Teste id maquina', idMaquina);
                 deletarMaquina1(idMaquina);
 
                 console.log(resposta);
@@ -791,7 +823,7 @@ function funcionarios() {
                 })
             }).then(function (resposta) {
                 console.log("ESTOU NO THEN DO PERFIL!")
-            
+                console.log('ae');
                 if (resposta.ok) {
                     const Toast = Swal.mixin({
                         toast: true,

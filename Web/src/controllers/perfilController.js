@@ -145,6 +145,17 @@ function dadosFuncionarios1(req, res) {
     });
   }
   
+  function deletarAlerta(req, res) {
+    var Maquina = req.body.idMaquinaServer;
+    
+    perfilModel.deletarAlerta(Maquina).then(function (resultado){
+      //   console.log(`\nResultados encontrados: ${resultado}`);
+      console.log(`Resultados: ${JSON.stringify(resultado)}`)
+      res.status(200).json(resultado);
+      
+    });
+  }
+
   function deletarMonitoramento(req, res) {
     var Maquina = req.body.idMaquinaServer;
     
@@ -276,6 +287,7 @@ module.exports = {
     atualizarFuncionario,
     atualizarFuncionario1,
     dadosMaquinas,
+    deletarAlerta,
     atualizarFoto,
     buscarParametros,
     cadastrarFuncionario,
