@@ -24,7 +24,7 @@ app.use(cors());
 app.post('/api/chat', async (req, res) => {
     try {
         const userMessage = req.body.mensagem;
-        const response = await axios.post('http://127.0.0.1:5000/train', { mensagem: userMessage });
+        const response = await axios.post('http://127.0.0.1:5000/', { mensagem: userMessage });
         res.json(response.data);
     } catch (error) {
         console.error(error);

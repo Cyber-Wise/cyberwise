@@ -6,8 +6,8 @@ def conexao_banco_de_dados():
     try:
         conexao = mysql.connector.connect(
             host="localhost",
-            user="root",
-            passwd="1513",
+            user="cyberwise",
+            passwd="cyber100",
             database="chatterbot_database"
         )
         return conexao
