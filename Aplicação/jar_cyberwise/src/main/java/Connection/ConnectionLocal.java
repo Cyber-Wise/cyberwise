@@ -10,8 +10,8 @@ public class ConnectionLocal {
         BasicDataSource dataSource1 = new BasicDataSource();
         dataSource1.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource1.setUrl("jdbc:mysql://localhost:3306/CyberwiseClient");
-        dataSource1.setUsername("cyberwise");
-        dataSource1.setPassword("cyber100");
+        dataSource1.setUsername("root");
+        dataSource1.setPassword("NAKAMA123r!");
 
         conexaoDoBanco1 = new JdbcTemplate(dataSource1);
     }

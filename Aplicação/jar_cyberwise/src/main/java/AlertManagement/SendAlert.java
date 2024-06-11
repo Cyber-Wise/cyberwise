@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class SendAlert {
-    private static final String WEBHOOK_URL = "https://hooks.slack.com/services/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";
+    private static final String WEBHOOK_URL = "https://hooks.slack.com/services/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";
 
 
     public static void sendSlackAlert(String componente, String modelo, String hostname, String status, Double uso) {
