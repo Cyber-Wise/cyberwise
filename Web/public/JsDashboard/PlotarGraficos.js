@@ -99,8 +99,8 @@
     data: {
         labels: ['usado', 'Livre'],
         datasets: [{
-            label:  dataDisco,
-            data: [0.03, 99.97],
+            
+            data: dataDisco,
             fill: false,
             borderColor: ['red', 'blue'],
             tension: 0.1,
