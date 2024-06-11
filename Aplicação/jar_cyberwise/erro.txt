@@ -232,3 +232,39 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 10/21/2024 21:21:52.839
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 10/23/2024 21:23:01.035
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 11/36/2024 10:36:58.088
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: AMANDITA
+Data: 11/50/2024 10:50:38.072
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
