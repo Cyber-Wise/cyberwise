@@ -273,6 +273,17 @@ Sistema Operacional: Windows
 Arquitetura: 64
 hostname: AMANDITA
 Data: 11/33/2024 11:33:42.504
+hostname: ROBSON
+Data: 11/06/2024 10:59:27.482
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: ROBSON
+Data: 11/06/2024 11:00:32.714
 Mensagem: Erro no login
 logLevel: Error
 statusCode: 401
@@ -282,6 +293,8 @@ Sistema Operacional: Windows
 Arquitetura: 64
 hostname: AMANDITA
 Data: 11/34/2024 11:34:30.133
+hostname: ROBSON
+Data: 11/06/2024 11:04:12.324
 Mensagem: Erro no login
 logLevel: Error
 statusCode: 401
@@ -318,6 +331,8 @@ Sistema Operacional: Windows
 Arquitetura: 64
 hostname: AMANDITA
 Data: 11/42/2024 11:42:11.397
+hostname: ROBSON
+Data: 11/06/2024 11:04:25.272
 Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
