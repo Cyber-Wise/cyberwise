@@ -8,6 +8,8 @@
     cursor: pointer;
     top: 72%;
 }
+
+
 /*
 .btnChatbot img {
     width: 40px;
@@ -121,9 +123,14 @@
 }
 
 .message-container {
+    color: #fff;
+    font-family: "Chakra Petch";
+
     margin: 10px 0;
 }
 #chat-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
     height: 320px;
 }
 .input_usuario {
