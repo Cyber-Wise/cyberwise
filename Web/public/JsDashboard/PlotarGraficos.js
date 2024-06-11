@@ -139,9 +139,9 @@ function fetchData(dataList) {
   labels2.push(timeString);
 
  var discoUsado = dataList[2]
- var discoDisponivel = discoUsado - 100
+ var discoDisponivel = 100 - discoUsado
 
- dataDisco.push(discoUsado)
+ dataDisco.push(discoUsado) 
  dataDisco.push(discoDisponivel)
   
  console.log('data disco', dataDisco);
