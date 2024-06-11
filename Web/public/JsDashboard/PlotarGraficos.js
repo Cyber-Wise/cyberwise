@@ -121,6 +121,7 @@
 }
 
 function fetchData(dataList) {
+  console.log('datalist', dataList);
   const dateTimeString = dataList[3];
   const timeString = dateTimeString.substring(11, 19);
   ultimaAtualização.innerHTML = timeString;
