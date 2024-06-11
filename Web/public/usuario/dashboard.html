@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dash.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}"> -->
+    <link rel="stylesheet" href="../css/chatbot.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- {% include "chatbot/index.html" %} -->
     <title>CyberWise | Dashboard</title>
 </head>
 <body>
@@ -20,6 +23,22 @@
           <a href="./dashGeral.html" class="botaoVoltarPerfil"><i class='bx bx-trending-up'></i></a>
       </div>
     </header>
+
+    
+    <div class="chatbot">
+      <header>
+          <h3>Chat CyberWise</h3>
+      </header>
+      <ul class="chatbox">
+          
+          <li id="chat-container"></li>
+      </ul>
+      <div class="input_usuario">
+          <input type="text" id="input-usuario" placeholder="Digite aqui...">
+          <button id="botao-enviar">Enviar</button>
+      </div>
+  </div>
+
         <div class="caixaInformacoesComputador">
             <h2 class="titulosCaixas">informações do computador</h2> <br>
             <h2 class="titulosCaixas">Modelo: <span id="modeloPc"> default</span></h2>
@@ -108,10 +127,11 @@
     </div>
 </body>
 </html>
-
-<script src="../JsDashboard/PlotarGraficos.js"></script>
+<!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
+<script src="../JsDashboard/chatbot.js"></script>
+<!-- <script src="../JsDashboard/PlotarGraficos.js"></script>
 <script src="../JsDashboard/dash.js"></script>
-<script src="../JsDashboard/dashGeral.js"></script>
+<script src="../JsDashboard/dashGeral.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- <script src="../../node_modules/chart.js/auto"></script> -->
 
@@ -126,10 +146,10 @@
 
    
 } 
-  window.onload = maquinasEmpresaLista()
-  window.onload = graficos();
-  window.onload = informacoesAnalytics()
-  window.onload = dadosAtual()
+ // window.onload = maquinasEmpresaLista();
+ // window.onload = graficos();
+ /// window.onload = informacoesAnalytics();
+  //window.onload = dadosAtual();
 
 
   //window.onload = acharId();

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashGeral.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/chatbot.css">
     <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
     <title>CyberWise | Dashboard Geral</title>
 </head>
@@ -31,6 +32,21 @@
                 <a href="./perfil.html" class="botaoVoltarPerfil"><i class='bx bxs-user'></i></a>
             </div>
         </header>
+
+        <div class="chatbot">
+            <header>
+                <h3>Chat CyberWise</h3>
+            </header>
+            <ul class="chatbox">
+                
+                <li id="chat-container"></li>
+            </ul>
+            <div class="input_usuario">
+                <input type="text" id="input-usuario" placeholder="Digite aqui...">
+                <button id="botao-enviar">Enviar</button>
+            </div>
+        </div>
+        
         <p class="descricaoHrAtualizacao">Dados sendo atualizados de 5 em 5 segundos</p>
 
         <div class="notification">
@@ -130,25 +146,26 @@
 </body>
 </html>
 <script src="../JsDashboard/dashGeral.js"></script>
+<script src="../JsDashboard/chatbot.js"></script>
 <!-- <script src="../JsDashboard/dash.js"></script> -->
 <script>
-    window.onload = maquinasEmpresa()
-    window.onload = totalDeMaquinas()
-    window.onload = componentesEmEstadoCritico()
-    window.onload = maquinasComPoucaRam()
-    window.onload = listaDeAlertas()
-    window.onload = maquinasComPoucoEspaco()
-    window.onload = notificacao()
-    window.onload = componentesEmEstadoAlerta()
-    window.onload = maquinasComProblemasDeRede()
+ //   window.onload = maquinasEmpresa()
+   // window.onload = totalDeMaquinas()
+   // window.onload = componentesEmEstadoCritico()
+   // window.onload = maquinasComPoucaRam()
+    //window.onload = listaDeAlertas()
+    //window.onload = maquinasComPoucoEspaco()
+   // window.onload = notificacao()
+   // window.onload = componentesEmEstadoAlerta()
+    //window.onload = maquinasComProblemasDeRede()
 
-    setInterval(componentesEmEstadoAlerta, 5000);
-    setInterval(componentesEmEstadoCritico, 5000);
-    setInterval(maquinasComPoucaRam, 5000);
-    setInterval(listaDeAlertas, 5000);
-    setInterval(maquinasComPoucoEspaco, 5000);
-    setInterval(notificacao, 5000);
-    setInterval(maquinasComProblemasDeRede, 5000);
+    //setInterval(componentesEmEstadoAlerta, 5000);
+    ///setInterval(componentesEmEstadoCritico, 5000);
+    //setInterval(maquinasComPoucaRam, 5000);
+    //setInterval(listaDeAlertas, 5000);
+    //setInterval(maquinasComPoucoEspaco, 5000);
+    //setInterval(notificacao, 5000);
+    //setInterval(maquinasComProblemasDeRede, 5000);
 
 
 
