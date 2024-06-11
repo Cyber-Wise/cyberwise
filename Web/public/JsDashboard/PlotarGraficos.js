@@ -144,6 +144,7 @@ function fetchData(dataList) {
  dataDisco.push(discoUsado)
  dataDisco.push(discoDisponivel)
   
+ console.log('data disco', dataDisco);
   if (labels2.length > 7) {
       labels2.shift();
       dataRam.shift();
