@@ -36,7 +36,7 @@ public class AuthenticateClient {
             log.setSistemaOperacional(looca.getSistema().getSistemaOperacional());
             log.setArquitetura(looca.getSistema().getArquitetura());
             log.setHostname(looca.getRede().getParametros().getHostName());
-            data = new SimpleDateFormat("dd/mm/yyyy HH:mm:ss.SSS").format(new Date());
+            data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS").format(new Date());
             log.setData(data);
             log.setMensagem("Erro no login");
             log.setLogLevel("Error");
@@ -59,7 +59,7 @@ public class AuthenticateClient {
             log.setSistemaOperacional(looca.getSistema().getSistemaOperacional());
             log.setArquitetura(looca.getSistema().getArquitetura());
             log.setHostname(looca.getRede().getParametros().getHostName());
-            data = new SimpleDateFormat("dd/mm/yyyy HH:mm:ss.SSS").format(new Date());
+            data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS").format(new Date());
             log.setData(data);
             log.setMensagem("Login realizado com sucesso");
             log.setLogLevel("Info");

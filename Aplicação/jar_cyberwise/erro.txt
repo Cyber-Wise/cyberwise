@@ -268,3 +268,39 @@ Mensagem: Login realizado com sucesso
 logLevel: Info
 statusCode: 200
 }
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: ROBSON
+Data: 11/06/2024 10:59:27.482
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: ROBSON
+Data: 11/06/2024 11:00:32.714
+Mensagem: Erro no login
+logLevel: Error
+statusCode: 401
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: ROBSON
+Data: 11/06/2024 11:04:12.324
+Mensagem: Erro no login
+logLevel: Error
+statusCode: 401
+}
+{
+Sistema Operacional: Windows
+Arquitetura: 64
+hostname: ROBSON
+Data: 11/06/2024 11:04:25.272
+Mensagem: Login realizado com sucesso
+logLevel: Info
+statusCode: 200
+}
