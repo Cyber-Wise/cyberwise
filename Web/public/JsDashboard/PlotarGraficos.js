@@ -153,10 +153,10 @@ function fetchData(dataList) {
       labels1.shift();
       dataCpu.shift();
   }
-  if (dataDisco.length > 1 ) {
-    dataDisco.shift();
-    dataDisco.shift();
-}
+//   if (dataDisco.length > 1 ) {
+//     dataDisco.shift();
+//     dataDisco.shift();
+// }
   myChart1.update();
   myChart2.update();
   myChart3.update();
