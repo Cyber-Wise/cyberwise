@@ -95,6 +95,7 @@ fk_maquina INT,
 FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
 );
 
+	select * from fotoPerfil;
     select * from empresa;	
     select * from funcionario;
     select * from maquina;
@@ -102,4 +103,16 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id)
     select * from parametros;
 	select * from monitoramento;
     select * from alertas;
+    
+    SELECT * FROM monitoramento
+WHERE fk_maquina = 1
+ORDER BY data_hora DESC 
+LIMIT 1;
+
+SELECT monitoramento.*, maquina.hostname
+FROM monitoramento
+JOIN maquina ON monitoramento.fk_maquina = maquina.id
+WHERE monitoramento.fk_maquina = 1
+ORDER BY monitoramento.data_hora DESC
+LIMIT 1;
     -- drop database cyberwise;

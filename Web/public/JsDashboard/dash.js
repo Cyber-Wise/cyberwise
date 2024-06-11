@@ -72,10 +72,10 @@ function filtrar(inputb, ul1, tagName) {
     filter = input.value.toUpperCase();
 
     li = ul.getElementsByTagName("li");
-    //console.log(li);
+
 
     for (i = 0; i < li.length; i++) {
-        //    a = li[i].getElementsByTagName("a")[0];
+
         a = li[i].getElementsByClassName(tagName)[0]
 
         txtvalue = a.textContent || a.innerText;
@@ -84,13 +84,6 @@ function filtrar(inputb, ul1, tagName) {
             li[i].style.display = "";
 
             count++;
-
-            // span = li[i].querySelector("tituloComputadores");
-            // if(span){
-            //     span.innerHTML = txtvalue.replace(new RegExp(filter, "gi"), (match)=>{
-            //         return "<strong>" + match + "</strong>"
-            //     })
-            // }
         } else {
             li[i].style.display = "none";
         }
@@ -226,5 +219,5 @@ function dadosAtual() {
     })
 }
 
-setInterval(dadosAtual, 5000);
+// setInterval(dadosAtual, 5000);
 // document.write('<script src="./PlotarGraficos.js"></script>');
