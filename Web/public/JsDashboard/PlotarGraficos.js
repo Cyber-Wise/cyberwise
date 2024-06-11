@@ -94,7 +94,7 @@
       );
   
 
-    new Chart(ctx3,{
+   myChart3 = new Chart(ctx3,{
     type: 'pie',
     data: {
         labels: ['usado', 'Livre'],
