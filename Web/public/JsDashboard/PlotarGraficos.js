@@ -153,7 +153,8 @@ function fetchData(dataList) {
       labels1.shift();
       dataCpu.shift();
   }
-  if (dataDisco.length == 2 ) {
+  if (dataDisco.length == 3 ) {
+    console.log("deploy");
     dataDisco.shift();
     dataDisco.shift();
 }
