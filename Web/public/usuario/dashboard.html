@@ -79,15 +79,11 @@
                             <canvas id="myChart3" style="width: 180px; height: 180px; display: block; box-sizing: border-box;"></canvas>
                         
                     </div>
-                    <div id="informationBox" class="boxInformationAlerts">
-                      <div class="information"><span style="border-radius: 100%;" class="emergencia"></span><p class="nomeInfo">Emergência</p></div>
-                      <div class="information"><span class="alerta"></span><p class="nomeInfo">Alerta</p></div>
-                      <div class="information"><span class="normal"></span><p class="nomeInfo">Normal</p></div>
-                    </div>
+                    
                     <div class="caixaRolagem">
                         <div class="headerInfo">
                           <h2 class="tituloNormal">capturas de dados de rede</h2>
-                          <button onclick="abrirFiltro()"><i class='bx bxs-info-circle'></i></button>
+                          
                         </div>
                         <div class="globalRede">
                         <p class="hostname">Hostname: <span id="hostname"></span></p>
@@ -97,8 +93,8 @@
                         <p class="descricaoRede"></span>Pacotes enviados: <span>55</span><i class='bx bx-package'></i></p>
                         <p class="descricaoRede">Pacotes recebidos: <span>44</span><i class='bx bx-package'></i></p>
                        -->
-                       <p class="descricaoRede"> Bytes enviados: <span id="bytesEnviado"></span><i class='bx bx-chip'></i></p>
-                        <p class="descricaoRede">Bytes recebidos: <span id="bytesRecebidos"></span> <i class='bx bx-chip'></i></p>
+                       <p class="descricaoRede"> Gb enviados: <span id="bytesEnviado"></span><i class='bx bx-chip'></i></p>
+                        <p class="descricaoRede">Gb recebidos: <span id="bytesRecebidos"></span> <i class='bx bx-chip'></i></p>
                         <p class="descricaoRede">Pacotes enviados: <span id="pacotesEnviados"></span><i class='bx bx-package'></i></p>
                         <p class="descricaoRede">Pacotes recebidos: <span id="pacotesRecebidos"></span><i class='bx bx-package'></i></p>
                         </div>
@@ -166,15 +162,8 @@
    
       modeloPc.innerHTML = modelo;
 
- function abrirFiltro(){
-  var informationBox = document.getElementById("informationBox");
-  
-  if (informationBox.style.display === "none" || informationBox.style.display === "") {
-      informationBox.style.display = 'block';
-  } else {
-      informationBox.style.display = 'none';
-  }
- }
+ 
+ 
 
 
   
