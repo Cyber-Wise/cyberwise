@@ -99,7 +99,7 @@
     data: {
         labels: ['usado', 'Livre'],
         datasets: [{
-            label:  ['Disco'],
+            label:  dataDisco,
             data: [0.03, 99.97],
             fill: false,
             borderColor: ['red', 'blue'],
@@ -129,7 +129,7 @@ function fetchData(dataList) {
     //  console.log('time string ==> ',timeString); // "19:07"
     //  console.log('data list fetch data ==> ',dataList);
 
-  dataDisco = []
+  
   // Cpu
   dataCpu.push(Number(dataList[0]));
   labels1.push(timeString);
