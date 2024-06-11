@@ -167,7 +167,7 @@ function dadosAtual() {
                 var dataCpuEmUso = Number(json[0].cpuEmUso.toFixed(1))
                 var dataRamEmUso = Number(json[0].ramEmUso.toFixed(1))
                 var dataDiscoEmUso = Number(json[0].tamanhoEmUsoDisco.toFixed(1))
-
+                console.log('disco', dataDiscoEmUso);
                 var pacotesEnv = json[0].pacotesEnviados
                 var pacotesRec = json[0].pacotesRecebidos
                 var bytesEnv = json[0].gbEnviados
