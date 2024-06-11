@@ -50,7 +50,7 @@ public class CaptureData {
 //        rede
         List<RedeInterface> redeInterfaces = rede.getGrupoDeInterfaces().getInterfaces();
         for (RedeInterface redeAtual : redeInterfaces){
-            if(redeAtual.getNome().equals("wlan1")){
+            if(redeAtual.getNome().equals("enX0")){
                 redeAtual.getNome();
                 monitoramento.setGbEnviados(ConverterByte.bytesToGB(redeAtual.getBytesEnviados()));
                 monitoramento.setGbRecebidos(ConverterByte.bytesToGB(redeAtual.getBytesRecebidos()));
