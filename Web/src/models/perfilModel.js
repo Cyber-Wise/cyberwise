@@ -141,24 +141,27 @@ function cadastrarParametro(nome, cpuCritico, cpuAlerta, ramCritico, ramAlerta, 
 }
 
 function inserirFoto(idUsuario, fotobase64, metadata) {
-
-var query = `INSERT INTO fotoPerfil (id_usuario, fotoBase64, metadata) VALUES (${idUsuario}, '${fotobase64}', '${metadata}')`
-console.log("Executando a instrução SQL: \n" + query);
-return database.executar(query);
-}
-
-function atualizarFoto(idUsuario, fotobase64, metadata) {
-  var query = `UPDATE fotoPerfil SET fotoBase64 = '${fotobase64}', metadata = '${metadata}' WHERE id_usuario = ${idUsuario}; `
+  var query = `INSERT INTO fotoPerfil (id_usuario, fotoBase64, metadata) VALUES (${idUsuario}, CONVERT(varbinary(max), '${fotobase64}'), '${metadata}')`;
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
-  }
+}
+
+
+
+function atualizarFoto(idUsuario, fotobase64, metadata) {
+  var query = `UPDATE fotoPerfil SET fotoBase64 = CONVERT(varbinary(max), '${fotobase64}'), metadata = '${metadata}' WHERE id_usuario = ${idUsuario};`;
+  console.log("Executando a instrução SQL: \n" + query);
+  return database.executar(query);
+}
+
 
 function pegarFoto(idUsuario) {
-  console.log("entrei no inserir foto");
-var query = `SELECT fotoBase64 As fotoConvertidaBase64, metadata FROM fotoPerfil WHERE id_usuario = ${idUsuario}`
-console.log("Executando a instrução SQL: \n" + query);
-return database.executar(query);
+      console.log("entrei no inserir foto");
+    var query = `SELECT fotoBase64 As fotoConvertidaBase64, metadata FROM fotoPerfil WHERE id_usuario = ${idUsuario}`
+    console.log("Executando a instrução SQL: \n" + query);
+    return database.executar(query);
 }
+
 function listaParametros(empresa) {
   console.log("Acessei perfil Model")
 var query = `SELECT * FROM parametros WHERE fk_empresa = ${empresa};`;
