@@ -189,7 +189,7 @@
                 var chatbotResponse = json.response;
     
                 setTimeout(function(){
-                    displayMessage(chatbotResponse, 'Cyber');
+                    displayMessage(chatbotResponse, 'CyberBot');
                 }, 1000);
             })
             .catch(function(error) {
@@ -203,12 +203,12 @@
     
             var messageElement = document.createElement('div');
             if(sender == 'CyberBot'){
-                messageElement.innerHTML = '<img class="roboCyber" src="../assets/roboLogo.png" alt="">' + '<p style="background-color: #121835; padding: 10px; border-radius: 20px;">' + message + '</p>';
-                messageElement.style.display = 'block'
+                messageElement.innerHTML = '<img class="roboCyber" src="../assets/roboLogo.png" alt="">' + '<p style="background-color: #263375; padding: 10px; border-radius: 20px;">' + message + '</p>';
+                messageElement.style.display = 'flex'
                 messageContainer.style.display = 'block'
                 messageContainer.style.backgroundColor = ''
             }else {
-                messageElement.innerHTML = '<p style="background-color: #263375; padding: 10px; border-radius: 20px;">' + message + '</p>';
+                messageElement.innerHTML = '<p style="background-color: #121835; padding: 10px; border-radius: 20px;">' + message + '</p>';
             }
             messageContainer.appendChild(messageElement);
     

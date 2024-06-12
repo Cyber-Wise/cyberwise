@@ -219,5 +219,5 @@ function dadosAtual() {
     })
 }
 
-setInterval(dadosAtual, 5000);
+ setInterval(dadosAtual, 5000);
 // document.write('<script src="./PlotarGraficos.js"></script>');
