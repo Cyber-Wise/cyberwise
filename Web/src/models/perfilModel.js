@@ -1,5 +1,4 @@
 var database = require("../database/config")
-const sql = require('mssql');
 
 
 function dadosPerfil(idUser) {
