@@ -7,7 +7,7 @@ def conexao_banco_de_dados():
         conexao = mysql.connector.connect(
             host="localhost",
             user="root",
-            passwd="1513",
+            passwd="melancia",
             database="chatterbot_database"
         )
         return conexao
@@ -40,7 +40,7 @@ def salvar_base_de_conhecimento_no_banco(conexao, dado):
         print(f"Erro ao salvar base de conhecimento no banco de dados: {err}")
 
 def find_best_match(user_question: str, questions: list[str]) -> str | None:
-    matches: list = get_close_matches(user_question, questions, n=1, cutoff=0.6)
+    matches: list = get_close_matches(user_question, questions, n=1, cutoff=0.7)
     return matches[0] if matches else None
 
 def get_answer_for_question(question: str, knowledge_base: dict) -> str | None:

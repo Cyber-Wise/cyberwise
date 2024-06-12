@@ -2,23 +2,30 @@ body.show-chatbot {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    z-index: -100;
 }
 
 .chatbot {
     width: 400px;
     height: 500px; 
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: #16204ba2;
+
+    margin-top: 70px;
 }
 
 header {
-    background-color: #16204b;
+    background-color: #151f54;
     color: white;
     padding: 10px;
     text-align: center;
@@ -26,6 +33,7 @@ header {
 
 .chatbox {
     flex: 1;
+    
     padding: 10px;
     overflow-y: auto;
     word-wrap: break-word;
@@ -35,10 +43,12 @@ header {
 .message-container {
     margin: 10px 0;
 }
-
+#chat-container {
+    color: #fff;
+}
 .input_usuario {
     display: flex;
-    border-top: 1px solid #ccc;
+    /* border-top: 1px solid #ccc; */
 }
 
 #input-usuario {
@@ -50,8 +60,9 @@ header {
 }
 
 #botao-enviar {
-    background-color: #0f3447;
+    background-color: #051822;
     color: white;
+    outline: none;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
