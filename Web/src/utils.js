@@ -5,8 +5,8 @@ async function conexaoBancoDeDados() {
     return new Promise((resolve, reject) => {
         const connection = mysql.createConnection({
             host: "localhost",
-            user: "root",
-            password: "1513",
+            user: "cyberwise",
+            password: "cyber100",
             database: "chatterbot_database"
         });
 

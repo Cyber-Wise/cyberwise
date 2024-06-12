@@ -23,8 +23,8 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     database: "cyberwise",
-    user: "root",
-    password: "1513",
+    user: "cyberwise",
+    password: "cyber100",
     // password: "fUtur@13",
     timezone: 'Z'
     // password: "0511",
