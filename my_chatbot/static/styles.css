@@ -8,7 +8,14 @@ body.show-chatbot {
     font-family: Arial, sans-serif;
     z-index: -100;
 }
-
+.linkSite {
+    z-index: 100000;
+    color: #7a90ff;
+}
+.imgLogo {
+    z-index: -10000;
+    width: 50px;
+}
 .chatbot {
     width: 400px;
     height: 500px; 
