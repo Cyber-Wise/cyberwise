@@ -1,3 +1,4 @@
 npm install mysql2
 npm install string-similarity
 npm install express body-parser mysql cors
+npm install mssql string-similarity
