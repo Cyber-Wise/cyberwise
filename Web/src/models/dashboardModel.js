@@ -17,9 +17,9 @@ function maquinasEmpresa(empresa) {
     FROM 
         maquina AS m
     JOIN 
-        parametros p ON m.fk_parametros = p.id
+        parametros AS p ON m.fk_parametros = p.id
     JOIN 
-        monitoramento mon ON m.id = mon.fk_maquina
+        monitoramento AS mon ON m.id = mon.fk_maquina
     JOIN 
         (
             SELECT 
@@ -29,7 +29,7 @@ function maquinasEmpresa(empresa) {
                 monitoramento
             GROUP BY 
                 fk_maquina
-        ) ult_mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
+        ) AS ult_mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
     WHERE 
         m.fk_empresa = ${empresa};
   `;
@@ -51,14 +51,14 @@ function maquinasComProblemas(empresa) {
     maquina.fk_parametros, 
     maquina.fk_empresa AS idEmpresa 
   FROM 
-    alertas 
+    alertas AS alertas
   JOIN 
-    maquina 
+    maquina AS maquina
   ON 
     alertas.fk_maquina = maquina.id 
   WHERE 
     maquina.fk_empresa = ${empresa} 
-    AND alertas.data_hora >= DATEADD(MINUTE, -0.05, GETDATE());`;
+    AND alertas.data_hora >= DATEADD(MINUTE, -5, GETDATE());`;
 
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
@@ -77,9 +77,9 @@ function notificacao(empresa) {
     maquina.fk_parametros, 
     maquina.fk_empresa AS idEmpresa 
   FROM 
-    alertas 
+    alertas AS alertas
   JOIN 
-    maquina 
+    maquina AS maquina
   ON 
     alertas.fk_maquina = maquina.id 
   WHERE 
@@ -94,7 +94,7 @@ function notificacao(empresa) {
 
 function totalDeMaquinas(empresa) {
   console.log("Acessei dashboardModel")
-  var query = `select COUNT(*) as contador from maquina where fk_empresa = ${empresa};`;
+  var query = `SELECT COUNT(*) AS contador FROM maquina WHERE fk_empresa = ${empresa};`;
 
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
@@ -107,7 +107,7 @@ function componentesEmEstadoCritico(empresa) {
   FROM 
     maquina AS m
   JOIN 
-    alertas al ON m.id = al.fk_maquina
+    alertas AS al ON m.id = al.fk_maquina
   WHERE 
     al.data_hora >= DATEADD(SECOND, -5, GETDATE())
     AND al.criticidade = 'Critico'
@@ -124,11 +124,13 @@ function componentesEmEstadoAlerta(empresa) {
   FROM 
     maquina AS m
   JOIN 
-    alertas al ON m.id = al.fk_maquina
+    alertas AS al ON m.id = al.fk_maquina
   WHERE 
     al.data_hora >= DATEADD(SECOND, -5, GETDATE())
     AND al.criticidade = 'Alerta'
     AND m.fk_empresa = ${empresa};`;
+
+  console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
 }
 
@@ -139,7 +141,7 @@ function maquinasComProblemasDeRede(empresa) {
   FROM 
     maquina AS m
   JOIN 
-    alertas al ON m.id = al.fk_maquina
+    alertas AS al ON m.id = al.fk_maquina
   WHERE 
     al.componente = 'Rede'
     AND m.fk_empresa = ${empresa}
@@ -160,20 +162,20 @@ function maquinasComPoucoEspaco(empresa) {
              mon1.fk_maquina, 
              MAX(mon1.data_hora) AS ultima_data_hora 
          FROM 
-             monitoramento mon1 
+             monitoramento AS mon1 
          GROUP BY 
              mon1.fk_maquina
-        ) ult_mon ON m.id = ult_mon.fk_maquina
+        ) AS ult_mon ON m.id = ult_mon.fk_maquina
     JOIN 
-        monitoramento mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
+        monitoramento AS mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
     JOIN 
-        alertas al ON m.id = al.fk_maquina AND al.componente = 'Disco'
+        alertas AS al ON m.id = al.fk_maquina AND al.componente = 'Disco'
     WHERE 
         al.data_hora = (SELECT MAX(al2.data_hora) 
-                        FROM alertas al2 
+                        FROM alertas AS al2 
                         WHERE al2.fk_maquina = m.id 
                           AND al2.componente = 'Disco')
-        AND mon.data_hora >= DATEADD(MINUTE, -0.5, GETDATE())
+        AND mon.data_hora >= DATEADD(MINUTE, -30, GETDATE())
         AND m.fk_empresa = ${empresa};
   `;
 
@@ -191,22 +193,21 @@ function maquinasComPoucaRam(empresa) {
            mon1.fk_maquina, 
            MAX(mon1.data_hora) AS ultima_data_hora 
        FROM 
-           monitoramento mon1 
+           monitoramento AS mon1 
        GROUP BY 
            mon1.fk_maquina
-      ) ult_mon ON m.id = ult_mon.fk_maquina
+      ) AS ult_mon ON m.id = ult_mon.fk_maquina
   JOIN 
-      monitoramento mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
+      monitoramento AS mon ON mon.fk_maquina = ult_mon.fk_maquina AND mon.data_hora = ult_mon.ultima_data_hora
   JOIN 
-      alertas al ON m.id = al.fk_maquina AND al.componente = 'Ram'
+      alertas AS al ON m.id = al.fk_maquina AND al.componente = 'Ram'
   WHERE 
       al.data_hora = (SELECT MAX(al2.data_hora) 
-                      FROM alertas al2 
+                      FROM alertas AS al2 
                       WHERE al2.fk_maquina = m.id 
                         AND al2.componente = 'Ram')
-
       AND m.fk_empresa = ${empresa}
-      AND m.fk_empresa = ${empresa} AND al.data_hora >= DATEADD(SECOND, -5, GETDATE());
+      AND al.data_hora >= DATEADD(SECOND, -5, GETDATE());
   `;
 
   console.log("Executando a instrução SQL: \n" + query);
@@ -231,11 +232,11 @@ function listaDeMaquinasComPoucoEspaco(empresa) {
   FROM 
     maquina AS m
   JOIN 
-    alertas al ON m.id = al.fk_maquina
+    alertas AS al ON m.id = al.fk_maquina
   JOIN
-    monitoramento mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
+    monitoramento AS mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
   JOIN
-    parametros p ON m.fk_parametros = p.id
+    parametros AS p ON m.fk_parametros = p.id
   WHERE 
     al.componente = 'Disco'
     AND m.fk_empresa = ${empresa} AND al.data_hora >= DATEADD(SECOND, -10, GETDATE());
@@ -263,11 +264,11 @@ function listaDeMaquinasComPoucaRam(empresa) {
   FROM 
     maquina AS m
   JOIN 
-    alertas al ON m.id = al.fk_maquina
+    alertas AS al ON m.id = al.fk_maquina
   JOIN
-    monitoramento mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
+    monitoramento AS mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
   JOIN
-    parametros p ON m.fk_parametros = p.id
+    parametros AS p ON m.fk_parametros = p.id
   WHERE 
     al.componente = 'RAM'
     AND m.fk_empresa = ${empresa}
@@ -296,11 +297,11 @@ function listaDeMaquinasProblemaRede(empresa) {
   FROM 
     maquina AS m
   JOIN 
-    alertas al ON m.id = al.fk_maquina
+    alertas AS al ON m.id = al.fk_maquina
   JOIN
-    monitoramento mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
+    monitoramento AS mon ON m.id = mon.fk_maquina AND al.data_hora >= mon.data_hora
   JOIN
-    parametros p ON m.fk_parametros = p.id
+    parametros AS p ON m.fk_parametros = p.id
   WHERE 
     al.componente = 'Rede'
     AND m.fk_empresa = ${empresa}
@@ -324,7 +325,7 @@ function listaDeAlertas(empresa) {
   FROM 
     maquina AS m
   LEFT JOIN 
-    alertas a ON m.id = a.fk_maquina
+    alertas AS a ON m.id = a.fk_maquina
   WHERE 
     m.fk_empresa = ${empresa}
   GROUP BY 
@@ -336,8 +337,6 @@ function listaDeAlertas(empresa) {
   console.log("Executando a instrução SQL: \n" + query);
   return database.executar(query);
 }
-
-//dash especifica
 
 function informacoesAnalytics(empresa, idMaquinaSelecionada) {
   console.log("Acessei dashboardModel", idMaquinaSelecionada)
@@ -381,7 +380,7 @@ function dadosAtual(idMaquinaSelecionada) {
 }
 
 module.exports = { 
-  listaDeMaquinasComPoucoEspaco,
+    listaDeMaquinasComPoucoEspaco,
     maquinasComProblemas,
     listaDeMaquinasComPoucaRam,
     totalDeMaquinas,
