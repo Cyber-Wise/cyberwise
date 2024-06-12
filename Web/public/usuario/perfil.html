@@ -23,6 +23,7 @@
     <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="../css/headerPerfil.css">
     <link rel="stylesheet" href="../css/gerenciar.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
 
     <!-- <script src="sweetalert2.min.js"></script> -->
     <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
@@ -33,6 +34,22 @@
 <!-- <script src="../JsDashboard/perfilFuncoes.js"></script> -->
    
     <main>
+        <div id="chat" class="chatbot">
+            <header class="headerChatBot">
+                <img src="../assets/logoCUBOCYBER.png" alt="">
+                <h3>  CyberBot</h3>
+            </header>
+            <ul class="chatbox">
+                
+                <li id="chat-container"></li>
+            </ul>
+            <div class="input_usuario">
+                <input type="text" id="input-usuario" placeholder="Digite aqui...">
+                <button id="botao-enviar">Enviar</button>
+            </div>
+        </div>
+        <button style="top: 84%;" onclick="abrirChat()" class="btnChat"><img class="imgRobo" src="../assets/roboLogo.png" alt=""></button>
+
         <div class="modalPerfil" id="perfilModal">
             <button onclick="fecharModal()" id="fecharModal">X</button>
             <div class="centerModal">
@@ -399,6 +416,83 @@
 <script src="../js/sessao.js"></script>
 <script src="../JsDashboard/perfilFuncoes.js"></script>
 <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var botaoEnviar = document.getElementById('botao-enviar');
+        var inputUsuario = document.getElementById('input-usuario');
+        var chatContainer = document.getElementById('chat-container');
+    
+        botaoEnviar.addEventListener('click', function() {
+            var inputValue = inputUsuario.value.trim();
+            if (inputValue !== '') {
+                sendMessage(inputValue);
+                inputUsuario.value = ''; 
+            }
+        });
+    
+        function sendMessage(inputUsuario) {
+            displayMessage(inputUsuario, 'Você');
+            
+            fetch('/api/chat', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    mensagem: inputUsuario
+                })
+            })
+            .then(function(resposta) {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error('Erro na resposta: ' + resposta.status);
+                }
+            })
+            .then(function(json) {
+                console.log(json);
+                var chatbotResponse = json.response;
+    
+                setTimeout(function(){
+                    displayMessage(chatbotResponse, 'CyberBot');
+                }, 1000);
+            })
+            .catch(function(error) {
+                console.error('Erro na requisição:', error);
+            });
+        }
+    
+        function displayMessage(message, sender) {
+            var messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container');
+    
+            var messageElement = document.createElement('div');
+            if(sender == 'CyberBot'){
+                messageElement.innerHTML = '<img class="roboCyber" src="../assets/roboLogo.png" alt="">' + '<p style="background-color: #263375; padding: 10px; border-radius: 20px;">' + message + '</p>';
+                messageElement.style.display = 'flex'
+                messageContainer.style.display = 'block'
+                messageContainer.style.backgroundColor = ''
+            }else {
+                messageElement.innerHTML = '<p style="background-color: #121835; padding: 10px; border-radius: 20px;">' + message + '</p>';
+            }
+            messageContainer.appendChild(messageElement);
+            
+            chatContainer.appendChild(messageContainer);
+            
+        }
+    });
+
+    
+  function abrirChat (){
+    if(chat.style.display == 'none'){
+
+      chat.style.display = 'block'
+    }else {
+      chat.style.display = 'none'
+
+    }
+}
+
 
     window.onload = funcionarios();
     window.onload = maquinas();
