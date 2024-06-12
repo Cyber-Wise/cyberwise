@@ -25,19 +25,7 @@
     </header>
 
     
-    <div id="chat" class="chatbot">
-      <header class="headerChatBot">
-          <h3>Chat CyberWise</h3>
-      </header>
-      <ul class="chatbox">
-          
-          <li style="height: 300px;" id="chat-container"></li>
-      </ul>
-      <div class="input_usuario">
-          <input type="text" id="input-usuario" placeholder="Digite aqui...">
-          <button id="botao-enviar">Enviar</button>
-      </div>
-  </div>
+    
 
         <div class="caixaInformacoesComputador">
             <h2 class="titulosCaixas">informações do computador</h2> <br>
@@ -69,7 +57,21 @@
       </div>
     </div>
     <div class="conteudo">
-  <button style="top: 77%;" onclick="abrirChat()" class="btnChat"><img class="imgRobo" src="../assets/icons8-chatbot-30.png" alt=""><a href="127.0.0.1:5000"></a></button>
+        <div id="chat" class="chatbot">
+            <header class="headerChatBot">
+                <img src="../assets/logoCUBOCYBER.png" alt="">
+                <h3>  CyberBot</h3>
+            </header>
+            <ul class="chatbox">
+                
+                <li id="chat-container"></li>
+            </ul>
+            <div class="input_usuario">
+                <input type="text" id="input-usuario" placeholder="Digite aqui...">
+                <button id="botao-enviar">Enviar</button>
+            </div>
+        </div>
+  <button style="top: 84%;" onclick="abrirChat()" class="btnChat"><img class="imgRobo" src="../assets/icons8-chatbot-30.png" alt=""><a href="127.0.0.1:5000"></a></button>
 
         <div class="listaEgraficos">
             <div class="graficos">
@@ -184,7 +186,7 @@
             messageContainer.classList.add('message-container');
     
             var messageElement = document.createElement('div');
-            messageElement.innerHTML = '<strong>' + sender + ':</strong> ' + message;
+            messageElement.innerHTML = '<strong>' + sender + ':</strong> ' + '<p class="msgUser">' + message + '</p>';
             messageContainer.appendChild(messageElement);
     
             chatContainer.appendChild(messageContainer);

@@ -33,19 +33,7 @@
             </div>
         </header>
 
-        <div id="chat" class="chatbot">
-            <header class="headerChatBot">
-                <h3>Chat CyberWise</h3>
-            </header>
-            <ul class="chatbox">
-                
-                <li id="chat-container"></li>
-            </ul>
-            <div class="input_usuario">
-                <input type="text" id="input-usuario" placeholder="Digite aqui...">
-                <button id="botao-enviar">Enviar</button>
-            </div>
-        </div>
+        
         <button class="btnChat" onclick="abrirChat()"><img src="../assets/icons8-chatbot-30.png" alt=""></button>
         <p class="descricaoHrAtualizacao">Dados sendo atualizados de 5 em 5 segundos</p>
 
@@ -84,6 +72,20 @@
         </div>
     </div>
     <div class="dashboard">
+        <div id="chat" class="chatbot">
+            <header class="headerChatBot">
+                <img src="../assets/logoCUBOCYBER.png" alt="">
+                <h3>  CyberBot</h3>
+            </header>
+            <ul class="chatbox">
+                
+                <li id="chat-container"></li>
+            </ul>
+            <div class="input_usuario">
+                <input type="text" id="input-usuario" placeholder="Digite aqui...">
+                <button id="botao-enviar">Enviar</button>
+            </div>
+        </div>
         <h2 class="titulo">DASHBOARD GERAL</h2>
         <div class="container">
             <div class="item1">
@@ -199,7 +201,7 @@
             messageContainer.classList.add('message-container');
     
             var messageElement = document.createElement('div');
-            messageElement.innerHTML = '<strong>' + sender + ':</strong> ' + message;
+            messageElement.innerHTML = '<strong>' + sender + '</strong> ' + '<p class="msgUser">' + message + '</p>';
             messageContainer.appendChild(messageElement);
     
             chatContainer.appendChild(messageContainer);
