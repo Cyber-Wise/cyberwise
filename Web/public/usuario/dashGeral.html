@@ -34,7 +34,8 @@
         </header>
 
         
-        <button class="btnChat" onclick="abrirChat()"><img src="../assets/icons8-chatbot-30.png" alt=""></button>
+        <button style="top: 84%;" onclick="abrirChat()" class="btnChat"><img class="imgRobo" src="../assets/roboLogo.png" alt=""></button>
+
         <p class="descricaoHrAtualizacao">Dados sendo atualizados de 5 em 5 segundos</p>
 
         <div class="notification">
@@ -201,7 +202,14 @@
             messageContainer.classList.add('message-container');
     
             var messageElement = document.createElement('div');
-            messageElement.innerHTML = '<strong>' + sender + '</strong> ' + '<p class="msgUser">' + message + '</p>';
+            if(sender == 'CyberBot'){
+                messageElement.innerHTML = '<img class="roboCyber" src="../assets/roboLogo.png" alt="">' + '<p style="background-color: #121835; padding: 10px; border-radius: 20px;">' + message + '</p>';
+                messageElement.style.display = 'block'
+                messageContainer.style.display = 'block'
+                messageContainer.style.backgroundColor = ''
+            }else {
+                messageElement.innerHTML = '<p style="background-color: #263375; padding: 10px; border-radius: 20px;">' + message + '</p>';
+            }
             messageContainer.appendChild(messageElement);
     
             chatContainer.appendChild(messageContainer);

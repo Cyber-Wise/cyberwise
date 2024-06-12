@@ -71,7 +71,7 @@
                 <button id="botao-enviar">Enviar</button>
             </div>
         </div>
-  <button style="top: 84%;" onclick="abrirChat()" class="btnChat"><img class="imgRobo" src="../assets/icons8-chatbot-30.png" alt=""><a href="127.0.0.1:5000"></a></button>
+  <button style="top: 84%;" onclick="abrirChat()" class="btnChat"><img class="imgRobo" src="../assets/roboLogo.png" alt=""></button>
 
         <div class="listaEgraficos">
             <div class="graficos">
@@ -173,7 +173,7 @@
                 var chatbotResponse = json.response;
     
                 setTimeout(function(){
-                    displayMessage(chatbotResponse, 'Cyber');
+                    displayMessage(chatbotResponse, 'CyberBot');
                 }, 1000);
             })
             .catch(function(error) {
@@ -186,10 +186,18 @@
             messageContainer.classList.add('message-container');
     
             var messageElement = document.createElement('div');
-            messageElement.innerHTML = '<strong>' + sender + ':</strong> ' + '<p class="msgUser">' + message + '</p>';
+            if(sender == 'CyberBot'){
+                messageElement.innerHTML = '<img class="roboCyber" src="../assets/roboLogo.png" alt="">' + '<p style="background-color: #121835; padding: 10px; border-radius: 20px;">' + message + '</p>';
+                messageElement.style.display = 'block'
+                messageContainer.style.display = 'block'
+                messageContainer.style.backgroundColor = ''
+            }else {
+                messageElement.innerHTML = '<p style="background-color: #263375; padding: 10px; border-radius: 20px;">' + message + '</p>';
+            }
             messageContainer.appendChild(messageElement);
-    
+            
             chatContainer.appendChild(messageContainer);
+            
         }
     });
 

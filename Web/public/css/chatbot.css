@@ -1,7 +1,7 @@
 .btnChat {
     border: none;
     padding: 10px 12px;
-    background-color: #121835;
+    background-color: #e0e0e0;
     position: fixed;
     right: 10px;
     border-radius: 100px;
@@ -13,7 +13,15 @@
     display: none;
 }
 .imgRobo {
+    width: 40px;
+}
+.roboCyber {
     width: 30px;
+    border-radius: 100px;
+    height: 30px;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: #e0e0e0;
 }
 .chatbot {
     top: 20%;
@@ -48,9 +56,17 @@
 }
 
 .message-container {
+    display: flex;
+    justify-content: flex-end;
     color: #fff;
     font-family: "Chakra Petch";
     margin: 10px 0;
+}
+.message-container div {
+   max-width: 80%;
+    display: flex;
+    justify-content: flex-end;
+  
 }
 #chat-container {
     overflow-y: scroll;
