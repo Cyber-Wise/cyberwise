@@ -56,7 +56,7 @@ app.post('/api/chat', async (req, res) => {
         console.log("Melhor correspondência encontrada:", bestMatch);
 
         let answer;
-        if (bestMatch) {
+        if (bestMatch && bestMatch.rating > 0.8) { // Supondo que bestMatch tem uma propriedade rating
             answer = getAnswerForQuestion(bestMatch, knowledgeBase);
         } else {
             answer = "Poderia me fornecer mais informações";
@@ -73,6 +73,7 @@ app.post('/api/chat', async (req, res) => {
         res.status(500).json({ response: 'Erro interno no servidor' });
     }
 });
+
 
 app.post('/train', async (req, res) => {
     try {
