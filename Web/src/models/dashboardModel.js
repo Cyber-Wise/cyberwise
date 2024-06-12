@@ -15,7 +15,7 @@ function maquinasEmpresa(empresa) {
         mon.data_hora,
         p.nome AS nome_parametro
     FROM 
-        maquina m
+        maquina AS m
     JOIN 
         parametros p ON m.fk_parametros = p.id
     JOIN 
@@ -105,7 +105,7 @@ function componentesEmEstadoCritico(empresa) {
   var query = `SELECT 
     COUNT(DISTINCT m.id) AS quantidade_maquinas_com_critico
   FROM 
-    maquina m
+    maquina AS m
   JOIN 
     alertas al ON m.id = al.fk_maquina
   WHERE 
@@ -122,7 +122,7 @@ function componentesEmEstadoAlerta(empresa) {
   var query = `SELECT 
     COUNT(DISTINCT m.id) AS quantidade_maquinas_com_alerta
   FROM 
-    maquina m
+    maquina AS m
   JOIN 
     alertas al ON m.id = al.fk_maquina
   WHERE 
@@ -137,7 +137,7 @@ function maquinasComProblemasDeRede(empresa) {
   var query = `SELECT 
     COUNT(DISTINCT m.id) AS quantidade_maquinas_com_alerta_rede
   FROM 
-    maquina m
+    maquina AS m
   JOIN 
     alertas al ON m.id = al.fk_maquina
   WHERE 
@@ -154,7 +154,7 @@ function maquinasComPoucoEspaco(empresa) {
   var query = `
     SELECT COUNT(DISTINCT m.id) AS maquinas_com_alerta_disco
     FROM 
-        maquina m
+        maquina AS m
     JOIN 
         (SELECT 
              mon1.fk_maquina, 
@@ -185,7 +185,7 @@ function maquinasComPoucaRam(empresa) {
   console.log("Acessei dashboardModel")
   var query = `SELECT COUNT(DISTINCT m.id) AS maquinas_com_alerta_ram
   FROM 
-      maquina m
+      maquina AS m
   JOIN 
       (SELECT 
            mon1.fk_maquina, 
@@ -229,7 +229,7 @@ function listaDeMaquinasComPoucoEspaco(empresa) {
     mon.status_maquina,
     p.nome AS nome_parametro
   FROM 
-    maquina m
+    maquina AS m
   JOIN 
     alertas al ON m.id = al.fk_maquina
   JOIN
@@ -261,7 +261,7 @@ function listaDeMaquinasComPoucaRam(empresa) {
     mon.status_maquina,
     p.nome AS nome_parametro
   FROM 
-    maquina m
+    maquina AS m
   JOIN 
     alertas al ON m.id = al.fk_maquina
   JOIN
@@ -294,7 +294,7 @@ function listaDeMaquinasProblemaRede(empresa) {
     mon.status_maquina,
     p.nome AS nome_parametro
   FROM 
-    maquina m
+    maquina AS m
   JOIN 
     alertas al ON m.id = al.fk_maquina
   JOIN
@@ -322,7 +322,7 @@ function listaDeAlertas(empresa) {
     SUM(CASE WHEN a.componente = 'DISCO' THEN 1 ELSE 0 END) AS alertasDISCO,
     SUM(CASE WHEN a.componente = 'REDE' THEN 1 ELSE 0 END) AS alertasREDE
   FROM 
-    maquina m
+    maquina AS m
   LEFT JOIN 
     alertas a ON m.id = a.fk_maquina
   WHERE 
