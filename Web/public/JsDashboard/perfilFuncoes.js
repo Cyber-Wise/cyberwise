@@ -1415,35 +1415,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
 const converterfotoBase64 = (file) => {
     const fileReader = new FileReader();
 
     return new Promise((resolve, reject) => {
-        fileReader.readAsDataURL(file);
-
-        fileReader.onload = () => {
-            // Comprimir a imagem usando Compressor.js
-            new Compressor(file, {
-                quality: 0.6, // Ajuste a qualidade conforme necessário
-                maxWidth: 800, // Ajuste a largura máxima conforme necessário
-                success(result) {
-                    resolve(result); // Retorna a imagem comprimida como base64
-                },
-                error(err) {
-                    console.error('Erro ao comprimir a imagem:', err.message);
-                    // Em caso de erro, resolve com a imagem original
-                    resolve(fileReader.result);
-                },
-            });
-        };
-
-        fileReader.onerror = () => {
-            reject(fileReader.result);
-        };
-
+      fileReader.readAsDataURL(file);
+  
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+  
+      fileReader.onerror = () => {
+        reject(fileReader.result);
+      };
+      
     });
-};
-
+  };
 
 function handleSalvarFoto(){
     var uploadInput = document.getElementById('uploadInput');
