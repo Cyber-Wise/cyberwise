@@ -90,7 +90,7 @@ main {
 #globalParametros {
     width: 1200px;
     /* margin-top: 20px; */
-    margin-left: 300px;
+    /* margin-left: 300px; */
 }
 .funcLabel select option {
     width: 100%;
